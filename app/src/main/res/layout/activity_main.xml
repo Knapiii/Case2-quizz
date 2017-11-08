@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="case2.iths.com.ithscas2.MainActivity">
+    tools:context="case2.iths.com.case2.MainActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -25,6 +25,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:text="HEJ"
+        android:onClick="onHejButtonPressed"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
