@@ -1,4 +1,4 @@
-package case2.iths.com.ithscas2;
+package case2.iths.com.case2;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
