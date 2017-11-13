@@ -1,0 +1,13 @@
+package case2.iths.com.case2;
+
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+public class Test3Activity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_test);
+    }
+}

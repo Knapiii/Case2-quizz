@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/light_pink"
-    tools:context="case2.iths.com.case2.MainActivity">
+    android:background="@drawable/yellow"
+    tools:context="case2.iths.com.case2.Test4Activity">
 
     <TextView
         android:id="@+id/app_name"
