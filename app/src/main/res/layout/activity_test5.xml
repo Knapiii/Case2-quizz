@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/sun"
-    tools:context="case2.iths.com.case2.Test3Activity">
+    android:background="@drawable/light_pink"
+    tools:context="case2.iths.com.case2.Test4Activity">
 
     <TextView
         android:id="@+id/app_name"
@@ -15,9 +15,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/lobster_two_bold"
-        android:text="@string/AppName"
+        android:text="Quizable"
         android:textAlignment="center"
-        android:textColor="@android:color/background_dark"
+        android:textColor="@android:color/white"
         android:textSize="80sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.506"
@@ -26,55 +26,64 @@
 
     <Button
         android:id="@+id/button_game"
-        android:layout_width="0dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="72dp"
-        android:background="@color/SunTrans"
-        android:text="@string/spela"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="60dp"
+        android:background="@color/MoonTrans"
+        android:text="Spela"
         android:textColor="@android:color/background_light"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/app_name" />
 
     <Button
         android:id="@+id/button_settings"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
         android:layout_marginTop="24dp"
-        android:background="@color/SunTrans"
+        android:background="@color/MoonTrans"
         android:text="@string/inställningar"
         android:textColor="@android:color/background_light"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_game" />
 
     <Button
-        android:id="@+id/button4"
-        android:layout_width="0dp"
+        android:id="@+id/button_about"
+        android:layout_width="160dp"
         android:layout_height="50dp"
         android:layout_marginTop="24dp"
-        android:background="@color/SunTrans"
+        android:background="@color/MoonTrans"
+        android:elevation="0dp"
         android:text="@string/om"
         android:textColor="@android:color/background_light"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_settings" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/developed_by"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="@string/developedBy"
+        android:textColor="@color/BloodTrans"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/brain"
+        android:layout_width="200dp"
+        android:layout_height="180dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/brain" />
+
 
 </android.support.constraint.ConstraintLayout>
