@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">ITHS.Case2</string>
+    <string name="app_name">WizzApp</string>
+    <string name="AppName">WizzApp</string>
+    <string name="spela">SPELA</string>
+    <string name="inställningar">INSTÄLLNINGAR</string>
+    <string name="om">OM</string>
+    <string name="developedBy">Developed by ITHS</string>
 </resources>
