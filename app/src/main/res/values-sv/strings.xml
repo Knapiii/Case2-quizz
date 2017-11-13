@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name1">WizzApp</string>
     <string name="developedBy">Utvecklad av ITHS</string>
     <string name="om">Om</string>
     <string name="inställningar">Inställningar</string>
     <string name="spela">Spela</string>
+    <string name="app_name">WizzApp</string>
+    <string name="AppName">WizzApp</string>
     <string name="app_name2">Quizable</string>
 </resources>
