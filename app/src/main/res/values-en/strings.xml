@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name1">WizzApp</string>
+    <string name="developedBy">Developed by ITHS</string>
+    <string name="spela">Play</string>
+    <string name="app_name2">Quizable</string>
+    <string name="om">About</string>
+    <string name="inställningar">Settings</string>
+</resources>
