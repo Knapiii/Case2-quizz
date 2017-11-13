@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#303f9f</color>
     <color name="colorAccent">#FF4081</color>
     <color name="buttonOffWhite">#e1e1e1</color>
+    <color name="MoonTrans">#c84f3a54</color>
+    <color name="SunTrans">#b5399abb</color>
+    <color name="BloodTrans">#c8887a7d</color>
 </resources>
