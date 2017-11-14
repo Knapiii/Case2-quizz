@@ -15,18 +15,5 @@ public class AboutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
-
-        toMain();
-    }
-
-    public void toMain() {
-        goBack = (Button)findViewById(R.id.goBackToMainButton);
-        goBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent toMain = new Intent(AboutActivity.this,MainActivity.class);
-                startActivity(toMain);
-            }
-        });
     }
 }
