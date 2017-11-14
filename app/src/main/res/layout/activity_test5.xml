@@ -27,7 +27,7 @@
     <Button
         android:id="@+id/button_game"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:background="@color/MoonTrans"
         android:text="Spela"
@@ -40,7 +40,7 @@
     <Button
         android:id="@+id/button_settings"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:background="@color/MoonTrans"
         android:text="@string/inställningar"
@@ -53,7 +53,7 @@
     <Button
         android:id="@+id/button_about"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:background="@color/MoonTrans"
         android:elevation="0dp"
