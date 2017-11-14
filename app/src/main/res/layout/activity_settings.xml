@@ -4,7 +4,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-android:background="@drawable/main_background"
+android:background="@drawable/moon"
 tools:context="case2.iths.com.QuizGame.SettingsActivity">
 
     <Button
@@ -12,7 +12,7 @@ tools:context="case2.iths.com.QuizGame.SettingsActivity">
         android:layout_width="384dp"
         android:layout_height="50dp"
         android:layout_marginBottom="216dp"
-        android:background="@color/MoonTrans"
+        android:background="@color/ButtonBackground"
         android:text="@string/profile"
         android:textColor="@android:color/background_light"
         android:textSize="24sp"

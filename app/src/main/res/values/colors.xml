@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3f51b5</color>
-    <color name="colorPrimaryDark">#303f9f</color>
+    <color name="colorPrimaryDark">#fe8787</color>
     <color name="colorAccent">#4fc11550</color>
-    <color name="buttonOffWhite">#35e1e1e1</color>
-    <color name="MoonTrans">#4d543a53</color>
-    <color name="SunTrans">#b5399abb</color>
-    <color name="BloodTrans">#b6887a7d</color>
-    <color name="MoonBase">#3c273c</color>
-    <color name="MoonTop">#a36ba1</color>
+    <color name="ButtonBackground">#4d543a53</color>
 </resources>
