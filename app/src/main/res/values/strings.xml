@@ -4,4 +4,6 @@
     <string name="settings">Inställningar</string>
     <string name="about">Om</string>
     <string name="developed_by">Developed by ITHS</string>
+    <string name="go_back">Back</string>
+    <string name="profile">Profile</string>
 </resources>

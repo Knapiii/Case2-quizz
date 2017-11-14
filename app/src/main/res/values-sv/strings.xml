@@ -5,4 +5,6 @@
     <string name="settings">Inställningar</string>
     <string name="play">Spela</string>
     <string name="app_name">Quizable</string>
+    <string name="go_back">Bakåt</string>
+    <string name="profile">Profil</string>
 </resources>
