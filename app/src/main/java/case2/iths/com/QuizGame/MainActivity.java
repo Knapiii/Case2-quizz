@@ -19,12 +19,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_test2moon);
         textView = findViewById(R.id.textView);
         toTheGame();
-        toTheInstructions();
+        toTheSettings();
     }
 
-    public void onHejButtonPressed(View view){
-        textView.setText("Doing great!");
-    }
+    // public void onHejButtonPressed(View view){
+    //    textView.setText("Doing great!");
+    //}
 
     public void toTheGame() {
         button_game = (Button)findViewById(R.id.button_game);
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void toTheInstructions() {
+    public void toTheSettings() {
         button_settings = (Button)findViewById(R.id.button_settings);
         button_settings.setOnClickListener(new View.OnClickListener() {
             @Override
