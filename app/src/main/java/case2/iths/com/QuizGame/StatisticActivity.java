@@ -10,4 +10,11 @@ public class StatisticActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistic);
     }
+
+
+    // TODO: 2017-11-14 Lägg till:
+    // TODO: PLAY HISTORY
+    // TODO: PLAY HISTORY
+
 }
+
