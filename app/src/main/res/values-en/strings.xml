@@ -10,5 +10,6 @@
     <string name="multiplayer">Multiplayer</string>
     <string name="create_question">Add question</string>
     <string name="handle_questions">Handle questions</string>
+    <string name="highscore">Highscore</string>
 
 </resources>
