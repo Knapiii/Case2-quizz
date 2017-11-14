@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/light_pink"
-    tools:context="case2.iths.com.QuizGame.LayoutExampleActivity">
+    tools:context="case2.iths.com.QuizGame.LayoutExamples.LayoutExampleActivity">
 
     <TextView
         android:id="@+id/app_name"
@@ -15,7 +15,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/lobster_two_bold"
-        android:text="@string/app_name2"
+        android:text="@string/AppName"
         android:textAlignment="center"
         android:textColor="@android:color/white"
         android:textSize="80sp"

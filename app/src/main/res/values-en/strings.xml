@@ -4,7 +4,6 @@
     <string name="spela">Play</string>
     <string name="om">About</string>
     <string name="inställningar">Settings</string>
-    <string name="app_name">WizzApp</string>
-    <string name="AppName">WizzApp</string>
-    <string name="app_name2">Quizable</string>
+    <string name="AppName">Quizable</string>
+
 </resources>

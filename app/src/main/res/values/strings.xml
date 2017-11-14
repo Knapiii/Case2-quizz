@@ -1,9 +1,7 @@
 <resources>
-    <string name="app_name">WizzApp</string>
-    <string name="AppName">WizzApp</string>
+    <string name="AppName">Quizable</string>
     <string name="spela">Spela</string>
     <string name="inställningar">Inställningar</string>
     <string name="om">Om</string>
     <string name="developedBy">Developed by ITHS</string>
-    <string name="app_name2">Quizable</string>
 </resources>

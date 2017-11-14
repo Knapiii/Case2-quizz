@@ -5,13 +5,13 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="@string/AppName"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="case2.iths.com.QuizGame.MainActivity" />
+        <activity android:name=".MainActivity" />
         <activity
-            android:name="case2.iths.com.QuizGame.LayoutExampleActivity"
+            android:name=".LayoutExamples.LayoutExampleActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,11 +24,12 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name="case2.iths.com.QuizGame.StatisticActivity" />
-        <activity android:name="case2.iths.com.QuizGame.ProfileActivity" />
-        <activity android:name="case2.iths.com.QuizGame.HandleQuestionsActivity" />
-        <activity android:name="case2.iths.com.QuizGame.ResultActivity" />
-        <activity android:name="case2.iths.com.QuizGame.PlayGameActivity"></activity>
+        <activity android:name=".StatisticActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".HandleQuestionsActivity" />
+        <activity android:name=".ResultActivity" />
+        <activity android:name=".PlayGameActivity" />
+        <activity android:name=".LayoutExamples.MoonActivity"></activity>
     </application>
 
 </manifest>
