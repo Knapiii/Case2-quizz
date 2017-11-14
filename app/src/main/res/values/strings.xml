@@ -1,7 +1,7 @@
 <resources>
-    <string name="AppName">Quizable</string>
-    <string name="spela">Spela</string>
-    <string name="inställningar">Inställningar</string>
-    <string name="om">Om</string>
-    <string name="developedBy">Developed by ITHS</string>
+    <string name="app_name">Quizable</string>
+    <string name="play">Spela</string>
+    <string name="settings">Inställningar</string>
+    <string name="about">Om</string>
+    <string name="developed_by">Developed by ITHS</string>
 </resources>

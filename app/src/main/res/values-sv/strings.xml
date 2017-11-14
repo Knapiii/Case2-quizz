@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="developedBy">Utvecklad av ITHS</string>
-    <string name="om">Om</string>
-    <string name="inställningar">Inställningar</string>
-    <string name="spela">Spela</string>
-    <string name="AppName">Quizable</string>
+    <string name="developed_by">Utvecklad av ITHS</string>
+    <string name="about">Om</string>
+    <string name="settings">Inställningar</string>
+    <string name="play">Spela</string>
+    <string name="app_name">Quizable</string>
 </resources>

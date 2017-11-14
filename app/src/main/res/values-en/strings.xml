@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="developedBy">Developed by ITHS</string>
-    <string name="spela">Play</string>
-    <string name="om">About</string>
-    <string name="inställningar">Settings</string>
-    <string name="AppName">Quizable</string>
+    <string name="developed_by">Developed by ITHS</string>
+    <string name="play">Play</string>
+    <string name="about">About</string>
+    <string name="settings">Settings</string>
+    <string name="app_name">Quizable</string>
 
 </resources>
