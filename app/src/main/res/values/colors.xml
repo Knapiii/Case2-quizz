@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#303f9f</color>
     <color name="colorAccent">#4fc11550</color>
     <color name="buttonOffWhite">#35e1e1e1</color>
-    <color name="MoonTrans">#21543a53</color>
+    <color name="MoonTrans">#b1543a53</color>
     <color name="SunTrans">#b5399abb</color>
     <color name="BloodTrans">#b6887a7d</color>
 </resources>

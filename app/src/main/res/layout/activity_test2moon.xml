@@ -30,6 +30,7 @@
         android:layout_height="49dp"
         android:layout_marginTop="35dp"
         android:background="@color/MoonTrans"
+        android:elevation="0dp"
         android:text="@string/spela"
         android:textColor="@android:color/background_light"
         android:textSize="24sp"
