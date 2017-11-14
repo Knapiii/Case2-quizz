@@ -12,24 +12,46 @@
         <activity android:name=".MainActivity" />
         <activity
             android:name=".LayoutExamples.LayoutExampleActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".StatisticActivity" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".HandleQuestionsActivity" />
-        <activity android:name=".ResultActivity" />
-        <activity android:name=".PlayGameActivity" />
-        <activity android:name=".LayoutExamples.MoonActivity"></activity>
+        <activity
+            android:name=".StatisticActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ProfileActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".HandleQuestionsActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ResultActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".PlayGameActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".LayoutExamples.MoonActivity"
+            android:screenOrientation="portrait" >
+
+        </activity>
+
     </application>
 
 </manifest>
