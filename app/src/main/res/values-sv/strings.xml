@@ -7,4 +7,7 @@
     <string name="app_name">Quizable</string>
     <string name="go_back">Bakåt</string>
     <string name="profile">Profil</string>
+    <string name="multiplayer">Multiplayer</string>
+    <string name="create_question">Skapa frågor</string>
+    <string name="handle_questions">Hantera frågor</string>
 </resources>

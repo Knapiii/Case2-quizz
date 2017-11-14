@@ -26,7 +26,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name=".StatisticActivity"
+            android:name=".HighScoreActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ProfileActivity"
@@ -44,7 +44,8 @@
             android:name=".LayoutExamples.MoonActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".SettingsActivity" />
-        <activity android:name=".AboutActivity"></activity>
+        <activity android:name=".AboutActivity" />
+        <activity android:name=".GameMenuActivity"></activity>
     </application>
 
 </manifest>
