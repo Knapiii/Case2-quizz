@@ -16,4 +16,5 @@ public class ResultActivity extends AppCompatActivity {
     // TODO: SHOW AMOUNT OF PLAYERS
     // TODO: SHOW TOTAL POINTS
     // TODO: SHOW TIME USED
+
 }
