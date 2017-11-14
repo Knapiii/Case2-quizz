@@ -10,4 +10,10 @@ public class ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
     }
+
+
+    // TODO: 2017-11-14 Lägg till:
+    // TODO: SHOW AMOUNT OF PLAYERS
+    // TODO: SHOW TOTAL POINTS
+    // TODO: SHOW TIME USED
 }

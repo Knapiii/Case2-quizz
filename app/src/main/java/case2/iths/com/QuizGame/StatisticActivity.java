@@ -14,7 +14,8 @@ public class StatisticActivity extends AppCompatActivity {
 
     // TODO: 2017-11-14 Lägg till:
     // TODO: PLAY HISTORY
-    // TODO: PLAY HISTORY
+    // TODO: STATISTIC FOR ALL CATEGIRES OR A SPESIFIC CAREGORY
+    // TODO: RANKING
 
 }
 

@@ -10,4 +10,9 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
     }
+
+    // TODO: 2017-11-14 Lägg till:
+    // TODO:
+    // TODO:
+    // TODO:
 }
