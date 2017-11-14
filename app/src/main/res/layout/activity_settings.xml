@@ -7,22 +7,6 @@ android:layout_height="match_parent"
     android:background="@drawable/main_background"
 tools:context="case2.iths.com.QuizGame.SettingsActivity">
 
-    <Button
-        android:id="@+id/profileButton"
-        android:layout_width="384dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="216dp"
-        android:background="@color/ButtonBackground"
-        android:text="@string/profile"
-        android:textColor="@android:color/background_light"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:onClick="toProfile"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <TextView
         android:id="@+id/app_name2"
         android:layout_width="wrap_content"
@@ -34,14 +18,14 @@ tools:context="case2.iths.com.QuizGame.SettingsActivity">
         android:text="@string/app_name"
         android:textAlignment="center"
         android:textColor="@android:color/white"
-        android:textSize="80sp"
+        android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/developed_by"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -51,15 +35,15 @@ tools:context="case2.iths.com.QuizGame.SettingsActivity">
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="16dp"
         android:text="Inställningar"
         android:textColorLink="@android:color/white"
-        android:textSize="36sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
