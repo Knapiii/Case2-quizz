@@ -8,9 +8,6 @@ import android.widget.Button;
 
 public class AboutActivity extends AppCompatActivity {
 
-    private Button goBack;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
