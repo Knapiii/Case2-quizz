@@ -9,12 +9,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView textView;
-    private Button button_game;
-    private Button button_settings;
-    private Button button_about;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,46 +17,25 @@ public class MainActivity extends AppCompatActivity {
 /*
         textView = findViewById(R.id.textView);
 */
-        toTheGame();
-        toTheSettings();
-        toTheAbout();
     }
 
     // public void onHejButtonPressed(View view){
     //    textView.setText("Doing great!");
     //}
 
-    public void toTheGame() {
-        button_game = (Button)findViewById(R.id.playGameButton);
-        button_game.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent toGame = new Intent(MainActivity.this,PlayGameActivity.class);
-                startActivity(toGame);
-            }
-        });
+    public void toTheGame(View view) {
+        Intent toGame = new Intent(MainActivity.this,PlayGameActivity.class);
+        startActivity(toGame);
     }
 
-    public void toTheSettings() {
-        button_settings = (Button)findViewById(R.id.settingsButton);
-        button_settings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent toSettings = new Intent(MainActivity.this,SettingsActivity.class);
-                startActivity(toSettings);
-            }
-        });
+    public void toTheSettings(View view) {
+        Intent toSettings = new Intent(MainActivity.this, SettingsActivity.class);
+        startActivity(toSettings);
     }
 
-    public void toTheAbout() {
-        button_about = (Button)findViewById(R.id.aboutButton);
-        button_about.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent toAbout = new Intent(MainActivity.this,AboutActivity.class);
-                startActivity(toAbout);
-            }
-        });
+    public void toTheAbout(View view) {
+        Intent toAbout = new Intent(MainActivity.this, AboutActivity.class);
+        startActivity(toAbout);
     }
 
 }
