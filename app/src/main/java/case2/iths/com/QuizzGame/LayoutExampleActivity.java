@@ -1,9 +1,9 @@
-package case2.iths.com.case2;
+package case2.iths.com.QuizzGame;
 
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 
-public class Test4Activity extends AppCompatActivity {
+public class LayoutExampleActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

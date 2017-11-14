@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="case2.iths.com.case2">
+    package="case2.iths.com.QuizzGame">
 
     <application
         android:allowBackup="true"
@@ -9,11 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name="case2.iths.com.QuizzGame.MainActivity" />
         <activity
-            android:name=".TestActivity"
+            android:name="case2.iths.com.QuizzGame.LayoutExampleActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,6 +23,11 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <activity android:name="case2.iths.com.QuizzGame.StatisticActivity" />
+        <activity android:name="case2.iths.com.QuizzGame.ProfileActivity" />
+        <activity android:name="case2.iths.com.QuizzGame.HandleQuestionsActivity" />
+        <activity android:name="case2.iths.com.QuizzGame.ResultActivity"></activity>
     </application>
 
 </manifest>

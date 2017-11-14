@@ -1,4 +1,4 @@
-package case2.iths.com.case2;
+package case2.iths.com.QuizzGame;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
