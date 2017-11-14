@@ -12,6 +12,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView textView;
     private Button button_game;
     private Button button_settings;
+    private Button button_about;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         textView = findViewById(R.id.textView);
         toTheGame();
         toTheSettings();
+        toTheAbout();
     }
 
     // public void onHejButtonPressed(View view){
@@ -48,5 +51,15 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void toTheAbout() {
+        button_about = (Button)findViewById(R.id.button_about);
+        button_about.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent toAbout = new Intent(MainActivity.this,AboutActivity.class);
+                startActivity(toAbout);
+            }
+        });
+    }
 
 }

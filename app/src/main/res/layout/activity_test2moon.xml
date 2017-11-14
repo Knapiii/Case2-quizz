@@ -55,7 +55,7 @@
         app:layout_constraintTop_toBottomOf="@+id/button_game" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/button_about"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="15dp"
@@ -75,7 +75,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4"/>
+        app:layout_constraintTop_toBottomOf="@+id/button_about"/>
 
     <TextView
         android:id="@+id/textView2"
