@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="case2.iths.com.QuizzGame.ResultActivity">
+    tools:context="case2.iths.com.QuizGame.ResultActivity">
 
 </android.support.constraint.ConstraintLayout>

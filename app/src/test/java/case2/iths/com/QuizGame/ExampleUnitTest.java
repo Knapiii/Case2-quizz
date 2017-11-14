@@ -1,4 +1,4 @@
-package case2.iths.com.QuizzGame;
+package case2.iths.com.QuizGame;
 
 import org.junit.Test;
 
