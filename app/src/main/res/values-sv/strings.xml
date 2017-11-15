@@ -13,4 +13,6 @@
     <string name="result">Resultat</string>
     <string name="higscore">Highscore</string>
     <string name="handleQuestions">Hantera frågor</string>
+    <string name="singelplayer">Singelplayer</string>
+    <string name="game_menu">Spelmeny</string>
 </resources>

@@ -13,5 +13,7 @@
     <string name="result">Result</string>
     <string name="higscore">Highscore</string>
     <string name="handleQuestions">Handle questions</string>
+    <string name="singelplayer">Singelplayer</string>
+    <string name="game_menu">Game Menu</string>
 
 </resources>
