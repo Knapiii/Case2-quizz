@@ -23,6 +23,7 @@
         app:layout_constraintTop_toBottomOf="@+id/multiplayerButton" />
 
     <Button
+        android:onClick="toHandleQuestions"
         android:id="@+id/handleQuestionButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -35,6 +36,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addQuestionButton" />
+
 
     <Button
         android:id="@+id/multiplayerButton"
