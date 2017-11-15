@@ -8,7 +8,7 @@
     tools:context="case2.iths.com.QuizGame.MainActivity">
 
     <TextView
-        android:id="@+id/appName"
+        android:id="@+id/textview_top"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -25,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/playGameButton"
+        android:id="@+id/button_play_game"
         android:layout_width="0dp"
         android:layout_height="49dp"
         android:layout_marginTop="52dp"
@@ -39,10 +39,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appName" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_top" />
 
     <Button
-        android:id="@+id/settingsButton"
+        android:id="@+id/button_settings"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -54,10 +54,10 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playGameButton" />
+        app:layout_constraintTop_toBottomOf="@+id/button_play_game" />
 
     <Button
-        android:id="@+id/aboutButton"
+        android:id="@+id/button_about"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="15dp"
@@ -69,10 +69,10 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/settingsButton" />
+        app:layout_constraintTop_toBottomOf="@+id/button_settings" />
 
     <TextView
-        android:id="@+id/developedByTextView"
+        android:id="@+id/textview_developed_by"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"

@@ -13,7 +13,7 @@
         tools:context="case2.iths.com.QuizGame.PlayGameActivity">
 
         <TextView
-            android:id="@+id/topTextView"
+            android:id="@+id/textview_top"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -30,7 +30,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/developedByTextView"
+            android:id="@+id/textview_developed_by"
             android:layout_width="wrap_content"
             android:layout_height="15dp"
             android:layout_marginBottom="16dp"
