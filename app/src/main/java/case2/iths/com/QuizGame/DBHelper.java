@@ -124,13 +124,11 @@ public class DBHelper extends SQLiteOpenHelper {
         return  rows == 1;
     }
 
-    public boolean deleteHighScore(HighScore highScore)
-    {
+    public boolean deleteHighScore(HighScore highScore) {
         return deleteHighScore(highScore.id);
     }
 
-    public boolean deleteHighScore(long id)
-    {
+    public boolean deleteHighScore(long id) {
         SQLiteDatabase db = getWritableDatabase();
 
         String [] selectionArgs = new String[]{Long.toString(id)};

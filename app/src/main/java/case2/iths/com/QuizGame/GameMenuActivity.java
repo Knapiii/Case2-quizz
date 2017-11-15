@@ -13,6 +13,16 @@ public class GameMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game_menu);
     }
 
+    public void toHandleQuestions(View view) {
+        Intent toHandleQuestions = new Intent(this,HandleQuestionsActivity.class);
+        startActivity(toHandleQuestions);
+    }
+
+    public void toGame(View view) {
+        Intent toGame = new Intent(this,PlayGameActivity.class);
+        startActivity(toGame);
+    }
+
     public void onSinglePlayerButtonClicked(View view){
         Intent intent = new Intent(this, PlayGameActivity.class);
         startActivity(intent);

@@ -8,13 +8,17 @@
     tools:context="case2.iths.com.QuizGame.HandleQuestionsActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
+        android:background="@color/ButtonBackground"
         android:onClick="onButtonClick"
         android:text="Lägg till"
+        android:textColor="@android:color/background_light"
+        android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
