@@ -8,7 +8,7 @@
     tools:context="case2.iths.com.QuizGame.PlayGameActivity">
 
     <Button
-        android:id="@+id/createQuestionButton2"
+        android:id="@+id/addQuestionButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="212dp"
@@ -34,7 +34,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createQuestionButton2" />
+        app:layout_constraintTop_toBottomOf="@+id/addQuestionButton" />
 
     <Button
         android:id="@+id/multiplayerButton"
@@ -46,12 +46,12 @@
         android:textColor="@android:color/background_light"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/app_name2"
+        app:layout_constraintTop_toBottomOf="@+id/topTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/app_name2"
+        android:id="@+id/topTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -68,7 +68,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/developedByTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"

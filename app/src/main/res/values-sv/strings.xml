@@ -10,5 +10,7 @@
     <string name="multiplayer">Multiplayer</string>
     <string name="create_question">Skapa frågor</string>
     <string name="handle_questions">Hantera frågor</string>
-    <string name="highscore">Highscore</string>
+    <string name="result">Resultat</string>
+    <string name="higscore">Highscore</string>
+    <string name="handleQuestions">Hantera frågor</string>
 </resources>

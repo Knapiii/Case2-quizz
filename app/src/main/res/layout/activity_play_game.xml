@@ -13,7 +13,7 @@
         tools:context="case2.iths.com.QuizGame.PlayGameActivity">
 
         <TextView
-            android:id="@+id/app_name2"
+            android:id="@+id/topTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -30,11 +30,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/developed_by"
+            android:id="@+id/developedByTextView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="15dp"
             android:layout_marginBottom="16dp"
             android:text="@string/developed_by"
+            android:textColor="@color/ButtonBackground"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

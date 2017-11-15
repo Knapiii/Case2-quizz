@@ -8,14 +8,14 @@ android:layout_height="match_parent"
 tools:context="case2.iths.com.QuizGame.SettingsActivity">
 
     <TextView
-        android:id="@+id/app_name2"
+        android:id="@+id/topTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/lobster_two_bold"
-        android:text="@string/app_name"
+        android:text="@string/settings"
         android:textAlignment="center"
         android:textColor="@android:color/white"
         android:textSize="60sp"
@@ -25,29 +25,15 @@ tools:context="case2.iths.com.QuizGame.SettingsActivity">
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/developed_by"
+        android:id="@+id/developedByTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="@string/developed_by"
+        android:textColor="@color/ButtonBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/settings"
-        android:textColorLink="@android:color/white"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_name2" />
 
 
 </android.support.constraint.ConstraintLayout>
