@@ -13,4 +13,9 @@ public class GameMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game_menu);
     }
 
+    public void onSinglePlayerButtonClicked(View view){
+        Intent intent = new Intent(this, PlayGameActivity.class);
+        startActivity(intent);
+    }
+
 }

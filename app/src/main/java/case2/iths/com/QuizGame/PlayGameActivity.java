@@ -15,7 +15,7 @@ public class PlayGameActivity extends AppCompatActivity {
     }
 
     public void toHandleQuestions(View view) {
-        Intent toHandleQuestions = new Intent(PlayGameActivity.this,HandleQuestionsActivity.class);
+        Intent toHandleQuestions = new Intent(this, HandleQuestionsActivity.class);
         startActivity(toHandleQuestions);
     }
 
