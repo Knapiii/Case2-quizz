@@ -14,13 +14,9 @@ public class PlayGameActivity extends AppCompatActivity {
 
     }
 
-    public void toHandleQuestions(View view) {
-        Intent toHandleQuestions = new Intent(this, HandleQuestionsActivity.class);
-        startActivity(toHandleQuestions);
-    }
-
     // TODO: 2017-11-14 Lägg till:
     // TODO: CHOOSE BEETWEEN ALL CATEGORIES
     // TODO: TIMER FUNCTION
     // TODO:        - MORE TIME YOU USE
+
 }

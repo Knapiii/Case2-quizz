@@ -13,6 +13,9 @@ public class SinglePlayerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_singelplayer);
     }
 
-
-
+    // TODO: 2017-11-14 Lägg till:
+    // TODO: CHOOSE BEETWEEN ALL CATEGORIES
+    // TODO: TIMER FUNCTION
+    // TODO:        - MORE TIME YOU USE
+    
 }

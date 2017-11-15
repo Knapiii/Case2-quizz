@@ -13,14 +13,28 @@ public class GameMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game_menu);
     }
 
-    public void toHandleQuestions(View view) {
-        Intent toHandleQuestions = new Intent(this,HandleQuestionsActivity.class);
-        startActivity(toHandleQuestions);
+    /**
+     * När vi klickar på "button_handle_question" ska vi komma till HandleQuestionsActivity
+     */
+    public void toManageQuestions(View view) {
+        Intent toManageQuestions = new Intent(this,HandleQuestionsActivity.class);
+        startActivity(toManageQuestions);
     }
 
-    public void toGame(View view) {
-        Intent toGame = new Intent(this,PlayGameActivity.class);
-        startActivity(toGame);
+    /**
+     * När vi klickar på "button_singelplayer" ska vi komma till SinglePlayerActivity
+     */
+    public void toSingelGame(View view) {
+        Intent toSingelGame = new Intent(this,SinglePlayerActivity.class);
+        startActivity(toSingelGame);
+    }
+
+    /**
+     * När vi klickar på "button_multiplayer" ska vi komma till toMultiplayerGame
+     */
+    public void toMultiplayerGame(View view) {
+        Intent toMultiplayerGame = new Intent(this,Multiplayer.class);
+        startActivity(toMultiplayerGame);
     }
 
     public void onSinglePlayerButtonClicked(View view){
