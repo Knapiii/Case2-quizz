@@ -23,6 +23,7 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(mainIntent);
                 finish();
             }
+
         },SPLASH_TIME_OUT);
     }
 }
