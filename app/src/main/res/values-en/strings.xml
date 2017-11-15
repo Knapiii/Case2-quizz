@@ -15,5 +15,6 @@
     <string name="handleQuestions">Handle questions</string>
     <string name="singelplayer">Singelplayer</string>
     <string name="game_menu">Game Menu</string>
+    <string name="textview_about">Quizabble är ett frågesportsspel som är utvecklat av studenter från ITHS-Högksolan.\n\nSpelet går ut på att...</string>
 
 </resources>
