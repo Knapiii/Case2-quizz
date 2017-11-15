@@ -8,41 +8,26 @@
     tools:context="case2.iths.com.QuizGame.GameMenuActivity">
 
     <Button
-        android:id="@+id/addQuestionButton"
+        android:id="@+id/button_handle_question"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="212dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="16dp"
         android:background="@color/ButtonBackground"
-        android:text="@string/create_question"
-        android:textColor="@android:color/background_light"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/multiplayerButton" />
-
-    <Button
         android:onClick="toHandleQuestions"
-        android:id="@+id/handleQuestionButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="@color/ButtonBackground"
-        android:text="@string/handle_questions"
+        android:text="@string/manage_questions"
         android:textColor="@android:color/background_light"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addQuestionButton" />
+        app:layout_constraintTop_toBottomOf="@+id/button_multiplayer" />
 
 
     <Button
-        android:id="@+id/multiplayerButton"
+        android:id="@+id/button_multiplayer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="16dp"
         android:background="@color/ButtonBackground"
         android:text="@string/multiplayer"
         android:textColor="@android:color/background_light"
@@ -51,15 +36,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/multiplayerButton2" />
+        app:layout_constraintTop_toBottomOf="@+id/button_singelplayer" />
 
     <Button
-        android:id="@+id/multiplayerButton2"
-        android:onClick="toGame"
+        android:id="@+id/button_singelplayer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="120dp"
         android:background="@color/ButtonBackground"
+        android:onClick="toGame"
         android:text="@string/singelplayer"
         android:textColor="@android:color/background_light"
         android:textSize="24sp"

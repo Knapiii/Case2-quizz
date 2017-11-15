@@ -13,4 +13,6 @@ public class SinglePlayerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_singelplayer);
     }
 
+
+
 }

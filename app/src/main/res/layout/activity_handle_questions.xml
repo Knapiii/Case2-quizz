@@ -43,7 +43,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/lobster_two_bold"
-        android:text="@string/handleQuestions"
+        android:text="@string/manage_questions"
         android:textAlignment="center"
         android:textColor="@android:color/white"
         android:textSize="40sp"
