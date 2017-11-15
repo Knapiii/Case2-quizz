@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_background"
-    tools:context="case2.iths.com.QuizGame.PlayGameActivity">
+    tools:context="case2.iths.com.QuizGame.Multiplayer">
 
     <TextView
         android:id="@+id/topTextView"
