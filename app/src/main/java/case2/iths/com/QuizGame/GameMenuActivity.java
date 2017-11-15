@@ -13,4 +13,9 @@ public class GameMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game_menu);
     }
 
+    public void toHandleQuestions(View view) {
+        Intent toHandleQuestions = new Intent(this,HandleQuestionsActivity.class);
+        startActivity(toHandleQuestions);
+    }
+
 }
