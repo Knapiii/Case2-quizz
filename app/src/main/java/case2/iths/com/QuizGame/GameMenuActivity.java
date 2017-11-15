@@ -18,4 +18,9 @@ public class GameMenuActivity extends AppCompatActivity {
         startActivity(toHandleQuestions);
     }
 
+    public void toGame(View view) {
+        Intent toGame = new Intent(this,PlayGameActivity.class);
+        startActivity(toGame);
+    }
+
 }
