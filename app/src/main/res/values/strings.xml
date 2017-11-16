@@ -7,9 +7,10 @@
     <string name="go_back">Back</string>
     <string name="profile">Profile</string>
     <string name="multiplayer">Multiplayer</string>
+    <string name="highscores">Highscores</string>
     <string name="handle_questions">tabort</string>
     <string name="result">Result</string>
-    <string name="higscore">Highscore</string>
+    <string name="highscore">Highscore</string>
     <string name="manage_questions">Manage questions</string>
     <string name="singelplayer">Singelplayer</string>
     <string name="game_menu">Game Menu</string>

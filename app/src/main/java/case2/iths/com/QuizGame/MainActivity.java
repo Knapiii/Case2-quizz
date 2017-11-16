@@ -29,4 +29,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(toAbout);
     }
 
+    public void toTheHighscores(View view) {
+        Intent toHighscores = new Intent(MainActivity.this, HighScoreActivity.class);
+        startActivity(toHighscores);
+
+    }
 }

@@ -8,9 +8,10 @@
     <string name="go_back">Bakåt</string>
     <string name="profile">Profil</string>
     <string name="multiplayer">Multiplayer</string>
+    <string name="highscores">Highscores</string>
     <string name="handle_questions">tabort</string>
     <string name="result">Resultat</string>
-    <string name="higscore">Highscore</string>
+    <string name="highscore">Highscore</string>
     <string name="manage_questions">Hantera frågor</string>
     <string name="singelplayer">Singelplayer</string>
     <string name="game_menu">Spelmeny</string>
