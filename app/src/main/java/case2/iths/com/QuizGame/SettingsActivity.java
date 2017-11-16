@@ -1,5 +1,6 @@
 package case2.iths.com.QuizGame;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
@@ -15,6 +16,12 @@ public class SettingsActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+    }
+
+    public void toTheProfile(View view) {
+        isSoundOn();
+        Intent toProfile = new Intent(this, ProfileActivity.class);
+        startActivity(toProfile);
     }
 
     public void testSoundButton(View view) {
