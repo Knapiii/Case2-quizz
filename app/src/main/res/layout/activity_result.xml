@@ -9,7 +9,7 @@
     tools:context="case2.iths.com.QuizGame.ResultActivity">
 
     <TextView
-        android:id="@+id/textview_top"
+        android:id="@+id/top_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -26,7 +26,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/developed_by"
+        android:id="@+id/developed_by_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"

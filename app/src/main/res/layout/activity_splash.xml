@@ -8,7 +8,7 @@
     tools:context="case2.iths.com.QuizGame.SplashActivity">
 
     <TextView
-        android:id="@+id/developed_by"
+        android:id="@+id/developed_by_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
