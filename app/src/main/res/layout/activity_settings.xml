@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/main_background"
-tools:context="case2.iths.com.QuizGame.SettingsActivity">
+    tools:context="case2.iths.com.QuizGame.SettingsActivity">
 
     <TextView
         android:id="@+id/top_text"
@@ -35,5 +35,47 @@ tools:context="case2.iths.com.QuizGame.SettingsActivity">
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/goToProfileButton"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@color/ButtonBackground"
+        android:elevation="0dp"
+        android:text="@string/profile"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_text" />
+
+    <ImageButton
+        android:id="@+id/toggleSoundImageButton"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/ButtonBackground"
+        android:onClick="toggleSoundOnClick"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goToProfileButton"
+        app:srcCompat="@drawable/muted_sound" />
+
+    <Button
+        android:id="@+id/button_testSound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="testSoundButton"
+        android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/developed_by_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toggleSoundImageButton" />
+
 
 </android.support.constraint.ConstraintLayout>
+
