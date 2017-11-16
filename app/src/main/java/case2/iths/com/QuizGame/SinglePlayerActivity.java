@@ -17,5 +17,5 @@ public class SinglePlayerActivity extends AppCompatActivity {
     // TODO: CHOOSE BEETWEEN ALL CATEGORIES
     // TODO: TIMER FUNCTION
     // TODO:        - MORE TIME YOU USE
-    
+
 }
