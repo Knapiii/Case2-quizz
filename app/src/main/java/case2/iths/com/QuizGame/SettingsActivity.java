@@ -40,8 +40,8 @@ public class SettingsActivity extends AppCompatActivity {
             soundOn = true;
             icon = R.drawable.unmuted_sound;
         }
-        button.setImageDrawable(
-                ContextCompat.getDrawable(getApplicationContext(), icon));
+        button.setImageDrawable
+                (ContextCompat.getDrawable(getApplicationContext(), icon));
     }
 
     public boolean isSoundOn() {
