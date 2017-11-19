@@ -23,4 +23,18 @@
     <string name="science">Science</string>
     <string name="games">Games</string>
     <string name="culture">Culture</string>
+    <string name="all_categories">All categories</string>
+    <string name="dummy_text">Dummy Text</string>
+    <string name="category_list_item_text">category_list_item_text</string>
+
+    <string-array name="categories_array">
+        <item>@string/all_categories</item>
+        <item>@string/culture</item>
+        <item>@string/games</item>
+        <item>@string/geography</item>
+        <item>@string/music</item>
+        <item>@string/own_questions</item>
+        <item>@string/sport</item>
+        <item>@string/science</item>
+    </string-array>
 </resources>
