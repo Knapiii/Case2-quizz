@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Toast;
 
 public class PlayGameActivity extends AppCompatActivity {
 
@@ -56,6 +57,8 @@ public class PlayGameActivity extends AppCompatActivity {
             case R.id.button_own_questions:
                 Intent ownIntent = new Intent(this, SinglePlayerActivity.class);
                 ownIntent.putExtra("genre", "Own");
+                Toast toast = Toast.makeText(this,getString(R.string.no_questions), Toast.LENGTH_LONG);
+                // toast.show();
                 startSingleGame(ownIntent);
                 break;
         }

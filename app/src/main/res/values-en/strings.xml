@@ -24,5 +24,6 @@
     <string name="science">Science</string>
     <string name="games">Games</string>
     <string name="culture">Culture</string>
+    <string name="no_questions">You have not create any own questions yet!</string>
 
 </resources>
