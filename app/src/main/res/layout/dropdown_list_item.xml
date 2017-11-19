@@ -9,7 +9,7 @@
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="49dp"
-        android:background="#fe8787"
+        android:background="#FEA3A3"
         android:gravity="center_vertical"
         android:textAlignment="center"
         android:textSize="24sp"
