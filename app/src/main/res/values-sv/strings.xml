@@ -36,4 +36,5 @@
         <item>@string/sport</item>
         <item>@string/science</item>
     </string-array>
+    <string name="points">Poäng:</string>
 </resources>

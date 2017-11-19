@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/main_background">
 
     <TextView
@@ -26,70 +26,85 @@
         android:id="@+id/points"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:fontFamily="@font/lobster_two_bold"
         android:text="11"
         android:textColor="@android:color/white"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gameField"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.007"
+        app:layout_constraintStart_toEndOf="@+id/point_text" />
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/gameField"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/top_text_category"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/top_text_category">
 
         <TextView
             android:id="@+id/questionField"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_margin="8dp"
+            android:background="@color/ButtonBackground"
+            android:gravity="center_vertical"
             android:paddingHorizontal="16dp"
+            android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="20sp"
-            android:gravity="center_vertical"
-            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/trueButton"
             app:layout_constraintLeft_toLeftOf="@+id/gameField"
             app:layout_constraintRight_toRightOf="@+id/gameField"
-            app:layout_constraintTop_toTopOf="@+id/gameField"
-            app:layout_constraintBottom_toTopOf="@+id/trueButton"
-            android:background="@color/ButtonBackground"
-            />
+            app:layout_constraintTop_toTopOf="@+id/gameField" />
 
         <Button
             android:id="@+id/trueButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/button_shape"
             android:onClick="trueButtonPressed"
             android:text="Sant"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:background="@drawable/button_shape"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/questionField"
             app:layout_constraintLeft_toLeftOf="@+id/gameField"
-            app:layout_constraintRight_toLeftOf="@+id/falseButton"/>
+            app:layout_constraintRight_toLeftOf="@+id/falseButton"
+            app:layout_constraintTop_toBottomOf="@+id/questionField" />
 
         <Button
             android:id="@+id/falseButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/button_shape"
             android:onClick="falseButtonPressed"
             android:text="Falskt"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:background="@drawable/button_shape"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/questionField"
             app:layout_constraintLeft_toRightOf="@+id/trueButton"
-            app:layout_constraintRight_toRightOf="@+id/gameField"/>
+            app:layout_constraintRight_toRightOf="@+id/gameField"
+            app:layout_constraintTop_toBottomOf="@+id/questionField" />
 
     </android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/point_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="128dp"
+        android:fontFamily="@font/lobster_two_bold"
+        android:text="@string/points"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/gameField"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
