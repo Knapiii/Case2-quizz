@@ -9,6 +9,8 @@ public class SinglePlayerActivity extends AppCompatActivity {
 
     private String genre;
     private TextView textView;
+    public TextView points;
+    public int pointsCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +19,9 @@ public class SinglePlayerActivity extends AppCompatActivity {
         genre = getIntent().getStringExtra("genre");
         textView = findViewById(R.id.top_text_category);
         textView.setText(genre);
+        pointsCount = 0;
+        points = findViewById(R.id.points);
+        points.setText("" + pointsCount);
     }
 
     // TODO: 2017-11-14 Lägg till:
