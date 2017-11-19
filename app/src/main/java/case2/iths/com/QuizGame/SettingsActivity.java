@@ -1,7 +1,7 @@
 package case2.iths.com.QuizGame;
 
+import android.content.ContentValues;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -10,47 +10,76 @@ import android.widget.ImageButton;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    private boolean soundOn = false;
+    SavedSettings savedSettings;
+    ImageButton imageButton;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        savedSettings = new SavedSettings();
+
+        // recovering the instance state
+        if (savedInstanceState != null) {
+            savedSettings.setSoundOn(savedInstanceState.getBoolean("soundOnKey"));
+           // drawSoundButton();
+        } else {
+            savedSettings.setSoundOn(false);
+           // drawSoundButton();
+        }
+        imageButton = findViewById(R.id.toggleSoundImageButton);
+
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putBoolean("soundOnKey", savedSettings.isSoundOn());
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        ContentValues values = new ContentValues();
+
+        values.put("soundOnKey", savedSettings.isSoundOn());
     }
 
     public void toTheProfile(View view) {
-        isSoundOn();
+        savedSettings.checkSoundOn(this);
         Intent toProfile = new Intent(this, ProfileActivity.class);
         startActivity(toProfile);
     }
 
     public void testSoundButton(View view) {
-        isSoundOn();
+        savedSettings.checkSoundOn(this);
     }
 
     public void toggleSoundOnClick(View view) {
-        ImageButton button = (ImageButton) view;
         int icon;
 
-        if (soundOn) {
-            soundOn = false;
+        if (savedSettings.isSoundOn()) {
+            savedSettings.setSoundOn(false);
             icon = R.drawable.muted_sound;
-            //Ljud av
         } else {
-            soundOn = true;
+            savedSettings.setSoundOn(true);
             icon = R.drawable.unmuted_sound;
         }
-        button.setImageDrawable
-                (ContextCompat.getDrawable(getApplicationContext(), icon));
+        imageButton.setImageDrawable
+                (ContextCompat.getDrawable(this, icon));
     }
+/*
 
-    public boolean isSoundOn() {
-        if (!soundOn) {
-            MediaPlayer mMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.button_click_sound);
-            mMediaPlayer.start();
+    public void drawSoundButton() {
+        int icon = 0;
+        if (savedSettings.isSoundOn()) {
+            icon = R.drawable.unmuted_sound;
         }
-        return soundOn;
-    }
-
+        imageButton.setImageDrawable
+                (ContextCompat.getDrawable(this, icon));
+    }*/
 }
 
