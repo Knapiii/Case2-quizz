@@ -25,7 +25,7 @@ public class GameMenuActivity extends AppCompatActivity {
      * När vi klickar på "button_singelplayer" ska vi komma till SinglePlayerActivity
      */
     public void toSingelGame(View view) {
-        Intent toSingelGame = new Intent(this,SinglePlayerActivity.class);
+        Intent toSingelGame = new Intent(this, PlayGameActivity.class);
         startActivity(toSingelGame);
     }
 
@@ -36,10 +36,4 @@ public class GameMenuActivity extends AppCompatActivity {
         Intent toMultiplayerGame = new Intent(this,Multiplayer.class);
         startActivity(toMultiplayerGame);
     }
-
-    public void onSinglePlayerButtonClicked(View view){
-        Intent intent = new Intent(this, PlayGameActivity.class);
-        startActivity(intent);
-    }
-
 }

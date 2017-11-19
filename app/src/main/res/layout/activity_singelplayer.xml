@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_background"
-    tools:context="case2.iths.com.QuizGame.SinglePlayerActivity">
+    tools:context="case2.iths.com.QuizGame.PlayGameActivity">
 
     <TextView
         android:id="@+id/top_text"
@@ -37,22 +37,8 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button_music"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@color/ButtonBackground"
-        android:text="@string/music"
-        android:textColor="@android:color/background_light"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_sport" />
-
-    <Button
         android:id="@+id/button_sport"
+        android:onClick="categoryButtonPressed"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
@@ -67,7 +53,24 @@
         app:layout_constraintTop_toBottomOf="@+id/top_text" />
 
     <Button
+        android:id="@+id/button_music"
+        android:onClick="categoryButtonPressed"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@color/ButtonBackground"
+        android:text="@string/music"
+        android:textColor="@android:color/background_light"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_sport" />
+
+    <Button
         android:id="@+id/button_culture"
+        android:onClick="categoryButtonPressed"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -79,10 +82,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_sience" />
+        app:layout_constraintTop_toBottomOf="@+id/button_science" />
 
     <Button
-        android:id="@+id/button_sience"
+        android:id="@+id/button_science"
+        android:onClick="categoryButtonPressed"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -97,22 +101,8 @@
         app:layout_constraintTop_toBottomOf="@+id/button_geography" />
 
     <Button
-        android:id="@+id/button_own_questions"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@color/ButtonBackground"
-        android:text="@string/own_questions"
-        android:textColor="@android:color/background_light"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_own_questions" />
-
-    <Button
         android:id="@+id/button_geography"
+        android:onClick="categoryButtonPressed"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -128,7 +118,8 @@
         tools:layout_editor_absoluteX="133dp" />
 
     <Button
-        android:id="@+id/button_own_questions"
+        android:id="@+id/button_games"
+        android:onClick="categoryButtonPressed"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -141,5 +132,21 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_culture" />
+
+    <Button
+        android:id="@+id/button_own_questions"
+        android:onClick="categoryButtonPressed"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@color/ButtonBackground"
+        android:text="@string/own_questions"
+        android:textColor="@android:color/background_light"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_games" />
 
 </android.support.constraint.ConstraintLayout>
