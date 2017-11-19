@@ -52,8 +52,7 @@
             android:layout_margin="8dp"
             android:paddingHorizontal="16dp"
             android:textColor="@android:color/white"
-            android:textSize="20dp"
-            android:text="Zlatan spelar hockey"
+            android:textSize="20sp"
             android:gravity="center_vertical"
             android:textAlignment="center"
             app:layout_constraintLeft_toLeftOf="@+id/gameField"
@@ -65,6 +64,7 @@
 
         <Button
             android:id="@+id/trueButton"
+            android:onClick="trueButtonPressed"
             android:text="Sant"
             android:textSize="20dp"
             android:textStyle="bold"
@@ -78,6 +78,7 @@
 
         <Button
             android:id="@+id/falseButton"
+            android:onClick="falseButtonPressed"
             android:text="Falskt"
             android:textSize="20dp"
             android:textStyle="bold"
