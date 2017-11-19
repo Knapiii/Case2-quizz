@@ -24,8 +24,6 @@
     <string name="games">Games</string>
     <string name="culture">Culture</string>
     <string name="all_categories">All categories</string>
-    <string name="dummy_text">Dummy Text</string>
-    <string name="category_list_item_text">category_list_item_text</string>
 
     <string-array name="categories_array">
         <item>@string/all_categories</item>

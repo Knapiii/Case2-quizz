@@ -26,7 +26,6 @@
     <string name="culture">Culture</string>
     <string name="all_categories">All categories</string>
     <string name="choose_category">Click here for category</string>
-    <string name="empty_text">""</string>
 
 
     <string-array name="categories_array">

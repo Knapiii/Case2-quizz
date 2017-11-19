@@ -24,6 +24,7 @@
     <string name="science">Vetenskap</string>
     <string name="games">Spel</string>
     <string name="culture">Kultur</string>
+    <string name="all_categories">Alla kategorier</string>
 
     <string-array name="categories_array">
         <item>@string/all_categories</item>
@@ -35,6 +36,4 @@
         <item>@string/sport</item>
         <item>@string/science</item>
     </string-array>
-    <string name="all_categories">Alla kategorier</string>
-    <string name="choose_category">Choose category</string>
 </resources>
