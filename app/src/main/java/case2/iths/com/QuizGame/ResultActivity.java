@@ -5,10 +5,13 @@ import android.os.Bundle;
 
 public class ResultActivity extends AppCompatActivity {
 
+    SavedSettings savedSettings;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+        savedSettings = new SavedSettings();
     }
 
 

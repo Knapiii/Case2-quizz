@@ -1,85 +1,77 @@
 package case2.iths.com.QuizGame;
 
-import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    SavedSettings savedSettings;
-    ImageButton imageButton;
+    public static final String PREFS_NAME = "saveSettings";
 
+    SavedSettings savedSettings;
+    private ImageButton imageButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-
         savedSettings = new SavedSettings();
-
-        // recovering the instance state
-        if (savedInstanceState != null) {
-            savedSettings.setSoundOn(savedInstanceState.getBoolean("soundOnKey"));
-           // drawSoundButton();
-        } else {
-            savedSettings.setSoundOn(false);
-           // drawSoundButton();
-        }
         imageButton = findViewById(R.id.toggleSoundImageButton);
 
+        storeSettings();
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
+    public void storeSettings(){
+        // Restore preferences
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        boolean silent = settings.getBoolean("silentMode", false);
+        savedSettings.setSoundOn(silent);
 
-        outState.putBoolean("soundOnKey", savedSettings.isSoundOn());
+        if (savedSettings.isSoundOn())
+            imageButton.setImageResource(R.drawable.unmuted_sound);
+        else
+            imageButton.setImageResource(R.drawable.muted_sound);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        ContentValues values = new ContentValues();
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putBoolean("silentMode", savedSettings.isSoundOn());
 
-        values.put("soundOnKey", savedSettings.isSoundOn());
+        editor.apply();
     }
 
     public void toTheProfile(View view) {
-        savedSettings.checkSoundOn(this);
+        savedSettings.giveSound(this);
         Intent toProfile = new Intent(this, ProfileActivity.class);
         startActivity(toProfile);
     }
 
     public void testSoundButton(View view) {
-        savedSettings.checkSoundOn(this);
+        savedSettings.giveSound(this);
     }
 
     public void toggleSoundOnClick(View view) {
-        int icon;
-
         if (savedSettings.isSoundOn()) {
+            imageButton.setImageResource(R.drawable.muted_sound);
             savedSettings.setSoundOn(false);
-            icon = R.drawable.muted_sound;
-        } else {
-            savedSettings.setSoundOn(true);
-            icon = R.drawable.unmuted_sound;
-        }
-        imageButton.setImageDrawable
-                (ContextCompat.getDrawable(this, icon));
-    }
-/*
 
-    public void drawSoundButton() {
-        int icon = 0;
-        if (savedSettings.isSoundOn()) {
-            icon = R.drawable.unmuted_sound;
+        } else {
+            imageButton.setImageResource(R.drawable.unmuted_sound);
+            savedSettings.setSoundOn(true);
         }
-        imageButton.setImageDrawable
-                (ContextCompat.getDrawable(this, icon));
-    }*/
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putBoolean("silentMode", savedSettings.isSoundOn());
+
+        editor.apply();
+    }
+
+
 }
 

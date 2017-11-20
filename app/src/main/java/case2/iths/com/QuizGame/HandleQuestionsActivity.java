@@ -10,6 +10,7 @@ package case2.iths.com.QuizGame;
 // TODO: DELETE QUESTION-FUNCTION
 // TODO: RANKING
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,10 +24,13 @@ public class HandleQuestionsActivity extends AppCompatActivity {
     private ArrayList<String> list;
     private ArrayAdapter<String> arrayAdapter;
 
+    private SavedSettings savedSettings;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_handle_questions);
+        savedSettings = new SavedSettings();
         listView = findViewById(R.id.listView);
 
         //Data källa för vår listview
@@ -46,8 +50,9 @@ public class HandleQuestionsActivity extends AppCompatActivity {
     }
 
     public void onButtonClick(View v) {
+        savedSettings.giveSound(this);
 
-        arrayAdapter.add("Text");
-
+        Intent intent = new Intent(this, CreateQuestionActivity.class);
+        startActivity(intent);
     }
 }

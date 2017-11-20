@@ -7,6 +7,7 @@ import android.provider.BaseColumns;
  */
 
 public final class QuizableDatabaseContract {
+
     private QuizableDatabaseContract () {} // makes the class non-creatable
 
 

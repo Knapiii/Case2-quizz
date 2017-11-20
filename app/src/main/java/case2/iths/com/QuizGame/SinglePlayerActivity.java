@@ -15,11 +15,13 @@ public class SinglePlayerActivity extends AppCompatActivity {
     private int pointsCount, numDoneQuestions;
     private ArrayList<String> questions = new ArrayList<>();
     private ArrayList<Integer> pastQuestions = new ArrayList<>();
+    private SavedSettings savedSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_singleplayer_game);
+        savedSettings = new SavedSettings();
         genre = getIntent().getStringExtra("genre");
         headLine = findViewById(R.id.top_text_category);
         headLine.setText(genre);
@@ -66,6 +68,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
     }
 
     public void trueButtonPressed(View view){
+        savedSettings.giveSound(this);
         if (isRoundOver()){
             Intent intent = new Intent(this, ResultActivity.class);
             startActivity(intent);
@@ -78,6 +81,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
     }
 
     public void falseButtonPressed(View view){
+        savedSettings.giveSound(this);
         if (isRoundOver()){
             Intent intent = new Intent(this, ResultActivity.class);
             startActivity(intent);

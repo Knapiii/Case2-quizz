@@ -5,10 +5,13 @@ import android.os.Bundle;
 
 public class ProfileActivity extends AppCompatActivity {
 
+    SavedSettings savedSettings;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        savedSettings = new SavedSettings();
     }
 
     // TODO: 2017-11-14 Lägg till:

@@ -17,14 +17,16 @@ public class HighScoreActivity extends AppCompatActivity {
 
     private Spinner spinner;
     private String[] cats;
+    SavedSettings savedSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_highscore);
-   //     inserted default data to database.
-   //     insertCategories();
-   //     insertHighscores();
+        savedSettings = new SavedSettings();
+        //     inserted default data to database.
+        //     insertCategories();
+        //     insertHighscores();
 
         spinner = findViewById(R.id.spinner);
         cats = getResources().getStringArray(R.array.categories_array);
@@ -49,13 +51,10 @@ public class HighScoreActivity extends AppCompatActivity {
         });
     }
 
-
-
     private void showToast(int i) {
         Toast.makeText(this, cats[i], Toast.LENGTH_SHORT).show();
 
     }
-
 
     public void insertCategories() {
         insertCategory("games", "Games");

@@ -30,6 +30,10 @@ public class DBHelper extends SQLiteOpenHelper {
                 "points INTEGER);";
 
         db.execSQL(sql);
+
+        // Create table med SQ
+        // Kör kod som lägge till nya rader
+
     }
 
     @Override
