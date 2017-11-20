@@ -47,13 +47,10 @@ public class HighScoreActivity extends AppCompatActivity {
         });
     }
 
-
-
     private void showToast(int i) {
         Toast.makeText(this, cats[i], Toast.LENGTH_SHORT).show();
 
     }
-
 
     public void insertCategories() {
         insertCategory("games", "Games");

@@ -68,7 +68,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
     }
 
     public void trueButtonPressed(View view){
-        savedSettings.checkSoundOn(this);
+        savedSettings.giveSound(this);
         if (isRoundOver()){
             Intent intent = new Intent(this, ResultActivity.class);
             startActivity(intent);
@@ -81,7 +81,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
     }
 
     public void falseButtonPressed(View view){
-        savedSettings.checkSoundOn(this);
+        savedSettings.giveSound(this);
         if (isRoundOver()){
             Intent intent = new Intent(this, ResultActivity.class);
             startActivity(intent);

@@ -50,7 +50,7 @@ public class HandleQuestionsActivity extends AppCompatActivity {
     }
 
     public void onButtonClick(View v) {
-        savedSettings.checkSoundOn(this);
+        savedSettings.giveSound(this);
 
         Intent intent = new Intent(this, CreateQuestionActivity.class);
         startActivity(intent);

@@ -27,43 +27,43 @@ public class PlayGameActivity extends AppCompatActivity {
 
         switch (id){
             case R.id.button_sport:
-                savedSettings.checkSoundOn(this);
+                savedSettings.giveSound(this);
                 Intent sportIntent = new Intent(this, SinglePlayerActivity.class);
                 sportIntent.putExtra("genre", "Sport");
                 startSingleGame(sportIntent);
                 break;
             case R.id.button_music:
-                savedSettings.checkSoundOn(this);
+                savedSettings.giveSound(this);
                 Intent musicIntent = new Intent(this, SinglePlayerActivity.class);
                 musicIntent.putExtra("genre", "Music");
                 startSingleGame(musicIntent);
                 break;
             case R.id.button_geography:
-                savedSettings.checkSoundOn(this);
+                savedSettings.giveSound(this);
                 Intent geoIntent = new Intent(this, SinglePlayerActivity.class);
                 geoIntent.putExtra("genre", "Geography");
                 startSingleGame(geoIntent);
                 break;
             case R.id.button_science:
-                savedSettings.checkSoundOn(this);
+                savedSettings.giveSound(this);
                 Intent scienceIntent = new Intent(this, SinglePlayerActivity.class);
                 scienceIntent.putExtra("genre", "Science");
                 startSingleGame(scienceIntent);
                 break;
             case R.id.button_culture:
-                savedSettings.checkSoundOn(this);
+                savedSettings.giveSound(this);
                 Intent cultureIntent = new Intent(this, SinglePlayerActivity.class);
                 cultureIntent.putExtra("genre", "Culture");
                 startSingleGame(cultureIntent);
                 break;
             case R.id.button_games:
-                savedSettings.checkSoundOn(this);
+                savedSettings.giveSound(this);
                 Intent gamesIntent = new Intent(this, SinglePlayerActivity.class);
                 gamesIntent.putExtra("genre", "Games");
                 startSingleGame(gamesIntent);
                 break;
             case R.id.button_own_questions:
-                savedSettings.checkSoundOn(this);
+                savedSettings.giveSound(this);
                 Intent ownIntent = new Intent(this, SinglePlayerActivity.class);
                 ownIntent.putExtra("genre", "Own");
                 Toast toast = Toast.makeText(this,getString(R.string.no_questions), Toast.LENGTH_LONG);
@@ -74,7 +74,7 @@ public class PlayGameActivity extends AppCompatActivity {
     }
 
     private void startSingleGame(Intent intent){
-        savedSettings.checkSoundOn(this);
+        savedSettings.giveSound(this);
         startActivity(intent);
     }
 }
