@@ -43,7 +43,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".SinglePlayerActivity" />
-        <activity android:name=".Multiplayer"></activity>
+        <activity android:name=".Multiplayer" />
+        <activity android:name=".CreateQuestionActivity"></activity>
     </application>
 
 </manifest>

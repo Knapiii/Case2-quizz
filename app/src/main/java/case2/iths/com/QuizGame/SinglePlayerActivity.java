@@ -15,7 +15,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
     private int pointsCount, numDoneQuestions;
     private ArrayList<String> questions = new ArrayList<>();
     private ArrayList<Integer> pastQuestions = new ArrayList<>();
-    SavedSettings savedSettings;
+    private SavedSettings savedSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
