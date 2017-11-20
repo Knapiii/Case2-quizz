@@ -9,6 +9,10 @@ import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import case2.iths.com.QuizGame.QuizableDatabaseContract.HighScoresInfoEntry;
+
+import static case2.iths.com.QuizGame.QuizableDatabaseContract.*;
+
 public class HighScoreActivity extends AppCompatActivity {
 
     private Spinner spinner;
@@ -69,9 +73,9 @@ public class HighScoreActivity extends AppCompatActivity {
         SQLiteDatabase db = helper.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
-        contentValues.put(QuizableDatabaseContract.CategoriesInfoEntry.COLUMN_CATEGORY_ID, category_id );
-        contentValues.put(QuizableDatabaseContract.CategoriesInfoEntry.COLUMN_CATEGORY_TITLE, category_text);
-        long id = db.insert(QuizableDatabaseContract.CategoriesInfoEntry.TABLE_NAME, null, contentValues);
+        contentValues.put(CategoriesInfoEntry.COLUMN_CATEGORY_ID, category_id );
+        contentValues.put(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE, category_text);
+        long id = db.insert(CategoriesInfoEntry.TABLE_NAME, null, contentValues);
 
         db.close();
 
@@ -98,11 +102,11 @@ public class HighScoreActivity extends AppCompatActivity {
 
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(QuizableDatabaseContract.HighScoresInfoEntry.COLUMN_CATEGORY_ID, category_id);
-        contentValues.put(QuizableDatabaseContract.HighScoresInfoEntry.COLUMN_HIGHSCORE, score);
-        contentValues.put(QuizableDatabaseContract.HighScoresInfoEntry.COLUMN_USER_ID, user_id);
+        contentValues.put(HighScoresInfoEntry.COLUMN_CATEGORY_ID, category_id);
+        contentValues.put(HighScoresInfoEntry.COLUMN_HIGHSCORE, score);
+        contentValues.put(HighScoresInfoEntry.COLUMN_USER_ID, user_id);
 
-        long newRowId = db.insert(QuizableDatabaseContract.HighScoresInfoEntry.TABLE_NAME, null, contentValues);
+        long newRowId = db.insert(HighScoresInfoEntry.TABLE_NAME, null, contentValues);
 
         db.close();
 
