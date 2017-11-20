@@ -11,7 +11,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     public static final String PREFS_NAME = "saveSettings";
 
-    SavedSettings savedSettings;
+    private SavedSettings savedSettings;
     private ImageButton imageButton;
 
     @Override
@@ -19,12 +19,32 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         savedSettings = new SavedSettings();
-        imageButton = findViewById(R.id.toggleSoundImageButton);
-
+        imageButton = findViewById(R.id.imagebutton_mute);
         storeSettings();
     }
 
-    public void storeSettings(){
+    public void toTheProfile(View view) {
+        savedSettings.giveSound(this);
+        Intent toProfile = new Intent(this, ProfileActivity.class);
+        startActivity(toProfile);
+    }
+
+    public void toggleSoundOnClick(View view) {
+        if (savedSettings.isSoundOn()) {
+            imageButton.setImageResource(R.drawable.muted_sound);
+            savedSettings.setSoundOn(false);
+
+        } else {
+            imageButton.setImageResource(R.drawable.unmuted_sound);
+            savedSettings.setSoundOn(true);
+        }
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putBoolean("silentMode", savedSettings.isSoundOn());
+        editor.apply();
+    }
+
+    public void storeSettings() {
         // Restore preferences
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         boolean silent = settings.getBoolean("silentMode", false);
@@ -45,33 +65,5 @@ public class SettingsActivity extends AppCompatActivity {
 
         editor.apply();
     }
-
-    public void toTheProfile(View view) {
-        savedSettings.giveSound(this);
-        Intent toProfile = new Intent(this, ProfileActivity.class);
-        startActivity(toProfile);
-    }
-
-    public void testSoundButton(View view) {
-        savedSettings.giveSound(this);
-    }
-
-    public void toggleSoundOnClick(View view) {
-        if (savedSettings.isSoundOn()) {
-            imageButton.setImageResource(R.drawable.muted_sound);
-            savedSettings.setSoundOn(false);
-
-        } else {
-            imageButton.setImageResource(R.drawable.unmuted_sound);
-            savedSettings.setSoundOn(true);
-        }
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-        SharedPreferences.Editor editor = settings.edit();
-        editor.putBoolean("silentMode", savedSettings.isSoundOn());
-
-        editor.apply();
-    }
-
-
 }
 

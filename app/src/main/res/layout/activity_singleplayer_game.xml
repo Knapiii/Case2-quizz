@@ -69,13 +69,13 @@
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/trueButton"
+            app:layout_constraintBottom_toTopOf="@+id/button_true"
             app:layout_constraintLeft_toLeftOf="@+id/gameField"
             app:layout_constraintRight_toRightOf="@+id/gameField"
             app:layout_constraintTop_toTopOf="@+id/gameField" />
 
         <Button
-            android:id="@+id/trueButton"
+            android:id="@+id/button_true"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
@@ -85,11 +85,11 @@
             android:textSize="20dp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="@+id/gameField"
-            app:layout_constraintRight_toLeftOf="@+id/falseButton"
+            app:layout_constraintRight_toLeftOf="@+id/button_false"
             app:layout_constraintTop_toBottomOf="@+id/questionField" />
 
         <Button
-            android:id="@+id/falseButton"
+            android:id="@+id/button_false"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
@@ -98,7 +98,7 @@
             android:text="Falskt"
             android:textSize="20dp"
             android:textStyle="bold"
-            app:layout_constraintLeft_toRightOf="@+id/trueButton"
+            app:layout_constraintLeft_toRightOf="@+id/button_true"
             app:layout_constraintRight_toRightOf="@+id/gameField"
             app:layout_constraintTop_toBottomOf="@+id/questionField" />
 

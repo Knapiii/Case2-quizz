@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         boolean silent = settings.getBoolean("silentMode", false);
         savedSettings.setSoundOn(silent);
-
     }
 
     public void toTheGame(View view) {
@@ -38,13 +37,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void toTheAbout(View view) {
         savedSettings.giveSound(this);
-        Intent toAbout = new Intent(MainActivity.this, AboutActivity.class);
+        Intent toAbout = new Intent(this, AboutActivity.class);
         startActivity(toAbout);
     }
 
     public void toTheHighscores(View view) {
         savedSettings.giveSound(this);
-        Intent toHighscores = new Intent(MainActivity.this, HighScoreActivity.class);
+        Intent toHighscores = new Intent(this, HighScoreActivity.class);
         startActivity(toHighscores);
 
     }
