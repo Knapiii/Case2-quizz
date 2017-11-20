@@ -4,15 +4,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class PlayGameActivity extends AppCompatActivity {
+
+    SavedSettings savedSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_singelplayer);
+        savedSettings = new SavedSettings();
     }
 
     // TODO: 2017-11-14 Lägg till:
@@ -25,36 +27,43 @@ public class PlayGameActivity extends AppCompatActivity {
 
         switch (id){
             case R.id.button_sport:
+                savedSettings.checkSoundOn(this);
                 Intent sportIntent = new Intent(this, SinglePlayerActivity.class);
                 sportIntent.putExtra("genre", "Sport");
                 startSingleGame(sportIntent);
                 break;
             case R.id.button_music:
+                savedSettings.checkSoundOn(this);
                 Intent musicIntent = new Intent(this, SinglePlayerActivity.class);
                 musicIntent.putExtra("genre", "Music");
                 startSingleGame(musicIntent);
                 break;
             case R.id.button_geography:
+                savedSettings.checkSoundOn(this);
                 Intent geoIntent = new Intent(this, SinglePlayerActivity.class);
                 geoIntent.putExtra("genre", "Geography");
                 startSingleGame(geoIntent);
                 break;
             case R.id.button_science:
+                savedSettings.checkSoundOn(this);
                 Intent scienceIntent = new Intent(this, SinglePlayerActivity.class);
                 scienceIntent.putExtra("genre", "Science");
                 startSingleGame(scienceIntent);
                 break;
             case R.id.button_culture:
+                savedSettings.checkSoundOn(this);
                 Intent cultureIntent = new Intent(this, SinglePlayerActivity.class);
                 cultureIntent.putExtra("genre", "Culture");
                 startSingleGame(cultureIntent);
                 break;
             case R.id.button_games:
+                savedSettings.checkSoundOn(this);
                 Intent gamesIntent = new Intent(this, SinglePlayerActivity.class);
                 gamesIntent.putExtra("genre", "Games");
                 startSingleGame(gamesIntent);
                 break;
             case R.id.button_own_questions:
+                savedSettings.checkSoundOn(this);
                 Intent ownIntent = new Intent(this, SinglePlayerActivity.class);
                 ownIntent.putExtra("genre", "Own");
                 Toast toast = Toast.makeText(this,getString(R.string.no_questions), Toast.LENGTH_LONG);
@@ -65,6 +74,7 @@ public class PlayGameActivity extends AppCompatActivity {
     }
 
     private void startSingleGame(Intent intent){
+        savedSettings.checkSoundOn(this);
         startActivity(intent);
     }
 }

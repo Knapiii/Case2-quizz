@@ -23,10 +23,13 @@ public class HandleQuestionsActivity extends AppCompatActivity {
     private ArrayList<String> list;
     private ArrayAdapter<String> arrayAdapter;
 
+    SavedSettings savedSettings;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_handle_questions);
+        savedSettings = new SavedSettings();
         listView = findViewById(R.id.listView);
 
         //Data källa för vår listview
@@ -46,7 +49,7 @@ public class HandleQuestionsActivity extends AppCompatActivity {
     }
 
     public void onButtonClick(View v) {
-
+        savedSettings.checkSoundOn(this);
         arrayAdapter.add("Text");
 
     }
