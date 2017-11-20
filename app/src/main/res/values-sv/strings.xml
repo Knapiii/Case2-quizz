@@ -15,7 +15,7 @@
     <string name="manage_questions">Hantera frågor</string>
     <string name="singelplayer">Singelplayer</string>
     <string name="game_menu">Spelmeny</string>
-    <string name="textview_about">Quizable is...</string>
+    <string name="textview_about">"Quizabble är ett frågesportsspel som är utvecklat av studenter från ITHS-Högksolan.  Spelet går ut på att svara på om ett påstående är sant eller falskt, fast du måste tänka tvärt-om. Du kan även lägga till egna påståenden själv, om du vill.  Är Sverige ett land? Ja, därför är \"rätt\" svar falskt eftersom du måste tänka tvärt-om. "</string>
     <string name="add">Lägg till</string>
     <string name="music">Musik</string>
     <string name="own_questions">Egna frågor</string>
