@@ -28,18 +28,16 @@
 
     <string name="all_categories">All categories</string>
     <string name="choose_category">Click here for category</string>
-
-
-    <string-array name="categories_array">
-        <item>@string/all_categories</item>
-        <item>@string/culture</item>
-        <item>@string/games</item>
-        <item>@string/geography</item>
-        <item>@string/music</item>
-        <item>@string/own_questions</item>
-        <item>@string/sport</item>
-        <item>@string/science</item>
-    </string-array>
     <string name="points">Points:</string>
+
+
+    <string-array name="top5">
+        <item>1.Alvar</item>
+        <item>2.Ibrahim</item>
+        <item>3.Daniel</item>
+        <item>4.Robert</item>
+        <item>5.Hanna</item>
+        <item>6.Knape</item>
+    </string-array>
 
 </resources>

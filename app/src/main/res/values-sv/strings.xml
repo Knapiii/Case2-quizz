@@ -26,15 +26,16 @@
     <string name="culture">Kultur</string>
     <string name="all_categories">Alla kategorier</string>
 
-    <string-array name="categories_array">
-        <item>@string/all_categories</item>
-        <item>@string/culture</item>
-        <item>@string/games</item>
-        <item>@string/geography</item>
-        <item>@string/music</item>
-        <item>@string/own_questions</item>
-        <item>@string/sport</item>
-        <item>@string/science</item>
+
+    <string-array name="top5">
+        <item>Alvar</item>
+        <item>Ibrahim</item>
+        <item>Daniel</item>
+        <item>Robert</item>
+        <item>Hanna</item>
+        <item>Knape</item>
+
+
     </string-array>
     <string name="points">Poäng:</string>
 </resources>
