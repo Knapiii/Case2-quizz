@@ -23,24 +23,18 @@ public class MainActivity extends AppCompatActivity {
         savedSettings.setSoundOn(silent);
     }
 
+    /**
+     * När vi klickar på knappen "Play" så ska vi komma till GameMenuActivity
+     */
     public void toTheGame(View view) {
         savedSettings.giveSound(this);
         Intent toGame = new Intent(this, GameMenuActivity.class);
         startActivity(toGame);
     }
 
-    public void toTheSettings(View view) {
-        savedSettings.giveSound(this);
-        Intent toSettings = new Intent(this, SettingsActivity.class);
-        startActivity(toSettings);
-    }
-
-    public void toTheAbout(View view) {
-        savedSettings.giveSound(this);
-        Intent toAbout = new Intent(this, AboutActivity.class);
-        startActivity(toAbout);
-    }
-
+    /**
+     * När vi klickar på knappen "Highscore" så ska vi komma till HighScoreActivity
+     */
     public void toTheHighscores(View view) {
         savedSettings.giveSound(this);
         Intent toHighscores = new Intent(this, HighScoreActivity.class);
@@ -48,5 +42,22 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * När vi klickar på knappen "Settings" så ska vi komma till SettingsActivity
+     */
+    public void toTheSettings(View view) {
+        savedSettings.giveSound(this);
+        Intent toSettings = new Intent(this, SettingsActivity.class);
+        startActivity(toSettings);
+    }
+
+    /**
+     * När vi klickar på knappen "About" så ska vi komma till AboutActivity
+     */
+    public void toTheAbout(View view) {
+        savedSettings.giveSound(this);
+        Intent toAbout = new Intent(this, AboutActivity.class);
+        startActivity(toAbout);
+    }
 
 }

@@ -22,6 +22,9 @@ public class PlayGameActivity extends AppCompatActivity {
     // TODO: TIMER FUNCTION
     // TODO:        - MORE TIME YOU USE
 
+    /**
+     * När vi är i Singelplayer-mode och klickar på de olika knapparna så ska olika Intents öppnar beroende på vad vi klickar på
+     */
     public void categoryButtonPressed(View view){
         int id = view.getId();
 

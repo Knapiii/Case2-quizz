@@ -10,7 +10,6 @@ import android.widget.ImageButton;
 public class SettingsActivity extends AppCompatActivity {
 
     public static final String PREFS_NAME = "saveSettings";
-
     private SavedSettings savedSettings;
     private ImageButton imageButton;
 

@@ -17,7 +17,7 @@ public class GameMenuActivity extends AppCompatActivity {
     }
 
     /**
-     * När vi klickar på "button_handle_question" ska vi komma till HandleQuestionsActivity
+     * När vi klickar på knappen "Manage Questions" så ska vi komma till HandleQuestionsActivity
      */
     public void toManageQuestions(View view) {
         savedSettings.giveSound(this);
@@ -26,7 +26,7 @@ public class GameMenuActivity extends AppCompatActivity {
     }
 
     /**
-     * När vi klickar på "button_singelplayer" ska vi komma till SinglePlayerActivity
+     * När vi klickar på knappen "Singelplayer" så ska vi komma till SinglePlayerActivity
      */
     public void toSingelGame(View view) {
         savedSettings.giveSound(this);
@@ -35,11 +35,12 @@ public class GameMenuActivity extends AppCompatActivity {
     }
 
     /**
-     * När vi klickar på "button_multiplayer" ska vi komma till toMultiplayerGame
+     * När vi klickar på knappen "Multiplayer" så ska vi komma till Multiplayer
      */
     public void toMultiplayerGame(View view) {
         savedSettings.giveSound(this);
         Intent toMultiplayerGame = new Intent(this,Multiplayer.class);
         startActivity(toMultiplayerGame);
     }
+
 }
