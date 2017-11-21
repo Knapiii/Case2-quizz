@@ -147,7 +147,7 @@ public class HighScoreActivity extends AppCompatActivity {
        //Cursor highscoreCursor = db.query(HighScoresInfoEntry.TABLE_NAME, highscoreColumns, null, null, null, null, null);
 
 
-
+        db.close();
     }
 
     //This method add data from the database to our categories array-list
