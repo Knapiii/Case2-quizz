@@ -28,7 +28,7 @@ public class CreateQuestionActivity extends AppCompatActivity {
     }
 
     public void categorySpinner(){
-        spinner = findViewById(R.id.spinnerAddCategory);
+        spinner = findViewById(R.id.spinner_add_category);
         HighscoresAdapter addToCategoryAdapter = new HighscoresAdapter(this, categories);
         spinner.setAdapter(addToCategoryAdapter);
 
