@@ -4,7 +4,7 @@
     <string name="developed_by">Utvecklad av ITHS</string>
     <string name="profile">Profil</string>
     <string name="result">Resultat</string>
-    <string name="textview_about">"Quizabble är ett frågesportsspel som är utvecklat av studenter från ITHS-Högksolan. Spelet går ut på att svara på om ett påstående är sant eller falskt, fast du måste tänka tvärt-om. Du kan även lägga till egna påståenden själv, om du vill.  Är Sverige ett land? Ja, därför är \"rätt\" svar falskt eftersom du måste tänka tvärt-om. "</string>
+    <string name="textview_about">"Quizabble är ett frågesportsspel som är utvecklat av studenter från ITHS-Högksolan.\n\nSpelet går ut på att svara på om ett påstående är sant eller falskt, fast du måste tänka tvärt-om.\n\nDu kan även lägga till egna påståenden själv, om du vill.  Är Sverige ett land? Ja, därför är \"rätt\" svar falskt eftersom du måste tänka tvärt-om. "</string>
     <string name="points">Poäng:</string>
 
     <!--Buttons-->
@@ -34,7 +34,7 @@
     <string name="culture">Kultur</string>
 
     <string name="all_categories">Alla kategorier</string>
-    <string name="choose_category">Click here for category</string>
+    <string name="choose_category">Klicka här för att välja kategori</string>
     <string name="isTruee">True</string>
 
 
