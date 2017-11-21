@@ -140,7 +140,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@color/ButtonBackground"
-        android:text="@string/own_questions"
+        android:text="@string/own_statements"
         android:textColor="@android:color/background_light"
         android:textSize="20sp"
         android:textStyle="bold"

@@ -8,13 +8,13 @@
     tools:context="case2.iths.com.QuizGame.GameMenuActivity">
 
     <Button
-        android:id="@+id/button_handle_question"
-        android:onClick="toManageQuestions"
+        android:id="@+id/button_manage_statements"
+        android:onClick="toManageStatements"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@color/ButtonBackground"
-        android:text="@string/manage_questions"
+        android:text="@string/manage_statements"
         android:textColor="@android:color/background_light"
         android:textSize="24sp"
         android:textStyle="bold"

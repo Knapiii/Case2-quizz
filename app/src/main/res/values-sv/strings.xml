@@ -8,10 +8,10 @@
     <string name="points">Poäng:</string>
 
     <!--Buttons-->
-    <string name="handle_questions">Hantera frågor</string>
+    <string name="handle_statements">Hantera påståenden</string>
     <string name="add">Lägg till</string>
     <string name="go_back">Bakåt</string>
-    <string name="manage_questions">Hantera frågor</string>
+    <string name="manage_statements">Hantera påståenden</string>
     <string name="isTrue">Sant</string>
     <string name="isFalse">Falskt</string>
 
@@ -27,7 +27,7 @@
     <!--Categories-->
     <string name="music">Musik</string>
     <string name="sport">Sport</string>
-    <string name="own_questions">Egna frågor</string>
+    <string name="own_statements">Egna Påståenden</string>
     <string name="geography">Geografi</string>
     <string name="science">Vetenskap</string>
     <string name="games">Spel</string>

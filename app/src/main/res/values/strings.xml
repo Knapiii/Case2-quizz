@@ -7,10 +7,10 @@
     <string name="points">Points:</string>
 
     <!--Buttons-->
-    <string name="handle_questions">Handle questions</string>
+    <string name="handle_statements">Handle statements</string>
     <string name="add">Add</string>
     <string name="go_back">Back</string>
-    <string name="manage_questions">Manage questions</string>
+    <string name="manage_statements">Manage statements</string>
     <string name="isTrue">True</string>
     <string name="isFalse">False</string>
 
@@ -26,7 +26,7 @@
     <!--Categories-->
     <string name="music">Music</string>
     <string name="sport">Sport</string>
-    <string name="own_questions">Own Questions</string>
+    <string name="own_statements">Own Statements</string>
     <string name="geography">Geography</string>
     <string name="science">Science</string>
     <string name="games">Games</string>

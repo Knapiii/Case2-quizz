@@ -25,6 +25,7 @@ public class CreateQuestionActivity extends AppCompatActivity {
         buttonTrue = findViewById(R.id.togglebutton_add_true);
         buttonFalse = findViewById(R.id.togglebutton_add_false);
 
+        categories.add("Välj: ");
         categories.add("Sport");
         categories.add("Food");
         categories.add("TV");
