@@ -10,8 +10,8 @@ import java.util.Random;
 
 public class SinglePlayerActivity extends AppCompatActivity {
 
-    private String genre;
-    private TextView headLine, points, question;
+    private TextView points;
+    private TextView question;
     private int pointsCount, numDoneQuestions;
     private ArrayList<String> questions = new ArrayList<>();
     private ArrayList<Integer> pastStatement = new ArrayList<>();
@@ -22,8 +22,8 @@ public class SinglePlayerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_singleplayer_game);
         savedSettings = new SavedSettings();
-        genre = getIntent().getStringExtra("genre");
-        headLine = findViewById(R.id.top_text_category);
+        String genre = getIntent().getStringExtra("genre");
+        TextView headLine = findViewById(R.id.top_text_category);
         headLine.setText(genre);
         pointsCount = 0;
         numDoneQuestions = 0;
