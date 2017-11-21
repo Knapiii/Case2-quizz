@@ -1,30 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="developed_by">Utvecklad av ITHS</string>
-    <string name="about">Om</string>
-    <string name="settings">Inställningar</string>
-    <string name="play">Spela</string>
     <string name="app_name">Quizable</string>
-    <string name="go_back">Bakåt</string>
+    <string name="developed_by">Utvecklad av ITHS</string>
     <string name="profile">Profil</string>
-    <string name="multiplayer">Multiplayer</string>
-    <string name="highscores">Highscores</string>
-    <string name="handle_questions">tabort</string>
     <string name="result">Resultat</string>
-    <string name="highscore">Highscore</string>
+    <string name="textview_about">"Quizabble är ett frågesportsspel som är utvecklat av studenter från ITHS-Högksolan. Spelet går ut på att svara på om ett påstående är sant eller falskt, fast du måste tänka tvärt-om. Du kan även lägga till egna påståenden själv, om du vill.  Är Sverige ett land? Ja, därför är \"rätt\" svar falskt eftersom du måste tänka tvärt-om. "</string>
+    <string name="points">Poäng:</string>
+
+    <!--Buttons-->
+    <string name="handle_questions">Hantera frågor</string>
+    <string name="add">Lägg till</string>
+    <string name="go_back">Bakåt</string>
     <string name="manage_questions">Hantera frågor</string>
+    <string name="isTrue">Sant</string>
+    <string name="isFalse">Falskt</string>
+
+    <!--Menu-->
+    <string name="multiplayer">Multiplayer</string>
+    <string name="highscores">Highscore</string>
     <string name="singelplayer">Singelplayer</string>
     <string name="game_menu">Spelmeny</string>
-    <string name="textview_about">"Quizabble är ett frågesportsspel som är utvecklat av studenter från ITHS-Högksolan. Spelet går ut på att svara på om ett påstående är sant eller falskt, fast du måste tänka tvärt-om. Du kan även lägga till egna påståenden själv, om du vill.  Är Sverige ett land? Ja, därför är \"rätt\" svar falskt eftersom du måste tänka tvärt-om. "</string>
-    <string name="add">Lägg till</string>
+    <string name="play">Spela</string>
+    <string name="about">Om</string>
+    <string name="settings">Inställningar</string>
+
+    <!--Categories-->
     <string name="music">Musik</string>
+    <string name="sport">Sport</string>
     <string name="own_questions">Egna frågor</string>
     <string name="geography">Geografi</string>
-    <string name="sport">Sport</string>
     <string name="science">Vetenskap</string>
     <string name="games">Spel</string>
     <string name="culture">Kultur</string>
+
     <string name="all_categories">Alla kategorier</string>
+    <string name="choose_category">Click here for category</string>
+    <string name="isTruee">True</string>
 
 
     <string-array name="top5">
@@ -34,8 +45,5 @@
         <item>Robert</item>
         <item>Hanna</item>
         <item>Knape</item>
-
-
     </string-array>
-    <string name="points">Poäng:</string>
 </resources>
