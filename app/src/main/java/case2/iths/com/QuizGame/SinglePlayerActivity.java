@@ -8,13 +8,17 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Klassen SplashActivity ärver AppCompatActivity som innebär att klassen ärver
+ * funktioner som möjliggör att appen stödjer flera android-versioner.
+ */
 public class SinglePlayerActivity extends AppCompatActivity {
 
     private String genre;
     private TextView headLine, points, question;
     private int pointsCount, numDoneQuestions;
     private ArrayList<String> questions = new ArrayList<>();
-    private ArrayList<Integer> pastQuestions = new ArrayList<>();
+    private ArrayList<Integer> pastStatement = new ArrayList<>();
     private SavedSettings savedSettings;
 
     @Override
@@ -29,7 +33,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
         numDoneQuestions = 0;
         points = findViewById(R.id.points);
         updatePoints();
-        addQuestions();
+        statements();
         question = findViewById(R.id.questionField);
         showRandomQuestion();
     }
@@ -40,27 +44,42 @@ public class SinglePlayerActivity extends AppCompatActivity {
     // TODO:        - MORE TIME YOU USE
 
 
-    // DATABAS ISTÄLLET FÖR STRINGS
-    public void addQuestions(){
-        questions.add("Zlatan spelar hockey");
-        questions.add("Björn Borg säljer brädspel");
-        questions.add("aaaaaa");
-        questions.add("bbbbbb");
-
+    /**
+     * Påståenden som ska slumpas i spelet
+     */
+    public void statements(){
+        questions.add("aaa");
+        questions.add("bbb");
+        questions.add("ccc");
+        questions.add("ddd");
+        questions.add("eee");
+        questions.add("fff");
+        questions.add("ggg");
+        questions.add("hhh");
+        questions.add("iii");
+        questions.add("jjj");
+        questions.add("kkk");
+        questions.add("lll");
     }
 
+    /**
+     * Gör så att alla påståenden slumpas
+     */
     public void showRandomQuestion(){
         Random rand = new Random();
         int randId = rand.nextInt(questions.size());
-        if (isQuestionRepeated(randId)){
+        if (isStatementRepeated(randId)){
             showRandomQuestion();
             return;
         }
-        pastQuestions.add(randId);
+        pastStatement.add(randId);
         String randQuestion = questions.get(randId);
         question.setText(randQuestion);
     }
 
+    /**
+     * När vi klickar på "sant" under spelet så ska man få ökad poäng om det stämmer
+     */
     public void trueButtonPressed(View view){
         savedSettings.giveSound(this);
         if (isRoundOver()){
@@ -68,12 +87,16 @@ public class SinglePlayerActivity extends AppCompatActivity {
             startActivity(intent);
             return;
         }
+
         numDoneQuestions++;
         pointsCount++;
         updatePoints();
         showRandomQuestion();
     }
 
+    /**
+     * När vi klickar på "falskt" under spelet så ska man få ökad poäng om det stämmer
+     */
     public void falseButtonPressed(View view){
         savedSettings.giveSound(this);
         if (isRoundOver()){
@@ -87,17 +110,26 @@ public class SinglePlayerActivity extends AppCompatActivity {
         showRandomQuestion();
     }
 
+    /**
+     * Gör så att poängen uppdateras under spelets gång
+     */
     public void updatePoints(){
         points.setText("" + pointsCount);
     }
 
+    /**
+     * Kontrollerar om rundan är över eller inte
+     */
     public boolean isRoundOver(){
         return numDoneQuestions == 4;
     }
 
-    public boolean isQuestionRepeated(int randId){
-        for (int i = 0; i < pastQuestions.size(); i++){
-            if (pastQuestions.get(i) == randId)
+    /**
+     * Gör så att inte samma påstående kan upprepas under en runda
+     */
+    public boolean isStatementRepeated(int randId){
+        for (int i = 0; i < pastStatement.size(); i++){
+            if (pastStatement.get(i) == randId)
                 return true;
         }
         return false;
