@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class HighScoreActivity extends AppCompatActivity {
     private ListView listView;
     private String[] cats;
     private ArrayList<String> categories = new ArrayList<>();
+    private TextView textView;
 
  //   private String[] names;
 
@@ -36,7 +38,8 @@ public class HighScoreActivity extends AppCompatActivity {
         QuizableOpenHelper mDbOpenHelper = new QuizableOpenHelper(this);
 
         //fffff
-        loadFromDatabase(mDbOpenHelper);
+        textView = findViewById(R.id.highscoreView);
+        textView.setText(loadFromDatabase(mDbOpenHelper).toString());
 
         spinner = findViewById(R.id.spinner);
      //   listView = findViewById(R.id.highscore_list);
@@ -134,7 +137,7 @@ public class HighScoreActivity extends AppCompatActivity {
 
     //Takes data from highscore table in Quizable database.
 
-    private void loadFromDatabase(QuizableOpenHelper dbHelper) {
+    private ArrayList<String> loadFromDatabase(QuizableOpenHelper dbHelper) {
 
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String[] categoryColumns = {
@@ -146,25 +149,27 @@ public class HighScoreActivity extends AppCompatActivity {
         //String[] highscoreColumns = {HighScoresInfoEntry.COLUMN_CATEGORY_ID, HighScoresInfoEntry.COLUMN_HIGHSCORE, HighScoresInfoEntry.COLUMN_USER_ID};
        //Cursor highscoreCursor = db.query(HighScoresInfoEntry.TABLE_NAME, highscoreColumns, null, null, null, null, null);
 
-
         db.close();
+        return categories;
     }
 
     //This method add data from the database to our categories array-list
     private void loadCategoriesFromDatabase(Cursor cursor) {
 
-        int categoryIdPos = cursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_ID);
+        //int categoryIdPos = cursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_ID);
         int categoryTitlePos = cursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE);
 
-        while(cursor.moveToNext()) {
-            String categoryId = cursor.getString(categoryIdPos);
+        boolean success = cursor.moveToFirst();
+        if (!success)
+            return;
+
+        do{
+            //String categoryId = cursor.getString(categoryIdPos);
             String categoryTitle = cursor.getString(categoryTitlePos);
 
             categories.add(categoryTitle);
 
-        }
-
-        cursor.close();
+        }while(cursor.moveToNext());
     }
 
 
