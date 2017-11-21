@@ -5,10 +5,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
-/**
- * Klassen SplashActivity ärver AppCompatActivity som innebär att klassen ärver
- * funktioner som möjliggör att appen stödjer flera android-versioner.
- */
 public class SplashActivity extends AppCompatActivity {
 
     /**

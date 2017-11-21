@@ -8,10 +8,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Random;
 
-/**
- * Klassen SplashActivity ärver AppCompatActivity som innebär att klassen ärver
- * funktioner som möjliggör att appen stödjer flera android-versioner.
- */
 public class SinglePlayerActivity extends AppCompatActivity {
 
     private String genre;
