@@ -7,16 +7,56 @@
     android:background="@drawable/main_background"
     tools:context="case2.iths.com.QuizGame.CreateQuestionActivity">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="218dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Add category to question"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_text_create" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="218dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Add text to question"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/gameField_add_question"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner_add_category"
+        android:layout_width="344dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@null"
+        android:spinnerMode="dialog"
+        app:layout_constraintBottom_toTopOf="@+id/textView1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
     <android.support.constraint.ConstraintLayout
         android:id="@+id/gameField_add_question"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/button_add_question"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerAddCategory">
+        tools:layout_editor_absoluteX="0dp">
 
-        <TextView
-            android:id="@+id/questionField_add_question"
+        <EditText
+            android:id="@+id/editText_add_question"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_margin="8dp"
@@ -39,12 +79,12 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:background="@drawable/button_shape"
-            android:text="Sant"
-            android:textSize="20dp"
+            android:text="sant"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="@+id/gameField_add_question"
             app:layout_constraintRight_toLeftOf="@+id/button_add_false"
-            app:layout_constraintTop_toBottomOf="@+id/questionField_add_question" />
+            app:layout_constraintTop_toBottomOf="@+id/editText_add_question" />
 
         <Button
             android:id="@+id/button_add_false"
@@ -52,12 +92,12 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:background="@drawable/button_shape"
-            android:text="Falskt"
-            android:textSize="20dp"
+            android:text="falskt"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toRightOf="@+id/button_add_true"
             app:layout_constraintRight_toRightOf="@+id/gameField_add_question"
-            app:layout_constraintTop_toBottomOf="@+id/questionField_add_question" />
+            app:layout_constraintTop_toBottomOf="@+id/editText_add_question" />
 
     </android.support.constraint.ConstraintLayout>
 
@@ -65,7 +105,7 @@
         android:id="@+id/button_add_question"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="48dp"
         android:background="@color/ButtonBackground"
         android:text="@string/add"
         android:textColor="@android:color/background_light"
@@ -73,7 +113,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -92,48 +132,5 @@
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/category_text"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="spinner to choose category"
-        android:textAlignment="center"
-        android:visibility="gone"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/top_text_create" />
-
-    <EditText
-        android:id="@+id/question_text"
-        android:layout_width="0dp"
-        android:layout_height="46dp"
-        android:hint="Type the question here"
-        android:visibility="gone"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/category_text" />
-
-    <EditText
-        android:id="@+id/answer_text"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Type the answer here"
-        android:visibility="gone"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/question_text" />
-
-    <Spinner
-        android:id="@+id/spinnerAddCategory"
-        android:layout_width="344dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@null"
-        android:spinnerMode="dialog"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/answer_text" />
 
 </android.support.constraint.ConstraintLayout>

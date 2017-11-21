@@ -1,21 +1,29 @@
 <resources>
     <string name="app_name">Quizable</string>
-    <string name="play">Spela</string>
-    <string name="settings">Inställningar</string>
-    <string name="about">Om</string>
     <string name="developed_by">Developed by ITHS</string>
-    <string name="go_back">Back</string>
     <string name="profile">Profile</string>
-    <string name="multiplayer">Multiplayer</string>
-    <string name="highscores">Highscores</string>
-    <string name="handle_questions">tabort</string>
     <string name="result">Result</string>
-    <string name="highscore">Highscore</string>
+    <string name="textview_about">"Quizabble är ett frågesportsspel som är utvecklat av studenter från ITHS-Högksolan.  Spelet går ut på att svara på om ett påstående är sant eller falskt, fast du måste tänka tvärt-om. Du kan även lägga till egna påståenden själv, om du vill.  Är Sverige ett land? Ja, därför är \"rätt\" svar falskt eftersom du måste tänka tvärt-om. "</string>
+    <string name="points">Points:</string>
+
+    <!--Buttons-->
+    <string name="handle_questions">Handle questions</string>
+    <string name="add">Add</string>
+    <string name="go_back">Back</string>
     <string name="manage_questions">Manage questions</string>
+    <string name="isTrue">True</string>
+    <string name="isFalse">False</string>
+
+    <!--Menu-->
+    <string name="multiplayer">Multiplayer</string>
+    <string name="highscore">Highscore</string>
     <string name="singelplayer">Singelplayer</string>
     <string name="game_menu">Game Menu</string>
-    <string name="textview_about">"Quizabble är ett frågesportsspel som är utvecklat av studenter från ITHS-Högksolan.\n\nSpelet går ut på att... Bla bla bla... Bla bla bla... Bla bla bla... Bla bla bla... Bla bla bla... Bla bla bla... Bla bla bla... Bla bla bla... Bla bla bla... Bla bla bla... Bla bla bla... Bla bla bla... Bla bla bla... Bla bla bla... "</string>
-    <string name="add">Add</string>
+    <string name="play">Play</string>
+    <string name="about">About</string>
+    <string name="settings">Settings</string>
+
+    <!--Categories-->
     <string name="music">Music</string>
     <string name="sport">Sport</string>
     <string name="own_questions">Own Questions</string>
@@ -23,8 +31,19 @@
     <string name="science">Science</string>
     <string name="games">Games</string>
     <string name="culture">Culture</string>
-    <string name="all_categories">All categories</string>
-    <string name="no_questions">No questions</string>
 
-    <string name="points">Points:</string>
+    <string name="all_categories">All categories</string>
+    <string name="choose_category">Click here for category</string>
+    <string name="isTruee">True</string>
+
+    <!--Arrays-->
+    <string-array name="top5">
+        <item>1.Alvar</item>
+        <item>2.Ibrahim</item>
+        <item>3.Daniel</item>
+        <item>4.Robert</item>
+        <item>5.Hanna</item>
+        <item>6.Knape</item>
+    </string-array>
+
 </resources>
