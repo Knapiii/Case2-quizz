@@ -39,20 +39,14 @@ public class SinglePlayerActivity extends AppCompatActivity {
     // TODO: TIMER FUNCTION
     // TODO:        - MORE TIME YOU USE
 
+
+    // DATABAS ISTÄLLET FÖR STRINGS
     public void addQuestions(){
         questions.add("Zlatan spelar hockey");
         questions.add("Björn Borg säljer brädspel");
         questions.add("aaaaaa");
         questions.add("bbbbbb");
-        questions.add("ccccccccc");
-        questions.add("ddddddd");
-        questions.add("eeeeeeee");
-        questions.add("fffffff");
-        questions.add("gggggggg");
-        questions.add("hhhhhhhh");
-        questions.add("iiiiii");
-        questions.add("jjjjjjjj");
-        questions.add("kkkkk");
+
     }
 
     public void showRandomQuestion(){
