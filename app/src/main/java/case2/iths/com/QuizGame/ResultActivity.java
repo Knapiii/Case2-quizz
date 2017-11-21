@@ -14,7 +14,6 @@ public class ResultActivity extends AppCompatActivity {
         savedSettings = new SavedSettings();
     }
 
-
     // TODO: 2017-11-14 Lägg till:
     // TODO: SHOW AMOUNT OF PLAYERS
     // TODO: SHOW TOTAL POINTS
