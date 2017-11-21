@@ -22,8 +22,8 @@ public class CreateQuestionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_question);
         buttonTrueClicked = false;
-        buttonTrue = findViewById(R.id.button_add_true);
-        buttonFalse = findViewById(R.id.button_add_false);
+        buttonTrue = findViewById(R.id.togglebutton_add_true);
+        buttonFalse = findViewById(R.id.togglebutton_add_false);
 
         categories.add("Sport");
         categories.add("Food");
