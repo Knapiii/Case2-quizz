@@ -34,7 +34,7 @@
     <string name="culture">Kultur</string>
 
     <string name="all_categories">Alla kategorier</string>
-    <string name="choose_category">Klicka här för att välja kategori</string>
+    <string name="choose_category">Välj kategori</string>
     <string name="isTruee">True</string>
 
 
@@ -46,4 +46,7 @@
         <item>Hanna</item>
         <item>Knape</item>
     </string-array>
+    <string name="create_statement">Skapa Påstående</string>
+    <string name="add_statement">Lägg till text till ditt påstående:</string>
+    <string name="statement_true_false">Välj om ditt påstående är \"sant\" eller \"falskt\"</string>
 </resources>

@@ -20,12 +20,12 @@ public class CreateQuestionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_question);
+        setContentView(R.layout.activity_create_statements);
         buttonTrueClicked = false;
         buttonTrue = findViewById(R.id.togglebutton_add_true);
         buttonFalse = findViewById(R.id.togglebutton_add_false);
 
-        categories.add("Välj: ");
+        categories.add("Välj kategori: ");
         categories.add("Sport");
         categories.add("Food");
         categories.add("TV");
