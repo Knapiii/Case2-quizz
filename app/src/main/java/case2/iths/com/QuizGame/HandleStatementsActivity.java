@@ -18,7 +18,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import java.util.ArrayList;
 
-public class HandleQuestionsActivity extends AppCompatActivity {
+public class HandleStatementsActivity extends AppCompatActivity {
 
     private ListView listView;
     private ArrayList<String> list;

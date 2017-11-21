@@ -17,11 +17,11 @@ public class GameMenuActivity extends AppCompatActivity {
     }
 
     /**
-     * När vi klickar på knappen "Manage Questions" så ska vi komma till HandleQuestionsActivity
+     * När vi klickar på knappen "Manage Questions" så ska vi komma till HandleStatementsActivity
      */
     public void toManageQuestions(View view) {
         savedSettings.giveSound(this);
-        Intent toManageQuestions = new Intent(this,HandleQuestionsActivity.class);
+        Intent toManageQuestions = new Intent(this,HandleStatementsActivity.class);
         startActivity(toManageQuestions);
     }
 

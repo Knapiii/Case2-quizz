@@ -24,7 +24,7 @@
             android:name=".ProfileActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".HandleQuestionsActivity"
+            android:name=".HandleStatementsActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ResultActivity"
