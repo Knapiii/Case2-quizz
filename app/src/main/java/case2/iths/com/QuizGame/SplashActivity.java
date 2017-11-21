@@ -5,9 +5,20 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
+/**
+ * Klassen SplashActivity ärver AppCompatActivity som innebär att klassen ärver
+ * funktioner som möjliggör att appen stödjer flera android-versioner.
+ */
 public class SplashActivity extends AppCompatActivity {
-    private static int SPLASH_TIME_OUT = 2000; //Set splash for 2seconds
 
+    /**
+     * Set splash for 2 seconds
+     */
+    private static int SPLASH_TIME_OUT = 2000;
+
+    /**
+     * Anropar på metoden som möjliggör Splash med layout "activity_splash"
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,6 +26,9 @@ public class SplashActivity extends AppCompatActivity {
 
         new Handler().postDelayed(new Runnable() {
 
+            /**
+             * När vi öppnar appen ska det vara en layout som visas i några sekunder innan man kommer till MainActivity.
+             */
             @Override
             public void run() {
                 Intent mainIntent = new Intent(SplashActivity.this, MainActivity.class);
@@ -22,6 +36,6 @@ public class SplashActivity extends AppCompatActivity {
                 finish();
             }
 
-        },SPLASH_TIME_OUT);
+        } ,SPLASH_TIME_OUT);
     }
 }

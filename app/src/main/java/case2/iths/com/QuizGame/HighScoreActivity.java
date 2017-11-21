@@ -35,6 +35,7 @@ public class HighScoreActivity extends AppCompatActivity {
    // insertHighscores();
         QuizableOpenHelper mDbOpenHelper = new QuizableOpenHelper(this);
 
+        //fffff
         loadFromDatabase(mDbOpenHelper);
 
         spinner = findViewById(R.id.spinner);
