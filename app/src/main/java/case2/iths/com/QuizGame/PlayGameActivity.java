@@ -69,7 +69,7 @@ public class PlayGameActivity extends AppCompatActivity {
                 savedSettings.giveSound(this);
                 Intent ownIntent = new Intent(this, SinglePlayerActivity.class);
                 ownIntent.putExtra("genre", "Own");
-                Toast toast = Toast.makeText(this,getString(R.string.no_questions), Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(this, "no questions", Toast.LENGTH_LONG);
                 // toast.show();
                 startSingleGame(ownIntent);
                 break;

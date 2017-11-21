@@ -23,15 +23,13 @@ public class CreateQuestionActivity extends AppCompatActivity {
         categories.add("TV");
         categories.add("Games");
 
-        spinnerCode();
+        categorySpinner();
 
     }
 
-    public void spinnerCode(){
-        spinner = findViewById(R.id.spinnerAddCategory);
-
+    public void categorySpinner(){
+        spinner = findViewById(R.id.spinner_add_category);
         HighscoresAdapter addToCategoryAdapter = new HighscoresAdapter(this, categories);
-
         spinner.setAdapter(addToCategoryAdapter);
 
     }

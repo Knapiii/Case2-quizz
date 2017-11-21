@@ -64,7 +64,7 @@
         android:layout_marginTop="15dp"
         android:background="@color/ButtonBackground"
         android:onClick="toTheHighscores"
-        android:text="@string/highscores"
+        android:text="@string/highscore"
         android:textColor="@android:color/background_light"
         android:textSize="24sp"
         android:textStyle="bold"
