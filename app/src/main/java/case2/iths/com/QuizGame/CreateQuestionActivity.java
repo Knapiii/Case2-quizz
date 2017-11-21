@@ -13,8 +13,7 @@ public class CreateQuestionActivity extends AppCompatActivity {
     public Spinner spinner;
     public String[] cats;
     private ArrayList<String> categories = new ArrayList<>();
-    private ToggleButton buttonTrue;
-    private ToggleButton buttonFalse;
+    private ToggleButton buttonTrue, buttonFalse;
     private boolean buttonTrueClicked;
 
 
@@ -23,6 +22,8 @@ public class CreateQuestionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_question);
         buttonTrueClicked = false;
+        buttonTrue = findViewById(R.id.button_add_true);
+        buttonFalse = findViewById(R.id.button_add_false);
 
         categories.add("Sport");
         categories.add("Food");
@@ -40,7 +41,24 @@ public class CreateQuestionActivity extends AppCompatActivity {
 
     }
 
-    public void onButtonClicked(View view){
+    public void onButtonTrueClicked(View view){
+        buttonTrueClicked = true;
+        changeButtonColor();
+    }
 
+    public void onButtonFalseClicked(View view){
+        buttonTrueClicked = false;
+        changeButtonColor();
+    }
+
+    private void changeButtonColor(){
+        if (buttonTrueClicked){
+            buttonTrue.setBackgroundResource(R.drawable.pressed_button_shape);
+            buttonFalse.setBackgroundResource(R.drawable.button_shape);
+        }
+        else{
+            buttonTrue.setBackgroundResource(R.drawable.button_shape);
+            buttonFalse.setBackgroundResource(R.drawable.pressed_button_shape);
+        }
     }
 }
