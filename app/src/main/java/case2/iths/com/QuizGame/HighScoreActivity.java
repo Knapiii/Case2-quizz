@@ -147,7 +147,7 @@ public class HighScoreActivity extends AppCompatActivity {
 
         loadCategoriesFromDatabase(categoryCursor);
         //String[] highscoreColumns = {HighScoresInfoEntry.COLUMN_CATEGORY_ID, HighScoresInfoEntry.COLUMN_HIGHSCORE, HighScoresInfoEntry.COLUMN_USER_ID};
-       //Cursor highscoreCursor = db.query(HighScoresInfoEntry.TABLE_NAME, highscoreColumns, null, null, null, null, null);
+        //Cursor highscoreCursor = db.query(HighScoresInfoEntry.TABLE_NAME, highscoreColumns, null, null, null, null, null);
 
         db.close();
         return categories;

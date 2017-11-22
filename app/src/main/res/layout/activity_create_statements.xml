@@ -60,7 +60,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="skriv text här, välj vilket svarsalternativ som ska vara rätt" />
 
-        <ToggleButton
+        <Button
             android:id="@+id/togglebutton_add_true"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
             app:layout_constraintRight_toLeftOf="@+id/togglebutton_add_false"
             app:layout_constraintTop_toBottomOf="@+id/editText_add_question" />
 
-        <ToggleButton
+        <Button
             android:id="@+id/togglebutton_add_false"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -132,8 +132,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/statement_true_false"
-        tools:layout_editor_absoluteX="33dp"
-        tools:layout_editor_absoluteY="417dp" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gameField_add_question"/>
 
     <TextView
         android:id="@+id/choose_category"

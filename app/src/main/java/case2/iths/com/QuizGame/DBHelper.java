@@ -24,7 +24,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
+        /*
         String sql = "CREATE TABLE Highscores ( id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "name TEXT NOT NULL," +
                 "points INTEGER);";
@@ -33,6 +33,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         // Create table med SQ
         // Kör kod som lägge till nya rader
+        */
 
     }
 
@@ -56,40 +57,6 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
 
         Cursor c = db.query("Highscores",null,null,null,null,null,null);
-
-        boolean success = c.moveToFirst();
-        if( success) {
-            //Loop for every row in the table
-            do {
-                HighScore highScore = new HighScore();
-                highScore.id = c.getLong(0);
-                highScore.name = c.getString(1);
-                highScore.points = c.getInt(2);
-
-                highScoreList.add(highScore);
-                Log.d("SQLiteAndroid", highScore.id + ","
-                        + highScore.name + "," + highScore.points);
-            } while (c.moveToNext());  //Move cursor to next row. Returns false if end of data
-        }
-        db.close();
-        return  highScoreList;
-    }
-
-    /**
-     * Searches the database for all rows matching name == name
-     * @param name
-     * @return
-     */
-    public List<HighScore> getAllWithName(String name) {
-        List<HighScore> highScoreList = new ArrayList<>();
-        SQLiteDatabase db = getReadableDatabase();
-
-        String selection = "name=?";
-        String[] selectionArgs = new String[] {name};
-
-        Cursor c = db.query("Highscores",null,
-                selection, selectionArgs,
-                null,null,null);
 
         boolean success = c.moveToFirst();
         if( success) {
@@ -151,4 +118,66 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
         return cnt;
     }
+
+    public List<Questions> getAllWithCategory(String category){
+        List<Questions> questionsList = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+
+        String sel = "Category=?";
+        String[] selectionArgs = new String[] {category};
+
+        Cursor c = db.query("statements", null,
+                sel, selectionArgs, null,
+                null, null);
+
+        boolean success = c.moveToFirst();
+        if (success){
+            do {
+                Questions questions = new Questions();
+                questions.statement = c.getString(2);
+                questions.answer = c.getString(3);
+
+                questionsList.add(questions);
+            } while (c.moveToNext());
+        }
+        db.close();
+        return questionsList;
+    }
+
+
+    /**
+     * Searches the database for all rows matching name == name
+     * @param name
+     * @return
+     */
+    /*
+    public List<HighScore> getAllWithName(String name) {
+        List<HighScore> highScoreList = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+
+        String selection = "name=?";
+        String[] selectionArgs = new String[] {name};
+
+        Cursor c = db.query("Highscores",null,
+                selection, selectionArgs,
+                null,null,null);
+
+        boolean success = c.moveToFirst();
+        if( success) {
+            //Loop for every row in the table
+            do {
+                HighScore highScore = new HighScore();
+                highScore.id = c.getLong(0);
+                highScore.name = c.getString(1);
+                highScore.points = c.getInt(2);
+
+                highScoreList.add(highScore);
+                Log.d("SQLiteAndroid", highScore.id + ","
+                        + highScore.name + "," + highScore.points);
+            } while (c.moveToNext());  //Move cursor to next row. Returns false if end of data
+        }
+        db.close();
+        return  highScoreList;
+    }
+     */
 }
