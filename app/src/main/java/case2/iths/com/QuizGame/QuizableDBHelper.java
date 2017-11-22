@@ -32,4 +32,11 @@ public class QuizableDBHelper extends SQLiteAssetHelper {
         return cursor;
     }
 
+    public Cursor getQuestionsFromCategory(String category) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM " + TABLE + " WHERE " + CATEGORY + " = '" + category + "'";
+        Cursor cursor = db.rawQuery(query, null);
+        return cursor;
+    }
+
 }
