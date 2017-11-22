@@ -38,19 +38,19 @@ public class PlayGameActivity extends AppCompatActivity {
             case R.id.button_music:
                 savedSettings.giveSound(this);
                 Intent musicIntent = new Intent(this, SinglePlayerActivity.class);
-                musicIntent.putExtra("genre", "Music");
+                musicIntent.putExtra("genre", "Musik");
                 startSingleGame(musicIntent);
                 break;
             case R.id.button_geography:
                 savedSettings.giveSound(this);
                 Intent geoIntent = new Intent(this, SinglePlayerActivity.class);
-                geoIntent.putExtra("genre", "Geography");
+                geoIntent.putExtra("genre", "Geografi");
                 startSingleGame(geoIntent);
                 break;
             case R.id.button_science:
                 savedSettings.giveSound(this);
                 Intent scienceIntent = new Intent(this, SinglePlayerActivity.class);
-                scienceIntent.putExtra("genre", "Science");
+                scienceIntent.putExtra("genre", "Vetenskap");
                 startSingleGame(scienceIntent);
                 break;
             case R.id.button_culture:
@@ -62,7 +62,7 @@ public class PlayGameActivity extends AppCompatActivity {
             case R.id.button_games:
                 savedSettings.giveSound(this);
                 Intent gamesIntent = new Intent(this, SinglePlayerActivity.class);
-                gamesIntent.putExtra("genre", "Games");
+                gamesIntent.putExtra("genre", "Spel");
                 startSingleGame(gamesIntent);
                 break;
             case R.id.button_own_questions:

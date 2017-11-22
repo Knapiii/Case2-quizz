@@ -82,7 +82,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:background="@drawable/button_shape"
+            android:background="@drawable/main_background"
             android:onClick="trueButtonPressed"
             android:text="Sant"
             android:textSize="20dp"
@@ -96,7 +96,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:background="@drawable/button_shape"
+            android:background="@drawable/main_background"
             android:onClick="falseButtonPressed"
             android:text="Falskt"
             android:textSize="20dp"
@@ -106,5 +106,12 @@
             app:layout_constraintTop_toBottomOf="@+id/questionField" />
 
     </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="50" />
 
 </android.support.constraint.ConstraintLayout>
