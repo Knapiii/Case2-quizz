@@ -1,19 +1,23 @@
 package case2.iths.com.QuizGame;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
+
 
 public class SinglePlayerActivity extends AppCompatActivity {
 
     private TextView points;
     private TextView question;
     private int pointsCount, numDoneQuestions;
-    private ArrayList<String> questions = new ArrayList<>();
+    private List<String> questions = new ArrayList<>();
     private ArrayList<Integer> pastStatement = new ArrayList<>();
     private SavedSettings savedSettings;
 
@@ -44,18 +48,12 @@ public class SinglePlayerActivity extends AppCompatActivity {
      * Påståenden som ska slumpas i spelet
      */
     public void statements(){
-        questions.add("aaa");
-        questions.add("bbb");
-        questions.add("ccc");
-        questions.add("ddd");
-        questions.add("eee");
-        questions.add("fff");
-        questions.add("ggg");
-        questions.add("hhh");
-        questions.add("iii");
-        questions.add("jjj");
-        questions.add("kkk");
-        questions.add("lll");
+        //questions.addAll(getAllWithCategory());
+        questions.add("Jesus Kristus");
+        questions.add("Vad trött jag blir");
+        questions.add("På allt");
+        questions.add("Skit som går fel hela tiden");
+        questions.add("Går och lägger mig");
     }
 
     /**
@@ -130,5 +128,11 @@ public class SinglePlayerActivity extends AppCompatActivity {
         }
         return false;
     }
+/*
+    public List<Questions> getAllWithCategory(){
+        List<Questions> questionsList = new ArrayList<>();
+        QuizableDBHelper helper = new QuizableDBHelper(this);
+        helper.getQuestions();
 
+    }*/
 }
