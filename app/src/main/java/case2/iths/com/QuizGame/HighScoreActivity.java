@@ -9,58 +9,43 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
 
 import case2.iths.com.QuizGame.QuizableDatabaseContract.HighScoresInfoEntry;
 
-import static case2.iths.com.QuizGame.QuizableDatabaseContract.*;
+import static case2.iths.com.QuizGame.QuizableDatabaseContract.CategoriesInfoEntry;
 
 public class HighScoreActivity extends AppCompatActivity {
 
-    private Spinner spinner;
-    private ListView listView;
-    private String[] cats;
-    private ArrayList<String> categories = new ArrayList<>();
-    private TextView textView;
-
- //   private String[] names;
+    private Spinner mSpinnerCategories;
+    QuizableOpenHelper mDbOpenHelper;
+    private ListView mListViewHighscores;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_highscore);
-   // inserted default data to database.
-   // insertCategories();
-   // insertHighscores();
-        QuizableOpenHelper mDbOpenHelper = new QuizableOpenHelper(this);
-
-        //fffff
-        textView = findViewById(R.id.highscoreView);
-        textView.setText(loadFromDatabase(mDbOpenHelper).toString());
-
-        spinner = findViewById(R.id.spinner);
-     //   listView = findViewById(R.id.highscore_list);
-       // cats = getResources().getStringArray(R.array.categories_array);
-    //    names = getResources().getStringArray(R.array.top5);
-
-        //Custom adapter:
-
-        HighscoresAdapter highscoresAdapter = new HighscoresAdapter(this, categories);
-    //    HighscoresAdapter highscoresAdapter1 = new HighscoresAdapter(this, names);
-
-        spinner.setAdapter(highscoresAdapter);
-    //    listView.setAdapter(highscoresAdapter1);
+        mDbOpenHelper = new QuizableOpenHelper(this);
 
 
+        loadCategoriesData();
+        loadHighScoresData();
 
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+        mSpinnerCategories.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                showToast(position);
+
+                Cursor cursor = (Cursor) mSpinnerCategories.getItemAtPosition(position);
+
+                String category = cursor.getString(cursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE));
+                String category_id = cursor.getString(cursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_ID));
+
+                showToast(category);
+
+                //loadHighScoresData(category_id);
+
             }
 
             @Override
@@ -71,31 +56,58 @@ public class HighScoreActivity extends AppCompatActivity {
 
     }
 
+    private void loadHighScoresData() {
+        SQLiteDatabase db = mDbOpenHelper.getReadableDatabase();
+        String[] highscoresColumns = {
+                HighScoresInfoEntry.COLUMN_CATEGORY_ID,
+                HighScoresInfoEntry.COLUMN_HIGHSCORE,
+                HighScoresInfoEntry.COLUMN_USER_ID,
+                HighScoresInfoEntry._ID
+        };
+
+        mListViewHighscores = findViewById(R.id.listView_highscores);
+
+        Cursor cursor = db.query(HighScoresInfoEntry.TABLE_NAME, highscoresColumns, null, null, null, null, HighScoresInfoEntry.COLUMN_HIGHSCORE + " DESC");
+        HighscoresAdapter highscoresAdapter = new HighscoresAdapter(this, cursor);
+
+        mListViewHighscores.setAdapter(highscoresAdapter);
 
 
-    private void showToast(int i) {
-        Toast.makeText(this, categories.get(i), Toast.LENGTH_SHORT).show();
+    }
+
+    private void loadCategoriesData() {
+        SQLiteDatabase db = mDbOpenHelper.getReadableDatabase();
+        String[] categoryColumns = {
+                CategoriesInfoEntry.COLUMN_CATEGORY_TITLE,
+                CategoriesInfoEntry.COLUMN_CATEGORY_ID,
+                CategoriesInfoEntry._ID
+        };
+
+        Cursor cursor = db.query(CategoriesInfoEntry.TABLE_NAME, categoryColumns,
+                null, null, null, null, CategoriesInfoEntry.COLUMN_CATEGORY_TITLE);
+
+        mSpinnerCategories = findViewById(R.id.spinner);
+        categoriesCursorAdapter categoriesCursorAdapter = new categoriesCursorAdapter(this, cursor);
+
+        mSpinnerCategories.setAdapter(categoriesCursorAdapter);
+
 
     }
 
 
-    public void insertCategories() {
-        insertCategory("games", "Games");
-        insertCategory("geography", "Geography");
-        insertCategory("music", "Music");
-        insertCategory("own_questions", "Own questions");
-        insertCategory("sport", "Sport");
-        insertCategory("science", "Science");
-        insertCategory("test", "test");
+    private void showToast(String category) {
+        Toast.makeText(this, category, Toast.LENGTH_SHORT).show();
+
     }
 
+    //This method adds a new category into the database category_info table
 
     private void insertCategory(String category_id, String category_text) {
         QuizableOpenHelper helper = new QuizableOpenHelper(this);
         SQLiteDatabase db = helper.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
-        contentValues.put(CategoriesInfoEntry.COLUMN_CATEGORY_ID, category_id );
+        contentValues.put(CategoriesInfoEntry.COLUMN_CATEGORY_ID, category_id);
         contentValues.put(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE, category_text);
         long id = db.insert(CategoriesInfoEntry.TABLE_NAME, null, contentValues);
 
@@ -104,18 +116,7 @@ public class HighScoreActivity extends AppCompatActivity {
     }
 
 
-    public void insertHighscores() {
-        insertHighscore("sport", 300, "daniel");
-        insertHighscore("sport", 400, "alvar");
-        insertHighscore("sport", 100, "kristoffer");
-        insertHighscore("sport", 2200, "hanna");
-        insertHighscore("sport", 5400, "hanna");
-        insertHighscore("sport", 10, "ibrahim");
-        insertHighscore("sport", 90000, "alvar");
-
-    }
-
-
+    //This method adds a new score into the database highscore_info table
 
     private void insertHighscore(String category_id, int score, String user_id) {
         QuizableOpenHelper helper = new QuizableOpenHelper(this);
@@ -135,48 +136,10 @@ public class HighScoreActivity extends AppCompatActivity {
 
     }
 
-    //Takes data from highscore table in Quizable database.
-
-    private ArrayList<String> loadFromDatabase(QuizableOpenHelper dbHelper) {
-
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-        String[] categoryColumns = {
-                CategoriesInfoEntry.COLUMN_CATEGORY_ID,
-                CategoriesInfoEntry.COLUMN_CATEGORY_TITLE};
-        Cursor categoryCursor = db.query(CategoriesInfoEntry.TABLE_NAME, categoryColumns, null, null, null, null, null);
-
-        loadCategoriesFromDatabase(categoryCursor);
-        //String[] highscoreColumns = {HighScoresInfoEntry.COLUMN_CATEGORY_ID, HighScoresInfoEntry.COLUMN_HIGHSCORE, HighScoresInfoEntry.COLUMN_USER_ID};
-        //Cursor highscoreCursor = db.query(HighScoresInfoEntry.TABLE_NAME, highscoreColumns, null, null, null, null, null);
-
-        db.close();
-        return categories;
-    }
-
-    //This method add data from the database to our categories array-list
-    private void loadCategoriesFromDatabase(Cursor cursor) {
-
-        //int categoryIdPos = cursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_ID);
-        int categoryTitlePos = cursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE);
-
-        boolean success = cursor.moveToFirst();
-        if (!success)
-            return;
-
-        do{
-            //String categoryId = cursor.getString(categoryIdPos);
-            String categoryTitle = cursor.getString(categoryTitlePos);
-
-            categories.add(categoryTitle);
-
-        }while(cursor.moveToNext());
-    }
-
-
-    // TODO: 2017-11-14 Lägg till:
-    // TODO: PLAY HISTORY
-    // TODO: STATISTIC FOR ALL CATEGIRES OR A SPESIFIC CAREGORY
-    // TODO: RANKING
-
 }
 
+
+// TODO: 2017-11-14 Lägg till:
+// TODO: PLAY HISTORY
+// TODO: STATISTIC FOR ALL CATEGIRES OR A SPESIFIC CAREGORY
+// TODO: RANKING

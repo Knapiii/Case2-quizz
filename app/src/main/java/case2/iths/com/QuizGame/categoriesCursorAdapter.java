@@ -8,20 +8,16 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
-import static case2.iths.com.QuizGame.QuizableDatabaseContract.HighScoresInfoEntry;
+import static case2.iths.com.QuizGame.QuizableDatabaseContract.CategoriesInfoEntry;
 
 /**
  * Created by alvaro on 2017-11-17.
  */
 
-public class HighscoresAdapter extends CursorAdapter {
+public class categoriesCursorAdapter extends CursorAdapter {
 
-    private ArrayList<String> dataSource;
-    private LayoutInflater inflater;
 
-    public HighscoresAdapter(Context context, Cursor c) {
+    public categoriesCursorAdapter(Context context, Cursor c) {
         super(context, c, 0);
     }
 
@@ -35,9 +31,8 @@ public class HighscoresAdapter extends CursorAdapter {
     public void bindView(View view, Context context, Cursor cursor) {
 
         TextView textView = view.findViewById(R.id.textView);
-        String highscore = cursor.getString(cursor.getColumnIndex(HighScoresInfoEntry.COLUMN_USER_ID))
-                +" "+ cursor.getString(cursor.getColumnIndex(HighScoresInfoEntry.COLUMN_HIGHSCORE)) + " points";
-        textView.setText(highscore);
+        String category = cursor.getString(cursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE));
+        textView.setText(category);
 
     }
 

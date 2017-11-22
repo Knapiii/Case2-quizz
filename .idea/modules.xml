@@ -4,8 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Case2-quizz.iml" filepath="$PROJECT_DIR$/Case2-quizz.iml" />
       <module fileurl="file://D:\Case2\Case2-quizz\Case2-quizz.iml" filepath="D:\Case2\Case2-quizz\Case2-quizz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Quizable.iml" filepath="$PROJECT_DIR$/Quizable.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://D:\Case2\Case2-quizz\app\app.iml" filepath="D:\Case2\Case2-quizz\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
 </project>
