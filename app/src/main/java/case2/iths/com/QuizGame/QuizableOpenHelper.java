@@ -1,5 +1,6 @@
 package case2.iths.com.QuizGame;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -37,15 +38,54 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
     public Cursor getHighScores(String category_id) {
 
         SQLiteDatabase db = this.getReadableDatabase();
-        String query = "SELECT * FROM " + HighScoresInfoEntry.TABLE_NAME + " WHERE " + HighScoresInfoEntry.COLUMN_CATEGORY_ID + " = '" + category_id + "'";
-        Cursor cursor = db.rawQuery(query, null);
-        return cursor;
 
+        String selection = HighScoresInfoEntry.COLUMN_CATEGORY_ID + " = ?";
+        String[] selectionArgs = {category_id};
+        String[] highscoresColumns = {
+                HighScoresInfoEntry.COLUMN_CATEGORY_ID,
+                HighScoresInfoEntry.COLUMN_HIGHSCORE,
+                HighScoresInfoEntry.COLUMN_USER_ID,
+                HighScoresInfoEntry._ID
+        };
+        Cursor cursor = db.query(HighScoresInfoEntry.TABLE_NAME, highscoresColumns, selection, selectionArgs, null, null, HighScoresInfoEntry.COLUMN_HIGHSCORE + " DESC");
+        return cursor;
 
     }
 
-    public Cursor getCategories() {
+    // Use this to add a new highscore to the database highscore table;
 
+    public void insertHighscore(String category_id, int score, String user_id) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(HighScoresInfoEntry.COLUMN_CATEGORY_ID, category_id);
+        contentValues.put(HighScoresInfoEntry.COLUMN_HIGHSCORE, score);
+        contentValues.put(HighScoresInfoEntry.COLUMN_USER_ID, user_id);
+
+        long newRowId = db.insert(HighScoresInfoEntry.TABLE_NAME, null, contentValues);
+
+        db.close();
+
+    }
+
+    // Use this to add a new category to the database category table;
+
+    public void insertCategory(String category_id, String category_text) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(CategoriesInfoEntry.COLUMN_CATEGORY_ID, category_id);
+        contentValues.put(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE, category_text);
+        long id = db.insert(CategoriesInfoEntry.TABLE_NAME, null, contentValues);
+
+        db.close();
+
+    }
+
+    // returns categeories in a alphabetic order.
+
+    public Cursor loadCategoriesData() {
         SQLiteDatabase db = this.getReadableDatabase();
         String[] categoryColumns = {
                 CategoriesInfoEntry.COLUMN_CATEGORY_TITLE,
@@ -59,70 +99,5 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
         return cursor;
 
     }
-
-
-    /*  //Takes data from highscore_info table in the Quizable database.
-
-    private void loadFromDatabase(QuizableOpenHelper dbHelper) {
-
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-        String[] categoryColumns = {
-                CategoriesInfoEntry.COLUMN_CATEGORY_ID,
-                CategoriesInfoEntry.COLUMN_CATEGORY_TITLE};
-        Cursor categoryCursor = db.query(CategoriesInfoEntry.TABLE_NAME, categoryColumns, null, null, null, null, null);
-
-      //  loadCategoriesFromDatabase(categoryCursor);
-
-      //  String[] highscoreColumns = {HighScoresInfoEntry.COLUMN_CATEGORY_ID, HighScoresInfoEntry.COLUMN_HIGHSCORE, HighScoresInfoEntry.COLUMN_USER_ID};
-       // Cursor highscoreCursor = db.query(HighScoresInfoEntry.TABLE_NAME, highscoreColumns, null, null, null, null, null);
-
-      //  loadHighscoresFromDatabase(highscoreCursor);
-        db.close();
-
-    }*/
-
-  /*  //This method add data from the database to our categories array-list
-    private ArrayList<String> loadCategoriesFromDatabase(Cursor cursor) {
-
-        //int categoryIdPos = cursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_ID);
-        int categoryTitlePos = cursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE);
-
-        boolean success = cursor.moveToFirst();
-        if (!success)
-            return null;
-
-        do{
-            //String categoryId = cursor.getString(categoryIdPos);
-            String categoryTitle = cursor.getString(categoryTitlePos);
-
-   //         categories.add(categoryTitle);
-
-        }while(cursor.moveToNext());
-
-        return null;
-    }*/
-
- /*   private ArrayList<Integer> loadHighscoresFromDatabase(Cursor cursor) {
-
-        int categoryIdPos = cursor.getColumnIndex(HighScoresInfoEntry.COLUMN_CATEGORY_ID);
-        int highscorePos = cursor.getColumnIndex(HighScoresInfoEntry.COLUMN_HIGHSCORE);
-        int userPos = cursor.getColumnIndex(HighScoresInfoEntry.COLUMN_USER_ID);
-
-        boolean success = cursor.moveToFirst();
-        if(!success)
-            return null;
-
-        do {
-            String categoryId = cursor.getString(categoryIdPos);
-            int highscore = cursor.getInt(highscorePos);
-            String userId = cursor.getString(userPos);
-
-            highscores.add(highscore);
-            users.add(userId);
-
-        } while (cursor.moveToNext());
-
-        return highscores;
-    }*/
 
 }

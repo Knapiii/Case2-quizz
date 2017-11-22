@@ -40,8 +40,8 @@ public final class QuizableDatabaseContract {
         public static final String SQL_CREATE_TABLE =
                 "CREATE TABLE " + TABLE_NAME + " (" +
                         _ID + " INTEGER PRIMARY KEY, " +
-                        COLUMN_CATEGORY_ID + " TEXT NOT NULL, " +
-                        COLUMN_CATEGORY_TITLE + " TEXT NOT NULL)";
+                        COLUMN_CATEGORY_ID + " TEXT UNIQUE NOT NULL, " +
+                        COLUMN_CATEGORY_TITLE + " TEXT UNIQUE NOT NULL)";
 
 
     }

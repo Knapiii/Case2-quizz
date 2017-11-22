@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         savedSettings = new SavedSettings();
 
+        QuizableOpenHelper mDbOpenHelper = new QuizableOpenHelper(this);
+
 
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         boolean silent = settings.getBoolean("silentMode", false);
