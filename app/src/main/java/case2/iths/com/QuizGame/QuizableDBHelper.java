@@ -39,4 +39,5 @@ public class QuizableDBHelper extends SQLiteAssetHelper {
         return cursor;
     }
 
+
 }

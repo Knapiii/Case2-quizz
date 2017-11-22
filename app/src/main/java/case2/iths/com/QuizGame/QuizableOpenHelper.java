@@ -44,6 +44,22 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
     }
 
+    public Cursor getCategories() {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] categoryColumns = {
+                CategoriesInfoEntry.COLUMN_CATEGORY_TITLE,
+                CategoriesInfoEntry.COLUMN_CATEGORY_ID,
+                CategoriesInfoEntry._ID
+        };
+
+        Cursor cursor = db.query(CategoriesInfoEntry.TABLE_NAME, categoryColumns,
+                null, null, null, null, CategoriesInfoEntry.COLUMN_CATEGORY_TITLE);
+
+        return cursor;
+
+    }
+
 
     /*  //Takes data from highscore_info table in the Quizable database.
 

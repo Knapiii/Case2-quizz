@@ -14,10 +14,10 @@ import static case2.iths.com.QuizGame.QuizableDatabaseContract.CategoriesInfoEnt
  * Created by alvaro on 2017-11-17.
  */
 
-public class categoriesCursorAdapter extends CursorAdapter {
+public class CategoriesCursorAdapter extends CursorAdapter {
 
 
-    public categoriesCursorAdapter(Context context, Cursor c) {
+    public CategoriesCursorAdapter(Context context, Cursor c) {
         super(context, c, 0);
     }
 

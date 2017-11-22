@@ -92,9 +92,9 @@ public class HighScoreActivity extends AppCompatActivity {
                 null, null, null, null, CategoriesInfoEntry.COLUMN_CATEGORY_TITLE);
 
         mSpinnerCategories = findViewById(R.id.spinner);
-        categoriesCursorAdapter categoriesCursorAdapter = new categoriesCursorAdapter(this, cursor);
+        CategoriesCursorAdapter CategoriesCursorAdapter = new CategoriesCursorAdapter(this, cursor);
 
-        mSpinnerCategories.setAdapter(categoriesCursorAdapter);
+        mSpinnerCategories.setAdapter(CategoriesCursorAdapter);
 
 
     }

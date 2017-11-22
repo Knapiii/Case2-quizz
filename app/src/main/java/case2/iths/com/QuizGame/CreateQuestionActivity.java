@@ -1,5 +1,8 @@
 package case2.iths.com.QuizGame;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -8,6 +11,8 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 
+import case2.iths.com.QuizGame.QuizableDatabaseContract.CategoriesInfoEntry;
+
 public class CreateQuestionActivity extends AppCompatActivity {
 
     public Spinner spinner;
@@ -15,6 +20,7 @@ public class CreateQuestionActivity extends AppCompatActivity {
     private ArrayList<String> categories = new ArrayList<>();
     private Button buttonTrue, buttonFalse;
     private boolean buttonTrueClicked;
+    private SQLiteOpenHelper mDbOpenHelper;
 
 
     @Override
@@ -25,13 +31,18 @@ public class CreateQuestionActivity extends AppCompatActivity {
         buttonTrue = findViewById(R.id.togglebutton_add_true);
         buttonFalse = findViewById(R.id.togglebutton_add_false);
 
+        mDbOpenHelper = new QuizableOpenHelper(this);
+
+
+
+
         categories.add("Välj kategori: ");
         categories.add("Sport");
         categories.add("Food");
         categories.add("TV");
         categories.add("Games");
 
-        categorySpinner();
+        loadCategoriesData();
 /*
         // Initializing an ArrayAdapter
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
@@ -79,8 +90,22 @@ public class CreateQuestionActivity extends AppCompatActivity {
         });*/
     }
 
-    public void categorySpinner(){
+    private void loadCategoriesData() {
+        SQLiteDatabase db = mDbOpenHelper.getReadableDatabase();
         spinner = findViewById(R.id.spinner_add_category);
+        String[] categoryColumns = {
+                CategoriesInfoEntry.COLUMN_CATEGORY_TITLE,
+                CategoriesInfoEntry.COLUMN_CATEGORY_ID,
+                CategoriesInfoEntry._ID
+        };
+
+        Cursor cursor = db.query(CategoriesInfoEntry.TABLE_NAME, categoryColumns,
+                null, null, null, null, CategoriesInfoEntry.COLUMN_CATEGORY_TITLE);
+
+        CategoriesCursorAdapter CategoriesCursorAdapter = new CategoriesCursorAdapter(this, cursor);
+
+        spinner.setAdapter(CategoriesCursorAdapter);
+
 
     }
 
