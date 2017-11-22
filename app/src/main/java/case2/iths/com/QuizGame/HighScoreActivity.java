@@ -29,7 +29,6 @@ public class HighScoreActivity extends AppCompatActivity {
 
 
         loadCategoriesData();
-        loadHighScoresData();
 
 
         mSpinnerCategories.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -44,6 +43,11 @@ public class HighScoreActivity extends AppCompatActivity {
 
                 showToast(category);
 
+                Cursor cursor1 = mDbOpenHelper.getHighScores(category_id);
+
+                loadHighScoresData(cursor1);
+
+
                 //loadHighScoresData(category_id);
 
             }
@@ -56,21 +60,22 @@ public class HighScoreActivity extends AppCompatActivity {
 
     }
 
-    private void loadHighScoresData() {
-        SQLiteDatabase db = mDbOpenHelper.getReadableDatabase();
-        String[] highscoresColumns = {
-                HighScoresInfoEntry.COLUMN_CATEGORY_ID,
-                HighScoresInfoEntry.COLUMN_HIGHSCORE,
-                HighScoresInfoEntry.COLUMN_USER_ID,
-                HighScoresInfoEntry._ID
-        };
+    private void loadHighScoresData(Cursor cursor) {
+//        SQLiteDatabase db = mDbOpenHelper.getReadableDatabase();
+//        String[] highscoresColumns = {
+//                HighScoresInfoEntry.COLUMN_CATEGORY_ID,
+//                HighScoresInfoEntry.COLUMN_HIGHSCORE,
+//                HighScoresInfoEntry.COLUMN_USER_ID,
+//                HighScoresInfoEntry._ID
+//        };
 
         mListViewHighscores = findViewById(R.id.listView_highscores);
 
-        Cursor cursor = db.query(HighScoresInfoEntry.TABLE_NAME, highscoresColumns, null, null, null, null, HighScoresInfoEntry.COLUMN_HIGHSCORE + " DESC");
+        //Cursor cursor = db.query(HighScoresInfoEntry.TABLE_NAME, highscoresColumns, null, null, null, null, HighScoresInfoEntry.COLUMN_CATEGORY_ID + " DESC");
         HighscoresAdapter highscoresAdapter = new HighscoresAdapter(this, cursor);
 
         mListViewHighscores.setAdapter(highscoresAdapter);
+
 
 
     }

@@ -1,8 +1,12 @@
 package case2.iths.com.QuizGame;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import static case2.iths.com.QuizGame.QuizableDatabaseContract.CategoriesInfoEntry;
+import static case2.iths.com.QuizGame.QuizableDatabaseContract.HighScoresInfoEntry;
 
 /**
  * Created by alvaro on 2017-11-19.
@@ -20,13 +24,23 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        db.execSQL(QuizableDatabaseContract.CategoriesInfoEntry.SQL_CREATE_TABLE);
-        db.execSQL(QuizableDatabaseContract.HighScoresInfoEntry.SQL_CREATE_TABLE);
+        db.execSQL(CategoriesInfoEntry.SQL_CREATE_TABLE);
+        db.execSQL(HighScoresInfoEntry.SQL_CREATE_TABLE);
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+    }
+
+    public Cursor getHighScores(String category_id) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM " + HighScoresInfoEntry.TABLE_NAME + " WHERE " + HighScoresInfoEntry.COLUMN_CATEGORY_ID + " = '" + category_id + "'";
+        Cursor cursor = db.rawQuery(query, null);
+        return cursor;
+
 
     }
 
