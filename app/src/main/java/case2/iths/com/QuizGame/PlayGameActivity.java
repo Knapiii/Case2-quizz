@@ -56,7 +56,7 @@ public class PlayGameActivity extends AppCompatActivity {
             case R.id.button_culture:
                 savedSettings.giveSound(this);
                 Intent cultureIntent = new Intent(this, SinglePlayerActivity.class);
-                cultureIntent.putExtra("genre", "Culture");
+                cultureIntent.putExtra("genre", "Mat");
                 startSingleGame(cultureIntent);
                 break;
             case R.id.button_games:

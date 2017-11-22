@@ -2,6 +2,7 @@ package case2.iths.com.QuizGame;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,16 +13,16 @@ import java.util.Random;
 
 public class SinglePlayerActivity extends AppCompatActivity {
 
-    private TextView points;
+    private TextView pointsView, question, secondsView;
     private String genre;
-    private TextView question;
-    private int pointsCount, numDoneQuestions;
+    private int points, numDoneQuestions, seconds;
     private ArrayList<String> questions = new ArrayList<>();
     private ArrayList<String> answers = new ArrayList<>();
     private ArrayList<Integer> pastStatement = new ArrayList<>();
     private SavedSettings savedSettings;
     private String questionString, answerString;
     private QuizableDBHelper quizableDBHelper;
+    private CountDownTimer cdTimer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,15 +32,38 @@ public class SinglePlayerActivity extends AppCompatActivity {
         genre = getIntent().getStringExtra("genre");
         TextView headLine = findViewById(R.id.top_text_category);
         headLine.setText(genre);
-        pointsCount = 0;
+        points = 0;
         numDoneQuestions = 0;
         questionString = "";
         answerString = "";
         quizableDBHelper = new QuizableDBHelper(this);
-        points = findViewById(R.id.points);
+        pointsView = findViewById(R.id.points);
         updatePoints();
         statements();
         question = findViewById(R.id.questionField);
+        secondsView = findViewById(R.id.display_seconds);
+        cdTimer = new CountDownTimer(3000, 100) {
+            @Override
+            public void onTick(long l) {
+                if (l > 2000) {
+                    secondsView.setText("3");
+                    seconds = 3;
+                }
+                else if (l < 1000) {
+                    secondsView.setText("1");
+                    seconds = 1;
+                }
+                else {
+                    secondsView.setText("2");
+                    seconds = 2;
+                }
+            }
+
+            @Override
+            public void onFinish() {
+                showRandomQuestion();
+            }
+        }.start();
         showRandomQuestion();
     }
 
@@ -53,25 +77,30 @@ public class SinglePlayerActivity extends AppCompatActivity {
      * Påståenden som ska slumpas i spelet
      */
     public void statements(){
-        //questions.addAll(getAllWithCategory());
         setStatementsWithCategory(genre);
-        //questions.add("Jesus Kristus");
     }
 
     /**
      * Gör så att alla påståenden slumpas
      */
     public void showRandomQuestion(){
-        Random rand = new Random();
-        int randId = rand.nextInt(questions.size());
-        if (isStatementRepeated(randId)){
-            showRandomQuestion();
-            return;
+        cdTimer.cancel();
+        if (!isRoundOver()){
+            cdTimer.start();
+            Random rand = new Random();
+            int randId = rand.nextInt(questions.size());
+            if (isStatementRepeated(randId)){
+                showRandomQuestion();
+                return;
+            }
+            pastStatement.add(randId);
+            questionString = questions.get(randId);
+            answerString = answers.get(randId);
+            question.setText(questionString);
+            numDoneQuestions++;
         }
-        pastStatement.add(randId);
-        questionString = questions.get(randId);
-        answerString = answers.get(randId);
-        question.setText(questionString);
+        else
+            startResultActivity();
     }
 
     /**
@@ -79,14 +108,12 @@ public class SinglePlayerActivity extends AppCompatActivity {
      */
     public void trueButtonPressed(View view){
         savedSettings.giveSound(this);
+        if (answerString.equalsIgnoreCase("Sant"))
+            points += seconds;
         if (isRoundOver()){
-            Intent intent = new Intent(this, ResultActivity.class);
-            startActivity(intent);
+            startResultActivity();
             return;
         }
-
-        numDoneQuestions++;
-        pointsCount++;
         updatePoints();
         showRandomQuestion();
     }
@@ -96,29 +123,38 @@ public class SinglePlayerActivity extends AppCompatActivity {
      */
     public void falseButtonPressed(View view){
         savedSettings.giveSound(this);
+        if (answerString.equalsIgnoreCase("Falskt"))
+            points += seconds;
         if (isRoundOver()){
-            Intent intent = new Intent(this, ResultActivity.class);
-            startActivity(intent);
+            startResultActivity();
             return;
         }
-        numDoneQuestions++;
-        pointsCount++;
         updatePoints();
         showRandomQuestion();
+    }
+
+    /**
+     * Startar ResultActivity efter fem frågor har visats
+     */
+    public void startResultActivity(){
+        Intent intent = new Intent(this, ResultActivity.class);
+        intent.putExtra("points", points);
+        intent.putExtra("category", genre);
+        startActivity(intent);
     }
 
     /**
      * Gör så att poängen uppdateras under spelets gång
      */
     public void updatePoints(){
-        points.setText("" + pointsCount);
+        pointsView.setText("" + points);
     }
 
     /**
      * Kontrollerar om rundan är över eller inte
      */
     public boolean isRoundOver(){
-        return numDoneQuestions == 4;
+        return numDoneQuestions == 5;
     }
 
     /**

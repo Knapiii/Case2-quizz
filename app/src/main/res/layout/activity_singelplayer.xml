@@ -75,7 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@color/ButtonBackground"
-        android:text="@string/culture"
+        android:text="@string/mat"
         android:textColor="@android:color/background_light"
         android:textSize="20sp"
         android:textStyle="bold"

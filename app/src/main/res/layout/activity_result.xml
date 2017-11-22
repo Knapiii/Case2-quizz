@@ -5,31 +5,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_background"
-
-    tools:context="case2.iths.com.QuizGame.ResultActivity">
+    tools:context="case2.iths.com.QuizGame.ResultActivity"
+    tools:layout_editor_absoluteY="25dp">
 
     <TextView
         android:id="@+id/top_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/lobster_two_bold"
         android:text="@string/result"
         android:textAlignment="center"
         android:textColor="@android:color/white"
         android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/amount_of_points"
+        app:layout_constraintStart_toStartOf="@+id/amount_of_points"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/amount_of_points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/played_category"
+        app:layout_constraintStart_toStartOf="@+id/played_category"
+        app:layout_constraintTop_toBottomOf="@+id/top_text" />
+
+    <TextView
+        android:id="@+id/played_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/amount_of_points" />
 
     <TextView
         android:id="@+id/developed_by_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="15dp"
         android:text="@string/developed_by"
         android:textColor="@color/ButtonBackground"
         app:layout_constraintBottom_toBottomOf="parent"
