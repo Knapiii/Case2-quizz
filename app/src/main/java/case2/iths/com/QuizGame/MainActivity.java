@@ -2,6 +2,7 @@ package case2.iths.com.QuizGame;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -21,14 +22,13 @@ public class MainActivity extends AppCompatActivity {
 
         mDbOpenHelper = new QuizableOpenHelper(this);
 
-        mDbOpenHelper.insertCategory("culture", "Culture");
-
-
+        SQLiteDatabase db = mDbOpenHelper.getReadableDatabase();
 
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         boolean silent = settings.getBoolean("silentMode", false);
         savedSettings.setSoundOn(silent);
     }
+
 
     /**
      * När vi klickar på knappen "Play" så ska vi komma till GameMenuActivity
@@ -69,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        mDbOpenHelper.close();
         super.onDestroy();
     }
 }

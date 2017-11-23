@@ -55,6 +55,8 @@ public class CreateQuestionActivity extends AppCompatActivity {
         CategoriesCursorAdapter CategoriesCursorAdapter = new CategoriesCursorAdapter(this, cursor);
 
         spinner.setAdapter(CategoriesCursorAdapter);
+        spinner.setSelection(1);
+
 
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

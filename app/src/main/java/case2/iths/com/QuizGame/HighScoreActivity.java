@@ -1,6 +1,5 @@
 package case2.iths.com.QuizGame;
 
-import android.annotation.SuppressLint;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -29,13 +28,13 @@ public class HighScoreActivity extends AppCompatActivity {
 
     }
 
-    @SuppressLint("WrongViewCast")
-    private void loadCategoriesSpinner() {
+    public void loadCategoriesSpinner() {
 
         mSpinnerCategories = findViewById(R.id.spinner);
         Cursor cursor = mDbOpenHelper.loadCategoriesData();
-        CategoriesCursorAdapter CategoriesCursorAdapter = new CategoriesCursorAdapter(this, cursor);
-        mSpinnerCategories.setAdapter(CategoriesCursorAdapter);
+        CategoriesCursorAdapter categoriesCursorAdapter = new CategoriesCursorAdapter(this, cursor);
+        mSpinnerCategories.setAdapter(categoriesCursorAdapter);
+        mSpinnerCategories.setSelection(1);
 
         mSpinnerCategories.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
@@ -80,8 +79,6 @@ public class HighScoreActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-
-        mDbOpenHelper.close();
         super.onDestroy();
     }
 }

@@ -24,6 +24,8 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+
+    // Creates 3 database tables
     @Override
     public void onCreate(SQLiteDatabase db) {
 
@@ -31,13 +33,22 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
         db.execSQL(HighScoresInfoEntry.SQL_CREATE_TABLE);
         db.execSQL(OwnStatementsEntry.SQL_CREATE_TABLE);
 
+
+        // Adds default categories to the categories table in the database
+        DatabaseDataWorker databaseDataWorker = new DatabaseDataWorker(db);
+        databaseDataWorker.insertCategories();
+
+
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
+
     }
 
+    // returns highscores for the specific category
     public Cursor getHighScores(String category_id) {
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -51,20 +62,21 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
                 HighScoresInfoEntry._ID
         };
         Cursor cursor = db.query(HighScoresInfoEntry.TABLE_NAME, highscoresColumns, selection, selectionArgs, null, null, HighScoresInfoEntry.COLUMN_HIGHSCORE + " DESC");
+
         return cursor;
 
     }
 
-    // Use this to add a new highscore to the database highscore table;
+    // Use this method to add a new highscore to the database highscore table;
 
-    public void insertHighscore(String category_id, int score, String user_id) {
+    public void insertHighscore(String categoryId, int score, String userId) {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
-        contentValues.put(HighScoresInfoEntry.COLUMN_CATEGORY_ID, category_id);
+        contentValues.put(HighScoresInfoEntry.COLUMN_CATEGORY_ID, categoryId);
         contentValues.put(HighScoresInfoEntry.COLUMN_HIGHSCORE, score);
-        contentValues.put(HighScoresInfoEntry.COLUMN_USER_ID, user_id);
+        contentValues.put(HighScoresInfoEntry.COLUMN_USER_ID, userId);
 
         long newRowId = db.insert(HighScoresInfoEntry.TABLE_NAME, null, contentValues);
 
@@ -72,7 +84,7 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
     }
 
-    // Use this to add a new category to the database category table;
+    // Use this method to add a new category to the database category table;
 
     public void insertCategory(String category_id, String category_text) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -86,7 +98,7 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
     }
 
-    // returns categeories in an alphabetic order.
+    // returns all categeories in an alphabetic order.
 
     public Cursor loadCategoriesData() {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -98,10 +110,11 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
         Cursor cursor = db.query(CategoriesInfoEntry.TABLE_NAME, categoryColumns,
                 null, null, null, null, CategoriesInfoEntry.COLUMN_CATEGORY_TITLE);
-
         return cursor;
 
     }
+
+    // This method adds a new statement in to the own_questions table in the database
 
     public void insertStatement(String category_id, String statement, String answer) {
         SQLiteDatabase db = this.getWritableDatabase();
