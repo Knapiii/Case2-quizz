@@ -16,7 +16,7 @@
         android:inputType="textPersonName"
         android:text="@string/add_statement"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/gameField_add_question"
+        app:layout_constraintBottom_toTopOf="@+id/gameField_add_statement"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -33,17 +33,17 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/gameField_add_question"
+        android:id="@+id/gameField_add_statement"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_add_question"
+        app:layout_constraintBottom_toTopOf="@+id/button_add_statement"
         tools:layout_editor_absoluteX="0dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
         <EditText
-            android:id="@+id/editText_add_question"
+            android:id="@+id/editText_add_statement"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_margin="8dp"
@@ -73,9 +73,9 @@
             android:textOn="Sant"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="@+id/gameField_add_question"
+            app:layout_constraintLeft_toLeftOf="@+id/gameField_add_statement"
             app:layout_constraintRight_toLeftOf="@+id/togglebutton_add_false"
-            app:layout_constraintTop_toBottomOf="@+id/editText_add_question" />
+            app:layout_constraintTop_toBottomOf="@+id/editText_add_statement" />
 
         <Button
             android:id="@+id/togglebutton_add_false"
@@ -90,17 +90,18 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toRightOf="@+id/togglebutton_add_true"
-            app:layout_constraintRight_toRightOf="@+id/gameField_add_question"
-            app:layout_constraintTop_toBottomOf="@+id/editText_add_question" />
+            app:layout_constraintRight_toRightOf="@+id/gameField_add_statement"
+            app:layout_constraintTop_toBottomOf="@+id/editText_add_statement" />
 
     </android.support.constraint.ConstraintLayout>
 
     <Button
-        android:id="@+id/button_add_question"
+        android:id="@+id/button_add_statement"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="48dp"
         android:background="@color/ButtonBackground"
+        android:onClick="onButtonAddClicked"
         android:text="@string/add"
         android:textColor="@android:color/background_light"
         android:textSize="20sp"
@@ -134,7 +135,7 @@
         android:text="@string/statement_true_false"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gameField_add_question"/>
+        app:layout_constraintTop_toBottomOf="@+id/gameField_add_statement"/>
 
     <TextView
         android:id="@+id/choose_category"

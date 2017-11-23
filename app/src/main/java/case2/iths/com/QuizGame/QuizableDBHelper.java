@@ -1,5 +1,6 @@
 package case2.iths.com.QuizGame;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -38,6 +39,7 @@ public class QuizableDBHelper extends SQLiteAssetHelper {
         Cursor cursor = db.rawQuery(query, null);
         return cursor;
     }
+
 
 
 }

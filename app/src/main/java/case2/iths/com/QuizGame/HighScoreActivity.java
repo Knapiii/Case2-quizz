@@ -1,5 +1,6 @@
 package case2.iths.com.QuizGame;
 
+import android.annotation.SuppressLint;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -23,12 +24,12 @@ public class HighScoreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_highscore);
         mDbOpenHelper = new QuizableOpenHelper(this);
 
-
         loadCategoriesSpinner();
 
 
     }
 
+    @SuppressLint("WrongViewCast")
     private void loadCategoriesSpinner() {
 
         mSpinnerCategories = findViewById(R.id.spinner);

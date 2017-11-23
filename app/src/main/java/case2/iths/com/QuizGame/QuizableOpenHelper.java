@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import case2.iths.com.QuizGame.QuizableDatabaseContract.OwnStatementsEntry;
+
 import static case2.iths.com.QuizGame.QuizableDatabaseContract.CategoriesInfoEntry;
 import static case2.iths.com.QuizGame.QuizableDatabaseContract.HighScoresInfoEntry;
 
@@ -27,6 +29,7 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
         db.execSQL(CategoriesInfoEntry.SQL_CREATE_TABLE);
         db.execSQL(HighScoresInfoEntry.SQL_CREATE_TABLE);
+        db.execSQL(OwnStatementsEntry.SQL_CREATE_TABLE);
 
     }
 
@@ -83,7 +86,7 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
     }
 
-    // returns categeories in a alphabetic order.
+    // returns categeories in an alphabetic order.
 
     public Cursor loadCategoriesData() {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -99,5 +102,20 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
         return cursor;
 
     }
+
+    public void insertStatement(String category_id, String statement, String answer) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(OwnStatementsEntry.COLUMN_CATEGORY_ID, category_id);
+        contentValues.put(OwnStatementsEntry.COLUMN_STATEMENT, statement);
+        contentValues.put(OwnStatementsEntry.COLUMN_STATEMENT_ANSWER, answer);
+
+        long id = db.insert(OwnStatementsEntry.TABLE_NAME, null, contentValues);
+
+        db.close();
+
+    }
+
 
 }

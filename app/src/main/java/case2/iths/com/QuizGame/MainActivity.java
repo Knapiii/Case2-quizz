@@ -10,6 +10,7 @@ public class MainActivity extends AppCompatActivity {
 
     SavedSettings savedSettings;
     public static final String PREFS_NAME = "saveSettings";
+    private QuizableOpenHelper mDbOpenHelper;
 
 
     @Override
@@ -18,7 +19,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         savedSettings = new SavedSettings();
 
-        QuizableOpenHelper mDbOpenHelper = new QuizableOpenHelper(this);
+        mDbOpenHelper = new QuizableOpenHelper(this);
+
+        mDbOpenHelper.insertCategory("culture", "Culture");
+
 
 
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
@@ -63,4 +67,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(toAbout);
     }
 
+    @Override
+    protected void onDestroy() {
+        mDbOpenHelper.close();
+        super.onDestroy();
+    }
 }

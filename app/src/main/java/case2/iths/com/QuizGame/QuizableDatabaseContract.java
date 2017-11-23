@@ -46,5 +46,23 @@ public final class QuizableDatabaseContract {
 
     }
 
+    public static final class OwnStatementsEntry implements BaseColumns {
+
+        public static final String TABLE_NAME = "own_questions";
+        public static final String COLUMN_CATEGORY_ID = "category_id";
+        public static final String COLUMN_STATEMENT = "statement";
+        public static final String COLUMN_STATEMENT_ANSWER = "statement_answer";
+
+        public static final String SQL_CREATE_TABLE =
+                "CREATE TABLE " + TABLE_NAME + " (" +
+                        _ID + " INTEGER PRIMARY KEY, " +
+                        COLUMN_STATEMENT + " TEXT NOT NULL, " +
+                        COLUMN_STATEMENT_ANSWER + " TEXT NOT NULL, " +
+                        COLUMN_CATEGORY_ID + " TEXT NOT NULL)";
+
+    }
+
+
+
 }
 
