@@ -18,6 +18,7 @@ public class QuizableDBHelper extends SQLiteAssetHelper {
     private static final String CATEGORY = "Category";
     private static final String QUESTION = "Question";
     private static final String ANSWER = "Answer";
+    private static final String OWN_STATEMENTS = "Own Statements";
     private static final String DATABASE_NAME = "QuizableDB.db";
     private static final int DATABASE_VERSION = 1;
 
@@ -38,6 +39,15 @@ public class QuizableDBHelper extends SQLiteAssetHelper {
         String query = "SELECT * FROM " + TABLE + " WHERE " + CATEGORY + " = '" + category + "'";
         Cursor cursor = db.rawQuery(query, null);
         return cursor;
+    }
+
+    public long insertStatement(String category, String statement, String answer) {
+        ContentValues cv = new ContentValues();
+        cv.put(CATEGORY, category);
+        cv.put(QUESTION, statement);
+        cv.put(ANSWER, answer);
+        cv.put(OWN_STATEMENTS, 1);
+        return getWritableDatabase().insert(TABLE, null, cv);
     }
 
 
