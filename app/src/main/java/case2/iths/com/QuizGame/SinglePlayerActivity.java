@@ -57,10 +57,13 @@ public class SinglePlayerActivity extends AppCompatActivity {
                     secondsView.setText("2");
                     seconds = 2;
                 }
+
             }
 
             @Override
             public void onFinish() {
+                points--;
+                updatePoints();
                 showRandomQuestion();
             }
         }.start();
@@ -147,6 +150,9 @@ public class SinglePlayerActivity extends AppCompatActivity {
      * Gör så att poängen uppdateras under spelets gång
      */
     public void updatePoints(){
+        if (points < 0){
+            points = 0;
+        }
         pointsView.setText("" + points);
     }
 
