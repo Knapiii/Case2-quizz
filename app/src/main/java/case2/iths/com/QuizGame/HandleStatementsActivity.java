@@ -55,4 +55,11 @@ public class HandleStatementsActivity extends AppCompatActivity {
         Intent intent = new Intent(this, CreateQuestionActivity.class);
         startActivity(intent);
     }
+
+
+    public void editStatement(View view) {
+        savedSettings.giveSound(this);
+        Intent intent = new Intent(this, EditStatementActivity.class);
+        startActivity(intent);
+    }
 }

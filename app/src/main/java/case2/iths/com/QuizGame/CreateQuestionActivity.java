@@ -13,6 +13,10 @@ import android.widget.Toast;
 
 import case2.iths.com.QuizGame.QuizableDatabaseContract.CategoriesInfoEntry;
 
+/**
+ * Created by Kristofferknape on 2017-11-19.
+ */
+
 public class CreateQuestionActivity extends AppCompatActivity {
 
     public Spinner spinner;
@@ -30,19 +34,17 @@ public class CreateQuestionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_statements);
         buttonTrueClicked = false;
-        buttonTrue = findViewById(R.id.togglebutton_edit_true);
-        buttonFalse = findViewById(R.id.togglebutton_edit_false);
+        buttonTrue = findViewById(R.id.togglebutton_add_true);
+        buttonFalse = findViewById(R.id.togglebutton_add_false);
 
         mDbOpenHelper = new QuizableOpenHelper(this);
-
-
 
         loadCategoriesData();
     }
 
     private void loadCategoriesData() {
         SQLiteDatabase db = mDbOpenHelper.getReadableDatabase();
-        spinner = findViewById(R.id.spinner_edit_category);
+        spinner = findViewById(R.id.spinner_add_category);
         final String[] categoryColumns = {
                 CategoriesInfoEntry.COLUMN_CATEGORY_TITLE,
                 CategoriesInfoEntry.COLUMN_CATEGORY_ID,
@@ -55,9 +57,6 @@ public class CreateQuestionActivity extends AppCompatActivity {
         CategoriesCursorAdapter CategoriesCursorAdapter = new CategoriesCursorAdapter(this, cursor);
 
         spinner.setAdapter(CategoriesCursorAdapter);
-        spinner.setSelection(1);
-
-
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
@@ -67,61 +66,53 @@ public class CreateQuestionActivity extends AppCompatActivity {
                 Cursor cursor = (Cursor) spinner.getItemAtPosition(position);
                 category = cursor.getString(cursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE));
 
-
-
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
         });
 
-
     }
 
-    public void onButtonTrueClicked(View view){
+    public void onButtonTrueClicked(View view) {
         buttonTrueClicked = true;
         changeButtonColor();
         answer = "true";
     }
 
-    public void onButtonFalseClicked(View view){
+    public void onButtonFalseClicked(View view) {
         buttonTrueClicked = false;
         changeButtonColor();
         answer = "false";
     }
 
-    private void changeButtonColor(){
-        if (buttonTrueClicked){
+    private void changeButtonColor() {
+        if (buttonTrueClicked) {
             buttonTrue.setBackgroundResource(R.drawable.pressed_button_shape);
             buttonFalse.setBackgroundResource(R.drawable.button_shape);
-        }
-        else{
+        } else {
             buttonTrue.setBackgroundResource(R.drawable.button_shape);
             buttonFalse.setBackgroundResource(R.drawable.pressed_button_shape);
         }
     }
 
     public void onButtonAddClicked(View view) {
-      //  Toast.makeText(this, "Add", Toast.LENGTH_SHORT).show();
+        //  Toast.makeText(this, "Add", Toast.LENGTH_SHORT).show();
         addStatement();
 
-
-
-
     }
+
     private void addStatement() {
 
-        newStatement = findViewById(R.id.editText_edit_statement);
+        newStatement = findViewById(R.id.editText_add_statement);
         statement = newStatement.getText().toString();
 
         String input = "SAVED: Category: " + category + " Statement: " + statement + "Answer: " + answer;
 
         Toast.makeText(this, input, Toast.LENGTH_SHORT).show();
 
-        mDbOpenHelper.insertStatement(category,statement,answer);
-
+        mDbOpenHelper.insertStatement(category, statement, answer);
 
     }
 

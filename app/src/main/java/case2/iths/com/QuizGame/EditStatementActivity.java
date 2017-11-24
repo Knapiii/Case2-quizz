@@ -1,24 +1,61 @@
 package case2.iths.com.QuizGame;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 
 public class EditStatementActivity extends AppCompatActivity {
+    public Spinner spinner;
+    private Button buttonTrue, buttonFalse;
+    private boolean buttonTrueClicked;
+    private EditText editStatement;
+    private String statement;
+    private String category;
+    private String answer;
+    private QuizableOpenHelper mDbOpenHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_statement);
+        buttonTrueClicked = false;
+        buttonTrue = findViewById(R.id.togglebutton_edit_true);
+        buttonFalse = findViewById(R.id.togglebutton_edit_false);
     }
 
-    public void onButtonTrueClicked(View view) {
+    public void editButtonTrueClicked(View view) {
+        buttonTrueClicked = true;
+        changeButtonColor();
+        answer = "true";
     }
 
-    public void onButtonFalseClicked(View view) {
+    public void editButtonFalseClicked(View view) {
+        buttonTrueClicked = false;
+        changeButtonColor();
+        answer = "false";
     }
 
-    public void onButtonEditClicked(View view) {
+    public void editButtonEditClicked(View view) {
+    }
+
+    private void editStatement(){
+
+        editStatement = findViewById(R.id.editText_edit_statement);
+
+    }
+
+
+    private void changeButtonColor() {
+        if (buttonTrueClicked) {
+            buttonTrue.setBackgroundResource(R.drawable.pressed_button_shape);
+            buttonFalse.setBackgroundResource(R.drawable.button_shape);
+        } else {
+            buttonTrue.setBackgroundResource(R.drawable.button_shape);
+            buttonFalse.setBackgroundResource(R.drawable.pressed_button_shape);
+        }
     }
 }
 
