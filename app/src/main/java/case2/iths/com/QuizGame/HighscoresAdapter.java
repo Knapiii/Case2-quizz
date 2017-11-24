@@ -8,8 +8,6 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 import static case2.iths.com.QuizGame.QuizableDatabaseContract.HighScoresInfoEntry;
 
 /**
@@ -18,8 +16,6 @@ import static case2.iths.com.QuizGame.QuizableDatabaseContract.HighScoresInfoEnt
 
 public class HighscoresAdapter extends CursorAdapter {
 
-    private ArrayList<String> dataSource;
-    private LayoutInflater inflater;
 
     public HighscoresAdapter(Context context, Cursor c) {
         super(context, c, 0);

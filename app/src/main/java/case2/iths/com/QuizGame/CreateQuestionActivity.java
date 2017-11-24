@@ -30,8 +30,8 @@ public class CreateQuestionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_statements);
         buttonTrueClicked = false;
-        buttonTrue = findViewById(R.id.togglebutton_add_true);
-        buttonFalse = findViewById(R.id.togglebutton_add_false);
+        buttonTrue = findViewById(R.id.togglebutton_edit_true);
+        buttonFalse = findViewById(R.id.togglebutton_edit_false);
 
         mDbOpenHelper = new QuizableOpenHelper(this);
 
@@ -42,7 +42,7 @@ public class CreateQuestionActivity extends AppCompatActivity {
 
     private void loadCategoriesData() {
         SQLiteDatabase db = mDbOpenHelper.getReadableDatabase();
-        spinner = findViewById(R.id.spinner_add_category);
+        spinner = findViewById(R.id.spinner_edit_category);
         final String[] categoryColumns = {
                 CategoriesInfoEntry.COLUMN_CATEGORY_TITLE,
                 CategoriesInfoEntry.COLUMN_CATEGORY_ID,
@@ -113,7 +113,7 @@ public class CreateQuestionActivity extends AppCompatActivity {
     }
     private void addStatement() {
 
-        newStatement = findViewById(R.id.editText_add_statement);
+        newStatement = findViewById(R.id.editText_edit_statement);
         statement = newStatement.getText().toString();
 
         String input = "SAVED: Category: " + category + " Statement: " + statement + "Answer: " + answer;

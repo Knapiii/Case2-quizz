@@ -14,6 +14,11 @@
     <string name="manage_statements">Hantera påståenden</string>
     <string name="isTrue">Sant</string>
     <string name="isFalse">Falskt</string>
+    <string name="edit_category">Ändra kategori</string>
+    <string name="edit_statement">Ändra påstående</string>
+    <string name="Edit">Ändra</string>
+    <string name="create_statement">Skapa Påstående</string>
+    <string name="add_statement">Lägg till text till ditt påstående:</string>
 
     <!--Menu-->
     <string name="multiplayer">Multiplayer</string>
@@ -46,7 +51,6 @@
         <item>Hanna</item>
         <item>Knape</item>
     </string-array>
-    <string name="create_statement">Skapa Påstående</string>
-    <string name="add_statement">Lägg till text till ditt påstående:</string>
+
     <string name="statement_true_false">Välj om ditt påstående är \"sant\" eller \"falskt\"</string>
 </resources>

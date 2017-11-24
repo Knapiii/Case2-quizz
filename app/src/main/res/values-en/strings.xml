@@ -49,5 +49,8 @@
     <string name="create_statement">Create Statement</string>
     <string name="add_statement">Add text to your statement</string>
     <string name="statement_true_false">Choose if your statement is \"true\" or \"false\"</string>
+    <string name="edit_category">Edit category</string>
+    <string name="edit_statement">Edit statement</string>
+    <string name="Edit">Edit</string>
 
 </resources>

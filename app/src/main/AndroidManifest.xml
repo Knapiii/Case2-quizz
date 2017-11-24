@@ -45,6 +45,7 @@
         <activity android:name=".SinglePlayerActivity" />
         <activity android:name=".Multiplayer" />
         <activity android:name=".CreateQuestionActivity" />
+        <activity android:name=".EditStatementActivity"></activity>
     </application>
 
 </manifest>
