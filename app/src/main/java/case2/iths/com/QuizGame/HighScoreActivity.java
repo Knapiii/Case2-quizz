@@ -1,5 +1,6 @@
 package case2.iths.com.QuizGame;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -22,12 +23,22 @@ public class HighScoreActivity extends AppCompatActivity {
     private String category;
     private HighscoresAdapter highscoresAdapter;
     private Cursor highScores;
+    private int categoryPosition;
+
 
     @Override
-    protected void onResume() {
-        super.onResume();
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_highscore);
+        mDbOpenHelper = new QuizableOpenHelper(this);
 
-        loadHighscores();
+        Intent intent = getIntent();
+        categoryPosition = intent.getIntExtra("categoryPos", 0);
+        displayCategoriesSpinner();
+
+
+
+
     }
 
     private void loadHighscores() {
@@ -37,15 +48,10 @@ public class HighScoreActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_highscore);
-        mDbOpenHelper = new QuizableOpenHelper(this);
+    protected void onResume() {
+        super.onResume();
 
-        displayCategoriesSpinner();
-      //  initializeDisplayContent();
-
-
+        loadHighscores();
     }
 
     public void displayCategoriesSpinner() {
@@ -54,6 +60,9 @@ public class HighScoreActivity extends AppCompatActivity {
         Cursor cursor = mDbOpenHelper.loadCategoriesData();
         CategoriesCursorAdapter categoriesCursorAdapter = new CategoriesCursorAdapter(this, cursor);
         mSpinnerCategories.setAdapter(categoriesCursorAdapter);
+
+        if(categoryPosition > -1)
+            mSpinnerCategories.setSelection(categoryPosition);
 
         mSpinnerCategories.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
@@ -87,7 +96,7 @@ public class HighScoreActivity extends AppCompatActivity {
         highscoresLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(highscoresLayoutManager);
 
-        HighscoresAdapter highscoresAdapter = new HighscoresAdapter(this, cursor);
+        highscoresAdapter = new HighscoresAdapter(this, cursor);
 
         recyclerView.setAdapter(highscoresAdapter);
 

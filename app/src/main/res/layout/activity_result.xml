@@ -88,7 +88,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:background="@color/ButtonBackground"
-        android:onClick="toTheHighscores"
+        android:onClick="onSaveButtonClick"
         android:text="@string/save"
         android:textAlignment="center"
         android:textSize="24sp"

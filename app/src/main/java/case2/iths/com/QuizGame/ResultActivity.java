@@ -16,6 +16,7 @@ public class ResultActivity extends AppCompatActivity {
     private EditText insertName;
     private String name;
     private QuizableOpenHelper quizableOpenHelper;
+    private int categoryPos;
 
 
     @Override
@@ -40,23 +41,59 @@ public class ResultActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        quizableOpenHelper.close();
         super.onDestroy();
     }
 
     public void openHelper(){
         Intent intent = getIntent();
 
-        category = intent.getStringExtra("category");
+        category = checkCategory(intent.getStringExtra("category"));
         points = intent.getIntExtra("points", 0);
-        name = insertName.getText().toString();
         amountOfPoints.setText((Integer.toString(points)));
         playedCategory.setText(category);
+        category = category.toLowerCase();
 
-        quizableOpenHelper = new QuizableOpenHelper(this);
+    }
 
-        quizableOpenHelper.insertHighscore("all_categories", points,"Knape");
+    //This methos translates category to english when necessary
 
+    private String checkCategory(String category_id) {
+
+        switch (category_id) {
+            case "Mat":
+                category_id = "Food";
+                categoryPos = 1;
+                break;
+            case "Sport":
+                category_id = "Sport";
+                categoryPos = 5;
+                break;
+            case "Vetenskap":
+                category_id = "Science";
+                categoryPos = 4;
+                break;
+            case "Musik":
+                category_id = "Music";
+                categoryPos = 6;
+                break;
+            case "Spel":
+                category_id = "Games";
+                categoryPos = 2;
+                break;
+            case "Own":
+                category_id = "Own_statements";
+                categoryPos = 7;
+                break;
+            case "Geografi":
+                category_id = "Geography";
+                categoryPos = 3;
+                break;
+            default:
+                category_id = "All_categories";
+                categoryPos = 0;
+                break;
+        }
+        return category_id;
     }
 
     public void playAgain(View view) {
@@ -74,18 +111,27 @@ public class ResultActivity extends AppCompatActivity {
     /**
      * When SAVE button is clicked the Highscore activity will be started
      */
-    public void toTheHighscores(View view) {
+
+    public void onSaveButtonClick(View view) {
         savedSettings.giveSound(this);
         Intent toHighscores = new Intent(this, HighScoreActivity.class);
+        toHighscores.putExtra("categoryPos", categoryPos);
+        quizableOpenHelper = new QuizableOpenHelper(this);
+        name = insertName.getText().toString();
+        quizableOpenHelper.insertHighscore(category, points, name);
+
+
         startActivity(toHighscores);
 
     }
 
+    // Takes user back to main menu
+
     @Override
     public void onBackPressed() {
-        Intent toMainActivity = new Intent(this, MainActivity.class);
-        toMainActivity.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(toMainActivity);
+        Intent backToMainActivity = new Intent(this, MainActivity.class);
+        backToMainActivity.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(backToMainActivity);
 
     }
 }

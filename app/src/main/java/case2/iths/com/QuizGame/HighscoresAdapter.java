@@ -68,6 +68,7 @@ public class HighscoresAdapter extends  RecyclerView.Adapter<HighscoresAdapter.V
 
         holder.textName.setText(name);
         holder.textScore.setText(score);
+        holder.textPoints.setText(R.string.points);
         holder.id = id;
 
     }
@@ -81,12 +82,14 @@ public class HighscoresAdapter extends  RecyclerView.Adapter<HighscoresAdapter.V
 
         public final TextView textName;
         public final TextView textScore;
+        public final TextView textPoints;
         public int id;
 
         public ViewHolder(View itemView) {
             super(itemView);
             textName = itemView.findViewById(R.id.text_name);
             textScore = itemView.findViewById(R.id.text_score);
+            textPoints = itemView.findViewById(R.id.text_points);
         }
     }
 

@@ -99,7 +99,7 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
     }
 
-    // returns all categeories in an alphabetic order.
+    // returns all categeories
 
     public Cursor loadCategoriesData() {
         SQLiteDatabase db = this.getReadableDatabase();

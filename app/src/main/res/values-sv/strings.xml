@@ -5,7 +5,6 @@
     <string name="profile">Profil</string>
     <string name="result">Resultat</string>
     <string name="textview_about">"Quizabble är ett frågesportsspel som är utvecklat av studenter från ITHS-Högksolan.\n\nSpelet går ut på att svara på om ett påstående är sant eller falskt, fast du måste tänka tvärt-om.\n\nDu kan även lägga till egna påståenden själv, om du vill.  Är Sverige ett land? Ja, därför är \"rätt\" svar falskt eftersom du måste tänka tvärt-om. "</string>
-    <string name="points">"Poäng: "</string>
 
     <!--Buttons-->
     <string name="handle_statements">Hantera påståenden</string>
@@ -56,4 +55,7 @@
     </string-array>
 
     <string name="statement_true_false">Välj om ditt påstående är \"sant\" eller \"falskt\"</string>
+    <string name="points">poäng</string>
+    <string name="mat">mat</string>
+    <string name="food">mat</string>
 </resources>

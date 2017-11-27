@@ -19,14 +19,14 @@ public class DatabaseDataWorker {
     }
 
     public void insertCategories() {
-        insertCategory("all_categories", "All categories");
-        insertCategory("food", "Food");
-        insertCategory("games", "Games");
-        insertCategory("geography", "Geography");
-        insertCategory("science", "Science");
-        insertCategory("sport", "Sport");
-        insertCategory("music", "Music");
-        insertCategory("own_statements", "Own statements");
+        insertCategory("all_categories","All categories");
+        insertCategory("food","Food");
+        insertCategory("games","Games");
+        insertCategory("geography","Geography");
+        insertCategory("science","Science");
+        insertCategory("sport","Sport");
+        insertCategory("music","Music");
+        insertCategory("own_statements","Own statements");
 
     }
 
@@ -36,6 +36,7 @@ public class DatabaseDataWorker {
         ContentValues contentValues = new ContentValues();
 
         contentValues.put(CategoriesInfoEntry.COLUMN_CATEGORY_ID, category_id);
+   //     contentValues.put(CategoriesInfoEntry.COLUMN_CATEGORY_ID_SV, category_id_sv);
         contentValues.put(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE, category_title);
         long id = mDb.insert(CategoriesInfoEntry.TABLE_NAME, null, contentValues);
 
