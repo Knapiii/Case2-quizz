@@ -20,13 +20,13 @@ public class DatabaseDataWorker {
 
     public void insertCategories() {
         insertCategory("all_categories", "All categories");
-        insertCategory("sport", "Sport");
-        insertCategory("culture", "Culture");
-        insertCategory("geography", "Geography");
+        insertCategory("food", "Food");
         insertCategory("games", "Games");
+        insertCategory("geography", "Geography");
         insertCategory("science", "Science");
+        insertCategory("sport", "Sport");
         insertCategory("music", "Music");
-        insertCategory("own_questions", "Own questions");
+        insertCategory("own_statements", "Own statements");
 
     }
 

@@ -54,5 +54,8 @@
     <string name="save">Save</string>
     <string name="play_again">Play again</string>
     <string name="back_to_main_menu">Main menu</string>
+    <string name="edit_category">Edit category</string>
+    <string name="edit_statement">Edit statement</string>
+    <string name="Edit">Edit</string>
 
 </resources>

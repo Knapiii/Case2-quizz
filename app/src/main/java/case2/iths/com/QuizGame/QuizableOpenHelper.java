@@ -110,7 +110,7 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
         };
 
         Cursor cursor = db.query(CategoriesInfoEntry.TABLE_NAME, categoryColumns,
-                null, null, null, null, CategoriesInfoEntry.COLUMN_CATEGORY_TITLE);
+                null, null, null, null, null);
 
         return cursor;
 

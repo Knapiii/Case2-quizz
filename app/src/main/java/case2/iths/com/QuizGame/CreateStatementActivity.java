@@ -55,6 +55,9 @@ public class CreateStatementActivity extends AppCompatActivity {
         CategoriesCursorAdapter CategoriesCursorAdapter = new CategoriesCursorAdapter(this, cursor);
 
         spinner.setAdapter(CategoriesCursorAdapter);
+        spinner.setSelection(4);
+     //   spinner.setEnabled(false);
+
 
 
 
