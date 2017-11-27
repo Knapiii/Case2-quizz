@@ -55,7 +55,6 @@ public class CreateQuestionActivity extends AppCompatActivity {
         CategoriesCursorAdapter CategoriesCursorAdapter = new CategoriesCursorAdapter(this, cursor);
 
         spinner.setAdapter(CategoriesCursorAdapter);
-        spinner.setSelection(1);
 
 
 
@@ -120,7 +119,7 @@ public class CreateQuestionActivity extends AppCompatActivity {
 
         Toast.makeText(this, input, Toast.LENGTH_SHORT).show();
 
-        mDbOpenHelper.insertStatement(category,statement,answer);
+   //     mDbOpenHelper.insertStatement(category,statement,answer);
 
 
     }

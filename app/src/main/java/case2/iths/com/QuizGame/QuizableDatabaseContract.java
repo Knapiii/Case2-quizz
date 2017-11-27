@@ -46,7 +46,7 @@ public final class QuizableDatabaseContract {
 
     }
 
-    public static final class OwnStatementsEntry implements BaseColumns {
+    /*public static final class OwnStatementsEntry implements BaseColumns {
 
         public static final String TABLE_NAME = "own_questions";
         public static final String COLUMN_CATEGORY_ID = "category_id";
@@ -60,7 +60,7 @@ public final class QuizableDatabaseContract {
                         COLUMN_STATEMENT_ANSWER + " TEXT NOT NULL, " +
                         COLUMN_CATEGORY_ID + " TEXT NOT NULL)";
 
-    }
+    }*/
 
 
 

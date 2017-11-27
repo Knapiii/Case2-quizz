@@ -49,4 +49,5 @@
     <string name="create_statement">Skapa Påstående</string>
     <string name="add_statement">Lägg till text till ditt påstående:</string>
     <string name="statement_true_false">Välj om ditt påstående är \"sant\" eller \"falskt\"</string>
+    <string name="save">Save</string>
 </resources>

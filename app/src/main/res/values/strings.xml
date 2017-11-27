@@ -50,5 +50,6 @@
     <string name="statement_true_false">Choose if your statement is \"true\" or \"false\"</string>
     <string name="food">Food</string>
     <string name="mat">mat</string>
+    <string name="save">Save</string>
 
 </resources>

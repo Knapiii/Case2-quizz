@@ -6,8 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import case2.iths.com.QuizGame.QuizableDatabaseContract.OwnStatementsEntry;
-
 import static case2.iths.com.QuizGame.QuizableDatabaseContract.CategoriesInfoEntry;
 import static case2.iths.com.QuizGame.QuizableDatabaseContract.HighScoresInfoEntry;
 
@@ -31,7 +29,7 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
         db.execSQL(CategoriesInfoEntry.SQL_CREATE_TABLE);
         db.execSQL(HighScoresInfoEntry.SQL_CREATE_TABLE);
-        db.execSQL(OwnStatementsEntry.SQL_CREATE_TABLE);
+    //    db.execSQL(OwnStatementsEntry.SQL_CREATE_TABLE);
 
 
         // Adds default categories to the categories table in the database
@@ -114,7 +112,7 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
     }
 
-    // This method adds a new statement in to the own_questions table in the database
+   /* // This method adds a new statement in to the own_questions table in the database
 
     public void insertStatement(String category_id, String statement, String answer) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -128,7 +126,7 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
         db.close();
 
-    }
+    }*/
 
 
 }
