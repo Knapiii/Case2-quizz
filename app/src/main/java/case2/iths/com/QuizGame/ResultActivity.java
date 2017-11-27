@@ -70,4 +70,22 @@ public class ResultActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
+    /**
+     * When SAVE button is clicked the Highscore activity will be started
+     */
+    public void toTheHighscores(View view) {
+        savedSettings.giveSound(this);
+        Intent toHighscores = new Intent(this, HighScoreActivity.class);
+        startActivity(toHighscores);
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent toMainActivity = new Intent(this, MainActivity.class);
+        toMainActivity.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(toMainActivity);
+
+    }
 }
