@@ -51,5 +51,7 @@
     <string name="food">Food</string>
     <string name="mat">mat</string>
     <string name="save">Save</string>
+    <string name="play_again">Play again</string>
+    <string name="back_to_main_menu">Main menu</string>
 
 </resources>

@@ -16,6 +16,7 @@ public class EditStatementActivity extends AppCompatActivity {
     private String category;
     private String answer;
     private QuizableOpenHelper mDbOpenHelper;
+    private SavedSettings savedSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,18 +28,23 @@ public class EditStatementActivity extends AppCompatActivity {
     }
 
     public void editButtonTrueClicked(View view) {
+        savedSettings.giveSound(this);
+
         buttonTrueClicked = true;
         changeButtonColor();
         answer = "true";
     }
 
     public void editButtonFalseClicked(View view) {
+        savedSettings.giveSound(this);
         buttonTrueClicked = false;
         changeButtonColor();
         answer = "false";
     }
 
     public void editButtonEditClicked(View view) {
+        savedSettings.giveSound(this);
+
     }
 
     private void editStatement(){

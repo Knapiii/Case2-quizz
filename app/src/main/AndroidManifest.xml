@@ -12,11 +12,9 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait" />
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
         <activity
             android:name=".HighScoreActivity"
             android:screenOrientation="portrait" />
@@ -32,20 +30,35 @@
         <activity
             android:name=".PlayGameActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".SettingsActivity" />
-        <activity android:name=".AboutActivity" />
-        <activity android:name=".GameMenuActivity" />
-        <activity android:name=".SplashActivity">
+        <activity
+            android:name=".SettingsActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".AboutActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".GameMenuActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SinglePlayerActivity" />
-        <activity android:name=".Multiplayer" />
-        <activity android:name=".CreateQuestionActivity" />
-        <activity android:name=".EditStatementActivity"></activity>
+        <activity
+            android:name=".SinglePlayerActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Multiplayer"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".CreateQuestionActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".EditStatementActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

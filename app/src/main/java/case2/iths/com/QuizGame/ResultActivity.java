@@ -1,8 +1,9 @@
 package case2.iths.com.QuizGame;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -25,23 +26,9 @@ public class ResultActivity extends AppCompatActivity {
 
         amountOfPoints = findViewById(R.id.amount_of_points);
         playedCategory = findViewById(R.id.played_category);
-        insertName = findViewById(R.id.editText);
+        insertName = findViewById(R.id.editText_save_highscore_name);
 
-
-
-
-        Intent intent = getIntent();
-
-        category = intent.getStringExtra("category");
-        points = intent.getIntExtra("points", 0);
-        name = insertName.getText().toString();
-        amountOfPoints.setText((Integer.toString(points)));
-        playedCategory.setText(category);
-
-        quizableOpenHelper = new QuizableOpenHelper(this);
-
-        quizableOpenHelper.insertHighscore("all_categories",points,"Knape");
-
+        openHelper();
 
     }
 
@@ -55,5 +42,32 @@ public class ResultActivity extends AppCompatActivity {
     protected void onDestroy() {
         quizableOpenHelper.close();
         super.onDestroy();
+    }
+
+    public void openHelper(){
+        Intent intent = getIntent();
+
+        category = intent.getStringExtra("category");
+        points = intent.getIntExtra("points", 0);
+        name = insertName.getText().toString();
+        amountOfPoints.setText((Integer.toString(points)));
+        playedCategory.setText(category);
+
+        quizableOpenHelper = new QuizableOpenHelper(this);
+
+        quizableOpenHelper.insertHighscore("all_categories", points,"Knape");
+
+    }
+
+    public void playAgain(View view) {
+        savedSettings.giveSound(this);
+        Intent intent = new Intent(this, PlayGameActivity.class);
+        startActivity(intent);
+    }
+
+    public void backToMainMenu(View view) {
+        savedSettings.giveSound(this);
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }

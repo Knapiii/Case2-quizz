@@ -59,7 +59,6 @@ public class SinglePlayerActivity extends AppCompatActivity {
                 }
 
             }
-
             @Override
             public void onFinish() {
                 points--;
@@ -68,6 +67,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
             }
         }.start();
         showRandomQuestion();
+
     }
 
     // TODO: 2017-11-14 Lägg till:
@@ -107,7 +107,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
     }
 
     /**
-     * När vi klickar på "sant" under spelet så ska man få ökad poäng om det stämmer
+     * När vi klickar på "sant" under spelet så ska man få ökad poäng om det stämmer eller minskad poäng om det är fel svar.
      */
     public void trueButtonPressed(View view){
         savedSettings.giveSound(this);
@@ -122,7 +122,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
     }
 
     /**
-     * När vi klickar på "falskt" under spelet så ska man få ökad poäng om det stämmer
+     * När vi klickar på "falskt" under spelet så ska man få ökad poäng om det stämmer eller minskad poäng om det är fel svar.
      */
     public void falseButtonPressed(View view){
         savedSettings.giveSound(this);
@@ -140,6 +140,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
      * Startar ResultActivity efter fem frågor har visats
      */
     public void startResultActivity(){
+        savedSettings.giveSound(this);
         Intent intent = new Intent(this, ResultActivity.class);
         intent.putExtra("points", points);
         intent.putExtra("category", genre);
@@ -161,6 +162,11 @@ public class SinglePlayerActivity extends AppCompatActivity {
      */
     public boolean isRoundOver(){
         return numDoneQuestions == 5;
+    }
+
+    public void chooseAmountOfRounds(){
+
+
     }
 
     /**

@@ -59,7 +59,6 @@
         app:layout_constraintBottom_toTopOf="@+id/gameField"
         app:layout_constraintLeft_toRightOf="@id/point_text"
         tools:layout_editor_absoluteX="364dp"
-
         />
 
     <android.support.constraint.ConstraintLayout

@@ -50,5 +50,7 @@
     <string name="add_statement">Add text to your statement</string>
     <string name="statement_true_false">Choose if your statement is \"true\" or \"false\"</string>
     <string name="save">Save</string>
+    <string name="play_again">Play again</string>
+    <string name="back_to_main_menu">Main menu</string>
 
 </resources>
