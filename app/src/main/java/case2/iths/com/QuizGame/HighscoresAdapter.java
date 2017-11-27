@@ -2,43 +2,92 @@ package case2.iths.com.QuizGame;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CursorAdapter;
 import android.widget.TextView;
 
-import static case2.iths.com.QuizGame.QuizableDatabaseContract.HighScoresInfoEntry;
+import case2.iths.com.QuizGame.QuizableDatabaseContract.HighScoresInfoEntry;
 
 /**
  * Created by alvaro on 2017-11-17.
  */
 
-public class HighscoresAdapter extends CursorAdapter {
+public class HighscoresAdapter extends  RecyclerView.Adapter<HighscoresAdapter.ViewHolder>  {
 
+    private final Context mContext;
+    private final LayoutInflater mLayoutInflater;
+    private Cursor mCursor;
+    private int namePos;
+    private int scorePos;
+    private int idPos;
 
-    public HighscoresAdapter(Context context, Cursor c) {
-        super(context, c, 0);
+    public HighscoresAdapter(Context context, Cursor cursor) {
+        mContext = context;
+        mCursor = cursor;
+        mLayoutInflater = LayoutInflater.from(mContext);
+        populateColumnPositions();
+
     }
 
+    private void populateColumnPositions() {
+        if(mCursor == null)
+            return;
+
+        namePos = mCursor.getColumnIndex(HighScoresInfoEntry.COLUMN_USER_ID);
+        scorePos = mCursor.getColumnIndex(HighScoresInfoEntry.COLUMN_HIGHSCORE);
+        idPos = mCursor.getColumnIndex(HighScoresInfoEntry._ID);
+
+
+        //Get column indexes from mCursors
+    }
+
+    public void changeCursor(Cursor cursor) {
+        if(mCursor != null)
+            mCursor.close();
+        mCursor = cursor;
+        populateColumnPositions();
+        notifyDataSetChanged();
+
+    }
 
     @Override
-    public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        return LayoutInflater.from(context).inflate(R.layout.dropdown_list_item, parent, false);
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView = mLayoutInflater.inflate(R.layout.item_highscore_list, parent, false);
+        return new ViewHolder(itemView);
     }
 
     @Override
-    public void bindView(View view, Context context, Cursor cursor) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
 
-        TextView textView = view.findViewById(R.id.textView);
-        String highscore = cursor.getString(cursor.getColumnIndex(HighScoresInfoEntry.COLUMN_USER_ID))
-                +" "+ cursor.getString(cursor.getColumnIndex(HighScoresInfoEntry.COLUMN_HIGHSCORE)) + " points";
-        textView.setText(highscore);
+        mCursor.moveToPosition(position);
+        String name = mCursor.getString(namePos);
+        String score = mCursor.getString(scorePos);
+        int id = mCursor.getInt(idPos);
+
+        holder.textName.setText(name);
+        holder.textScore.setText(score);
+        holder.id = id;
 
     }
 
     @Override
-    public View getDropDownView(int position, View convertView, ViewGroup parent) {
-        return super.getDropDownView(position, convertView, parent);
+    public int getItemCount() {
+        return mCursor == null ? 0 : mCursor.getCount();
     }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+
+        public final TextView textName;
+        public final TextView textScore;
+        public int id;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            textName = itemView.findViewById(R.id.text_name);
+            textScore = itemView.findViewById(R.id.text_score);
+        }
+    }
+
 }

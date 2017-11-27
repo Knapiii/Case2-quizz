@@ -53,4 +53,5 @@
     </string-array>
 
     <string name="statement_true_false">Välj om ditt påstående är \"sant\" eller \"falskt\"</string>
+    <string name="save">Save</string>
 </resources>

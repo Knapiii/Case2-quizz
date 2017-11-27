@@ -3,9 +3,10 @@ package case2.iths.com.QuizGame;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -15,7 +16,25 @@ public class HighScoreActivity extends AppCompatActivity {
 
     private Spinner mSpinnerCategories;
     QuizableOpenHelper mDbOpenHelper;
-    private ListView mListViewHighscores;
+    private RecyclerView recyclerView;
+    private LinearLayoutManager highscoresLayoutManager;
+    private String category_id;
+    private String category;
+    private HighscoresAdapter highscoresAdapter;
+    private Cursor highScores;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        loadHighscores();
+    }
+
+    private void loadHighscores() {
+
+    displayHighScoresByCategory(highScores);
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,18 +42,18 @@ public class HighScoreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_highscore);
         mDbOpenHelper = new QuizableOpenHelper(this);
 
-        loadCategoriesSpinner();
+        displayCategoriesSpinner();
+      //  initializeDisplayContent();
 
 
     }
 
-    public void loadCategoriesSpinner() {
+    public void displayCategoriesSpinner() {
 
         mSpinnerCategories = findViewById(R.id.spinner);
         Cursor cursor = mDbOpenHelper.loadCategoriesData();
         CategoriesCursorAdapter categoriesCursorAdapter = new CategoriesCursorAdapter(this, cursor);
         mSpinnerCategories.setAdapter(categoriesCursorAdapter);
-        mSpinnerCategories.setSelection(1);
 
         mSpinnerCategories.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
@@ -43,15 +62,14 @@ public class HighScoreActivity extends AppCompatActivity {
 
                 Cursor cursor = (Cursor) mSpinnerCategories.getItemAtPosition(position);
 
-                String category = cursor.getString(cursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE));
-                String category_id = cursor.getString(cursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_ID));
+                category = cursor.getString(cursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE));
+                category_id = cursor.getString(cursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_ID));
 
                 showToast(category);
 
-                Cursor highScores = mDbOpenHelper.getHighScores(category_id);
+                highScores = mDbOpenHelper.getHighScores(category_id);
 
-                loadHighScoresData(highScores);
-
+                displayHighScoresByCategory(highScores);
 
             }
 
@@ -63,12 +81,15 @@ public class HighScoreActivity extends AppCompatActivity {
 
     }
 
-    private void loadHighScoresData(Cursor cursor) {
+    private void displayHighScoresByCategory(Cursor cursor) {
 
-        mListViewHighscores = findViewById(R.id.listView_highscores);
+        recyclerView = findViewById(R.id.highscores_list);
+        highscoresLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(highscoresLayoutManager);
+
         HighscoresAdapter highscoresAdapter = new HighscoresAdapter(this, cursor);
 
-        mListViewHighscores.setAdapter(highscoresAdapter);
+        recyclerView.setAdapter(highscoresAdapter);
 
     }
 

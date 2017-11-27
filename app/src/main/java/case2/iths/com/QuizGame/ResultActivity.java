@@ -3,12 +3,19 @@ package case2.iths.com.QuizGame;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class ResultActivity extends AppCompatActivity {
 
     private SavedSettings savedSettings;
     private TextView amountOfPoints, playedCategory;
+    private String category;
+    private int points;
+    private EditText insertName;
+    private String name;
+    private QuizableOpenHelper quizableOpenHelper;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,10 +25,24 @@ public class ResultActivity extends AppCompatActivity {
 
         amountOfPoints = findViewById(R.id.amount_of_points);
         playedCategory = findViewById(R.id.played_category);
+        insertName = findViewById(R.id.editText);
+
+
+
 
         Intent intent = getIntent();
-        amountOfPoints.setText((Integer.toString(intent.getIntExtra("points", 0))));
-        playedCategory.setText(intent.getStringExtra("category"));
+
+        category = intent.getStringExtra("category");
+        points = intent.getIntExtra("points", 0);
+        name = insertName.getText().toString();
+        amountOfPoints.setText((Integer.toString(points)));
+        playedCategory.setText(category);
+
+        quizableOpenHelper = new QuizableOpenHelper(this);
+
+        quizableOpenHelper.insertHighscore("all_categories",points,"Knape");
+
+
     }
 
     // TODO: 2017-11-14 Lägg till:
@@ -29,4 +50,10 @@ public class ResultActivity extends AppCompatActivity {
     // TODO: SHOW TOTAL POINTS
     // TODO: SHOW TIME USED
 
+
+    @Override
+    protected void onDestroy() {
+        quizableOpenHelper.close();
+        super.onDestroy();
+    }
 }

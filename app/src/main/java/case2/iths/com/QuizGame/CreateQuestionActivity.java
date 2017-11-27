@@ -13,10 +13,6 @@ import android.widget.Toast;
 
 import case2.iths.com.QuizGame.QuizableDatabaseContract.CategoriesInfoEntry;
 
-/**
- * Created by Kristofferknape on 2017-11-19.
- */
-
 public class CreateQuestionActivity extends AppCompatActivity {
 
     public Spinner spinner;
@@ -39,6 +35,8 @@ public class CreateQuestionActivity extends AppCompatActivity {
 
         mDbOpenHelper = new QuizableOpenHelper(this);
 
+
+
         loadCategoriesData();
     }
 
@@ -58,6 +56,8 @@ public class CreateQuestionActivity extends AppCompatActivity {
 
         spinner.setAdapter(CategoriesCursorAdapter);
 
+
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
@@ -66,43 +66,50 @@ public class CreateQuestionActivity extends AppCompatActivity {
                 Cursor cursor = (Cursor) spinner.getItemAtPosition(position);
                 category = cursor.getString(cursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE));
 
+
+
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
         });
 
+
     }
 
-    public void onButtonTrueClicked(View view) {
+    public void onButtonTrueClicked(View view){
         buttonTrueClicked = true;
         changeButtonColor();
         answer = "true";
     }
 
-    public void onButtonFalseClicked(View view) {
+    public void onButtonFalseClicked(View view){
         buttonTrueClicked = false;
         changeButtonColor();
         answer = "false";
     }
 
-    private void changeButtonColor() {
-        if (buttonTrueClicked) {
+    private void changeButtonColor(){
+        if (buttonTrueClicked){
             buttonTrue.setBackgroundResource(R.drawable.pressed_button_shape);
             buttonFalse.setBackgroundResource(R.drawable.button_shape);
-        } else {
+        }
+        else{
             buttonTrue.setBackgroundResource(R.drawable.button_shape);
             buttonFalse.setBackgroundResource(R.drawable.pressed_button_shape);
         }
     }
 
     public void onButtonAddClicked(View view) {
-        //  Toast.makeText(this, "Add", Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this, "Add", Toast.LENGTH_SHORT).show();
         addStatement();
 
-    }
 
+
+
+    }
     private void addStatement() {
 
         newStatement = findViewById(R.id.editText_add_statement);
@@ -112,7 +119,8 @@ public class CreateQuestionActivity extends AppCompatActivity {
 
         Toast.makeText(this, input, Toast.LENGTH_SHORT).show();
 
-        mDbOpenHelper.insertStatement(category, statement, answer);
+   //     mDbOpenHelper.insertStatement(category,statement,answer);
+
 
     }
 
