@@ -23,6 +23,11 @@
     <string name="play">Play</string>
     <string name="about">About</string>
     <string name="settings">Settings</string>
+    <string name="create_statement">Create Statement</string>
+    <string name="add_statement">Add text to your statement</string>
+    <string name="save">Save</string>
+    <string name="play_again">Play again</string>
+    <string name="back_to_main_menu">Main menu</string>
 
     <!--Categories-->
     <string name="music">Music</string>
@@ -46,11 +51,6 @@
         <item>5.Hanna</item>
         <item>6.Knape</item>
     </string-array>
-    <string name="create_statement">Create Statement</string>
-    <string name="add_statement">Add text to your statement</string>
-    <string name="statement_true_false">Choose if your statement is \"true\" or \"false\"</string>
-    <string name="save">Save</string>
-    <string name="play_again">Play again</string>
-    <string name="back_to_main_menu">Main menu</string>
 
+    <string name="statement_true_false">Choose if your statement is \"true\" or \"false\"</string>
 </resources>

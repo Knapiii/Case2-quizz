@@ -19,6 +19,9 @@
     <string name="Edit">Ändra</string>
     <string name="create_statement">Skapa Påstående</string>
     <string name="add_statement">Lägg till text till ditt påstående:</string>
+    <string name="save">Spara</string>
+    <string name="play_again">Spela igen</string>
+    <string name="back_to_main_menu">Huvudmeny</string>
 
     <!--Menu-->
     <string name="multiplayer">Multiplayer</string>
@@ -53,7 +56,4 @@
     </string-array>
 
     <string name="statement_true_false">Välj om ditt påstående är \"sant\" eller \"falskt\"</string>
-    <string name="save">Save</string>
-    <string name="play_again">Play again</string>
-    <string name="back_to_main_menu">Main menu</string>
 </resources>

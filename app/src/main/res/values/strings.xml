@@ -45,6 +45,7 @@
         <item>5.Hanna</item>
         <item>6.Knape</item>
     </string-array>
+
     <string name="create_statement">Create Statement</string>
     <string name="add_statement">Add text to your statement</string>
     <string name="statement_true_false">Choose if your statement is \"true\" or \"false\"</string>
