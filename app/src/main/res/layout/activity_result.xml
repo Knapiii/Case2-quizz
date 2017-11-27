@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/main_background"
     tools:context="case2.iths.com.QuizGame.ResultActivity"
-    tools:layout_editor_absoluteY="25dp">
+    tools:layout_editor_absoluteY="25dp"
+    android:noHistory="true">
 
     <TextView
         android:id="@+id/top_text"

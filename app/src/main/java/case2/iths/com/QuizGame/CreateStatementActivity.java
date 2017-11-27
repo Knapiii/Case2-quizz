@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import case2.iths.com.QuizGame.QuizableDatabaseContract.CategoriesInfoEntry;
 
-public class CreateQuestionActivity extends AppCompatActivity {
+public class CreateStatementActivity extends AppCompatActivity {
 
     public Spinner spinner;
     private Button buttonTrue, buttonFalse;

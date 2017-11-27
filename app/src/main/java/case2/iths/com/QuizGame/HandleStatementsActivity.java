@@ -52,7 +52,7 @@ public class HandleStatementsActivity extends AppCompatActivity {
     public void onButtonClick(View v) {
         savedSettings.giveSound(this);
 
-        Intent intent = new Intent(this, CreateQuestionActivity.class);
+        Intent intent = new Intent(this, CreateStatementActivity.class);
         startActivity(intent);
     }
 

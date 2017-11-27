@@ -43,7 +43,7 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/gameField"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -51,15 +51,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
+        android:layout_marginLeft="4dp"
         android:fontFamily="@font/lobster_two_bold"
         android:text="11"
         android:textColor="@android:color/white"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gameField"
-        app:layout_constraintLeft_toRightOf="@id/point_text"
-        tools:layout_editor_absoluteX="364dp"
-        />
+        app:layout_constraintLeft_toRightOf="@id/point_text" />
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/gameField"
@@ -91,7 +90,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:background="@drawable/main_background"
+            android:background="@drawable/button_shape"
             android:onClick="trueButtonPressed"
             android:text="Sant"
             android:textSize="20dp"
@@ -105,7 +104,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:background="@drawable/main_background"
+            android:background="@drawable/button_shape"
             android:onClick="falseButtonPressed"
             android:text="Falskt"
             android:textSize="20dp"
