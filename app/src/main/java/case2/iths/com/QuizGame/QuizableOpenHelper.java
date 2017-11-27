@@ -16,7 +16,7 @@ import static case2.iths.com.QuizGame.QuizableDatabaseContract.HighScoresInfoEnt
 public class QuizableOpenHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "Quizable.db";
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
 
     public QuizableOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -42,6 +42,11 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        if (oldVersion == 1 && newVersion == 2) {
+
+
+        }
+
 
 
     }
@@ -78,7 +83,6 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
         long newRowId = db.insert(HighScoresInfoEntry.TABLE_NAME, null, contentValues);
 
-        db.close();
 
     }
 
@@ -92,7 +96,6 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
         contentValues.put(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE, category_text);
         long id = db.insert(CategoriesInfoEntry.TABLE_NAME, null, contentValues);
 
-        db.close();
 
     }
 
@@ -108,6 +111,7 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
         Cursor cursor = db.query(CategoriesInfoEntry.TABLE_NAME, categoryColumns,
                 null, null, null, null, CategoriesInfoEntry.COLUMN_CATEGORY_TITLE);
+
         return cursor;
 
     }
@@ -124,7 +128,6 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
         long id = db.insert(OwnStatementsEntry.TABLE_NAME, null, contentValues);
 
-        db.close();
 
     }*/
 

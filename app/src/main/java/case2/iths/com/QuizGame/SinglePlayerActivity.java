@@ -114,6 +114,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
         if (answerString.equalsIgnoreCase("Sant"))
             points += seconds;
         if (isRoundOver()){
+            cdTimer.cancel();
             startResultActivity();
             return;
         }
@@ -129,6 +130,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
         if (answerString.equalsIgnoreCase("Falskt"))
             points += seconds;
         if (isRoundOver()){
+            cdTimer.cancel();
             startResultActivity();
             return;
         }
