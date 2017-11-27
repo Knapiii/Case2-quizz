@@ -80,4 +80,12 @@ public class ResultActivity extends AppCompatActivity {
         startActivity(toHighscores);
 
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent toMainActivity = new Intent(this, MainActivity.class);
+        toMainActivity.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(toMainActivity);
+
+    }
 }
