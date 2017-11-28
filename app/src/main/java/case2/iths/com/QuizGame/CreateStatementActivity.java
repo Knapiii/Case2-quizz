@@ -32,11 +32,7 @@ public class CreateStatementActivity extends AppCompatActivity {
         buttonTrueClicked = false;
         buttonTrue = findViewById(R.id.togglebutton_add_true);
         buttonFalse = findViewById(R.id.togglebutton_add_false);
-
         mDbOpenHelper = new QuizableOpenHelper(this);
-
-
-
         loadCategoriesData();
     }
 
@@ -56,74 +52,74 @@ public class CreateStatementActivity extends AppCompatActivity {
 
         spinner.setAdapter(CategoriesCursorAdapter);
         spinner.setSelection(4);
-     //   spinner.setEnabled(false);
-
-
-
+        // spinner.setEnabled(false);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
+            /**
+             * Måste lägga till javadoc här!
+             */
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-
                 Cursor cursor = (Cursor) spinner.getItemAtPosition(position);
                 category = cursor.getString(cursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE));
 
-
-
             }
 
+            /**
+             * Måste lägga till javadoc här!
+             */
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
             }
-        });
 
+        });
 
     }
 
-    public void onButtonTrueClicked(View view){
+    /**
+     * Måste lägga till javadoc här!
+     */
+    public void onButtonTrueClicked(View view) {
         buttonTrueClicked = true;
         changeButtonColor();
         answer = "true";
     }
 
-    public void onButtonFalseClicked(View view){
+    /**
+     * Måste lägga till javadoc här!
+     */
+    public void onButtonFalseClicked(View view) {
         buttonTrueClicked = false;
         changeButtonColor();
         answer = "false";
     }
 
-    private void changeButtonColor(){
-        if (buttonTrueClicked){
+    private void changeButtonColor() {
+
+        if (buttonTrueClicked) {
             buttonTrue.setBackgroundResource(R.drawable.pressed_button_shape);
             buttonFalse.setBackgroundResource(R.drawable.button_shape);
-        }
-        else{
+        } else {
             buttonTrue.setBackgroundResource(R.drawable.button_shape);
             buttonFalse.setBackgroundResource(R.drawable.pressed_button_shape);
         }
     }
 
+    /**
+     * Måste lägga till javadoc här!
+     */
     public void onButtonAddClicked(View view) {
-      //  Toast.makeText(this, "Add", Toast.LENGTH_SHORT).show();
-        addStatement();
-
-
-
-
+        // Toast.makeText(this, "Add", Toast.LENGTH_SHORT).show();
+        // addStatement();
     }
-    private void addStatement() {
 
+    private void addStatement() {
         newStatement = findViewById(R.id.editText_add_statement);
         statement = newStatement.getText().toString();
-
         String input = "SAVED: Category: " + category + " Statement: " + statement + "Answer: " + answer;
-
         Toast.makeText(this, input, Toast.LENGTH_SHORT).show();
-
-   //     mDbOpenHelper.insertStatement(category,statement,answer);
-
+        // mDbOpenHelper.insertStatement(category,statement,answer);
 
     }
 

@@ -35,9 +35,9 @@ public class HandleStatementsActivity extends AppCompatActivity {
 
         //Data källa för vår listview
         list = new ArrayList<>();
-        list.add("Text 1");
-        list.add("Text 2");
-        list.add("Text 3");
+        list.add("Exempel 1");
+        list.add("Exempel 2");
+        list.add("Exempel 3");
 
         //Färdig adapter för ListView
         arrayAdapter = new ArrayAdapter<String>(this,
