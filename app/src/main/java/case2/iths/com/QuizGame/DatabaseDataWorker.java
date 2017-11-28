@@ -5,10 +5,6 @@ import android.database.sqlite.SQLiteDatabase;
 
 import case2.iths.com.QuizGame.QuizableDatabaseContract.CategoriesInfoEntry;
 
-/**
- * Created by alvaro on 2017-11-23.
- */
-
 public class DatabaseDataWorker {
 
     private SQLiteDatabase mDb;

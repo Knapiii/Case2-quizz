@@ -16,7 +16,7 @@ import case2.iths.com.QuizGame.QuizableDatabaseContract.CategoriesInfoEntry;
 public class HighScoreActivity extends AppCompatActivity {
 
     private Spinner mSpinnerCategories;
-    QuizableOpenHelper mDbOpenHelper;
+    private QuizableOpenHelper mDbOpenHelper;
     private RecyclerView recyclerView;
     private LinearLayoutManager highscoresLayoutManager;
     private String category_id;
@@ -54,7 +54,7 @@ public class HighScoreActivity extends AppCompatActivity {
         loadHighscores();
     }
 
-    public void displayCategoriesSpinner() {
+    private void displayCategoriesSpinner() {
 
         mSpinnerCategories = findViewById(R.id.spinner);
         Cursor cursor = mDbOpenHelper.loadCategoriesData();
@@ -107,10 +107,6 @@ public class HighScoreActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
 }
 
 

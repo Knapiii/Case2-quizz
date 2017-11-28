@@ -10,9 +10,6 @@ import android.widget.TextView;
 
 import case2.iths.com.QuizGame.QuizableDatabaseContract.HighScoresInfoEntry;
 
-/**
- * Created by alvaro on 2017-11-17.
- */
 
 public class HighscoresAdapter extends  RecyclerView.Adapter<HighscoresAdapter.ViewHolder>  {
 

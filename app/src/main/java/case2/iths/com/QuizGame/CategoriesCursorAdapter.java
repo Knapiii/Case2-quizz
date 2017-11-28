@@ -10,10 +10,6 @@ import android.widget.TextView;
 
 import static case2.iths.com.QuizGame.QuizableDatabaseContract.CategoriesInfoEntry;
 
-/**
- * Created by alvaro on 2017-11-17.
- */
-
 public class CategoriesCursorAdapter extends CursorAdapter {
 
 

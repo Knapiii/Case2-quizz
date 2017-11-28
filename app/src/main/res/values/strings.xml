@@ -61,5 +61,10 @@
     <string name="chosen_category">Category:</string>
     <string name="go">GO</string>
     <string name="own">Own</string>
+    <string name="logo">logo</string>
+    <string name="sound_on_off_button">Sound on/off button</string>
+    <string name="true_statement">True</string>
+    <string name="false_statement">False</string>
+    <string name="insert_name_hint">Insert name</string>
 
 </resources>

@@ -7,7 +7,7 @@ import android.view.View;
 
 public class GameMenuActivity extends AppCompatActivity {
 
-    SavedSettings savedSettings;
+    private SavedSettings savedSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +19,7 @@ public class GameMenuActivity extends AppCompatActivity {
     /**
      * När vi klickar på knappen "Manage Statements" så ska vi komma till HandleStatementsActivity
      */
-    public void toManageStatements(View view) {
+    public void tomanagestatements(View view) {
         savedSettings.giveSound(this);
         Intent toManageStatements = new Intent(this,HandleStatementsActivity.class);
         startActivity(toManageStatements);

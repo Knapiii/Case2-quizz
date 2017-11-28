@@ -2,10 +2,6 @@ package case2.iths.com.QuizGame;
 
 import android.provider.BaseColumns;
 
-/**
- * Created by alvaro on 2017-11-19.
- */
-
 public final class QuizableDatabaseContract {
 
     private QuizableDatabaseContract () {} // makes the class non-creatable

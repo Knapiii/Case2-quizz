@@ -61,4 +61,7 @@
     <string name="amount_of_statements">Antal påståenden:</string>
     <string name="go">GO</string>
     <string name="own">Egna</string>
+    <string name="logo">logo</string>
+    <string name="sound_on_off_button">Sound on/off button</string>
+    <string name="chosen_category">Kategori:</string>
 </resources>

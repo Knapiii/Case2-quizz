@@ -36,7 +36,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
+    <EditText
         android:id="@+id/edit_text"
         android:layout_width="218dp"
         android:layout_height="wrap_content"
@@ -96,10 +96,10 @@
             android:layout_margin="8dp"
             android:background="@drawable/button_shape"
             android:checked="false"
-            android:text="sant"
-            android:textOff="Sant"
+            android:text="@string/true_statement"
+            android:textOff="@string/true_statement"
             android:onClick="editButtonTrueClicked"
-            android:textOn="Sant"
+            android:textOn="@string/true_statement"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="@+id/gameField_edit_statement"
@@ -112,10 +112,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:background="@drawable/button_shape"
-            android:text="falskt"
+            android:text="@string/false_statement"
             android:onClick="editButtonFalseClicked"
-            android:textOff="Falskt"
-            android:textOn="Falskt"
+            android:textOff="@string/false_statement"
+            android:textOn="@string/false_statement"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toRightOf="@+id/togglebutton_edit_true"

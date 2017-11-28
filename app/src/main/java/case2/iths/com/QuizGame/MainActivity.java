@@ -9,8 +9,8 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
-    SavedSettings savedSettings;
-    public static final String PREFS_NAME = "saveSettings";
+    private SavedSettings savedSettings;
+    private static final String PREFS_NAME = "saveSettings";
     private QuizableOpenHelper mDbOpenHelper;
 
 
@@ -67,8 +67,4 @@ public class MainActivity extends AppCompatActivity {
         startActivity(toAbout);
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
 }

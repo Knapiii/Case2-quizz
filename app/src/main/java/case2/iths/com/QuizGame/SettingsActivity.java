@@ -9,7 +9,7 @@ import android.widget.ImageButton;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    public static final String PREFS_NAME = "saveSettings";
+    private static final String PREFS_NAME = "saveSettings";
     private SavedSettings savedSettings;
     private ImageButton imageButton;
 
@@ -43,7 +43,7 @@ public class SettingsActivity extends AppCompatActivity {
         editor.apply();
     }
 
-    public void storeSettings() {
+    private void storeSettings() {
         // Restore preferences
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         boolean silent = settings.getBoolean("silentMode", false);

@@ -9,7 +9,7 @@
 
     <Button
         android:id="@+id/button_manage_statements"
-        android:onClick="toManageStatements"
+        android:onClick="tomanagestatements"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -66,7 +66,7 @@
         android:text="@string/game_menu"
         android:textAlignment="center"
         android:textColor="@android:color/white"
-        android:textSize="60dp"
+        android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
