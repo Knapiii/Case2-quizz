@@ -56,4 +56,10 @@ public class CountdownSplashActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //Timer will be stopped when player presses the back button
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        cdTimer.cancel();
+    }
 }
