@@ -58,5 +58,5 @@
     <string name="points">poäng</string>
     <string name="mat">mat</string>
     <string name="food">mat</string>
-    <string name="amount_of_rounds">Amount of rounds:</string>
+    <string name="amount_of_statements">Antal påståenden:</string>
 </resources>

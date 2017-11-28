@@ -6,14 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
-public class PlayGameActivity extends AppCompatActivity {
+public class CategoryWindowActivity extends AppCompatActivity {
 
     SavedSettings savedSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_singelplayer);
+        setContentView(R.layout.activity_category_window);
         savedSettings = new SavedSettings();
     }
 
@@ -37,37 +37,37 @@ public class PlayGameActivity extends AppCompatActivity {
                 break;
             case R.id.button_music:
                 savedSettings.giveSound(this);
-                Intent musicIntent = new Intent(this, SinglePlayerActivity.class);
+                Intent musicIntent = new Intent(this, AmountOfStatementsActivity.class);
                 musicIntent.putExtra("genre", "Musik");
                 startSingleGame(musicIntent);
                 break;
             case R.id.button_geography:
                 savedSettings.giveSound(this);
-                Intent geoIntent = new Intent(this, SinglePlayerActivity.class);
+                Intent geoIntent = new Intent(this, AmountOfStatementsActivity.class);
                 geoIntent.putExtra("genre", "Geografi");
                 startSingleGame(geoIntent);
                 break;
             case R.id.button_science:
                 savedSettings.giveSound(this);
-                Intent scienceIntent = new Intent(this, SinglePlayerActivity.class);
+                Intent scienceIntent = new Intent(this, AmountOfStatementsActivity.class);
                 scienceIntent.putExtra("genre", "Vetenskap");
                 startSingleGame(scienceIntent);
                 break;
             case R.id.button_culture:
                 savedSettings.giveSound(this);
-                Intent cultureIntent = new Intent(this, SinglePlayerActivity.class);
+                Intent cultureIntent = new Intent(this, AmountOfStatementsActivity.class);
                 cultureIntent.putExtra("genre", "Mat");
                 startSingleGame(cultureIntent);
                 break;
             case R.id.button_games:
                 savedSettings.giveSound(this);
-                Intent gamesIntent = new Intent(this, SinglePlayerActivity.class);
+                Intent gamesIntent = new Intent(this, AmountOfStatementsActivity.class);
                 gamesIntent.putExtra("genre", "Spel");
                 startSingleGame(gamesIntent);
                 break;
             case R.id.button_own_questions:
                 savedSettings.giveSound(this);
-                Intent ownIntent = new Intent(this, SinglePlayerActivity.class);
+                Intent ownIntent = new Intent(this, AmountOfStatementsActivity.class);
                 ownIntent.putExtra("genre", "Own");
                 Toast toast = Toast.makeText(this, "no questions", Toast.LENGTH_LONG);
                 // toast.show();

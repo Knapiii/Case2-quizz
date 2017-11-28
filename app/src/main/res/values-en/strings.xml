@@ -58,5 +58,5 @@
     <string name="Edit">Edit</string>
     <string name="points">points</string>
     <string name="mat">Food</string>
-    <string name="amount_of_rounds">Amount of rounds:</string>
+    <string name="amount_of_statements">Amount of statements:</string>
 </resources>

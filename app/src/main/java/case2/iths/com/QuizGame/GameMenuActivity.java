@@ -30,7 +30,7 @@ public class GameMenuActivity extends AppCompatActivity {
      */
     public void toSingelGame(View view) {
         savedSettings.giveSound(this);
-        Intent toSingelGame = new Intent(this, PlayGameActivity.class);
+        Intent toSingelGame = new Intent(this, CategoryWindowActivity.class);
         startActivity(toSingelGame);
     }
 

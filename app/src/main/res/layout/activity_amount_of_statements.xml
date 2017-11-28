@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_background"
-    tools:context="case2.iths.com.QuizGame.PlayGameActivity">
+    tools:context="case2.iths.com.QuizGame.AmountOfStatementsActivity">
+
+
 
     <TextView
         android:id="@+id/top_text"
@@ -15,7 +17,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/lobster_two_bold"
-        android:text="@string/app_name"
+        android:text="@string/amount_of_statements"
         android:textAlignment="center"
         android:textColor="@android:color/white"
         android:textSize="40sp"
@@ -24,129 +26,84 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/developed_by_text"
-        android:layout_width="wrap_content"
-        android:layout_height="15dp"
-        android:layout_marginBottom="16dp"
-        android:fontFamily="sans-serif"
-        android:text="@string/developed_by"
-        android:textColor="@color/ButtonBackground"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <Button
-        android:id="@+id/button_sport"
-        android:onClick="categoryButtonPressed"
+        android:id="@+id/button_statements_5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="120dp"
         android:background="@color/ButtonBackground"
-        android:text="@string/sport"
+        android:text="5"
         android:textColor="@android:color/background_light"
-        android:textSize="20sp"
+        android:textSize="24sp"
         android:textStyle="bold"
+        android:onClick="Button5Rounds"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top_text" />
 
     <Button
-        android:id="@+id/button_music"
-        android:onClick="categoryButtonPressed"
+        android:id="@+id/button_statements_10"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@color/ButtonBackground"
-        android:text="@string/music"
+        android:text="10"
         android:textColor="@android:color/background_light"
-        android:textSize="20sp"
+        android:textSize="24sp"
         android:textStyle="bold"
+        android:onClick="Button10Rounds"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_sport" />
+        app:layout_constraintTop_toBottomOf="@+id/button_statements_5" />
 
     <Button
-        android:id="@+id/button_culture"
-        android:onClick="categoryButtonPressed"
+        android:id="@+id/button_statements_15"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@color/ButtonBackground"
-        android:text="@string/mat"
+        android:text="15"
         android:textColor="@android:color/background_light"
-        android:textSize="20sp"
+        android:textSize="24sp"
         android:textStyle="bold"
+        android:onClick="Button15Rounds"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_science" />
+        app:layout_constraintTop_toBottomOf="@+id/button_statements_10" />
 
     <Button
-        android:id="@+id/button_science"
-        android:onClick="categoryButtonPressed"
+        android:id="@+id/button_statements_20"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@color/ButtonBackground"
-        android:text="@string/science"
+        android:onClick="Button20Rounds"
+        android:text="20"
         android:textColor="@android:color/background_light"
-        android:textSize="20sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_geography" />
+        app:layout_constraintTop_toBottomOf="@+id/button_statements_15" />
 
     <Button
-        android:id="@+id/button_geography"
-        android:onClick="categoryButtonPressed"
+        android:id="@+id/button_statements_chosen"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:background="@color/ButtonBackground"
-        android:text="@string/geography"
+        android:onClick="RoundsChosen"
+        android:text="@string/play"
         android:textColor="@android:color/background_light"
-        android:textSize="20sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_music"
-        tools:layout_editor_absoluteX="133dp" />
-
-    <Button
-        android:id="@+id/button_games"
-        android:onClick="categoryButtonPressed"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@color/ButtonBackground"
-        android:text="@string/games"
-        android:textColor="@android:color/background_light"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_culture" />
-
-    <Button
-        android:id="@+id/button_own_questions"
-        android:onClick="categoryButtonPressed"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@color/ButtonBackground"
-        android:text="@string/own_statements"
-        android:textColor="@android:color/background_light"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_games" />
+        app:layout_constraintTop_toBottomOf="@+id/button_statements_20" />
 
 </android.support.constraint.ConstraintLayout>

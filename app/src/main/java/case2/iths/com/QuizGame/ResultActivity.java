@@ -49,11 +49,11 @@ public class ResultActivity extends AppCompatActivity {
     public void openHelper(){
         Intent intent = getIntent();
 
-        category = checkCategory(intent.getStringExtra("category"));
+     //   category = checkCategory(intent.getStringExtra("category"));
         points = intent.getIntExtra("points", 0);
         amountOfPoints.setText((Integer.toString(points)));
         playedCategory.setText(category);
-        category = category.toLowerCase();
+//        category = category.toLowerCase();
 
     }
 
@@ -100,7 +100,7 @@ public class ResultActivity extends AppCompatActivity {
 
     public void playAgain(View view) {
         savedSettings.giveSound(this);
-        Intent intent = new Intent(this, PlayGameActivity.class);
+        Intent intent = new Intent(this, CategoryWindowActivity.class);
         startActivity(intent);
     }
 

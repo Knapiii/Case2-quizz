@@ -24,7 +24,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
     private String questionString, answerString;
     private QuizableDBHelper quizableDBHelper;
     private CountDownTimer cdTimer;
-    private int rounds;
+    private int amountOfStatements;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +36,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
         headLine.setText(genre);
 
         Intent intent = getIntent();
-        rounds = intent.getIntExtra("amountOfRounds", 5);
+        amountOfStatements = intent.getIntExtra("amountOfStatements", 5);
         points = 0;
         numDoneQuestions = 0;
         questionString = "";
@@ -149,7 +149,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ResultActivity.class);
         intent.putExtra("points", points);
         intent.putExtra("category", genre);
-        intent.putExtra("amountOfRounds", rounds);
+        intent.putExtra("amountOfStatements", amountOfStatements);
         startActivity(intent);
     }
 
@@ -167,23 +167,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
      * Kontrollerar om rundan är över eller inte
      */
     public boolean isRoundOver() {
-        return numDoneQuestions == rounds;
-    }
-
-    public int amountOfRounds(int rounds) {
-        switch (rounds) {
-            case 5:
-                numDoneQuestions = 5;
-                break;
-            case 10:
-                numDoneQuestions = 10;
-                break;
-            case 15:
-                numDoneQuestions = 15;
-                break;
-        }
-        return rounds;
-
+        return numDoneQuestions == amountOfStatements;
     }
 
 
