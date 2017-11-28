@@ -26,7 +26,7 @@ public class AmountOfStatementsActivity extends AppCompatActivity {
 
         chosenCategory = getIntent().getStringExtra("genre");
         categoryTextView = findViewById(R.id.category_text_view);
-        categoryTextView.setText(getString(R.string.chosen_category) + chosenCategory);
+        categoryTextView.setText(chosenCategory);
     }
 
     public void Button5Rounds(View view) {
