@@ -37,6 +37,7 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
         // Adds default categories to the categories table in the database
         DatabaseDataWorker databaseDataWorker = new DatabaseDataWorker(db);
         databaseDataWorker.insertCategories();
+        databaseDataWorker.insertQuestions();
 
 
 
@@ -116,6 +117,22 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
         return cursor;
 
+    }
+
+    // returns a Cursor with all the statements
+    public Cursor loadStatementsData() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] statementColumns = {
+                OwnStatementsEntry.COLUMN_STATEMENT,
+                OwnStatementsEntry.COLUMN_STATEMENT_ANSWER,
+                OwnStatementsEntry.COLUMN_CATEGORY_ID,
+                OwnStatementsEntry._ID
+        };
+
+        Cursor cursor = db.query(OwnStatementsEntry.TABLE_NAME, statementColumns, null, null, null, null, null);
+
+        return cursor;
     }
 
     // This method adds a new statement in to the own_questions table in the database

@@ -56,7 +56,7 @@ public class CountdownSplashActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    //Timer will be stopped when player presses the back button
+    //Stops the timer when the back button is pressed
     @Override
     public void onBackPressed() {
         super.onBackPressed();

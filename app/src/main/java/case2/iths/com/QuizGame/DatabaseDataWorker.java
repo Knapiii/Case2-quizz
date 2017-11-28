@@ -5,6 +5,8 @@ import android.database.sqlite.SQLiteDatabase;
 
 import case2.iths.com.QuizGame.QuizableDatabaseContract.CategoriesInfoEntry;
 
+import static case2.iths.com.QuizGame.QuizableDatabaseContract.*;
+
 public class DatabaseDataWorker {
 
     private SQLiteDatabase mDb;
@@ -23,6 +25,22 @@ public class DatabaseDataWorker {
         insertCategory("sport","Sport");
         insertCategory("music","Music");
         insertCategory("own_statements","Own statements");
+
+    }
+
+    public void insertQuestions() {
+        insertQuestions("Zlatan Ibrahimovic är en hockeyspelare", "true", "sport");
+    }
+
+    private void insertQuestions(String statement, String answer, String category) {
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(OwnStatementsEntry.COLUMN_STATEMENT, statement);
+        contentValues.put(OwnStatementsEntry.COLUMN_STATEMENT_ANSWER, answer);
+        contentValues.put(OwnStatementsEntry.COLUMN_CATEGORY_ID, category);
+
+        long id = mDb.insert(OwnStatementsEntry.TABLE_NAME, null, contentValues);
+
 
     }
 

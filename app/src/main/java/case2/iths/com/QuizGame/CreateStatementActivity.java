@@ -70,7 +70,7 @@ public class CreateStatementActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
 
                 Cursor cursor = (Cursor) spinner.getItemAtPosition(position);
-                category = cursor.getString(cursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE));
+                category = cursor.getString(cursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_ID));
 
 
 
@@ -131,7 +131,7 @@ public class CreateStatementActivity extends AppCompatActivity {
 
         Toast.makeText(this, input, Toast.LENGTH_SHORT).show();
 
-        mDbOpenHelper.insertStatement("sport",statement,answer);
+        mDbOpenHelper.insertStatement(category,statement,answer);
 
      //   dbHelper.insertStatement("Sport", statement, answer);
 

@@ -49,7 +49,7 @@ public class ResultActivity extends AppCompatActivity {
     public void openHelper(){
         Intent intent = getIntent();
 
-        category = checkCategory(intent.getStringExtra("category"));
+        category = translateCategory(intent.getStringExtra("category"));
         points = intent.getIntExtra("points", 0);
         amountOfStatements = intent.getIntExtra("amountOfStatements", 5);
         amountOfPoints.setText((Integer.toString(points)));
@@ -60,7 +60,7 @@ public class ResultActivity extends AppCompatActivity {
 
     //This methos translates category to english when necessary
 
-    private String checkCategory(String category_id) {
+    private String translateCategory(String category_id) {
 
         switch (category_id) {
             case "Mat":
