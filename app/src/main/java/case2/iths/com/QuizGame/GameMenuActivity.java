@@ -26,7 +26,8 @@ public class GameMenuActivity extends AppCompatActivity {
     }
 
     /**
-     * När vi klickar på knappen "Singelplayer" så ska vi komma till SinglePlayerActivity
+     * När vi klickar på knappen "Singelplayer" så ska vi komma till
+     * PlayGameActivity där kategori väljs för ett singelplayer spel
      */
     public void toSingelGame(View view) {
         savedSettings.giveSound(this);
@@ -35,11 +36,13 @@ public class GameMenuActivity extends AppCompatActivity {
     }
 
     /**
-     * När vi klickar på knappen "Multiplayer" så ska vi komma till Multiplayer
+     * När vi klickar på knappen "Multiplayer" så ska vi komma till
+     * PlayGameActivity där kategori väljs för ett multiplayer spel
      */
     public void toMultiplayerGame(View view) {
         savedSettings.giveSound(this);
-        Intent toMultiplayerGame = new Intent(this,Multiplayer.class);
+        Intent toMultiplayerGame = new Intent(this, CategoryWindowActivity.class);
+        toMultiplayerGame.putExtra("multiplayer", true);
         startActivity(toMultiplayerGame);
     }
 

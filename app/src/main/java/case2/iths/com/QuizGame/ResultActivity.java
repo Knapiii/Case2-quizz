@@ -49,11 +49,11 @@ public class ResultActivity extends AppCompatActivity {
     public void openHelper(){
         Intent intent = getIntent();
 
-     //   category = checkCategory(intent.getStringExtra("category"));
+        category = checkCategory(intent.getStringExtra("category"));
         points = intent.getIntExtra("points", 0);
         amountOfPoints.setText((Integer.toString(points)));
         playedCategory.setText(category);
-//        category = category.toLowerCase();
+        category = category.toLowerCase();
 
     }
 
@@ -98,12 +98,20 @@ public class ResultActivity extends AppCompatActivity {
         return category_id;
     }
 
+    /**
+     * Låter spelaren spela en gång till
+     * @param view
+     */
     public void playAgain(View view) {
         savedSettings.giveSound(this);
         Intent intent = new Intent(this, CategoryWindowActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Skickar tillbaka spelaren till huvudmenyn
+     * @param view
+     */
     public void backToMainMenu(View view) {
         savedSettings.giveSound(this);
         Intent intent = new Intent(this, MainActivity.class);

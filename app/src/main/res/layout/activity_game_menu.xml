@@ -13,7 +13,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="@color/ButtonBackground"
+        android:background="@drawable/button_background_switcher"
         android:text="@string/manage_statements"
         android:textColor="@android:color/background_light"
         android:textSize="24sp"

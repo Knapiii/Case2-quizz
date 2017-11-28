@@ -58,5 +58,6 @@
     <string name="edit_statement">Edit statement</string>
     <string name="Edit">Edit</string>
     <string name="amount_of_statements">Amount of statements:</string>
+    <string name="chosen_category">Category:</string>
 
 </resources>

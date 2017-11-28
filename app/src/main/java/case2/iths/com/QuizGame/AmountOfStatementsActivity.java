@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class AmountOfStatementsActivity extends AppCompatActivity {
 
     private Button button5Statements, button10Statements, button15Statements, button20Statements;
     private int amountOfStatements;
     private String chosenCategory;
+    private TextView categoryTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,8 @@ public class AmountOfStatementsActivity extends AppCompatActivity {
         button20Statements = findViewById(R.id.button_statements_20);
 
         chosenCategory = getIntent().getStringExtra("genre");
+        categoryTextView = findViewById(R.id.category_text_view);
+        categoryTextView.setText(getString(R.string.chosen_category) + chosenCategory);
     }
 
     public void Button5Rounds(View view) {
