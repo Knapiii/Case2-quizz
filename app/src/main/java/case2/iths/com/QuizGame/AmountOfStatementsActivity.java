@@ -50,7 +50,7 @@ public class AmountOfStatementsActivity extends AppCompatActivity {
     }
 
     public void RoundsChosen(View view) {
-        Intent intent = new Intent(this, SinglePlayerActivity.class);
+        Intent intent = new Intent(this, CountdownSplashActivity.class);
         intent.putExtra("amountOfStatements", amountOfStatements);
         intent.putExtra("genre", chosenCategory);
         startActivity(intent);

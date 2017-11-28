@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Toast;
 
 public class CategoryWindowActivity extends AppCompatActivity {
 
@@ -34,7 +33,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
         switch (id){
             case R.id.button_sport:
                 savedSettings.giveSound(this);
-                Intent sportIntent = new Intent(this, SinglePlayerActivity.class);
+                Intent sportIntent = new Intent(this, AmountOfStatementsActivity.class);
                 sportIntent.putExtra("genre", "Sport");
                 if (isMultiplayer)
                     sportIntent.putExtra("multiplayer", isMultiplayer);

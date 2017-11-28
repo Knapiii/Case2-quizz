@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_background"
+    android:noHistory="true"
     tools:context="case2.iths.com.QuizGame.ResultActivity"
-    tools:layout_editor_absoluteY="25dp"
-    android:noHistory="true">
+    tools:layout_editor_absoluteY="25dp">
 
     <TextView
         android:id="@+id/top_text"
@@ -28,21 +28,22 @@
         android:id="@+id/amount_of_points"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:textColor="@android:color/white"
-        android:textSize="30sp"
+        android:textSize="50sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/editText_save_highscore_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/played_category"
-        tools:text="amount of points" />
+        tools:text="points" />
 
     <TextView
         android:id="@+id/played_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

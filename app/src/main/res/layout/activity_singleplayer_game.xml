@@ -20,17 +20,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Category" />
 
     <TextView
         android:id="@+id/display_seconds"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="25sp"
+        android:textColor="@android:color/white"
+        android:textSize="50sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/top_text_category" />
+        app:layout_constraintTop_toBottomOf="@+id/top_text_category"
+        tools:text="10" />
 
     <TextView
         android:id="@+id/point_text"
@@ -80,10 +83,12 @@
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/button_true"
             app:layout_constraintLeft_toLeftOf="@+id/gameField"
             app:layout_constraintRight_toRightOf="@+id/gameField"
-            app:layout_constraintTop_toTopOf="@+id/gameField" />
+            app:layout_constraintTop_toTopOf="@+id/gameField"
+            tools:text="Statement" />
 
         <Button
             android:id="@+id/button_true"
@@ -119,14 +124,15 @@
         android:id="@+id/text_statements_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:background="@drawable/button_rectangle"
+        android:layout_marginTop="16dp"
         android:padding="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@android:color/white"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/gameField"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gameField"
-        tools:text="statements left" />
+        app:layout_constraintStart_toEndOf="@+id/gameField"
+        app:layout_constraintTop_toBottomOf="@+id/point_text"
+        tools:text="?" />
 
 </android.support.constraint.ConstraintLayout>

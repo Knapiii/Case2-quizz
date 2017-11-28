@@ -14,9 +14,9 @@ import java.util.Random;
 
 public class SinglePlayerActivity extends AppCompatActivity {
 
-    private TextView pointsView, question, secondsView, headLine;
+    private TextView pointsView, question, secondsView, headLine, statementsLeftView;
     private String genre;
-    private int points, numDoneQuestions, seconds;
+    private int points, numDoneQuestions, seconds, amountOfStatements, updateStatementsLeft;
     private ArrayList<String> questions = new ArrayList<>();
     private ArrayList<String> answers = new ArrayList<>();
     private ArrayList<Integer> pastStatement = new ArrayList<>();
@@ -24,7 +24,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
     private String questionString, answerString;
     private QuizableDBHelper quizableDBHelper;
     private CountDownTimer cdTimer;
-    private int amountOfStatements;
+
 
 
     @Override
@@ -32,11 +32,11 @@ public class SinglePlayerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_singleplayer_game);
         savedSettings = new SavedSettings();
+        Intent intent = getIntent();
+        amountOfStatements = intent.getIntExtra("amountOfStatements", 5);
         initialize();
         genre = getIntent().getStringExtra("genre");
         headLine.setText(genre);
-        Intent intent = getIntent();
-        amountOfStatements = intent.getIntExtra("amountOfStatements", 5);
         quizableDBHelper = new QuizableDBHelper(this);
         updatePoints();
         statements();
@@ -69,8 +69,10 @@ public class SinglePlayerActivity extends AppCompatActivity {
         secondsView = findViewById(R.id.display_seconds);
         pointsView = findViewById(R.id.points);
         headLine = findViewById(R.id.top_text_category);
+        statementsLeftView = findViewById(R.id.text_statements_left);
 
         points = 0;
+        updateStatementsLeft = amountOfStatements;
         numDoneQuestions = 0;
         questionString = "";
         answerString = "";
@@ -108,6 +110,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
             answerString = answers.get(randId);
             question.setText(questionString);
             numDoneQuestions++;
+            updateStatementsLeft--;
         } else
             startResultActivity();
     }
@@ -164,6 +167,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
             points = 0;
         }
         pointsView.setText("" + points);
+        statementsLeftView.setText("" + updateStatementsLeft);
     }
 
     /**

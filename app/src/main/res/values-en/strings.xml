@@ -56,7 +56,8 @@
     <string name="edit_category">Edit category</string>
     <string name="edit_statement">Edit statement</string>
     <string name="Edit">Edit</string>
-    <string name="points">points</string>
+    <string name="points">Points:</string>
     <string name="mat">Food</string>
     <string name="amount_of_statements">Amount of statements:</string>
+    <string name="go">GO</string>
 </resources>

@@ -4,7 +4,7 @@
     <string name="profile">Profile</string>
     <string name="result">Result</string>
     <string name="textview_about">"Quizabble är ett frågesportsspel som är utvecklat av studenter från ITHS-Högksolan.\n\nSpelet går ut på att svara på om ett påstående är sant eller falskt, fast du måste tänka tvärt-om.\n\nDu kan även lägga till egna påståenden själv, om du vill.  Är Sverige ett land? Ja, därför är \"rätt\" svar falskt eftersom du måste tänka tvärt-om. "</string>
-    <string name="points">"Points: "</string>
+    <string name="points">"Points:"</string>
 
     <!--Buttons-->
     <string name="handle_statements">Handle statements</string>
@@ -57,7 +57,8 @@
     <string name="edit_category">Edit category</string>
     <string name="edit_statement">Edit statement</string>
     <string name="Edit">Edit</string>
-    <string name="amount_of_statements">Amount of statements:</string>
+    <string name="amount_of_statements">Amount of statements</string>
     <string name="chosen_category">Category:</string>
+    <string name="go">GO</string>
 
 </resources>
