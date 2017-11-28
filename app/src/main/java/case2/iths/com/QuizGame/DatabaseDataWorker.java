@@ -41,4 +41,6 @@ public class DatabaseDataWorker {
         long id = mDb.insert(CategoriesInfoEntry.TABLE_NAME, null, contentValues);
 
     }
+
+    
 }

@@ -12,7 +12,7 @@ public class ResultActivity extends AppCompatActivity {
     private SavedSettings savedSettings;
     private TextView amountOfPoints, playedCategory;
     private String category;
-    private int points;
+    private int points, amountOfStatements;
     private EditText insertName;
     private String name;
     private QuizableOpenHelper quizableOpenHelper;
@@ -51,6 +51,7 @@ public class ResultActivity extends AppCompatActivity {
 
         category = checkCategory(intent.getStringExtra("category"));
         points = intent.getIntExtra("points", 0);
+        amountOfStatements = intent.getIntExtra("amountOfStatements", 5);
         amountOfPoints.setText((Integer.toString(points)));
         playedCategory.setText(category);
         category = category.toLowerCase();
@@ -128,7 +129,7 @@ public class ResultActivity extends AppCompatActivity {
         toHighscores.putExtra("categoryPos", categoryPos);
         quizableOpenHelper = new QuizableOpenHelper(this);
         name = insertName.getText().toString();
-        quizableOpenHelper.insertHighscore(category, points, name);
+        quizableOpenHelper.insertHighscore(category, points, amountOfStatements, name);
 
 
         startActivity(toHighscores);

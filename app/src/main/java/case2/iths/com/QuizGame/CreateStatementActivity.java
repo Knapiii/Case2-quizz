@@ -1,5 +1,6 @@
 package case2.iths.com.QuizGame;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ public class CreateStatementActivity extends AppCompatActivity {
     private String category;
     private String answer;
     private QuizableOpenHelper mDbOpenHelper;
+    private QuizableDBHelper dbHelper;
 
 
     @Override
@@ -34,6 +36,7 @@ public class CreateStatementActivity extends AppCompatActivity {
         buttonFalse = findViewById(R.id.togglebutton_add_false);
 
         mDbOpenHelper = new QuizableOpenHelper(this);
+      //  dbHelper = new QuizableDBHelper(this);
 
 
 
@@ -55,7 +58,7 @@ public class CreateStatementActivity extends AppCompatActivity {
         CategoriesCursorAdapter CategoriesCursorAdapter = new CategoriesCursorAdapter(this, cursor);
 
         spinner.setAdapter(CategoriesCursorAdapter);
-        spinner.setSelection(4);
+        spinner.setSelection(5);
      //   spinner.setEnabled(false);
 
 
@@ -105,9 +108,15 @@ public class CreateStatementActivity extends AppCompatActivity {
         }
     }
 
+    // Calles addStatement method which adds statement to the database + starts HandleStatements activity.
+
     public void onButtonAddClicked(View view) {
       //  Toast.makeText(this, "Add", Toast.LENGTH_SHORT).show();
         addStatement();
+
+        Intent intent = new Intent(this, HandleStatementsActivity.class);
+        startActivity(intent);
+
 
 
 
@@ -122,7 +131,9 @@ public class CreateStatementActivity extends AppCompatActivity {
 
         Toast.makeText(this, input, Toast.LENGTH_SHORT).show();
 
-   //     mDbOpenHelper.insertStatement(category,statement,answer);
+        mDbOpenHelper.insertStatement("sport",statement,answer);
+
+     //   dbHelper.insertStatement("Sport", statement, answer);
 
 
     }

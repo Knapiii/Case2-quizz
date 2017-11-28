@@ -22,6 +22,8 @@ public class HighscoresAdapter extends  RecyclerView.Adapter<HighscoresAdapter.V
     private int namePos;
     private int scorePos;
     private int idPos;
+    private int amountOfStatementsPos;
+
 
     public HighscoresAdapter(Context context, Cursor cursor) {
         mContext = context;
@@ -38,6 +40,7 @@ public class HighscoresAdapter extends  RecyclerView.Adapter<HighscoresAdapter.V
         namePos = mCursor.getColumnIndex(HighScoresInfoEntry.COLUMN_USER_ID);
         scorePos = mCursor.getColumnIndex(HighScoresInfoEntry.COLUMN_HIGHSCORE);
         idPos = mCursor.getColumnIndex(HighScoresInfoEntry._ID);
+        amountOfStatementsPos = mCursor.getColumnIndex(HighScoresInfoEntry.COLUMN_AMOUNT_OF_STATEMENTS);
 
 
         //Get column indexes from mCursors
@@ -65,11 +68,12 @@ public class HighscoresAdapter extends  RecyclerView.Adapter<HighscoresAdapter.V
         String name = mCursor.getString(namePos);
         String score = mCursor.getString(scorePos);
         int id = mCursor.getInt(idPos);
+        int amountOfStatements = mCursor.getInt(amountOfStatementsPos);
 
         holder.textName.setText(name);
         holder.textScore.setText(score);
         holder.textPoints.setText(R.string.points);
-        holder.textRounds.setText("5");
+        holder.textRounds.setText(String.valueOf(amountOfStatements));
         holder.amountOfStatements.setText(R.string.amount_of_statements);
         holder.id = id;
 

@@ -23,7 +23,7 @@ public class HandleStatementsActivity extends AppCompatActivity {
     private ListView listView;
     private ArrayList<String> list;
     private ArrayAdapter<String> arrayAdapter;
-
+    private ArrayList<String> questions = new ArrayList<>();
     private SavedSettings savedSettings;
 
     @Override
@@ -62,4 +62,8 @@ public class HandleStatementsActivity extends AppCompatActivity {
         Intent intent = new Intent(this, EditStatementActivity.class);
         startActivity(intent);
     }
+
+
+
+
 }
