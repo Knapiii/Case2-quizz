@@ -15,9 +15,9 @@ public final class QuizableDatabaseContract {
 
         public static final String TABLE_NAME = "highscores_info";
         public static final String COLUMN_CATEGORY_ID = "category_id";
-      //  public static final String COLUMN_CATEGORY_ID_SV = "category_id_sv";
         public static final String COLUMN_HIGHSCORE = "highscore";
         public static final String COLUMN_USER_ID = "user_id";
+        public static final String COLUMN_AMOUNT_OF_STATEMENTS = "amount_of_statements";
 
         // CREATE TABLE highscores_info (category_id, highscore_points, user_id)
 
@@ -25,8 +25,8 @@ public final class QuizableDatabaseContract {
                 "CREATE TABLE " + TABLE_NAME + " (" +
                         _ID + " INTEGER PRIMARY KEY, " +
                         COLUMN_CATEGORY_ID + " TEXT NOT NULL, " +
-                //        COLUMN_CATEGORY_ID_SV + " TEXT UNIQUE NOT NULL " +
                         COLUMN_HIGHSCORE + " INTEGER NOT NULL, " +
+                        COLUMN_AMOUNT_OF_STATEMENTS + " INTEGER NOT NULL, " +
                         COLUMN_USER_ID  + " TEXT)";
 
     }
@@ -35,7 +35,6 @@ public final class QuizableDatabaseContract {
 
         public static final String TABLE_NAME = "categories_info";
         public static final String COLUMN_CATEGORY_ID = "category_id";
-     //   public static final String COLUMN_CATEGORY_ID_SV = "category_id_sv";
         public static final String COLUMN_CATEGORY_TITLE = "category_title";
 
         // CREATE TABLE categories_info (category_id, category_text)
@@ -44,13 +43,12 @@ public final class QuizableDatabaseContract {
                 "CREATE TABLE " + TABLE_NAME + " (" +
                         _ID + " INTEGER PRIMARY KEY, " +
                         COLUMN_CATEGORY_ID + " TEXT UNIQUE NOT NULL, " +
-           //             COLUMN_CATEGORY_ID_SV + " TEXT UNIQUE NOT NULL " +
                         COLUMN_CATEGORY_TITLE + " TEXT UNIQUE NOT NULL)";
 
 
     }
 
-    /*public static final class OwnStatementsEntry implements BaseColumns {
+    public static final class OwnStatementsEntry implements BaseColumns {
 
         public static final String TABLE_NAME = "own_questions";
         public static final String COLUMN_CATEGORY_ID = "category_id";
@@ -64,7 +62,7 @@ public final class QuizableDatabaseContract {
                         COLUMN_STATEMENT_ANSWER + " TEXT NOT NULL, " +
                         COLUMN_CATEGORY_ID + " TEXT NOT NULL)";
 
-    }*/
+    }
 
 
 

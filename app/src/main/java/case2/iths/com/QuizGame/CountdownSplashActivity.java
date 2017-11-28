@@ -22,7 +22,7 @@ public class CountdownSplashActivity extends AppCompatActivity {
         countdown = findViewById(R.id.text_countdown_splash);
         headLine = findViewById(R.id.text_countdown_genre);
         chosenCategory = getIntent().getStringExtra("genre");
-        amountOfStatements = getIntent().getIntExtra("amountOfStatements", amountOfStatements);
+        amountOfStatements = getIntent().getIntExtra("amountOfStatements", 0);
         multiplayer = getIntent().getBooleanExtra("multiplayer", false);
         headLine.setText(chosenCategory);
 
