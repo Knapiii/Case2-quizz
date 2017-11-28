@@ -16,6 +16,8 @@ public class ResultActivity extends AppCompatActivity {
     private EditText insertName;
     private String name;
     private QuizableOpenHelper quizableOpenHelper;
+
+    // categoryPos saves the chosen category. We use categoryPos to give a default value to our spinner in the HighScore Activity
     private int categoryPos;
 
 
@@ -64,29 +66,29 @@ public class ResultActivity extends AppCompatActivity {
                 category_id = "Food";
                 categoryPos = 1;
                 break;
-            case "Sport":
-                category_id = "Sport";
-                categoryPos = 5;
+            case "Spel":
+                category_id = "Games";
+                categoryPos = 2;
+                break;
+            case "Geografi":
+                category_id = "Geography";
+                categoryPos = 3;
                 break;
             case "Vetenskap":
                 category_id = "Science";
                 categoryPos = 4;
                 break;
+            case "Sport":
+                category_id = "Sport";
+                categoryPos = 5;
+                break;
             case "Musik":
                 category_id = "Music";
                 categoryPos = 6;
                 break;
-            case "Spel":
-                category_id = "Games";
-                categoryPos = 2;
-                break;
             case "Own":
                 category_id = "Own_statements";
                 categoryPos = 7;
-                break;
-            case "Geografi":
-                category_id = "Geography";
-                categoryPos = 3;
                 break;
             default:
                 category_id = "All_categories";
@@ -122,16 +124,6 @@ public class ResultActivity extends AppCompatActivity {
 
 
         startActivity(toHighscores);
-
-    }
-
-    // Takes user back to main menu
-
-    @Override
-    public void onBackPressed() {
-        Intent backToMainActivity = new Intent(this, MainActivity.class);
-        backToMainActivity.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(backToMainActivity);
 
     }
 }

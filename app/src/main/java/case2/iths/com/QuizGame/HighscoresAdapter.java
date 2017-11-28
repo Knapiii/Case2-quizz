@@ -69,6 +69,8 @@ public class HighscoresAdapter extends  RecyclerView.Adapter<HighscoresAdapter.V
         holder.textName.setText(name);
         holder.textScore.setText(score);
         holder.textPoints.setText(R.string.points);
+        holder.textRounds.setText("5");
+        holder.textAmountOfRounds.setText(R.string.amount_of_rounds);
         holder.id = id;
 
     }
@@ -83,6 +85,9 @@ public class HighscoresAdapter extends  RecyclerView.Adapter<HighscoresAdapter.V
         public final TextView textName;
         public final TextView textScore;
         public final TextView textPoints;
+        public final TextView textRounds;
+        public final TextView textAmountOfRounds;
+
         public int id;
 
         public ViewHolder(View itemView) {
@@ -90,6 +95,9 @@ public class HighscoresAdapter extends  RecyclerView.Adapter<HighscoresAdapter.V
             textName = itemView.findViewById(R.id.text_name);
             textScore = itemView.findViewById(R.id.text_score);
             textPoints = itemView.findViewById(R.id.text_points);
+            textRounds = itemView.findViewById(R.id.text_rounds);
+            textAmountOfRounds = itemView.findViewById(R.id.text_amount_of_rounds);
+
         }
     }
 
