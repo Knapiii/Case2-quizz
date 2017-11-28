@@ -146,6 +146,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ResultActivity.class);
         intent.putExtra("points", points);
         intent.putExtra("category", genre);
+        intent.putExtra("amountOfRounds", rounds);
         startActivity(intent);
     }
 
@@ -163,7 +164,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
      * Kontrollerar om rundan är över eller inte
      */
     public boolean isRoundOver() {
-        return numDoneQuestions == amountOfRounds(rounds);
+        return numDoneQuestions == 5;
     }
 
     public int amountOfRounds(int rounds) {
@@ -203,5 +204,12 @@ public class SinglePlayerActivity extends AppCompatActivity {
                 answers.add(cursor.getString(3));
             }
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        cdTimer.cancel();
+        
     }
 }
