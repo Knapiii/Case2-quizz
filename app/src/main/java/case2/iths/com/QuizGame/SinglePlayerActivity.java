@@ -34,6 +34,9 @@ public class SinglePlayerActivity extends AppCompatActivity {
         genre = getIntent().getStringExtra("genre");
         TextView headLine = findViewById(R.id.top_text_category);
         headLine.setText(genre);
+
+        Intent intent = getIntent();
+        rounds = intent.getIntExtra("amountOfRounds", 5);
         points = 0;
         numDoneQuestions = 0;
         questionString = "";
@@ -164,7 +167,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
      * Kontrollerar om rundan är över eller inte
      */
     public boolean isRoundOver() {
-        return numDoneQuestions == 5;
+        return numDoneQuestions == rounds;
     }
 
     public int amountOfRounds(int rounds) {
@@ -210,6 +213,6 @@ public class SinglePlayerActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         cdTimer.cancel();
-        
+
     }
 }
