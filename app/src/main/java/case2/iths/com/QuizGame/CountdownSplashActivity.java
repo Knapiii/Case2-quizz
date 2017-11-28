@@ -13,6 +13,7 @@ public class CountdownSplashActivity extends AppCompatActivity {
     private int amountOfStatements;
     private TextView headLine;
     private String chosenCategory;
+    private boolean multiplayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,7 @@ public class CountdownSplashActivity extends AppCompatActivity {
         headLine = findViewById(R.id.text_countdown_genre);
         chosenCategory = getIntent().getStringExtra("genre");
         amountOfStatements = getIntent().getIntExtra("amountOfStatements", amountOfStatements);
+        multiplayer = getIntent().getBooleanExtra("multiplayer", false);
         headLine.setText(chosenCategory);
 
 
@@ -50,6 +52,7 @@ public class CountdownSplashActivity extends AppCompatActivity {
         Intent intent = new Intent(CountdownSplashActivity.this, SinglePlayerActivity.class);
         intent.putExtra("amountOfStatements", amountOfStatements);
         intent.putExtra("genre", chosenCategory);
+        intent.putExtra("multiplayer", multiplayer);
         startActivity(intent);
     }
 

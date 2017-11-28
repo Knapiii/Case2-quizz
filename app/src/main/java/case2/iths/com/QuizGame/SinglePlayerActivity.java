@@ -83,7 +83,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
 
     // TODO: 2017-11-14 Lägg till:
     // TODO: CHOOSE BEETWEEN ALL CATEGORIES
-    // TODO: TIMER FUNCTION
+    // TODO: FIX MULTIPLAYER
     // TODO:        - MORE TIME YOU USE
 
 

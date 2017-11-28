@@ -13,6 +13,7 @@ public class AmountOfStatementsActivity extends AppCompatActivity {
     private int amountOfStatements;
     private String chosenCategory;
     private TextView categoryTextView;
+    private boolean multiplayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,8 @@ public class AmountOfStatementsActivity extends AppCompatActivity {
         button10Statements = findViewById(R.id.button_statements_10);
         button15Statements = findViewById(R.id.button_statements_15);
         button20Statements = findViewById(R.id.button_statements_20);
+
+        multiplayer = getIntent().getBooleanExtra("multiplayer", false);
 
         chosenCategory = getIntent().getStringExtra("genre");
         categoryTextView = findViewById(R.id.category_text_view);
@@ -53,6 +56,7 @@ public class AmountOfStatementsActivity extends AppCompatActivity {
         Intent intent = new Intent(this, CountdownSplashActivity.class);
         intent.putExtra("amountOfStatements", amountOfStatements);
         intent.putExtra("genre", chosenCategory);
+        intent.putExtra("multiplayer", multiplayer);
         startActivity(intent);
     }
 
