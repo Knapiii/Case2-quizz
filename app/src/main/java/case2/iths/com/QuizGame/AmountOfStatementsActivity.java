@@ -8,8 +8,8 @@ import android.widget.Button;
 
 public class AmountOfStatementsActivity extends AppCompatActivity {
 
-    private Button button5Rounds, button10Rounds, button15Rounds, button20Rounds;
-    private int rounds;
+    private Button button5Statements, button10Statements, button15Statements, button20Statements;
+    private int amountOfStatements;
     private String chosenCategory;
 
     @Override
@@ -17,37 +17,37 @@ public class AmountOfStatementsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_amount_of_statements);
 
-        button5Rounds = findViewById(R.id.button_statements_5);
-        button10Rounds = findViewById(R.id.button_statements_10);
-        button15Rounds = findViewById(R.id.button_statements_15);
-        button20Rounds = findViewById(R.id.button_statements_20);
+        button5Statements = findViewById(R.id.button_statements_5);
+        button10Statements = findViewById(R.id.button_statements_10);
+        button15Statements = findViewById(R.id.button_statements_15);
+        button20Statements = findViewById(R.id.button_statements_20);
 
         chosenCategory = getIntent().getStringExtra("genre");
     }
 
     public void Button5Rounds(View view) {
-        rounds = 5;
+        amountOfStatements = 5;
         changeButtonColor(5);
     }
 
     public void Button10Rounds(View view) {
-        rounds = 10;
+        amountOfStatements = 10;
         changeButtonColor(10);
     }
 
     public void Button15Rounds(View view) {
-        rounds = 15;
-        changeButtonColor(rounds);
+        amountOfStatements = 15;
+        changeButtonColor(amountOfStatements);
     }
 
     public void Button20Rounds(View view) {
-        rounds = 20;
-        changeButtonColor(rounds);
+        amountOfStatements = 20;
+        changeButtonColor(amountOfStatements);
     }
 
     public void RoundsChosen(View view) {
         Intent intent = new Intent(this, SinglePlayerActivity.class);
-        intent.putExtra("amountOfStatements", rounds);
+        intent.putExtra("amountOfStatements", amountOfStatements);
         intent.putExtra("genre", chosenCategory);
         startActivity(intent);
     }
@@ -56,28 +56,28 @@ public class AmountOfStatementsActivity extends AppCompatActivity {
 
         switch (rounds) {
             case 5:
-                button5Rounds.setBackgroundResource(R.drawable.pressed_button_shape);
-                button10Rounds.setBackgroundResource(R.drawable.button_shape);
-                button15Rounds.setBackgroundResource(R.drawable.button_shape);
-                button20Rounds.setBackgroundResource(R.drawable.button_shape);
+                button5Statements.setBackgroundResource(R.drawable.pressed_button_rectangle);
+                button10Statements.setBackgroundResource(R.drawable.button_rectangle);
+                button15Statements.setBackgroundResource(R.drawable.button_rectangle);
+                button20Statements.setBackgroundResource(R.drawable.button_rectangle);
                 break;
             case 10:
-                button5Rounds.setBackgroundResource(R.drawable.button_shape);
-                button10Rounds.setBackgroundResource(R.drawable.pressed_button_shape);
-                button15Rounds.setBackgroundResource(R.drawable.button_shape);
-                button20Rounds.setBackgroundResource(R.drawable.button_shape);
+                button5Statements.setBackgroundResource(R.drawable.button_rectangle);
+                button10Statements.setBackgroundResource(R.drawable.pressed_button_rectangle);
+                button15Statements.setBackgroundResource(R.drawable.button_rectangle);
+                button20Statements.setBackgroundResource(R.drawable.button_rectangle);
                 break;
             case 15:
-                button5Rounds.setBackgroundResource(R.drawable.button_shape);
-                button10Rounds.setBackgroundResource(R.drawable.button_shape);
-                button15Rounds.setBackgroundResource(R.drawable.pressed_button_shape);
-                button20Rounds.setBackgroundResource(R.drawable.button_shape);
+                button5Statements.setBackgroundResource(R.drawable.button_rectangle);
+                button10Statements.setBackgroundResource(R.drawable.button_rectangle);
+                button15Statements.setBackgroundResource(R.drawable.pressed_button_rectangle);
+                button20Statements.setBackgroundResource(R.drawable.button_rectangle);
                 break;
             case 20:
-                button5Rounds.setBackgroundResource(R.drawable.button_shape);
-                button10Rounds.setBackgroundResource(R.drawable.button_shape);
-                button15Rounds.setBackgroundResource(R.drawable.button_shape);
-                button20Rounds.setBackgroundResource(R.drawable.pressed_button_shape);
+                button5Statements.setBackgroundResource(R.drawable.button_rectangle);
+                button10Statements.setBackgroundResource(R.drawable.button_rectangle);
+                button15Statements.setBackgroundResource(R.drawable.button_rectangle);
+                button20Statements.setBackgroundResource(R.drawable.pressed_button_rectangle);
                 break;
         }
     }

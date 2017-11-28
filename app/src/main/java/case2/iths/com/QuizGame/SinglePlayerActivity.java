@@ -14,7 +14,7 @@ import java.util.Random;
 
 public class SinglePlayerActivity extends AppCompatActivity {
 
-    private TextView pointsView, question, secondsView;
+    private TextView pointsView, question, secondsView, headLine;
     private String genre;
     private int points, numDoneQuestions, seconds;
     private ArrayList<String> questions = new ArrayList<>();
@@ -26,27 +26,20 @@ public class SinglePlayerActivity extends AppCompatActivity {
     private CountDownTimer cdTimer;
     private int amountOfStatements;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_singleplayer_game);
         savedSettings = new SavedSettings();
+        initialize();
         genre = getIntent().getStringExtra("genre");
-        TextView headLine = findViewById(R.id.top_text_category);
         headLine.setText(genre);
-
         Intent intent = getIntent();
         amountOfStatements = intent.getIntExtra("amountOfStatements", 5);
-        points = 0;
-        numDoneQuestions = 0;
-        questionString = "";
-        answerString = "";
         quizableDBHelper = new QuizableDBHelper(this);
-        pointsView = findViewById(R.id.points);
         updatePoints();
         statements();
-        question = findViewById(R.id.questionField);
-        secondsView = findViewById(R.id.display_seconds);
         cdTimer = new CountDownTimer(3000, 100) {
             @Override
             public void onTick(long l) {
@@ -60,9 +53,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
                     secondsView.setText("2");
                     seconds = 2;
                 }
-
             }
-
             @Override
             public void onFinish() {
                 points--;
@@ -71,6 +62,18 @@ public class SinglePlayerActivity extends AppCompatActivity {
             }
         }.start();
         showRandomQuestion();
+    }
+
+    public void initialize() {
+        question = findViewById(R.id.questionField);
+        secondsView = findViewById(R.id.display_seconds);
+        pointsView = findViewById(R.id.points);
+        headLine = findViewById(R.id.top_text_category);
+
+        points = 0;
+        numDoneQuestions = 0;
+        questionString = "";
+        answerString = "";
 
     }
 
