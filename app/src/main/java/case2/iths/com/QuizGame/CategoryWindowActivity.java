@@ -19,10 +19,8 @@ public class CategoryWindowActivity extends AppCompatActivity {
         isMultiplayer = intent.getBooleanExtra("multiplayer", false);
     }
 
-    // TODO: 2017-11-14 Lägg till:
-    // TODO: CHOOSE BEETWEEN ALL CATEGORIES
-    // TODO: TIMER FUNCTION
-    // TODO:        - MORE TIME YOU USE
+    // TODO: FUTURE FEATURES:
+    // TODO: Enable the choice of multiple categories
 
     /**
      * När vi är i Singelplayer-mode och klickar på de olika knapparna så ska olika Intents öppnar beroende på vad vi klickar på
@@ -63,7 +61,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
                     scienceIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(scienceIntent);
                 break;
-            case R.id.button_culture:
+            case R.id.button_food:
                 savedSettings.giveSound(this);
                 Intent cultureIntent = new Intent(this, AmountOfStatementsActivity.class);
                 cultureIntent.putExtra("genre", "Mat");

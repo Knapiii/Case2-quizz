@@ -31,7 +31,7 @@
     <!--Categories-->
     <string name="music">Music</string>
     <string name="sport">Sport</string>
-    <string name="own_statements">Own Statements</string>
+    <string name="own_statements">Own statements</string>
     <string name="geography">Geography</string>
     <string name="science">Science</string>
     <string name="games">Games</string>
@@ -60,4 +60,5 @@
     <string name="mat">Food</string>
     <string name="amount_of_statements">Amount of statements:</string>
     <string name="go">GO</string>
+    <string name="own">Own</string>
 </resources>

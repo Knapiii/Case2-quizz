@@ -24,6 +24,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
     private String questionString, answerString;
     private QuizableDBHelper quizableDBHelper;
     private CountDownTimer cdTimer;
+    private boolean multiplayer;
 
 
 
@@ -36,6 +37,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
         amountOfStatements = intent.getIntExtra("amountOfStatements", 5);
         initialize();
         genre = getIntent().getStringExtra("genre");
+        multiplayer = getIntent().getBooleanExtra("multiplayer", false);
         headLine.setText(genre);
         quizableDBHelper = new QuizableDBHelper(this);
         updatePoints();

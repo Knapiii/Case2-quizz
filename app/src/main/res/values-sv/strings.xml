@@ -34,7 +34,7 @@
     <!--Categories-->
     <string name="music">Musik</string>
     <string name="sport">Sport</string>
-    <string name="own_statements">Egna Påståenden</string>
+    <string name="own_statements">Egna påståenden</string>
     <string name="geography">Geografi</string>
     <string name="science">Vetenskap</string>
     <string name="games">Spel</string>
@@ -60,4 +60,5 @@
     <string name="food">mat</string>
     <string name="amount_of_statements">Antal påståenden:</string>
     <string name="go">GO</string>
+    <string name="own">Egna</string>
 </resources>
