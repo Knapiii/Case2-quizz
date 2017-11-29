@@ -40,7 +40,7 @@ public class HandleStatementsActivity extends AppCompatActivity {
         list.add("Exempel 3");
 
         //Färdig adapter för ListView
-        arrayAdapter = new ArrayAdapter<String>(this,
+        arrayAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, list);
 
         //Connect listView to arrayAdapter

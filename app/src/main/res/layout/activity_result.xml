@@ -71,7 +71,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:ems="10"
-        android:hint="Insert name"
+        android:hint="@string/insert_name_hint"
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textColor="@android:color/white"

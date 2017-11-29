@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    SavedSettings savedSettings;
+    private SavedSettings savedSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 public class AboutActivity extends AppCompatActivity {
 
-    SavedSettings savedSettings;
+    private SavedSettings savedSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -4,9 +4,6 @@ package case2.iths.com.QuizGame;
 import android.content.Context;
 import android.media.MediaPlayer;
 
-/**
- * Created by kristofferknape on 2017-11-19.
- */
 
 public class SavedSettings{
 

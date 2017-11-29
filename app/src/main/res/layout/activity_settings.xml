@@ -59,6 +59,7 @@
         android:layout_marginTop="15dp"
         android:background="@color/ButtonBackground"
         android:onClick="toggleSoundOnClick"
+        android:contentDescription="@string/sound_on_off_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

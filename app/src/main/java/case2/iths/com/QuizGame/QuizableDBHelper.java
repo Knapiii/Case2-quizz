@@ -7,9 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
-/**
- * Created by Daniel on 2017-11-20.
- */
 
 public class QuizableDBHelper extends SQLiteAssetHelper {
 
