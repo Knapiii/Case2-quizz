@@ -40,7 +40,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
             case R.id.button_music:
                 savedSettings.giveSound(this);
                 Intent musicIntent = new Intent(this, AmountOfStatementsActivity.class);
-                musicIntent.putExtra("genre", "Musik");
+                musicIntent.putExtra("genre", "Music");
                 if (isMultiplayer)
                     musicIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(musicIntent);
@@ -48,7 +48,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
             case R.id.button_geography:
                 savedSettings.giveSound(this);
                 Intent geoIntent = new Intent(this, AmountOfStatementsActivity.class);
-                geoIntent.putExtra("genre", "Geografi");
+                geoIntent.putExtra("genre", "Geography");
                 if (isMultiplayer)
                     geoIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(geoIntent);
@@ -56,23 +56,23 @@ public class CategoryWindowActivity extends AppCompatActivity {
             case R.id.button_science:
                 savedSettings.giveSound(this);
                 Intent scienceIntent = new Intent(this, AmountOfStatementsActivity.class);
-                scienceIntent.putExtra("genre", "Vetenskap");
+                scienceIntent.putExtra("genre", "Science");
                 if (isMultiplayer)
                     scienceIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(scienceIntent);
                 break;
             case R.id.button_food:
                 savedSettings.giveSound(this);
-                Intent cultureIntent = new Intent(this, AmountOfStatementsActivity.class);
-                cultureIntent.putExtra("genre", "Mat");
+                Intent foodIntent = new Intent(this, AmountOfStatementsActivity.class);
+                foodIntent.putExtra("genre", "Food");
                 if (isMultiplayer)
-                    cultureIntent.putExtra("multiplayer", isMultiplayer);
-                startSingleGame(cultureIntent);
+                    foodIntent.putExtra("multiplayer", isMultiplayer);
+                startSingleGame(foodIntent);
                 break;
             case R.id.button_games:
                 savedSettings.giveSound(this);
                 Intent gamesIntent = new Intent(this, AmountOfStatementsActivity.class);
-                gamesIntent.putExtra("genre", "Spel");
+                gamesIntent.putExtra("genre", "Games");
                 if (isMultiplayer)
                     gamesIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(gamesIntent);

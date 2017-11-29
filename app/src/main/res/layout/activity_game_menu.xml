@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
         android:background="@color/ButtonBackground"
-        android:text="@string/singelplayer"
+        android:text="@string/singleplayer"
         android:textColor="@android:color/background_light"
         android:textSize="24sp"
         android:textStyle="bold"

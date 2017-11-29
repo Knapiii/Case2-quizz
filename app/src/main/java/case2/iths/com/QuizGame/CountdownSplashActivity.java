@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 public class CountdownSplashActivity extends AppCompatActivity {
 
-    private TextView countdown;
+    private TextView countdown, getReady;
     private CountDownTimer cdTimer;
     private int amountOfStatements;
     private TextView headLine;
@@ -19,14 +19,13 @@ public class CountdownSplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_countdown_splash);
+        getReady = findViewById(R.id.text_get_ready);
         countdown = findViewById(R.id.text_countdown_splash);
         headLine = findViewById(R.id.text_countdown_genre);
         chosenCategory = getIntent().getStringExtra("genre");
         amountOfStatements = getIntent().getIntExtra("amountOfStatements", 0);
         multiplayer = getIntent().getBooleanExtra("multiplayer", false);
         headLine.setText(chosenCategory);
-
-
 
         cdTimer = new CountDownTimer(4000, 100) {
             @Override
@@ -35,10 +34,14 @@ public class CountdownSplashActivity extends AppCompatActivity {
                     countdown.setText("3");
                 } else if (l < 2000 && l > 1000) {
                     countdown.setText("1");
+                    getReady.setText(R.string.get_ready);
+
                 } else if (l < 3000 && l > 2000) {
                     countdown.setText("2");
-                } else
+                } else {
                     countdown.setText(R.string.go);
+                    getReady.setText(R.string.get_ready);
+                }
             }
             @Override
             public void onFinish() {

@@ -26,8 +26,6 @@ public class SinglePlayerActivity extends AppCompatActivity {
     private CountDownTimer cdTimer;
     private boolean multiplayer;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

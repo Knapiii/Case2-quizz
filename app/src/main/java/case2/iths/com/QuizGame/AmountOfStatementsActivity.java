@@ -14,12 +14,13 @@ public class AmountOfStatementsActivity extends AppCompatActivity {
     private String chosenCategory;
     private TextView categoryTextView;
     private boolean multiplayer;
+    private SavedSettings savedSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_amount_of_statements);
-
+        savedSettings = new SavedSettings();
         button5Statements = findViewById(R.id.button_statements_5);
         button10Statements = findViewById(R.id.button_statements_10);
         button15Statements = findViewById(R.id.button_statements_15);
@@ -28,26 +29,30 @@ public class AmountOfStatementsActivity extends AppCompatActivity {
         multiplayer = getIntent().getBooleanExtra("multiplayer", false);
 
         chosenCategory = getIntent().getStringExtra("genre");
-        categoryTextView = findViewById(R.id.category_text_view);
+        categoryTextView = findViewById(R.id.text_view_category);
         categoryTextView.setText(chosenCategory);
     }
 
     public void Button5Rounds(View view) {
+        savedSettings.giveSound(this);
         amountOfStatements = 5;
         changeButtonColor(5);
     }
 
     public void Button10Rounds(View view) {
+        savedSettings.giveSound(this);
         amountOfStatements = 10;
         changeButtonColor(10);
     }
 
     public void Button15Rounds(View view) {
+        savedSettings.giveSound(this);
         amountOfStatements = 15;
         changeButtonColor(amountOfStatements);
     }
 
     public void Button20Rounds(View view) {
+        savedSettings.giveSound(this);
         amountOfStatements = 20;
         changeButtonColor(amountOfStatements);
     }
@@ -61,7 +66,6 @@ public class AmountOfStatementsActivity extends AppCompatActivity {
     }
 
     private void changeButtonColor(int rounds) {
-
         switch (rounds) {
             case 5:
                 button5Statements.setBackgroundResource(R.drawable.pressed_button_rectangle);
