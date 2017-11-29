@@ -24,6 +24,7 @@ public class HandleStatementsActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private QuizableOpenHelper mDbOpenHelper;
     private Cursor cursor;
+    private StatementsAdapter statementsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +47,14 @@ public class HandleStatementsActivity extends AppCompatActivity {
         LinearLayoutManager statementsLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(statementsLayoutManager);
 
-        StatementsAdapter statementsAdapter = new StatementsAdapter(this, cursor);
+
+        statementsAdapter = new StatementsAdapter(this, cursor);
+
 
         recyclerView.setAdapter(statementsAdapter);
+
+
+
 
     }
 

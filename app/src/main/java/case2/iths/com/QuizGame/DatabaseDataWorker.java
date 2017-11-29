@@ -29,7 +29,11 @@ public class DatabaseDataWorker {
     }
 
     public void insertQuestions() {
-        insertQuestions("Zlatan Ibrahimovic är en hockeyspelare", "true", "sport");
+        insertQuestions("Zlatan Ibrahimovic är en hockeyspelare1", "true", "sport");
+        insertQuestions("Zlatan Ibrahimovic är en hockeyspelare2", "true", "sport");
+        insertQuestions("Zlatan Ibrahimovic är en hockeyspelare3", "true", "sport");
+        insertQuestions("Zlatan Ibrahimovic är en hockeyspelare4", "true", "sport");
+        insertQuestions("Zlatan Ibrahimovic är en hockeyspelare5", "true", "sport");
     }
 
     private void insertQuestions(String statement, String answer, String category) {
