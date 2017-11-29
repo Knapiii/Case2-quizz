@@ -37,8 +37,6 @@ public class CreateStatementActivity extends AppCompatActivity {
         mDbOpenHelper = new QuizableOpenHelper(this);
         dbHelper = new QuizableDBHelper(this);
 
-
-
         loadCategoriesData();
     }
 
@@ -58,10 +56,6 @@ public class CreateStatementActivity extends AppCompatActivity {
 
         spinner.setAdapter(CategoriesCursorAdapter);
         spinner.setSelection(5);
-     //   spinner.setEnabled(false);
-
-
-
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
@@ -71,8 +65,6 @@ public class CreateStatementActivity extends AppCompatActivity {
                 Cursor cursor = (Cursor) spinner.getItemAtPosition(position);
                 category = cursor.getString(cursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_ID));
 
-
-
             }
 
             @Override
@@ -80,8 +72,6 @@ public class CreateStatementActivity extends AppCompatActivity {
 
             }
         });
-
-
     }
 
     public void onButtonTrueClicked(View view){
@@ -110,15 +100,10 @@ public class CreateStatementActivity extends AppCompatActivity {
     // Calles addStatement method which adds statement to the database + starts HandleStatements activity.
 
     public void onButtonAddClicked(View view) {
-      //  Toast.makeText(this, "Add", Toast.LENGTH_SHORT).show();
         addStatement();
 
         Intent intent = new Intent(this, HandleStatementsActivity.class);
         startActivity(intent);
-
-
-
-
 
     }
     private void addStatement() {
@@ -126,11 +111,6 @@ public class CreateStatementActivity extends AppCompatActivity {
         newStatement = findViewById(R.id.editText_add_statement);
         statement = newStatement.getText().toString();
 
-        String input = "SAVED: Category: " + category + " Statement: " + statement + "Answer: " + answer;
-
-       // Toast.makeText(this, input, Toast.LENGTH_SHORT).show();
-
-    //    mDbOpenHelper.insertStatement(category,statement,answer);
 
         dbHelper.insertStatement(category, statement, answer);
 

@@ -5,8 +5,6 @@ import android.database.sqlite.SQLiteDatabase;
 
 import case2.iths.com.QuizGame.QuizableDatabaseContract.CategoriesInfoEntry;
 
-import static case2.iths.com.QuizGame.QuizableDatabaseContract.OwnStatementsEntry;
-
 public class DatabaseDataWorker {
 
     private SQLiteDatabase mDb;
@@ -28,25 +26,6 @@ public class DatabaseDataWorker {
 
     }
 
-    public void insertQuestions() {
-        insertQuestions("Zlatan Ibrahimovic är en hockeyspelare1", "true", "sport");
-        insertQuestions("Zlatan Ibrahimovic is a hockey player", "true", "sport");
-
-    }
-
-    private void insertQuestions(String statement, String answer, String category) {
-        ContentValues contentValues = new ContentValues();
-
-        contentValues.put(OwnStatementsEntry.COLUMN_STATEMENT, statement);
-        contentValues.put(OwnStatementsEntry.COLUMN_STATEMENT_ANSWER, answer);
-        contentValues.put(OwnStatementsEntry.COLUMN_CATEGORY_ID, category);
-
-        long id = mDb.insert(OwnStatementsEntry.TABLE_NAME, null, contentValues);
-
-
-    }
-
-
     private void insertCategory(String category_id, String category_title) {
 
         ContentValues contentValues = new ContentValues();
@@ -56,6 +35,4 @@ public class DatabaseDataWorker {
         long id = mDb.insert(CategoriesInfoEntry.TABLE_NAME, null, contentValues);
 
     }
-
-
 }

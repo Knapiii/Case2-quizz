@@ -31,15 +31,10 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
         db.execSQL(CategoriesInfoEntry.SQL_CREATE_TABLE);
         db.execSQL(HighScoresInfoEntry.SQL_CREATE_TABLE);
-        db.execSQL(OwnStatementsEntry.SQL_CREATE_TABLE);
-
 
         // Adds default categories to the categories table in the database
         DatabaseDataWorker databaseDataWorker = new DatabaseDataWorker(db);
         databaseDataWorker.insertCategories();
-        databaseDataWorker.insertQuestions();
-
-
 
     }
 
@@ -60,13 +55,8 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
             DatabaseDataWorker databaseDataWorker = new DatabaseDataWorker(db);
             databaseDataWorker.insertCategories();
-            databaseDataWorker.insertQuestions();
-
-
-
 
         }
-
     }
 
     // returns highscores for the specific category
@@ -151,21 +141,5 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
         return cursor;
     }
-
-    // This method adds a new statement in to the own_questions table in the database
-
-    public void insertStatement(String category_id, String statement, String answer) {
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(OwnStatementsEntry.COLUMN_CATEGORY_ID, category_id);
-        contentValues.put(OwnStatementsEntry.COLUMN_STATEMENT, statement);
-        contentValues.put(OwnStatementsEntry.COLUMN_STATEMENT_ANSWER, answer);
-
-        long id = db.insert(OwnStatementsEntry.TABLE_NAME, null, contentValues);
-
-
-    }
-
 
 }

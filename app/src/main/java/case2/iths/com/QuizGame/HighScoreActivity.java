@@ -9,7 +9,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import case2.iths.com.QuizGame.QuizableDatabaseContract.CategoriesInfoEntry;
 
@@ -71,8 +70,6 @@ public class HighScoreActivity extends AppCompatActivity {
                 category = cursor.getString(cursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE));
                 category_id = cursor.getString(cursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_ID));
 
-                showToast(category);
-
                 highScores = mDbOpenHelper.getHighScores(category_id);
 
                 displayHighScoresByCategory(highScores);
@@ -96,11 +93,6 @@ public class HighScoreActivity extends AppCompatActivity {
         highscoresAdapter = new HighscoresAdapter(this, cursor);
 
         recyclerView.setAdapter(highscoresAdapter);
-
-    }
-
-    private void showToast(String category) {
-        Toast.makeText(this, category, Toast.LENGTH_SHORT).show();
 
     }
 

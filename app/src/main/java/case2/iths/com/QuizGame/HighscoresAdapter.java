@@ -38,9 +38,6 @@ public class HighscoresAdapter extends  RecyclerView.Adapter<HighscoresAdapter.V
         scorePos = mCursor.getColumnIndex(HighScoresInfoEntry.COLUMN_HIGHSCORE);
         idPos = mCursor.getColumnIndex(HighScoresInfoEntry._ID);
         amountOfStatementsPos = mCursor.getColumnIndex(HighScoresInfoEntry.COLUMN_AMOUNT_OF_STATEMENTS);
-
-
-        //Get column indexes from mCursors
     }
 
     public void changeCursor(Cursor cursor) {
