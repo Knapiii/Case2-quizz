@@ -25,7 +25,7 @@
     <!--Menu-->
     <string name="multiplayer">Multiplayer</string>
     <string name="highscore">Highscore</string>
-    <string name="singelplayer">Singelplayer</string>
+    <string name="singleplayer">Singleplayer</string>
     <string name="game_menu">Spelmeny</string>
     <string name="play">Spela</string>
     <string name="about">Om</string>
@@ -59,9 +59,12 @@
     <string name="mat">mat</string>
     <string name="food">mat</string>
     <string name="amount_of_statements">Antal påståenden:</string>
+    <string name="choose_amount_of_statements">Antal påståenden</string>
+
     <string name="go">GO</string>
     <string name="own">Egna</string>
     <string name="logo">logo</string>
     <string name="sound_on_off_button">Sound on/off button</string>
     <string name="chosen_category">Kategori:</string>
+    <string name="get_ready">GÖR DIG REDO</string>
 </resources>

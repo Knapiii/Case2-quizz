@@ -17,7 +17,7 @@
     <!--Menu-->
     <string name="multiplayer">Multiplayer</string>
     <string name="highscore">Highscore</string>
-    <string name="singelplayer">Singelplayer</string>
+    <string name="singleplayer">Singleplayer</string>
     <string name="game_menu">Game Menu</string>
     <string name="play">Play</string>
     <string name="about">About</string>
@@ -59,6 +59,7 @@
     <string name="points">Points:</string>
     <string name="mat">Food</string>
     <string name="amount_of_statements">Amount of statements:</string>
+    <string name="choose_amount_of_statements">Amount of statements</string>
     <string name="go">GO</string>
     <string name="own">Own</string>
     <string name="logo">logo</string>
@@ -66,4 +67,5 @@
     <string name="chosen_category">Category:</string>
     <string name="false_statement">False</string>
     <string name="insert_name_hint">Insert name</string>
+    <string name="get_ready">GET READY</string>
 </resources>

@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
@@ -15,7 +16,7 @@ public class QuizableDBHelper extends SQLiteAssetHelper {
     private static final String CATEGORY = "Category";
     private static final String QUESTION = "Question";
     private static final String ANSWER = "Answer";
-    private static final String OWN_STATEMENTS = "Own Statements";
+    private static final String OWN_STATEMENTS = "Own_Statements";
     private static final String DATABASE_NAME = "QuizableDB.db";
     private static final int DATABASE_VERSION = 1;
 
@@ -46,6 +47,8 @@ public class QuizableDBHelper extends SQLiteAssetHelper {
         cv.put(OWN_STATEMENTS, 1);
         return getWritableDatabase().insert(TABLE, null, cv);
     }
+
+
 
 
 

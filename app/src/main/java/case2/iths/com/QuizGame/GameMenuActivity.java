@@ -36,7 +36,7 @@ public class GameMenuActivity extends AppCompatActivity {
     }
 
     /**
-     * När vi klickar på knappen "Multiplayer" så ska vi komma till
+     * När vi klickar på knappen "MultiplayerActivity" så ska vi komma till
      * PlayGameActivity där kategori väljs för ett multiplayer spel
      */
     public void toMultiplayerGame(View view) {

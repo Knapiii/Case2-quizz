@@ -32,7 +32,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
             case R.id.button_sport:
                 savedSettings.giveSound(this);
                 Intent sportIntent = new Intent(this, AmountOfStatementsActivity.class);
-                sportIntent.putExtra("genre", "Sport");
+                sportIntent.putExtra("genre", getResources().getString(R.string.sport));
                 if (isMultiplayer)
                     sportIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(sportIntent);
@@ -40,7 +40,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
             case R.id.button_music:
                 savedSettings.giveSound(this);
                 Intent musicIntent = new Intent(this, AmountOfStatementsActivity.class);
-                musicIntent.putExtra("genre", "Musik");
+                musicIntent.putExtra("genre", getResources().getString(R.string.music));
                 if (isMultiplayer)
                     musicIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(musicIntent);
@@ -48,7 +48,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
             case R.id.button_geography:
                 savedSettings.giveSound(this);
                 Intent geoIntent = new Intent(this, AmountOfStatementsActivity.class);
-                geoIntent.putExtra("genre", "Geografi");
+                geoIntent.putExtra("genre", getResources().getString(R.string.geography));
                 if (isMultiplayer)
                     geoIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(geoIntent);
@@ -56,23 +56,23 @@ public class CategoryWindowActivity extends AppCompatActivity {
             case R.id.button_science:
                 savedSettings.giveSound(this);
                 Intent scienceIntent = new Intent(this, AmountOfStatementsActivity.class);
-                scienceIntent.putExtra("genre", "Vetenskap");
+                scienceIntent.putExtra("genre", getResources().getString(R.string.science));
                 if (isMultiplayer)
                     scienceIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(scienceIntent);
                 break;
             case R.id.button_food:
                 savedSettings.giveSound(this);
-                Intent cultureIntent = new Intent(this, AmountOfStatementsActivity.class);
-                cultureIntent.putExtra("genre", "Mat");
+                Intent foodIntent = new Intent(this, AmountOfStatementsActivity.class);
+                foodIntent.putExtra("genre", getResources().getString(R.string.food));
                 if (isMultiplayer)
-                    cultureIntent.putExtra("multiplayer", isMultiplayer);
-                startSingleGame(cultureIntent);
+                    foodIntent.putExtra("multiplayer", isMultiplayer);
+                startSingleGame(foodIntent);
                 break;
             case R.id.button_games:
                 savedSettings.giveSound(this);
                 Intent gamesIntent = new Intent(this, AmountOfStatementsActivity.class);
-                gamesIntent.putExtra("genre", "Spel");
+                gamesIntent.putExtra("genre", getResources().getString(R.string.games));
                 if (isMultiplayer)
                     gamesIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(gamesIntent);
@@ -80,7 +80,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
             case R.id.button_own_questions:
                 savedSettings.giveSound(this);
                 Intent ownIntent = new Intent(this, AmountOfStatementsActivity.class);
-                ownIntent.putExtra("genre", "Own");
+                ownIntent.putExtra("genre", getResources().getString(R.string.own));
                 if (isMultiplayer)
                     ownIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(ownIntent);

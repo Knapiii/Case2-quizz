@@ -58,7 +58,7 @@
             android:noHistory="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Multiplayer"
+            android:name=".MultiplayerActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".CreateStatementActivity"
