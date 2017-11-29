@@ -32,24 +32,30 @@ public class SinglePlayerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_singleplayer_game);
         savedSettings = new SavedSettings();
         Intent intent = getIntent();
-        amountOfStatements = intent.getIntExtra("amountOfStatements", 5);
-        initialize();
         genre = getIntent().getStringExtra("genre");
+        amountOfStatements = intent.getIntExtra("amountOfStatements", 5);
         multiplayer = getIntent().getBooleanExtra("multiplayer", false);
-        headLine.setText(genre);
         quizableDBHelper = new QuizableDBHelper(this);
-        updatePoints();
+        initialize();
         statements();
-        cdTimer = new CountDownTimer(3000, 100) {
+        headLine.setText(genre);
+        updatePoints();
+        cdTimer = new CountDownTimer(5000, 100) {
             @Override
             public void onTick(long l) {
-                if (l > 2000) {
-                    secondsView.setText("3");
-                    seconds = 3;
+                if (l > 4000) {
+                    secondsView.setText("5");
+                    seconds = 5;
                 } else if (l < 1000) {
                     secondsView.setText("1");
                     seconds = 1;
-                } else {
+                } else if (l < 4000 && l > 3000){
+                    secondsView.setText("4");
+                    seconds = 4;
+                } else if (l < 3000 && l > 2000){
+                    secondsView.setText("3");
+                    seconds = 3;
+                } else if (l < 2000 && l > 1000){
                     secondsView.setText("2");
                     seconds = 2;
                 }

@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 public class CountdownSplashActivity extends AppCompatActivity {
@@ -27,19 +29,23 @@ public class CountdownSplashActivity extends AppCompatActivity {
         multiplayer = getIntent().getBooleanExtra("multiplayer", false);
         headLine.setText(chosenCategory);
 
-        cdTimer = new CountDownTimer(4000, 100) {
+        cdTimer = new CountDownTimer(4000, 900) {
             @Override
             public void onTick(long l) {
                 if (l > 3000) {
                     countdown.setText("3");
+                    runAnimation();
                 } else if (l < 2000 && l > 1000) {
                     countdown.setText("1");
+                    runAnimation();
                     getReady.setText(R.string.get_ready);
 
                 } else if (l < 3000 && l > 2000) {
                     countdown.setText("2");
+                    runAnimation();
                 } else {
                     countdown.setText(R.string.go);
+                    runAnimation();
                     getReady.setText(R.string.get_ready);
                 }
             }
@@ -52,6 +58,7 @@ public class CountdownSplashActivity extends AppCompatActivity {
     }
 
     public void toSinglePlayer(){
+        cdTimer.cancel();
         Intent intent = new Intent(CountdownSplashActivity.this, SinglePlayerActivity.class);
         intent.putExtra("amountOfStatements", amountOfStatements);
         intent.putExtra("genre", chosenCategory);
@@ -64,5 +71,13 @@ public class CountdownSplashActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         cdTimer.cancel();
+    }
+
+    private void runAnimation()
+    {
+        Animation a = AnimationUtils.loadAnimation(this, R.anim.scale_animation);
+        a.reset();
+        countdown.clearAnimation();
+        countdown.startAnimation(a);
     }
 }
