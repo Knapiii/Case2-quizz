@@ -10,8 +10,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static case2.iths.com.QuizGame.QuizableDatabaseContract.OwnStatementsEntry;
-
 /**
  * Created by alvaro on 2017-11-28.
  */
@@ -24,7 +22,8 @@ public class StatementsAdapter extends RecyclerView.Adapter<StatementsAdapter.Vi
     private int statementPos;
     private int answerPos;
     private int categoryPos;
-    private QuizableOpenHelper mDbOpenHelper;
+   // private QuizableOpenHelper mDbOpenHelper;
+    private QuizableDBHelper quizableDBHelper;
 
 
     public StatementsAdapter(Context context, Cursor cursor) {
@@ -39,9 +38,9 @@ public class StatementsAdapter extends RecyclerView.Adapter<StatementsAdapter.Vi
         if(mCursor == null)
             return;
 
-        statementPos = mCursor.getColumnIndex(OwnStatementsEntry.COLUMN_STATEMENT);
-        answerPos = mCursor.getColumnIndex(OwnStatementsEntry.COLUMN_STATEMENT_ANSWER);
-        categoryPos = mCursor.getColumnIndex(OwnStatementsEntry.COLUMN_CATEGORY_ID);
+        statementPos = mCursor.getColumnIndex(QuizableDBHelper.QUESTION);
+        answerPos = mCursor.getColumnIndex(QuizableDBHelper.ANSWER);
+        categoryPos = mCursor.getColumnIndex(QuizableDBHelper.CATEGORY);
     }
 
     public void changeCursor(Cursor cursor) {
@@ -106,8 +105,8 @@ public class StatementsAdapter extends RecyclerView.Adapter<StatementsAdapter.Vi
 
             mCursor.moveToPosition(position);
 
-            String answer = mCursor.getString(mCursor.getColumnIndex(OwnStatementsEntry.COLUMN_STATEMENT_ANSWER));
-            String id = mCursor.getString(mCursor.getColumnIndex(OwnStatementsEntry._ID));
+            String answer = mCursor.getString(mCursor.getColumnIndex(QuizableDBHelper.ANSWER));
+            String id = mCursor.getString(mCursor.getColumnIndex(QuizableDBHelper.KEY_ID));
 
             Toast.makeText(mContext, "Position: "+answer, Toast.LENGTH_LONG).show();
 
@@ -122,15 +121,15 @@ public class StatementsAdapter extends RecyclerView.Adapter<StatementsAdapter.Vi
 
     private void deleteStatement(String id, int position) {
 
-        mDbOpenHelper = new QuizableOpenHelper(mContext);
-        SQLiteDatabase db = mDbOpenHelper.getWritableDatabase();
+        quizableDBHelper = new QuizableDBHelper(mContext);
+        SQLiteDatabase db = quizableDBHelper.getWritableDatabase();
 
 
 
         String[] selectionArgs = new String[]{id};
-        db.delete(OwnStatementsEntry.TABLE_NAME, OwnStatementsEntry._ID+"=?", selectionArgs);
+        db.delete(QuizableDBHelper.TABLE, QuizableDBHelper.KEY_ID+"=?", selectionArgs);
 
-        mCursor = mDbOpenHelper.loadStatementsData();
+        mCursor = quizableDBHelper.getQuestions();
 
         notifyItemRemoved(position);
         notifyItemRangeChanged(position, getItemCount());

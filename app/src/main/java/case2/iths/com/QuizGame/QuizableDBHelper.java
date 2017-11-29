@@ -10,14 +10,14 @@ import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 public class QuizableDBHelper extends SQLiteAssetHelper {
 
-    private static final String TABLE = "Questions";
-    private static final String KEY_ID = "id";
-    private static final String CATEGORY = "Category";
-    private static final String QUESTION = "Question";
-    private static final String ANSWER = "Answer";
-    private static final String OWN_STATEMENTS = "Own_Statements";
-    private static final String DATABASE_NAME = "QuizableDB.db";
-    private static final int DATABASE_VERSION = 1;
+    public static final String TABLE = "Questions";
+    public static final String KEY_ID = "id";
+    public static final String CATEGORY = "Category";
+    public static final String QUESTION = "Question";
+    public static final String ANSWER = "Answer";
+    public static final String OWN_STATEMENTS = "Own_Statements";
+    public static final String DATABASE_NAME = "QuizableDB.db";
+    public static final int DATABASE_VERSION = 1;
 
 
     public QuizableDBHelper(Context context) {
@@ -46,9 +46,6 @@ public class QuizableDBHelper extends SQLiteAssetHelper {
         cv.put(OWN_STATEMENTS, 1);
         return getWritableDatabase().insert(TABLE, null, cv);
     }
-
-
-
 
 
 }

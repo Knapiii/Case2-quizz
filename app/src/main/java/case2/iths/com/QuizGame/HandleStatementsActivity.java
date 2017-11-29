@@ -22,9 +22,11 @@ public class HandleStatementsActivity extends AppCompatActivity {
 
     private SavedSettings savedSettings;
     private RecyclerView recyclerView;
-    private QuizableOpenHelper mDbOpenHelper;
+ //   private QuizableOpenHelper mDbOpenHelper;
     private Cursor cursor;
     private StatementsAdapter statementsAdapter;
+    private QuizableDBHelper quizableDBHelper;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +34,9 @@ public class HandleStatementsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_handle_questions);
         savedSettings = new SavedSettings();
 
-        mDbOpenHelper = new QuizableOpenHelper(this);
+        quizableDBHelper = new QuizableDBHelper(this);
 
-        cursor = mDbOpenHelper.loadStatementsData();
+        cursor = quizableDBHelper.getQuestions();
 
         displayStatements(cursor);
 
@@ -54,8 +56,6 @@ public class HandleStatementsActivity extends AppCompatActivity {
 
 
         statementsAdapter = new StatementsAdapter(this, cursor);
-
-
         recyclerView.setAdapter(statementsAdapter);
 
 

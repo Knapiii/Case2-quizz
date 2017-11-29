@@ -18,7 +18,7 @@ import static case2.iths.com.QuizGame.QuizableDatabaseContract.HighScoresInfoEnt
 public class QuizableOpenHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "Quizable.db";
-    public static final int DATABASE_VERSION = 2;
+    public static final int DATABASE_VERSION = 10;
 
     public QuizableOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -45,7 +45,24 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        if (oldVersion == 1 && newVersion == 2) {
+        if (oldVersion < newVersion) {
+
+            Cursor cursor = this.loadCategoriesData();
+
+            db.execSQL("DROP TABLE IF EXISTS " + HighScoresInfoEntry.TABLE_NAME);
+            db.execSQL("DROP TABLE IF EXISTS " + OwnStatementsEntry.TABLE_NAME);
+            db.execSQL("DROP TABLE IF EXISTS " + CategoriesInfoEntry.TABLE_NAME);
+
+            db.execSQL(CategoriesInfoEntry.SQL_CREATE_TABLE);
+            db.execSQL(HighScoresInfoEntry.SQL_CREATE_TABLE);
+            db.execSQL(OwnStatementsEntry.SQL_CREATE_TABLE);
+
+
+            DatabaseDataWorker databaseDataWorker = new DatabaseDataWorker(db);
+            databaseDataWorker.insertCategories();
+            databaseDataWorker.insertQuestions();
+
+
 
 
         }

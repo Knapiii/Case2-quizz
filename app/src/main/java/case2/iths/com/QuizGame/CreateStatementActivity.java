@@ -10,7 +10,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import case2.iths.com.QuizGame.QuizableDatabaseContract.CategoriesInfoEntry;
 
@@ -129,11 +128,11 @@ public class CreateStatementActivity extends AppCompatActivity {
 
         String input = "SAVED: Category: " + category + " Statement: " + statement + "Answer: " + answer;
 
-        Toast.makeText(this, input, Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, input, Toast.LENGTH_SHORT).show();
 
         mDbOpenHelper.insertStatement(category,statement,answer);
 
-     //   dbHelper.insertStatement("Sport", statement, answer);
+        // dbHelper.insertStatement(category, statement, answer);
 
 
     }
