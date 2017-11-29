@@ -18,7 +18,7 @@ import static case2.iths.com.QuizGame.QuizableDatabaseContract.HighScoresInfoEnt
 public class QuizableOpenHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "Quizable.db";
-    public static final int DATABASE_VERSION = 10;
+    public static final int DATABASE_VERSION = 2;
 
     public QuizableOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -122,7 +122,7 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
     // returns all categeories
 
     public Cursor loadCategoriesData() {
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = getReadableDatabase();
         String[] categoryColumns = {
                 CategoriesInfoEntry.COLUMN_CATEGORY_TITLE,
                 CategoriesInfoEntry.COLUMN_CATEGORY_ID,

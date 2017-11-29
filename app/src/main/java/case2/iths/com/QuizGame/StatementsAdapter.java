@@ -22,7 +22,6 @@ public class StatementsAdapter extends RecyclerView.Adapter<StatementsAdapter.Vi
     private int statementPos;
     private int answerPos;
     private int categoryPos;
-   // private QuizableOpenHelper mDbOpenHelper;
     private QuizableDBHelper quizableDBHelper;
 
 
@@ -69,10 +68,6 @@ public class StatementsAdapter extends RecyclerView.Adapter<StatementsAdapter.Vi
         holder.textStatement.setText(statement);
         holder.textCategory.setText(category.toUpperCase());
 
-
-
-
-
     }
 
     @Override
@@ -111,33 +106,22 @@ public class StatementsAdapter extends RecyclerView.Adapter<StatementsAdapter.Vi
             Toast.makeText(mContext, "Position: "+answer, Toast.LENGTH_LONG).show();
 
             deleteStatement(id, position);
-
-
         }
-
-
     }
-
 
     private void deleteStatement(String id, int position) {
 
         quizableDBHelper = new QuizableDBHelper(mContext);
         SQLiteDatabase db = quizableDBHelper.getWritableDatabase();
 
-
-
         String[] selectionArgs = new String[]{id};
         db.delete(QuizableDBHelper.TABLE, QuizableDBHelper.KEY_ID+"=?", selectionArgs);
 
-        mCursor = quizableDBHelper.getQuestions();
+        mCursor = quizableDBHelper.getUserMadeStatements();
 
         notifyItemRemoved(position);
         notifyItemRangeChanged(position, getItemCount());
 
-
-
     }
-
-
 
 }

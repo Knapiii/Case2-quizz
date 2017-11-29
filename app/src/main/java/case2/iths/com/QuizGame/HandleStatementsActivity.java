@@ -22,7 +22,6 @@ public class HandleStatementsActivity extends AppCompatActivity {
 
     private SavedSettings savedSettings;
     private RecyclerView recyclerView;
- //   private QuizableOpenHelper mDbOpenHelper;
     private Cursor cursor;
     private StatementsAdapter statementsAdapter;
     private QuizableDBHelper quizableDBHelper;
@@ -36,7 +35,7 @@ public class HandleStatementsActivity extends AppCompatActivity {
 
         quizableDBHelper = new QuizableDBHelper(this);
 
-        cursor = quizableDBHelper.getQuestions();
+        cursor = quizableDBHelper.getUserMadeStatements();
 
         displayStatements(cursor);
 
@@ -76,10 +75,5 @@ public class HandleStatementsActivity extends AppCompatActivity {
         Intent intent = new Intent(this, EditStatementActivity.class);
         startActivity(intent);
     }
-
-
-
-
-
 
 }

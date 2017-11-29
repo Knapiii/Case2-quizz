@@ -35,7 +35,7 @@ public class CreateStatementActivity extends AppCompatActivity {
         buttonFalse = findViewById(R.id.togglebutton_add_false);
 
         mDbOpenHelper = new QuizableOpenHelper(this);
-      //  dbHelper = new QuizableDBHelper(this);
+        dbHelper = new QuizableDBHelper(this);
 
 
 
@@ -130,9 +130,9 @@ public class CreateStatementActivity extends AppCompatActivity {
 
        // Toast.makeText(this, input, Toast.LENGTH_SHORT).show();
 
-        mDbOpenHelper.insertStatement(category,statement,answer);
+    //    mDbOpenHelper.insertStatement(category,statement,answer);
 
-        // dbHelper.insertStatement(category, statement, answer);
+        dbHelper.insertStatement(category, statement, answer);
 
 
     }
