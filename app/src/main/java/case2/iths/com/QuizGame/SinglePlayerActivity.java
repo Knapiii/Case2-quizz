@@ -196,12 +196,23 @@ public class SinglePlayerActivity extends AppCompatActivity {
     }
 
     public void setStatementsWithCategory(String cat) {
-        Cursor cursor = quizableDBHelper.getQuestionsFromCategory(cat);
-        boolean success = cursor.moveToFirst();
-        if (success) {
-            while (cursor.moveToNext()) {
-                questions.add(cursor.getString(2));
-                answers.add(cursor.getString(3));
+        if (cat.equals("Own")) {
+            Cursor cursor = quizableDBHelper.getUserMadeStatements();
+            boolean success = cursor.moveToFirst();
+            if (success) {
+                while (cursor.moveToNext()) {
+                    questions.add(cursor.getString(2));
+                    answers.add(cursor.getString(3));
+                }
+            }
+        } else {
+            Cursor cursor = quizableDBHelper.getQuestionsFromCategory(cat);
+            boolean success = cursor.moveToFirst();
+            if (success) {
+                while (cursor.moveToNext()) {
+                    questions.add(cursor.getString(2));
+                    answers.add(cursor.getString(3));
+                }
             }
         }
     }
