@@ -24,7 +24,8 @@ public class CreateStatementActivity extends AppCompatActivity {
     private String category;
     private String answer;
     private QuizableOpenHelper mDbOpenHelper;
-    private QuizableDBHelper dbHelper;
+    private QuizableDBHelper qdb;
+
 
 
     @Override
@@ -36,7 +37,7 @@ public class CreateStatementActivity extends AppCompatActivity {
         buttonFalse = findViewById(R.id.togglebutton_add_false);
 
         mDbOpenHelper = new QuizableOpenHelper(this);
-      //  dbHelper = new QuizableDBHelper(this);
+        qdb = new QuizableDBHelper(this);
 
 
 
@@ -88,13 +89,13 @@ public class CreateStatementActivity extends AppCompatActivity {
     public void onButtonTrueClicked(View view){
         buttonTrueClicked = true;
         changeButtonColor();
-        answer = "true";
+        answer = "True";
     }
 
     public void onButtonFalseClicked(View view){
         buttonTrueClicked = false;
         changeButtonColor();
-        answer = "false";
+        answer = "False";
     }
 
     private void changeButtonColor(){
@@ -131,9 +132,7 @@ public class CreateStatementActivity extends AppCompatActivity {
 
         Toast.makeText(this, input, Toast.LENGTH_SHORT).show();
 
-        mDbOpenHelper.insertStatement("sport",statement,answer);
-
-     //   dbHelper.insertStatement("Sport", statement, answer);
+        qdb.insertStatement(category, statement, answer);
 
 
     }
