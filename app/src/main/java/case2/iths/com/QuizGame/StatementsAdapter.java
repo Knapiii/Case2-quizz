@@ -121,13 +121,16 @@ public class StatementsAdapter extends RecyclerView.Adapter<StatementsAdapter.Vi
 
 
     private void deleteStatement(String id, int position) {
+
         mDbOpenHelper = new QuizableOpenHelper(mContext);
         SQLiteDatabase db = mDbOpenHelper.getWritableDatabase();
+
 
 
         String[] selectionArgs = new String[]{id};
         db.delete(OwnStatementsEntry.TABLE_NAME, OwnStatementsEntry._ID+"=?", selectionArgs);
 
+        mCursor = mDbOpenHelper.loadStatementsData();
 
         notifyItemRemoved(position);
         notifyItemRangeChanged(position, getItemCount());

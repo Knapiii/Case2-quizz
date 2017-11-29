@@ -41,6 +41,11 @@ public class HandleStatementsActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
     private void displayStatements(Cursor cursor) {
 
         recyclerView = findViewById(R.id.list_statements);
@@ -71,6 +76,8 @@ public class HandleStatementsActivity extends AppCompatActivity {
         Intent intent = new Intent(this, EditStatementActivity.class);
         startActivity(intent);
     }
+
+
 
 
 
