@@ -70,5 +70,6 @@
     <string name="get_ready">GET READY</string>
     <string name="statements">Statements:</string>
     <string name="points_colon">Points:</string>
+    <string name="opposite">Answere the opposite</string>
 
 </resources>

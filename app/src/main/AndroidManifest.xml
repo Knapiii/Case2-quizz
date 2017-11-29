@@ -75,7 +75,6 @@
         <activity android:name=".CountdownSplashActivity"
             android:screenOrientation="portrait"
             android:noHistory="true"
-
             />
     </application>
 
