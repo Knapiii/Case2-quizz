@@ -15,7 +15,7 @@ import java.util.Random;
 public class SinglePlayerActivity extends AppCompatActivity {
 
     private TextView pointsView, question, secondsView, headLine, statementsLeftView;
-    private String genre;
+    private String category;
     private int points, numDoneQuestions, seconds, amountOfStatements, updateStatementsLeft;
     private ArrayList<String> questions = new ArrayList<>();
     private ArrayList<String> answers = new ArrayList<>();
@@ -32,13 +32,13 @@ public class SinglePlayerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_singleplayer_game);
         savedSettings = new SavedSettings();
         Intent intent = getIntent();
-        genre = getIntent().getStringExtra("genre");
+        category = getIntent().getStringExtra("category");
         amountOfStatements = intent.getIntExtra("amountOfStatements", 5);
         multiplayer = getIntent().getBooleanExtra("multiplayer", false);
         quizableDBHelper = new QuizableDBHelper(this);
         initialize();
         statements();
-        headLine.setText(genre);
+        headLine.setText(category);
         updatePoints();
         cdTimer = new CountDownTimer(5000, 100) {
             @Override
@@ -95,7 +95,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
      * Påståenden som ska slumpas i spelet
      */
     public void statements() {
-        setStatementsWithCategory(genre);
+        setStatementsWithCategory(category);
     }
 
     /**
@@ -160,7 +160,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
         savedSettings.giveSound(this);
         Intent intent = new Intent(this, ResultActivity.class);
         intent.putExtra("points", points);
-        intent.putExtra("category", genre);
+        intent.putExtra("category", category);
         intent.putExtra("amountOfStatements", amountOfStatements);
         startActivity(intent);
     }

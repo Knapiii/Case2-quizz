@@ -26,7 +26,7 @@ public class CountdownSplashActivity extends AppCompatActivity {
 
         countdown = findViewById(R.id.text_countdown_splash);
         headLine = findViewById(R.id.text_countdown_genre);
-        chosenCategory = getIntent().getStringExtra("genre");
+        chosenCategory = getIntent().getStringExtra("category");
         amountOfStatements = getIntent().getIntExtra("amountOfStatements", amountOfStatements);
         multiplayer = getIntent().getBooleanExtra("multiplayer", false);
         headLine.setText(chosenCategory);
@@ -66,7 +66,7 @@ public class CountdownSplashActivity extends AppCompatActivity {
         cdTimer.cancel();
         Intent intent = new Intent(CountdownSplashActivity.this, SinglePlayerActivity.class);
         intent.putExtra("amountOfStatements", amountOfStatements);
-        intent.putExtra("genre", chosenCategory);
+        intent.putExtra("category", chosenCategory);
         intent.putExtra("multiplayer", multiplayer);
         startActivity(intent);
     }

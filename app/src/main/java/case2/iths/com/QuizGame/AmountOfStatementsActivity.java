@@ -28,7 +28,7 @@ public class AmountOfStatementsActivity extends AppCompatActivity {
 
         multiplayer = getIntent().getBooleanExtra("multiplayer", false);
 
-        chosenCategory = getIntent().getStringExtra("genre");
+        chosenCategory = getIntent().getStringExtra("category");
         categoryTextView = findViewById(R.id.text_view_category);
         categoryTextView.setText(chosenCategory);
     }
@@ -60,7 +60,7 @@ public class AmountOfStatementsActivity extends AppCompatActivity {
     public void RoundsChosen(View view) {
         Intent intent = new Intent(this, CountdownSplashActivity.class);
         intent.putExtra("amountOfStatements", amountOfStatements);
-        intent.putExtra("genre", chosenCategory);
+        intent.putExtra("category", chosenCategory);
         intent.putExtra("multiplayer", multiplayer);
         startActivity(intent);
     }
