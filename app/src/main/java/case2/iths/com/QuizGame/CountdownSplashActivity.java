@@ -25,27 +25,27 @@ public class CountdownSplashActivity extends AppCompatActivity {
         countdown = findViewById(R.id.text_countdown_splash);
         headLine = findViewById(R.id.text_countdown_genre);
         chosenCategory = getIntent().getStringExtra("genre");
-        amountOfStatements = getIntent().getIntExtra("amountOfStatements", 0);
+        amountOfStatements = getIntent().getIntExtra("amountOfStatements", amountOfStatements);
         multiplayer = getIntent().getBooleanExtra("multiplayer", false);
         headLine.setText(chosenCategory);
 
-        cdTimer = new CountDownTimer(4000, 900) {
+        cdTimer = new CountDownTimer(4000, 100) {
             @Override
             public void onTick(long l) {
                 if (l > 3000) {
                     countdown.setText("3");
-                    runAnimation();
+                    //runAnimation();
                 } else if (l < 2000 && l > 1000) {
                     countdown.setText("1");
-                    runAnimation();
+                    //runAnimation();
                     getReady.setText(R.string.get_ready);
 
                 } else if (l < 3000 && l > 2000) {
                     countdown.setText("2");
-                    runAnimation();
+                    //runAnimation();
                 } else {
                     countdown.setText(R.string.go);
-                    runAnimation();
+                    //runAnimation();
                     getReady.setText(R.string.get_ready);
                 }
             }

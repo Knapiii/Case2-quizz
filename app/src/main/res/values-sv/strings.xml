@@ -4,7 +4,7 @@
     <string name="developed_by">Utvecklad av ITHS</string>
     <string name="profile">Profil</string>
     <string name="result">Resultat</string>
-    <string name="textview_about">"Quizabble är ett frågesportsspel som är utvecklat av studenter från ITHS-Högksolan.\n\nSpelet går ut på att svara på om ett påstående är sant eller falskt, fast du måste tänka tvärt-om.\n\nDu kan även lägga till egna påståenden själv, om du vill.  Är Sverige ett land? Ja, därför är \"rätt\" svar falskt eftersom du måste tänka tvärt-om. "</string>
+    <string name="textview_about">"Quizable är ett frågesportsspel som är utvecklat av studenter från ITHS-Högksolan.  Spelet går ut på att svara på om ett påstående är sant eller falskt, fast du måste tänka tvärt-om.  Du kan även lägga till egna påståenden själv, om du vill.  Är Sverige ett land? Ja, därför är \"rätt\" svar falskt eftersom du måste tänka tvärt-om. "</string>
 
     <!--Buttons-->
     <string name="handle_statements">Hantera påståenden</string>
@@ -23,9 +23,9 @@
     <string name="back_to_main_menu">Huvudmeny</string>
 
     <!--Menu-->
-    <string name="multiplayer">Multiplayer</string>
+    <string name="multiplayer">Flera spelare</string>
     <string name="highscore">Highscore</string>
-    <string name="singleplayer">Singleplayer</string>
+    <string name="singleplayer">En spelare</string>
     <string name="game_menu">Spelmeny</string>
     <string name="play">Spela</string>
     <string name="about">Om</string>
@@ -42,7 +42,7 @@
 
     <string name="all_categories">Alla kategorier</string>
     <string name="choose_category">Välj kategori</string>
-    <string name="isTruee">True</string>
+    <string name="isTruee">Sant</string>
 
 
     <string-array name="top5">
@@ -67,4 +67,9 @@
     <string name="sound_on_off_button">Sound on/off button</string>
     <string name="chosen_category">Kategori:</string>
     <string name="get_ready">GÖR DIG REDO</string>
+    <string name="statements">Påståenden:</string>
+    <string name="points_colon">Poäng:</string>
+    <string name="true_statement">Sant</string>
+    <string name="false_statement">Falskt</string>
+    <string name="insert_name_hint">Användarnamn</string>
 </resources>

@@ -23,7 +23,7 @@ public class HighScoreActivity extends AppCompatActivity {
     private String category;
     private HighscoresAdapter highscoresAdapter;
     private Cursor highScores;
-    private int categoryPosition;
+    private int categoryPosition, amountOfStatements;
 
 
     @Override
@@ -31,13 +31,10 @@ public class HighScoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_highscore);
         mDbOpenHelper = new QuizableOpenHelper(this);
-
         Intent intent = getIntent();
         categoryPosition = intent.getIntExtra("categoryPos", 0);
+        amountOfStatements = intent.getIntExtra("amountOfStatements", 0);
         displayCategoriesSpinner();
-
-
-
 
     }
 
