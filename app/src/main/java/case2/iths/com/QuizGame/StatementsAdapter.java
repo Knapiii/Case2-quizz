@@ -3,6 +3,7 @@ package case2.iths.com.QuizGame;
 import android.content.Context;
 import android.database.Cursor;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,6 +69,7 @@ public class StatementsAdapter extends RecyclerView.Adapter<StatementsAdapter.Vi
         holder.textCategory.setText(category.toUpperCase());
 
 
+
     }
 
     @Override
@@ -75,17 +77,28 @@ public class StatementsAdapter extends RecyclerView.Adapter<StatementsAdapter.Vi
         return mCursor == null ? 0 : mCursor.getCount();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
 
         private final TextView textStatement;
         private final TextView textCategory;
 
+
         public ViewHolder(View itemView) {
             super(itemView);
+            itemView.setOnClickListener(this);
 
             textStatement = itemView.findViewById(R.id.text_statement);
             textCategory = itemView.findViewById(R.id.text_category);
+
+
+        }
+
+        @Override
+        public void onClick(View view) {
+
+            Log.d("OnClick: ", String.valueOf(getLayoutPosition()));
+
 
         }
     }
