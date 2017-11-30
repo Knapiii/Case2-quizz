@@ -24,6 +24,7 @@ public class HighScoreActivity extends AppCompatActivity {
     private Cursor highScoresByCategory;
     private int categoryPosition, amountOfStatements;
     private Cursor allHighscores;
+    private Cursor allCategories;
 
 
     @Override
@@ -54,8 +55,8 @@ public class HighScoreActivity extends AppCompatActivity {
     private void displayCategoriesSpinner() {
 
         mSpinnerCategories = findViewById(R.id.spinner);
-        Cursor cursor = mDbOpenHelper.loadCategoriesData();
-        CategoriesCursorAdapter categoriesCursorAdapter = new CategoriesCursorAdapter(this, cursor);
+        allCategories = mDbOpenHelper.loadCategoriesData();
+        CategoriesCursorAdapter categoriesCursorAdapter = new CategoriesCursorAdapter(this, allCategories);
         mSpinnerCategories.setAdapter(categoriesCursorAdapter);
 
         if(categoryPosition > -1)
@@ -66,10 +67,10 @@ public class HighScoreActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                Cursor cursor = (Cursor) mSpinnerCategories.getItemAtPosition(position);
+                allCategories.moveToPosition(position);
 
-                category = cursor.getString(cursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE));
-                category_id = cursor.getString(cursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_ID));
+                category = allCategories.getString(allCategories.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE));
+                category_id = allCategories.getString(allCategories.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_ID));
 
                 highScoresByCategory = mDbOpenHelper.getHighScoresByCategory(category_id);
                 allHighscores = mDbOpenHelper.getAllHighScores();
@@ -78,9 +79,6 @@ public class HighScoreActivity extends AppCompatActivity {
                     showHighscores(allHighscores);
                 else
                     showHighscores(highScoresByCategory);
-
-
-
 
             }
 

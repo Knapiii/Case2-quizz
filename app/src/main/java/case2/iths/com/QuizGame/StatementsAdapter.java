@@ -65,6 +65,7 @@ public class StatementsAdapter extends RecyclerView.Adapter<StatementsAdapter.Vi
         String statement = mCursor.getString(statementPos);
         String category = mCursor.getString(categoryPos);
 
+
         holder.textStatement.setText(statement);
         holder.textCategory.setText(category.toUpperCase());
 

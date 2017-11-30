@@ -75,7 +75,7 @@ public class ResultActivity extends AppCompatActivity {
                 category_id = "Geography";
                 categoryPos = 3;
                 break;
-            case "Scince":
+            case "Science":
                 category_id = "Science";
                 categoryPos = 4;
                 break;
