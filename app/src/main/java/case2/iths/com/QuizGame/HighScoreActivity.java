@@ -21,8 +21,9 @@ public class HighScoreActivity extends AppCompatActivity {
     private String category_id;
     private String category;
     private HighscoresAdapter highscoresAdapter;
-    private Cursor highScores;
+    private Cursor highScoresByCategory;
     private int categoryPosition, amountOfStatements;
+    private Cursor allHighscores;
 
 
     @Override
@@ -39,7 +40,7 @@ public class HighScoreActivity extends AppCompatActivity {
 
     private void loadHighscores() {
 
-    displayHighScoresByCategory(highScores);
+    showHighscores(highScoresByCategory);
 
     }
 
@@ -70,9 +71,16 @@ public class HighScoreActivity extends AppCompatActivity {
                 category = cursor.getString(cursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE));
                 category_id = cursor.getString(cursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_ID));
 
-                highScores = mDbOpenHelper.getHighScores(category_id);
+                highScoresByCategory = mDbOpenHelper.getHighScoresByCategory(category_id);
+                allHighscores = mDbOpenHelper.getAllHighScores();
 
-                displayHighScoresByCategory(highScores);
+                if(position == 0)
+                    showHighscores(allHighscores);
+                else
+                    showHighscores(highScoresByCategory);
+
+
+
 
             }
 
@@ -84,7 +92,7 @@ public class HighScoreActivity extends AppCompatActivity {
 
     }
 
-    private void displayHighScoresByCategory(Cursor cursor) {
+    private void showHighscores(Cursor cursor) {
 
         recyclerView = findViewById(R.id.highscores_list);
         highscoresLayoutManager = new LinearLayoutManager(this);
@@ -95,6 +103,7 @@ public class HighScoreActivity extends AppCompatActivity {
         recyclerView.setAdapter(highscoresAdapter);
 
     }
+
 
     @Override
     protected void onDestroy() {

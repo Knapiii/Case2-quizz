@@ -49,12 +49,12 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
     }
 
     // returns highscores for the specific category
-    public Cursor getHighScores(String category_id) {
+    public Cursor getHighScoresByCategory(String categoryId) {
 
         SQLiteDatabase db = this.getReadableDatabase();
 
         String selection = HighScoresInfoEntry.COLUMN_CATEGORY_ID + " = ?";
-        String[] selectionArgs = {category_id};
+        String[] selectionArgs = {categoryId};
         String[] highscoresColumns = {
                 HighScoresInfoEntry.COLUMN_CATEGORY_ID,
                 HighScoresInfoEntry.COLUMN_HIGHSCORE,
@@ -63,6 +63,23 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
                 HighScoresInfoEntry._ID
         };
         Cursor cursor = db.query(HighScoresInfoEntry.TABLE_NAME, highscoresColumns, selection, selectionArgs, null, null, HighScoresInfoEntry.COLUMN_HIGHSCORE + " DESC");
+        return cursor;
+
+    }
+
+    public Cursor getAllHighScores() {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] highscoresColumns = {
+                HighScoresInfoEntry.COLUMN_CATEGORY_ID,
+                HighScoresInfoEntry.COLUMN_HIGHSCORE,
+                HighScoresInfoEntry.COLUMN_AMOUNT_OF_STATEMENTS,
+                HighScoresInfoEntry.COLUMN_USER_ID,
+                HighScoresInfoEntry._ID
+        };
+
+        Cursor cursor = db.query(HighScoresInfoEntry.TABLE_NAME, highscoresColumns, null, null, null, null, HighScoresInfoEntry.COLUMN_HIGHSCORE + " DESC");
         return cursor;
 
     }
