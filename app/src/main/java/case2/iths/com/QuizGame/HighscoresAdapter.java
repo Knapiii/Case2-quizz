@@ -71,7 +71,7 @@ public class HighscoresAdapter extends  RecyclerView.Adapter<HighscoresAdapter.V
         holder.textScore.setText(score);
         holder.textPoints.setText(R.string.points);
         holder.textRounds.setText(String.valueOf(amountOfStatements));
-        holder.amountOfStatements.setText(R.string.amount_of_statements);
+        holder.amountOfStatements.setText(R.string.statements);
         holder.id = id;
 
     }

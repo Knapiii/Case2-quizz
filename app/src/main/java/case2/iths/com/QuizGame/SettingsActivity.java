@@ -64,5 +64,9 @@ public class SettingsActivity extends AppCompatActivity {
 
         editor.apply();
     }
+
+    public void buttonPressed(){
+
+    }
 }
 

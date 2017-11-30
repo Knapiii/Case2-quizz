@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -22,9 +23,11 @@
                 android:id="@+id/text_amount_of_statements"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:layout_marginEnd="4dp"
-                android:text="@string/amount_of_statements"
+                android:text="@string/statements"
                 android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/text_rounds"
                 app:layout_constraintTop_toBottomOf="@+id/text_name" />
 
@@ -34,7 +37,8 @@
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_name" />
+                app:layout_constraintTop_toBottomOf="@+id/text_name"
+                tools:text="5" />
 
             <TextView
                 android:id="@+id/text_points"
@@ -44,16 +48,17 @@
                 android:textAlignment="center"
                 android:textAppearance="@android:style/TextAppearance.Material.Medium"
                 app:layout_constraintStart_toEndOf="@+id/text_score"
-                app:layout_constraintTop_toBottomOf="@+id/text_name" />
+                app:layout_constraintTop_toBottomOf="@+id/text_name"
+                tools:text="5" />
 
             <TextView
                 android:id="@+id/text_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
                 android:textAppearance="@android:style/TextAppearance.Material.Medium"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_name" />
+                app:layout_constraintTop_toBottomOf="@+id/text_name"
+                tools:text="Points:" />
 
             <TextView
                 android:id="@+id/text_name"

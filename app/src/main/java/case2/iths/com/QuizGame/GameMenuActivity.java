@@ -19,9 +19,9 @@ public class GameMenuActivity extends AppCompatActivity {
     /**
      * När vi klickar på knappen "Manage Statements" så ska vi komma till HandleStatementsActivity
      */
-    public void tomanagestatements(View view) {
+    public void toManagestatements(View view) {
         savedSettings.giveSound(this);
-        Intent toManageStatements = new Intent(this,HandleStatementsActivity.class);
+        Intent toManageStatements = new Intent(this, HandleStatementsActivity.class);
         startActivity(toManageStatements);
     }
 
@@ -36,7 +36,7 @@ public class GameMenuActivity extends AppCompatActivity {
     }
 
     /**
-     * När vi klickar på knappen "Multiplayer" så ska vi komma till
+     * När vi klickar på knappen "MultiplayerActivity" så ska vi komma till
      * PlayGameActivity där kategori väljs för ett multiplayer spel
      */
     public void toMultiplayerGame(View view) {

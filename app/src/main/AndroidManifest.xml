@@ -58,7 +58,7 @@
             android:noHistory="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Multiplayer"
+            android:name=".MultiplayerActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".CreateStatementActivity"
@@ -75,7 +75,6 @@
         <activity android:name=".CountdownSplashActivity"
             android:screenOrientation="portrait"
             android:noHistory="true"
-
             />
     </application>
 

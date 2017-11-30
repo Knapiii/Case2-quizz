@@ -8,6 +8,16 @@
     tools:context="case2.iths.com.QuizGame.AmountOfStatementsActivity">
 
 
+    <TextView
+        android:id="@+id/developed_by_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/developed_by"
+        android:textColor="@color/ButtonBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/top_text"
@@ -17,7 +27,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/lobster_two_bold"
-        android:text="@string/amount_of_statements"
+        android:text="@string/choose_amount_of_statements"
         android:textAlignment="center"
         android:textColor="@android:color/white"
         android:textSize="40sp"
@@ -27,7 +37,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/category_text_view"
+        android:id="@+id/text_view_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
@@ -107,7 +117,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:background="@color/ButtonBackground"
+        android:background="@drawable/button_background_switcher"
         android:onClick="RoundsChosen"
         android:text="@string/play"
         android:textColor="@android:color/background_light"

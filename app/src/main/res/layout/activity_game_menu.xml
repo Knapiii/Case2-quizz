@@ -9,7 +9,7 @@
 
     <Button
         android:id="@+id/button_manage_statements"
-        android:onClick="tomanagestatements"
+        android:onClick="toManagestatements"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -29,7 +29,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="@color/ButtonBackground"
+        android:background="@drawable/button_background_switcher"
         android:text="@string/multiplayer"
         android:textColor="@android:color/background_light"
         android:textSize="24sp"
@@ -45,8 +45,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
-        android:background="@color/ButtonBackground"
-        android:text="@string/singelplayer"
+        android:background="@drawable/button_background_switcher"
+        android:text="@string/singleplayer"
         android:textColor="@android:color/background_light"
         android:textSize="24sp"
         android:textStyle="bold"

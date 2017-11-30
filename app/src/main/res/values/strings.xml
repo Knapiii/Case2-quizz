@@ -3,7 +3,7 @@
     <string name="developed_by">Developed by ITHS</string>
     <string name="profile">Profile</string>
     <string name="result">Result</string>
-    <string name="textview_about">"Quizabble är ett frågesportsspel som är utvecklat av studenter från ITHS-Högksolan.\n\nSpelet går ut på att svara på om ett påstående är sant eller falskt, fast du måste tänka tvärt-om.\n\nDu kan även lägga till egna påståenden själv, om du vill.  Är Sverige ett land? Ja, därför är \"rätt\" svar falskt eftersom du måste tänka tvärt-om. "</string>
+    <string name="textview_about">Quizale is a quiz game developed by students from ITHS-University. The game is about responding if a statement is true or false, though you must think reversed. You can also add your own statements, if you want: Sweden is a country. True, therefore, the \"correct\" answer is false because you have to think reversed.</string>
     <string name="points">"Points:"</string>
 
     <!--Buttons-->
@@ -17,7 +17,7 @@
     <!--Menu-->
     <string name="multiplayer">Multiplayer</string>
     <string name="highscore">Highscore</string>
-    <string name="singelplayer">Singelplayer</string>
+    <string name="singleplayer">Singleplayer</string>
     <string name="game_menu">Game Menu</string>
     <string name="play">Play</string>
     <string name="about">About</string>
@@ -57,7 +57,8 @@
     <string name="edit_category">Edit category</string>
     <string name="edit_statement">Edit statement</string>
     <string name="Edit">Edit</string>
-    <string name="amount_of_statements">Amount of statements</string>
+    <string name="amount_of_statements">Amount of statements:</string>
+    <string name="choose_amount_of_statements">Amount of statements</string>
     <string name="chosen_category">Category:</string>
     <string name="go">GO</string>
     <string name="own">Own</string>
@@ -66,5 +67,9 @@
     <string name="true_statement">True</string>
     <string name="false_statement">False</string>
     <string name="insert_name_hint">Insert name</string>
+    <string name="get_ready">GET READY</string>
+    <string name="statements">Statements:</string>
+    <string name="points_colon">Points:</string>
+    <string name="opposite">Answere the opposite</string>
 
 </resources>

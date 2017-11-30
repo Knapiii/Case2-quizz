@@ -100,7 +100,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="48dp"
-        android:background="@color/ButtonBackground"
+        android:background="@drawable/button_background_switcher"
         android:onClick="onButtonAddClicked"
         android:text="@string/add"
         android:textColor="@android:color/background_light"
@@ -147,6 +147,17 @@
         android:layout_marginStart="8dp"
         android:text="@string/choose_category"
         app:layout_constraintBottom_toTopOf="@+id/spinner_add_category"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/developed_by_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/developed_by"
+        android:textColor="@color/ButtonBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

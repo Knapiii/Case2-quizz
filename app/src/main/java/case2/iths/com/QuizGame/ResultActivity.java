@@ -10,7 +10,7 @@ import android.widget.TextView;
 public class ResultActivity extends AppCompatActivity {
 
     private SavedSettings savedSettings;
-    private TextView amountOfPoints, playedCategory;
+    private TextView amountOfPoints, playedCategory, textViewAmountOfStatements;
     private String category;
     private int points, amountOfStatements;
     private EditText insertName;
@@ -29,6 +29,7 @@ public class ResultActivity extends AppCompatActivity {
 
         amountOfPoints = findViewById(R.id.amount_of_points);
         playedCategory = findViewById(R.id.played_category);
+        textViewAmountOfStatements = findViewById(R.id.editText_save_amount_of_statements_result);
         insertName = findViewById(R.id.editText_save_highscore_name);
 
         openHelper();
@@ -48,11 +49,11 @@ public class ResultActivity extends AppCompatActivity {
 
     public void openHelper(){
         Intent intent = getIntent();
-
         category = checkCategory(intent.getStringExtra("category"));
         points = intent.getIntExtra("points", 0);
-        amountOfStatements = intent.getIntExtra("amountOfStatements", 5);
+        amountOfStatements = intent.getIntExtra("amountOfStatements", amountOfStatements);
         amountOfPoints.setText((Integer.toString(points)));
+        textViewAmountOfStatements.setText((Integer.toString(amountOfStatements)));
         playedCategory.setText(category);
         category = category.toLowerCase();
 
@@ -63,19 +64,18 @@ public class ResultActivity extends AppCompatActivity {
     private String checkCategory(String category_id) {
 
         switch (category_id) {
-            case "Mat":
-                category_id = "Food";
+            case "Food":
                 categoryPos = 1;
                 break;
-            case "Spel":
+            case "Games":
                 category_id = "Games";
                 categoryPos = 2;
                 break;
-            case "Geografi":
+            case "Geography":
                 category_id = "Geography";
                 categoryPos = 3;
                 break;
-            case "Vetenskap":
+            case "Scince":
                 category_id = "Science";
                 categoryPos = 4;
                 break;
@@ -83,16 +83,16 @@ public class ResultActivity extends AppCompatActivity {
                 category_id = "Sport";
                 categoryPos = 5;
                 break;
-            case "Musik":
+            case "Music":
                 category_id = "Music";
                 categoryPos = 6;
                 break;
-            case "Own":
+            case "Own statements":
                 category_id = "Own_statements";
                 categoryPos = 7;
                 break;
             default:
-                category_id = "All_categories";
+                category_id = "All categories";
                 categoryPos = 0;
                 break;
         }
@@ -127,12 +127,10 @@ public class ResultActivity extends AppCompatActivity {
         savedSettings.giveSound(this);
         Intent toHighscores = new Intent(this, HighScoreActivity.class);
         toHighscores.putExtra("categoryPos", categoryPos);
+        toHighscores.putExtra("amountOfStatements", amountOfStatements);
         quizableOpenHelper = new QuizableOpenHelper(this);
         name = insertName.getText().toString();
         quizableOpenHelper.insertHighscore(category, points, amountOfStatements, name);
-
-
         startActivity(toHighscores);
-
     }
 }

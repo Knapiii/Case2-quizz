@@ -15,7 +15,7 @@ import java.util.Random;
 public class SinglePlayerActivity extends AppCompatActivity {
 
     private TextView pointsView, question, secondsView, headLine, statementsLeftView;
-    private String genre;
+    private String category;
     private int points, numDoneQuestions, seconds, amountOfStatements, updateStatementsLeft;
     private ArrayList<String> questions = new ArrayList<>();
     private ArrayList<String> answers = new ArrayList<>();
@@ -26,32 +26,36 @@ public class SinglePlayerActivity extends AppCompatActivity {
     private CountDownTimer cdTimer;
     private boolean multiplayer;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_singleplayer_game);
         savedSettings = new SavedSettings();
         Intent intent = getIntent();
+        category = getIntent().getStringExtra("category");
         amountOfStatements = intent.getIntExtra("amountOfStatements", 5);
-        initialize();
-        genre = getIntent().getStringExtra("genre");
         multiplayer = getIntent().getBooleanExtra("multiplayer", false);
-        headLine.setText(genre);
         quizableDBHelper = new QuizableDBHelper(this);
-        updatePoints();
+        initialize();
         statements();
-        cdTimer = new CountDownTimer(3000, 100) {
+        headLine.setText(category);
+        updatePoints();
+        cdTimer = new CountDownTimer(5000, 100) {
             @Override
             public void onTick(long l) {
-                if (l > 2000) {
-                    secondsView.setText("3");
-                    seconds = 3;
+                if (l > 4000) {
+                    secondsView.setText("5");
+                    seconds = 5;
                 } else if (l < 1000) {
                     secondsView.setText("1");
                     seconds = 1;
-                } else {
+                } else if (l < 4000 && l > 3000){
+                    secondsView.setText("4");
+                    seconds = 4;
+                } else if (l < 3000 && l > 2000){
+                    secondsView.setText("3");
+                    seconds = 3;
+                } else if (l < 2000 && l > 1000){
                     secondsView.setText("2");
                     seconds = 2;
                 }
@@ -91,7 +95,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
      * Påståenden som ska slumpas i spelet
      */
     public void statements() {
-        setStatementsWithCategory(genre);
+        setStatementsWithCategory(category);
     }
 
     /**
@@ -122,7 +126,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
      */
     public void trueButtonPressed(View view) {
         savedSettings.giveSound(this);
-        if (answerString.equalsIgnoreCase("Sant"))
+        if (answerString.equalsIgnoreCase("True"))
             points += seconds;
         if (isRoundOver()) {
             cdTimer.cancel();
@@ -138,7 +142,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
      */
     public void falseButtonPressed(View view) {
         savedSettings.giveSound(this);
-        if (answerString.equalsIgnoreCase("Falskt"))
+        if (answerString.equalsIgnoreCase("False"))
             points += seconds;
         if (isRoundOver()) {
             cdTimer.cancel();
@@ -156,7 +160,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
         savedSettings.giveSound(this);
         Intent intent = new Intent(this, ResultActivity.class);
         intent.putExtra("points", points);
-        intent.putExtra("category", genre);
+        intent.putExtra("category", category);
         intent.putExtra("amountOfStatements", amountOfStatements);
         startActivity(intent);
     }
@@ -192,12 +196,23 @@ public class SinglePlayerActivity extends AppCompatActivity {
     }
 
     public void setStatementsWithCategory(String cat) {
-        Cursor cursor = quizableDBHelper.getQuestionsFromCategory(cat);
-        boolean success = cursor.moveToFirst();
-        if (success) {
-            while (cursor.moveToNext()) {
-                questions.add(cursor.getString(2));
-                answers.add(cursor.getString(3));
+        if (cat.equals("Own")) {
+            Cursor cursor = quizableDBHelper.getUserMadeStatements();
+            boolean success = cursor.moveToFirst();
+            if (success) {
+                while (cursor.moveToNext()) {
+                    questions.add(cursor.getString(2));
+                    answers.add(cursor.getString(3));
+                }
+            }
+        } else {
+            Cursor cursor = quizableDBHelper.getQuestionsFromCategory(cat);
+            boolean success = cursor.moveToFirst();
+            if (success) {
+                while (cursor.moveToNext()) {
+                    questions.add(cursor.getString(2));
+                    answers.add(cursor.getString(3));
+                }
             }
         }
     }
