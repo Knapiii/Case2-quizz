@@ -37,8 +37,6 @@ public class CreateStatementActivity extends AppCompatActivity {
         mDbOpenHelper = new QuizableOpenHelper(this);
         dbHelper = new QuizableDBHelper(this);
 
-
-
         loadCategoriesData();
     }
 

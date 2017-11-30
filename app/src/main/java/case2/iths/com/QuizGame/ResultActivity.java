@@ -131,9 +131,6 @@ public class ResultActivity extends AppCompatActivity {
         quizableOpenHelper = new QuizableOpenHelper(this);
         name = insertName.getText().toString();
         quizableOpenHelper.insertHighscore(category, points, amountOfStatements, name);
-
-
         startActivity(toHighscores);
-
     }
 }
