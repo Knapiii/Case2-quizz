@@ -2,7 +2,6 @@ package case2.iths.com.QuizGame;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -24,6 +23,7 @@ public class CreateStatementActivity extends AppCompatActivity {
     private String answer;
     private QuizableOpenHelper mDbOpenHelper;
     private QuizableDBHelper dbHelper;
+    private CategoriesCursorAdapter categoriesCursorAdapter;
 
 
     @Override
@@ -41,21 +41,14 @@ public class CreateStatementActivity extends AppCompatActivity {
     }
 
     private void loadCategoriesData() {
-        SQLiteDatabase db = mDbOpenHelper.getReadableDatabase();
+
+        Cursor cursor = mDbOpenHelper.loadCategoriesData();
         spinner = findViewById(R.id.spinner_add_category);
-        final String[] categoryColumns = {
-                CategoriesInfoEntry.COLUMN_CATEGORY_TITLE,
-                CategoriesInfoEntry.COLUMN_CATEGORY_ID,
-                CategoriesInfoEntry._ID
-        };
 
-        Cursor cursor = db.query(CategoriesInfoEntry.TABLE_NAME, categoryColumns,
-                null, null, null, null, CategoriesInfoEntry.COLUMN_CATEGORY_TITLE);
+        categoriesCursorAdapter = new CategoriesCursorAdapter(this, cursor);
 
-        CategoriesCursorAdapter CategoriesCursorAdapter = new CategoriesCursorAdapter(this, cursor);
-
-        spinner.setAdapter(CategoriesCursorAdapter);
-        spinner.setSelection(5);
+        spinner.setAdapter(categoriesCursorAdapter);
+        spinner.setSelection(7);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 

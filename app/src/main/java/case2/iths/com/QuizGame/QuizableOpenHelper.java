@@ -6,8 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import case2.iths.com.QuizGame.QuizableDatabaseContract.OwnStatementsEntry;
-
 import static case2.iths.com.QuizGame.QuizableDatabaseContract.CategoriesInfoEntry;
 import static case2.iths.com.QuizGame.QuizableDatabaseContract.HighScoresInfoEntry;
 
@@ -18,7 +16,7 @@ import static case2.iths.com.QuizGame.QuizableDatabaseContract.HighScoresInfoEnt
 public class QuizableOpenHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "Quizable.db";
-    public static final int DATABASE_VERSION = 2;
+    public static final int DATABASE_VERSION = 14;
 
     public QuizableOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -42,19 +40,10 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         if (oldVersion < newVersion) {
 
-            Cursor cursor = this.loadCategoriesData();
+            db.execSQL(HighScoresInfoEntry.SQL_DELETE_TABLE + HighScoresInfoEntry.TABLE_NAME);
+            db.execSQL(CategoriesInfoEntry.SQL_DELETE_TABLE + CategoriesInfoEntry.TABLE_NAME);
 
-            db.execSQL("DROP TABLE IF EXISTS " + HighScoresInfoEntry.TABLE_NAME);
-            db.execSQL("DROP TABLE IF EXISTS " + OwnStatementsEntry.TABLE_NAME);
-            db.execSQL("DROP TABLE IF EXISTS " + CategoriesInfoEntry.TABLE_NAME);
-
-            db.execSQL(CategoriesInfoEntry.SQL_CREATE_TABLE);
-            db.execSQL(HighScoresInfoEntry.SQL_CREATE_TABLE);
-            db.execSQL(OwnStatementsEntry.SQL_CREATE_TABLE);
-
-
-            DatabaseDataWorker databaseDataWorker = new DatabaseDataWorker(db);
-            databaseDataWorker.insertCategories();
+            onCreate(db);
 
         }
     }
@@ -74,7 +63,6 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
                 HighScoresInfoEntry._ID
         };
         Cursor cursor = db.query(HighScoresInfoEntry.TABLE_NAME, highscoresColumns, selection, selectionArgs, null, null, HighScoresInfoEntry.COLUMN_HIGHSCORE + " DESC");
-
         return cursor;
 
     }
@@ -93,20 +81,6 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
         long newRowId = db.insert(HighScoresInfoEntry.TABLE_NAME, null, contentValues);
 
-
-    }
-
-    // Use this method to add a new category to the database category table;
-
-    public void insertCategory(String category_id, String category_text) {
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(CategoriesInfoEntry.COLUMN_CATEGORY_ID, category_id);
-        contentValues.put(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE, category_text);
-        long id = db.insert(CategoriesInfoEntry.TABLE_NAME, null, contentValues);
-
-
     }
 
     // returns all categeories
@@ -124,22 +98,6 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
         return cursor;
 
-    }
-
-    // returns a Cursor with all the statements
-    public Cursor loadStatementsData() {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        String[] statementColumns = {
-                OwnStatementsEntry.COLUMN_STATEMENT,
-                OwnStatementsEntry.COLUMN_STATEMENT_ANSWER,
-                OwnStatementsEntry.COLUMN_CATEGORY_ID,
-                OwnStatementsEntry._ID
-        };
-
-        Cursor cursor = db.query(OwnStatementsEntry.TABLE_NAME, statementColumns, null, null, null, null, null);
-
-        return cursor;
     }
 
 }

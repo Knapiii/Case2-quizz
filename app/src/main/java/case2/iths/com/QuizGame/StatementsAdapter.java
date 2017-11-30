@@ -103,7 +103,7 @@ public class StatementsAdapter extends RecyclerView.Adapter<StatementsAdapter.Vi
             String answer = mCursor.getString(mCursor.getColumnIndex(QuizableDBHelper.ANSWER));
             String id = mCursor.getString(mCursor.getColumnIndex(QuizableDBHelper.KEY_ID));
 
-            Toast.makeText(mContext, "Position: "+answer, Toast.LENGTH_LONG).show();
+            Toast.makeText(mContext, "Deleted ", Toast.LENGTH_LONG).show();
 
             deleteStatement(id, position);
         }

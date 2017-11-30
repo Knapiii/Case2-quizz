@@ -92,4 +92,6 @@ public class CategoryWindowActivity extends AppCompatActivity {
         savedSettings.giveSound(this);
         startActivity(intent);
     }
+
+
 }
