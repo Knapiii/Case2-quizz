@@ -96,6 +96,11 @@ public class HighScoreActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onDestroy() {
+        mDbOpenHelper.close();
+        super.onDestroy();
+    }
 }
 
 

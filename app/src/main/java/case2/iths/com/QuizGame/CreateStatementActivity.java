@@ -40,6 +40,13 @@ public class CreateStatementActivity extends AppCompatActivity {
         loadCategoriesData();
     }
 
+    @Override
+    protected void onDestroy() {
+        mDbOpenHelper.close();
+        dbHelper.close();
+        super.onDestroy();
+    }
+
     private void loadCategoriesData() {
 
         Cursor cursor = mDbOpenHelper.loadCategoriesData();

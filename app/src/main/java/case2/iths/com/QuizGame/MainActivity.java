@@ -2,7 +2,6 @@ package case2.iths.com.QuizGame;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -22,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         mDbOpenHelper = new QuizableOpenHelper(this);
 
-        SQLiteDatabase db = mDbOpenHelper.getReadableDatabase();
+  //      SQLiteDatabase db = mDbOpenHelper.getReadableDatabase();
 
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         boolean silent = settings.getBoolean("silentMode", false);
@@ -67,4 +66,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(toAbout);
     }
 
+    @Override
+    protected void onDestroy() {
+        mDbOpenHelper.close();
+        super.onDestroy();
+    }
 }
