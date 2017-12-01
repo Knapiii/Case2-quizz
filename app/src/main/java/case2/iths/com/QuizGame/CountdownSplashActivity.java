@@ -17,6 +17,8 @@ public class CountdownSplashActivity extends AppCompatActivity {
     private String chosenCategory;
     private boolean multiplayer;
 
+    private int p1Points;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,9 +26,18 @@ public class CountdownSplashActivity extends AppCompatActivity {
         getReady = findViewById(R.id.text_get_ready);
         countdown = findViewById(R.id.text_countdown_splash);
         headLine = findViewById(R.id.text_countdown_genre);
-        chosenCategory = getIntent().getStringExtra("genre");
-        amountOfStatements = getIntent().getIntExtra("amountOfStatements", amountOfStatements);
         multiplayer = getIntent().getBooleanExtra("multiplayer", false);
+
+        //Om första spelarens antal påståenden inte är noll ska värden från förra spelet hämtas
+        if (getIntent().getIntExtra("p1amountStatements", 0) != 0){
+            p1Points = getIntent().getIntExtra("p1points", 0);
+            chosenCategory = getIntent().getStringExtra("p1category");
+            amountOfStatements = getIntent().getIntExtra("p1amountStatements", 5);
+        }
+        else{
+            chosenCategory = getIntent().getStringExtra("genre");
+            amountOfStatements = getIntent().getIntExtra("amountOfStatements", amountOfStatements);
+        }
         headLine.setText(chosenCategory);
 
         cdTimer = new CountDownTimer(4000, 100) {
@@ -34,19 +45,16 @@ public class CountdownSplashActivity extends AppCompatActivity {
             public void onTick(long l) {
                 if (l > 3000) {
                     countdown.setText("3");
-                    //runAnimation();
                 } else if (l < 2000 && l > 1000) {
                     countdown.setText("1");
-                    //runAnimation();
-                    getReady.setText(R.string.get_ready);
+                    decideGetReadyText();
 
                 } else if (l < 3000 && l > 2000) {
                     countdown.setText("2");
-                    //runAnimation();
+                    decideGetReadyText();
                 } else {
                     countdown.setText(R.string.go);
-                    //runAnimation();
-                    getReady.setText(R.string.get_ready);
+                    decideGetReadyText();
                 }
             }
             @Override
@@ -57,8 +65,32 @@ public class CountdownSplashActivity extends AppCompatActivity {
 
     }
 
+    private void decideGetReadyText(){
+        if (getIntent().getIntExtra("p1amountStatements", 0) != 0 &&
+                multiplayer)
+            getReady.setText(R.string.p2_get_ready);
+        else if (getIntent().getIntExtra("p1amountStatements", 0) == 0 &&
+                multiplayer)
+            getReady.setText(R.string.p1_get_ready);
+        else
+            getReady.setText(R.string.get_ready);
+    }
+
+    /**
+     * Startar SingleActivity och skicka mer lämpliga värden beroende på om en spelare
+     * har spelat en runda eller inte
+     */
     public void toSinglePlayer(){
         cdTimer.cancel();
+        if (getIntent().getIntExtra("p1amountStatements", 0) != 0 &&
+                multiplayer){
+            Intent multiIntent = new Intent(this, SinglePlayerActivity.class);
+            multiIntent.putExtra("p1points", p1Points);
+            multiIntent.putExtra("genre", chosenCategory);
+            multiIntent.putExtra("amountOfStatements", amountOfStatements);
+            multiIntent.putExtra("multiplayer", multiplayer);
+            startActivity(multiIntent);
+        }
         Intent intent = new Intent(CountdownSplashActivity.this, SinglePlayerActivity.class);
         intent.putExtra("amountOfStatements", amountOfStatements);
         intent.putExtra("genre", chosenCategory);
@@ -71,13 +103,5 @@ public class CountdownSplashActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         cdTimer.cancel();
-    }
-
-    private void runAnimation()
-    {
-        Animation a = AnimationUtils.loadAnimation(this, R.anim.scale_animation);
-        a.reset();
-        countdown.clearAnimation();
-        countdown.startAnimation(a);
     }
 }

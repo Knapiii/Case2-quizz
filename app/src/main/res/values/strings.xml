@@ -70,5 +70,7 @@
     <string name="get_ready">GET READY</string>
     <string name="statements">Statements:</string>
     <string name="points_colon">Points:</string>
+    <string name="p1_get_ready">Player 1 get ready!</string>
+    <string name="p2_get_ready">Player 2 get ready!</string>
 
 </resources>

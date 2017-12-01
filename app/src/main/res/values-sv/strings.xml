@@ -72,4 +72,6 @@
     <string name="true_statement">Sant</string>
     <string name="false_statement">Falskt</string>
     <string name="insert_name_hint">Användarnamn</string>
+    <string name="p1_get_ready">Spelare 1 var beredd!</string>
+    <string name="p2_get_ready">Spelare 2 var beredd!</string>
 </resources>
