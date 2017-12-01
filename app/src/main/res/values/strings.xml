@@ -73,5 +73,6 @@
     <string name="opposite">Answere the opposite</string>
     <string name="p1_get_ready">Player 1 get ready!</string>
     <string name="p2_get_ready">Player 2 get ready!</string>
+    <string name="correct_answers">Correct answers</string>
 
 </resources>

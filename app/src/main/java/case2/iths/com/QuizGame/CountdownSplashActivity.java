@@ -88,7 +88,7 @@ public class CountdownSplashActivity extends AppCompatActivity {
         cdTimer.cancel();
         if (getIntent().getIntExtra("p1amountStatements", 0) != 0 &&
                 multiplayer){
-            Intent multiIntent = new Intent(this, SinglePlayerActivity.class);
+            Intent multiIntent = new Intent(CountdownSplashActivity.this, SinglePlayerActivity.class);
             multiIntent.putExtra("p1points", p1Points);
             multiIntent.putExtra("genre", chosenCategory);
             multiIntent.putExtra("amountOfStatements", amountOfStatements);
