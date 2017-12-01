@@ -26,6 +26,9 @@ public class SinglePlayerActivity extends AppCompatActivity {
     private CountDownTimer cdTimer;
     private boolean multiplayer;
 
+    private int p1Points;
+    private int p2Points;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +80,8 @@ public class SinglePlayerActivity extends AppCompatActivity {
         headLine = findViewById(R.id.top_text_category);
         statementsLeftView = findViewById(R.id.text_statements_left);
 
+        if (getIntent().getIntExtra("p1points", 100) != 100)
+            p1Points = getIntent().getIntExtra("p1points", 0);
         points = 0;
         updateStatementsLeft = amountOfStatements;
         numDoneQuestions = 0;
@@ -155,8 +160,19 @@ public class SinglePlayerActivity extends AppCompatActivity {
 
     /**
      * Startar ResultActivity efter fem frågor har visats
+     * TODO: Här kan man nog fixa multiplayer funktionen
+     * TODO: genom att istället anropa CountDownActivity igen och spara första spelarens värden
      */
     public void startResultActivity() {
+        if (multiplayer){
+            Intent multiIntent = new Intent(this, CountdownSplashActivity.class);
+            multiIntent.putExtra("p1points", points);
+            multiIntent.putExtra("p1category", category);
+            multiIntent.putExtra("p1amountStatements", amountOfStatements);
+            multiIntent.putExtra("multiplayer", multiplayer);
+            startActivity(multiIntent);
+            return;
+        }
         savedSettings.giveSound(this);
         Intent intent = new Intent(this, ResultActivity.class);
         intent.putExtra("points", points);

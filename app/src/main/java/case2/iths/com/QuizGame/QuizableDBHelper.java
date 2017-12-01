@@ -27,7 +27,7 @@ public class QuizableDBHelper extends SQLiteAssetHelper {
 
     // Returns all questions from Quizable.db
     public Cursor getQuestions() {
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT * FROM " + TABLE;
         Cursor cursor = db.rawQuery(query, null);
         return cursor;
