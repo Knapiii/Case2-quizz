@@ -3,7 +3,7 @@
     <string name="developed_by">Developed by ITHS</string>
     <string name="profile">Profile</string>
     <string name="result">Result</string>
-    <string name="textview_about">Quizale is a quiz game developed by students from ITHS-University. The game is about responding if a statement is true or false, though you must think reversed. You can also add your own statements, if you want: Sweden is a country. True, therefore, the \"correct\" answer is false because you have to think reversed.</string>
+    <string name="textview_about">"The game is about responding if a statement is true or false, but you must think reversed.\n\nYou can also add your own statements and choose wich category it should be added to.\n\nYou have five seconds to answer and the faster you answer, the more points you will get. You have to think fast, if you don't answer before the time runs out, you will get minus points.\n\nExample of a statement:\n\"Sweden is a country\"\nThat is true, therefore, the correct answer is false because you have to think reversed.\n\nGood luck!  "</string>
     <string name="points">"Points"</string>
 
     <!--Buttons-->
