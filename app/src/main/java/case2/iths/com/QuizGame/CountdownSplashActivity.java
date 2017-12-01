@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class CountdownSplashActivity extends AppCompatActivity {
 
-    private TextView countdown, getReady;
+    private TextView countdown, getReady, reversed;
     private CountDownTimer cdTimer;
     private int amountOfStatements;
     private TextView headLine;
@@ -47,14 +47,10 @@ public class CountdownSplashActivity extends AppCompatActivity {
             public void onTick(long l) {
                 if (l > 3000) {
                     countdown.setText("3");
-                    //runAnimation();
                     reversed.setText(R.string.opposite);
                 } else if (l < 2000 && l > 1000) {
                     countdown.setText("1");
                     decideGetReadyText();
-
-                    //runAnimation();
-                    getReady.setText(R.string.get_ready);
                     reversed.setText(R.string.opposite);
                 } else if (l < 3000 && l > 2000) {
                     countdown.setText("2");
@@ -62,8 +58,6 @@ public class CountdownSplashActivity extends AppCompatActivity {
                 } else {
                     countdown.setText(R.string.go);
                     decideGetReadyText();
-                    //runAnimation();
-                    getReady.setText(R.string.get_ready);
                     reversed.setText(R.string.opposite);
                 }
             }
@@ -73,7 +67,6 @@ public class CountdownSplashActivity extends AppCompatActivity {
                 toSinglePlayer();
             }
         }.start();
-
     }
 
     private void decideGetReadyText(){

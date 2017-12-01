@@ -167,7 +167,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
         if (multiplayer){
             Intent multiIntent = new Intent(this, CountdownSplashActivity.class);
             multiIntent.putExtra("p1points", points);
-            multiIntent.putExtra("p1category", genre);
+            multiIntent.putExtra("p1category", category);
             multiIntent.putExtra("p1amountStatements", amountOfStatements);
             multiIntent.putExtra("multiplayer", multiplayer);
             startActivity(multiIntent);
