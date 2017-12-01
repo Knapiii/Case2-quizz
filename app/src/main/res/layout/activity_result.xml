@@ -42,56 +42,77 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="16dp"
         android:text="@string/statements"
         android:textAlignment="center"
         android:textColor="@android:color/white"
-        android:textSize="25sp"
+        android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/editText_save_amount_of_statements_result"
-        app:layout_constraintStart_toStartOf="@id/editText_save_amount_of_statements_result"
-        app:layout_constraintTop_toBottomOf="@+id/played_category" />
+        app:layout_constraintEnd_toEndOf="@+id/save_amount_of_statements_result"
+        app:layout_constraintStart_toStartOf="@+id/save_amount_of_statements_result"
+        tools:layout_editor_absoluteY="138dp" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
         android:text="@string/points_colon"
         android:textAlignment="center"
         android:textColor="@android:color/white"
-        android:textSize="25sp"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/amount_of_correct_answers"
+        app:layout_constraintStart_toStartOf="@+id/amount_of_correct_answers"
+        tools:layout_editor_absoluteY="138dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/correct_answers"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/amount_of_points"
         app:layout_constraintStart_toStartOf="@+id/amount_of_points"
-        app:layout_constraintTop_toBottomOf="@+id/played_category" />
+        tools:layout_editor_absoluteY="138dp" />
 
     <TextView
-        android:id="@+id/editText_save_amount_of_statements_result"
+        android:id="@+id/save_amount_of_statements_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="45dp"
         android:textColor="@android:color/white"
         android:textSize="60sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editText_save_highscore_name"
-        app:layout_constraintEnd_toStartOf="@+id/amount_of_points"
         app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="184dp"
+        tools:text="5" />
+
+    <TextView
+        android:id="@+id/amount_of_correct_answers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:textColor="@android:color/white"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/amount_of_points"
+        app:layout_constraintStart_toEndOf="@+id/save_amount_of_statements_result"
+        tools:layout_editor_absoluteY="184dp"
         tools:text="5" />
 
     <TextView
         android:id="@+id/amount_of_points"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="45dp"
         android:textColor="@android:color/white"
         android:textSize="60sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editText_save_highscore_name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editText_save_amount_of_statements_result"
+        tools:layout_editor_absoluteY="184dp"
         tools:text="5" />
 
     <EditText

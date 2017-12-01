@@ -77,6 +77,14 @@ public class CategoryWindowActivity extends AppCompatActivity {
                     gamesIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(gamesIntent);
                 break;
+            case R.id.button_all_categories:
+                savedSettings.giveSound(this);
+                Intent allIntent = new Intent(this, AmountOfStatementsActivity.class);
+                allIntent.putExtra("category", getResources().getString(R.string.all_categories));
+                if (isMultiplayer)
+                    allIntent.putExtra("multiplayer", isMultiplayer);
+                startSingleGame(allIntent);
+                break;
             case R.id.button_own_questions:
                 savedSettings.giveSound(this);
                 Intent ownIntent = new Intent(this, AmountOfStatementsActivity.class);

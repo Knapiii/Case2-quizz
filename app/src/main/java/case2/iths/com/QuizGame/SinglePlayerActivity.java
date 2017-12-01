@@ -16,7 +16,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
 
     private TextView pointsView, question, secondsView, headLine, statementsLeftView;
     private String category;
-    private int points, numDoneQuestions, seconds, amountOfStatements, updateStatementsLeft;
+    private int points, numDoneQuestions, seconds, amountOfStatements, updateStatementsLeft, correctAnswers;
     private ArrayList<String> questions = new ArrayList<>();
     private ArrayList<String> answers = new ArrayList<>();
     private ArrayList<Integer> pastStatement = new ArrayList<>();
@@ -52,17 +52,18 @@ public class SinglePlayerActivity extends AppCompatActivity {
                 } else if (l < 1000) {
                     secondsView.setText("1");
                     seconds = 1;
-                } else if (l < 4000 && l > 3000){
+                } else if (l < 4000 && l > 3000) {
                     secondsView.setText("4");
                     seconds = 4;
-                } else if (l < 3000 && l > 2000){
+                } else if (l < 3000 && l > 2000) {
                     secondsView.setText("3");
                     seconds = 3;
-                } else if (l < 2000 && l > 1000){
+                } else if (l < 2000 && l > 1000) {
                     secondsView.setText("2");
                     seconds = 2;
                 }
             }
+
             @Override
             public void onFinish() {
                 points--;
@@ -83,6 +84,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
         if (getIntent().getIntExtra("p1points", 100) != 100)
             p1Points = getIntent().getIntExtra("p1points", 0);
         points = 0;
+        correctAnswers = 0;
         updateStatementsLeft = amountOfStatements;
         numDoneQuestions = 0;
         questionString = "";
@@ -131,8 +133,10 @@ public class SinglePlayerActivity extends AppCompatActivity {
      */
     public void trueButtonPressed(View view) {
         savedSettings.giveSound(this);
-        if (answerString.equalsIgnoreCase("True"))
+        if (answerString.equalsIgnoreCase("True")) {
             points += seconds;
+            correctAnswers++;
+        }
         if (isRoundOver()) {
             cdTimer.cancel();
             startResultActivity();
@@ -147,8 +151,11 @@ public class SinglePlayerActivity extends AppCompatActivity {
      */
     public void falseButtonPressed(View view) {
         savedSettings.giveSound(this);
-        if (answerString.equalsIgnoreCase("False"))
+
+        if (answerString.equalsIgnoreCase("False")) {
             points += seconds;
+            correctAnswers++;
+        }
         if (isRoundOver()) {
             cdTimer.cancel();
             startResultActivity();
@@ -164,7 +171,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
      * TODO: genom att istället anropa CountDownActivity igen och spara första spelarens värden
      */
     public void startResultActivity() {
-        if (multiplayer){
+        if (multiplayer) {
             Intent multiIntent = new Intent(this, CountdownSplashActivity.class);
             multiIntent.putExtra("p1points", points);
             multiIntent.putExtra("p1category", category);
@@ -214,6 +221,15 @@ public class SinglePlayerActivity extends AppCompatActivity {
     public void setStatementsWithCategory(String cat) {
         if (cat.equals("Own")) {
             Cursor cursor = quizableDBHelper.getUserMadeStatements();
+            boolean success = cursor.moveToFirst();
+            if (success) {
+                while (cursor.moveToNext()) {
+                    questions.add(cursor.getString(2));
+                    answers.add(cursor.getString(3));
+                }
+            }
+        } else if (cat.equals("All categories")) {
+            Cursor cursor = quizableDBHelper.getQuestions();
             boolean success = cursor.moveToFirst();
             if (success) {
                 while (cursor.moveToNext()) {
