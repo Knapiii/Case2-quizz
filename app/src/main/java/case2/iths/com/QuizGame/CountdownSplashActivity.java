@@ -37,7 +37,7 @@ public class CountdownSplashActivity extends AppCompatActivity {
             amountOfStatements = getIntent().getIntExtra("p1amountStatements", 5);
         }
         else{
-            chosenCategory = getIntent().getStringExtra("genre");
+            chosenCategory = getIntent().getStringExtra("category");
             amountOfStatements = getIntent().getIntExtra("amountOfStatements", amountOfStatements);
         }
         headLine.setText(chosenCategory);
