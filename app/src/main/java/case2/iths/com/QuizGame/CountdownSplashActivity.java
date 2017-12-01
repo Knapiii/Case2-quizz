@@ -97,6 +97,7 @@ public class CountdownSplashActivity extends AppCompatActivity {
                 multiplayer){
             Intent multiIntent = new Intent(CountdownSplashActivity.this, SinglePlayerActivity.class);
             multiIntent.putExtra("p1points", p1Points);
+            multiIntent.putExtra("p1correctAnswers", correctAnswers);
             multiIntent.putExtra("genre", chosenCategory);
             multiIntent.putExtra("amountOfStatements", amountOfStatements);
             multiIntent.putExtra("multiplayer", multiplayer);
