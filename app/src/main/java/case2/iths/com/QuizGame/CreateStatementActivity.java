@@ -115,29 +115,24 @@ public class CreateStatementActivity extends AppCompatActivity {
 
     public void onButtonAddClicked(View view) {
       //  Toast.makeText(this, "Add", Toast.LENGTH_SHORT).show();
-        addStatement();
-
-        Intent intent = new Intent(this, HandleStatementsActivity.class);
-        startActivity(intent);
-
-
-
-
-
+        if (!addStatement()){
+            Intent intent = new Intent(this, HandleStatementsActivity.class);
+            startActivity(intent);
+        }
     }
-    private void addStatement() {
+    private boolean addStatement() {
 
         newStatement = findViewById(R.id.editText_add_statement);
         statement = newStatement.getText().toString();
 
         if (statement.isEmpty()) {
             Toast.makeText(this, "Statement cannot be empty", Toast.LENGTH_LONG).show();
-            return;
+            return true;
         }
 
         if (answer.isEmpty()) {
             Toast.makeText(this, "Please select an answer", Toast.LENGTH_SHORT).show();
-            return;
+            return true;
         }
 
         String input = "SAVED: Category: " + category + " Statement: " + statement + "Answer: " + answer;
@@ -148,7 +143,7 @@ public class CreateStatementActivity extends AppCompatActivity {
 
         dbHelper.insertStatement(category, statement, answer);
 
-
+    return false;
     }
 
 }
