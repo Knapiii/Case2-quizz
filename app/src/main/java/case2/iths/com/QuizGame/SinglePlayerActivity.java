@@ -34,14 +34,9 @@ public class SinglePlayerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_singleplayer_game);
         savedSettings = new SavedSettings();
-        Intent intent = getIntent();
-        category = getIntent().getStringExtra("category");
-        amountOfStatements = intent.getIntExtra("amountOfStatements", 5);
-        multiplayer = getIntent().getBooleanExtra("multiplayer", false);
         quizableDBHelper = new QuizableDBHelper(this);
         initialize();
         statements();
-        headLine.setText(category);
         updatePoints();
         cdTimer = new CountDownTimer(5000, 100) {
             @Override
@@ -75,21 +70,30 @@ public class SinglePlayerActivity extends AppCompatActivity {
     }
 
     public void initialize() {
+        //Textviews
         question = findViewById(R.id.questionField);
         secondsView = findViewById(R.id.display_seconds);
         pointsView = findViewById(R.id.points);
         headLine = findViewById(R.id.top_text_category);
         statementsLeftView = findViewById(R.id.text_statements_left);
 
-        if (getIntent().getIntExtra("p1points", 100) != 100)
+        //Get Values
+        if (getIntent().getIntExtra("p1points", 100) != 100) {
             p1Points = getIntent().getIntExtra("p1points", 0);
+        }
+        category = getIntent().getStringExtra("category");
+        amountOfStatements = getIntent().getIntExtra("amountOfStatements", 5);
+        correctAnswers = getIntent().getIntExtra("correctAnswers", 0);
+        multiplayer = getIntent().getBooleanExtra("multiplayer", false);
+
+        //Set values
+        headLine.setText(category);
         points = 0;
         correctAnswers = 0;
         updateStatementsLeft = amountOfStatements;
         numDoneQuestions = 0;
         questionString = "";
         answerString = "";
-
     }
 
     // TODO: 2017-11-14 Lägg till:
@@ -176,6 +180,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
             multiIntent.putExtra("p1points", points);
             multiIntent.putExtra("p1category", category);
             multiIntent.putExtra("p1amountStatements", amountOfStatements);
+            multiIntent.putExtra("p1correctAnswers", correctAnswers);
             multiIntent.putExtra("multiplayer", multiplayer);
             startActivity(multiIntent);
             return;
@@ -185,6 +190,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
         intent.putExtra("points", points);
         intent.putExtra("category", category);
         intent.putExtra("amountOfStatements", amountOfStatements);
+        intent.putExtra("correctAnswers", correctAnswers);
         startActivity(intent);
     }
 
@@ -229,7 +235,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
                 }
             }
         } else if (cat.equals("All categories")) {
-            Cursor cursor = quizableDBHelper.getQuestions();
+            Cursor cursor = quizableDBHelper.getStatements();
             boolean success = cursor.moveToFirst();
             if (success) {
                 while (cursor.moveToNext()) {

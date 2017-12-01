@@ -23,6 +23,11 @@ public class EditStatementActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_statement);
         buttonTrueClicked = false;
+        initialize();
+    }
+
+    public void initialize(){
+        //TextViews
         buttonTrue = findViewById(R.id.togglebutton_edit_true);
         buttonFalse = findViewById(R.id.togglebutton_edit_false);
     }

@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 public class CountdownSplashActivity extends AppCompatActivity {
@@ -18,29 +16,13 @@ public class CountdownSplashActivity extends AppCompatActivity {
     private boolean multiplayer;
 
     private int p1Points;
+    private int correctAnswers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_countdown_splash);
-        getReady = findViewById(R.id.text_get_ready);
-        reversed = findViewById(R.id.text_reversed);
-
-        countdown = findViewById(R.id.text_countdown_splash);
-        headLine = findViewById(R.id.text_countdown_genre);
-        multiplayer = getIntent().getBooleanExtra("multiplayer", false);
-
-        //Om första spelarens antal påståenden inte är noll ska värden från förra spelet hämtas
-        if (getIntent().getIntExtra("p1amountStatements", 0) != 0){
-            p1Points = getIntent().getIntExtra("p1points", 0);
-            chosenCategory = getIntent().getStringExtra("p1category");
-            amountOfStatements = getIntent().getIntExtra("p1amountStatements", 5);
-        }
-        else{
-            chosenCategory = getIntent().getStringExtra("category");
-            amountOfStatements = getIntent().getIntExtra("amountOfStatements", amountOfStatements);
-        }
-        headLine.setText(chosenCategory);
+        initialize();
 
         cdTimer = new CountDownTimer(4000, 100) {
             @Override
@@ -67,6 +49,31 @@ public class CountdownSplashActivity extends AppCompatActivity {
                 toSinglePlayer();
             }
         }.start();
+    }
+
+    public void initialize(){
+        //TextViews
+        getReady = findViewById(R.id.text_get_ready);
+        reversed = findViewById(R.id.text_reversed);
+        countdown = findViewById(R.id.text_countdown_splash);
+        headLine = findViewById(R.id.text_countdown_genre);
+        //Get Values
+        multiplayer = getIntent().getBooleanExtra("multiplayer", false);
+
+        //Om första spelarens antal påståenden inte är noll ska värden från förra spelet hämtas
+        if (getIntent().getIntExtra("p1amountStatements", 0) != 0){
+            p1Points = getIntent().getIntExtra("p1points", 0);
+            chosenCategory = getIntent().getStringExtra("p1category");
+            amountOfStatements = getIntent().getIntExtra("p1amountStatements", 5);
+            correctAnswers = getIntent().getIntExtra("p1correctAnswers", 0);
+        }
+        else{
+            chosenCategory = getIntent().getStringExtra("category");
+            amountOfStatements = getIntent().getIntExtra("amountOfStatements", 5);
+        }
+        //Set values
+        headLine.setText(chosenCategory);
+
     }
 
     private void decideGetReadyText(){

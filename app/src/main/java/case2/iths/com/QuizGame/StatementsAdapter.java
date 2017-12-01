@@ -51,7 +51,6 @@ public class StatementsAdapter extends RecyclerView.Adapter<StatementsAdapter.Vi
 
     }
 
-
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = mLayoutInflater.inflate(R.layout.item_statement_list, parent, false);

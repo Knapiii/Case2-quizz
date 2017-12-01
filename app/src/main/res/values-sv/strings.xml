@@ -55,7 +55,7 @@
     </string-array>
 
     <string name="statement_true_false">Välj om ditt påstående är \"sant\" eller \"falskt\"</string>
-    <string name="points">Poäng:</string>
+    <string name="points">Poäng</string>
     <string name="mat">mat</string>
     <string name="food">mat</string>
     <string name="amount_of_statements">Antal påståenden:</string>
@@ -67,7 +67,8 @@
     <string name="sound_on_off_button">Sound on/off button</string>
     <string name="chosen_category">Kategori:</string>
     <string name="get_ready">GÖR DIG REDO</string>
-    <string name="statements">Påståenden:</string>
+    <string name="statements">Statement</string>
+    <string name="statements_colon">Påståenden:</string>
     <string name="points_colon">Poäng:</string>
     <string name="true_statement">Sant</string>
     <string name="false_statement">Falskt</string>

@@ -31,13 +31,18 @@ public class CreateStatementActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_statements);
         buttonTrueClicked = false;
-        buttonTrue = findViewById(R.id.togglebutton_add_true);
-        buttonFalse = findViewById(R.id.togglebutton_add_false);
+        initialize();
 
         mDbOpenHelper = new QuizableOpenHelper(this);
         dbHelper = new QuizableDBHelper(this);
 
         loadCategoriesData();
+    }
+
+    public void initialize(){
+        //TextViews
+        buttonTrue = findViewById(R.id.togglebutton_add_true);
+        buttonFalse = findViewById(R.id.togglebutton_add_false);
     }
 
     private void loadCategoriesData() {

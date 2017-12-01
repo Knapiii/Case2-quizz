@@ -21,19 +21,26 @@ public class AmountOfStatementsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_amount_of_statements);
         savedSettings = new SavedSettings();
+
+        initialize();
+    }
+
+    public void initialize(){
+        //Buttons
         button5Statements = findViewById(R.id.button_statements_5);
         button10Statements = findViewById(R.id.button_statements_10);
         button15Statements = findViewById(R.id.button_statements_15);
         button20Statements = findViewById(R.id.button_statements_20);
-
-        multiplayer = getIntent().getBooleanExtra("multiplayer", false);
-
-        chosenCategory = getIntent().getStringExtra("category");
         categoryTextView = findViewById(R.id.text_view_category);
+        //Get values
+        multiplayer = getIntent().getBooleanExtra("multiplayer", false);
+        chosenCategory = getIntent().getStringExtra("category");
+        //Set Values
         categoryTextView.setText(chosenCategory);
+
     }
 
-    public void Button5Rounds(View view) {
+        public void Button5Rounds(View view) {
         savedSettings.giveSound(this);
         amountOfStatements = 5;
         changeButtonColor(5);
