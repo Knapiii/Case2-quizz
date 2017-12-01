@@ -64,19 +64,18 @@ public class ResultActivity extends AppCompatActivity {
     private String checkCategory(String category_id) {
 
         switch (category_id) {
-            case "Mat":
-                category_id = "Food";
+            case "Food":
                 categoryPos = 1;
                 break;
-            case "Spel":
+            case "Games":
                 category_id = "Games";
                 categoryPos = 2;
                 break;
-            case "Geografi":
+            case "Geography":
                 category_id = "Geography";
                 categoryPos = 3;
                 break;
-            case "Vetenskap":
+            case "Scince":
                 category_id = "Science";
                 categoryPos = 4;
                 break;
@@ -84,16 +83,16 @@ public class ResultActivity extends AppCompatActivity {
                 category_id = "Sport";
                 categoryPos = 5;
                 break;
-            case "Musik":
+            case "Music":
                 category_id = "Music";
                 categoryPos = 6;
                 break;
-            case "Own":
+            case "Own statements":
                 category_id = "Own_statements";
                 categoryPos = 7;
                 break;
             default:
-                category_id = "All_categories";
+                category_id = "All categories";
                 categoryPos = 0;
                 break;
         }
@@ -132,9 +131,6 @@ public class ResultActivity extends AppCompatActivity {
         quizableOpenHelper = new QuizableOpenHelper(this);
         name = insertName.getText().toString();
         quizableOpenHelper.insertHighscore(category, points, amountOfStatements, name);
-
-
         startActivity(toHighscores);
-
     }
 }

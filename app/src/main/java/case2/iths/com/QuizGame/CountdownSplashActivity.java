@@ -24,6 +24,8 @@ public class CountdownSplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_countdown_splash);
         getReady = findViewById(R.id.text_get_ready);
+        reversed = findViewById(R.id.text_reversed);
+
         countdown = findViewById(R.id.text_countdown_splash);
         headLine = findViewById(R.id.text_countdown_genre);
         multiplayer = getIntent().getBooleanExtra("multiplayer", false);
@@ -45,18 +47,27 @@ public class CountdownSplashActivity extends AppCompatActivity {
             public void onTick(long l) {
                 if (l > 3000) {
                     countdown.setText("3");
+                    //runAnimation();
+                    reversed.setText(R.string.opposite);
                 } else if (l < 2000 && l > 1000) {
                     countdown.setText("1");
                     decideGetReadyText();
 
+                    //runAnimation();
+                    getReady.setText(R.string.get_ready);
+                    reversed.setText(R.string.opposite);
                 } else if (l < 3000 && l > 2000) {
                     countdown.setText("2");
                     decideGetReadyText();
                 } else {
                     countdown.setText(R.string.go);
                     decideGetReadyText();
+                    //runAnimation();
+                    getReady.setText(R.string.get_ready);
+                    reversed.setText(R.string.opposite);
                 }
             }
+
             @Override
             public void onFinish() {
                 toSinglePlayer();
@@ -93,12 +104,12 @@ public class CountdownSplashActivity extends AppCompatActivity {
         }
         Intent intent = new Intent(CountdownSplashActivity.this, SinglePlayerActivity.class);
         intent.putExtra("amountOfStatements", amountOfStatements);
-        intent.putExtra("genre", chosenCategory);
+        intent.putExtra("category", chosenCategory);
         intent.putExtra("multiplayer", multiplayer);
         startActivity(intent);
     }
 
-    //Timer will be stopped when player presses the back button
+    //Stops the timer when the back button is pressed
     @Override
     public void onBackPressed() {
         super.onBackPressed();

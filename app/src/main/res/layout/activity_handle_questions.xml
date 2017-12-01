@@ -12,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/ButtonBackground"
+        android:background="@drawable/button_background_switcher"
         android:onClick="onButtonClick"
         android:text="@string/add"
         android:textColor="@android:color/background_light"
@@ -22,20 +22,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="0dp"
-        android:layout_height="356dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_add"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/top_text" />
 
     <TextView
         android:id="@+id/top_text"
@@ -72,7 +58,22 @@
         android:layout_marginStart="8dp"
         android:onClick="editStatement"
         android:text="EditTest"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_add" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list_statements"
+        android:layout_width="368dp"
+        android:layout_height="398dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_text"
+        tools:listitem="@layout/item_highscore_list" />
 </android.support.constraint.ConstraintLayout>

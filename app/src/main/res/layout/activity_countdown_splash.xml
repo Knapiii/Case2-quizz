@@ -59,5 +59,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_countdown_genre" />
+        app:layout_constraintTop_toBottomOf="@+id/text_countdown_genre"
+        tools:text="@string/get_ready" />
+
+    <TextView
+        android:id="@+id/text_reversed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_countdown_splash"
+        tools:text="@string/opposite" />
 </android.support.constraint.ConstraintLayout>

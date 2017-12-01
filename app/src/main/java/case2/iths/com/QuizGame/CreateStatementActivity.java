@@ -10,7 +10,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import case2.iths.com.QuizGame.QuizableDatabaseContract.CategoriesInfoEntry;
 
@@ -24,8 +23,7 @@ public class CreateStatementActivity extends AppCompatActivity {
     private String category;
     private String answer;
     private QuizableOpenHelper mDbOpenHelper;
-    private QuizableDBHelper qdb;
-
+    private QuizableDBHelper dbHelper;
 
 
     @Override
@@ -37,9 +35,7 @@ public class CreateStatementActivity extends AppCompatActivity {
         buttonFalse = findViewById(R.id.togglebutton_add_false);
 
         mDbOpenHelper = new QuizableOpenHelper(this);
-        qdb = new QuizableDBHelper(this);
-
-
+        dbHelper = new QuizableDBHelper(this);
 
         loadCategoriesData();
     }
@@ -71,7 +67,7 @@ public class CreateStatementActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
 
                 Cursor cursor = (Cursor) spinner.getItemAtPosition(position);
-                category = cursor.getString(cursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE));
+                category = cursor.getString(cursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_ID));
 
 
 
@@ -89,13 +85,13 @@ public class CreateStatementActivity extends AppCompatActivity {
     public void onButtonTrueClicked(View view){
         buttonTrueClicked = true;
         changeButtonColor();
-        answer = "True";
+        answer = "true";
     }
 
     public void onButtonFalseClicked(View view){
         buttonTrueClicked = false;
         changeButtonColor();
-        answer = "False";
+        answer = "false";
     }
 
     private void changeButtonColor(){
@@ -130,9 +126,11 @@ public class CreateStatementActivity extends AppCompatActivity {
 
         String input = "SAVED: Category: " + category + " Statement: " + statement + "Answer: " + answer;
 
-        Toast.makeText(this, input, Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, input, Toast.LENGTH_SHORT).show();
 
-        qdb.insertStatement(category, statement, answer);
+    //    mDbOpenHelper.insertStatement(category,statement,answer);
+
+        dbHelper.insertStatement(category, statement, answer);
 
 
     }
