@@ -69,6 +69,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
         showRandomQuestion();
     }
 
+
     public void initialize() {
         //Textviews
         question = findViewById(R.id.questionField);
