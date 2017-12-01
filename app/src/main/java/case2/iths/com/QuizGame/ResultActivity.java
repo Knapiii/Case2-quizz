@@ -10,9 +10,9 @@ import android.widget.TextView;
 public class ResultActivity extends AppCompatActivity {
 
     private SavedSettings savedSettings;
-    private TextView amountOfPoints, playedCategory, textViewAmountOfStatements;
+    private TextView amountOfPoints, playedCategory, textViewAmountOfStatements, textViewCorrectAnswers;
     private String category;
-    private int points, amountOfStatements;
+    private int points, amountOfStatements, correctAnswers;
     private EditText insertName;
     private String name;
     private QuizableOpenHelper quizableOpenHelper;
@@ -26,13 +26,7 @@ public class ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         savedSettings = new SavedSettings();
-
-        amountOfPoints = findViewById(R.id.amount_of_points);
-        playedCategory = findViewById(R.id.played_category);
-        textViewAmountOfStatements = findViewById(R.id.save_amount_of_statements_result);
-        insertName = findViewById(R.id.editText_save_highscore_name);
-
-        openHelper();
+        initialize();
 
     }
 
@@ -47,14 +41,25 @@ public class ResultActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-    public void openHelper(){
+    public void initialize(){
+        //TextViews
+        textViewCorrectAnswers = findViewById(R.id.amount_of_correct_answers);
+        amountOfPoints = findViewById(R.id.amount_of_points);
+        playedCategory = findViewById(R.id.played_category);
+        textViewAmountOfStatements = findViewById(R.id.save_amount_of_statements_result);
+        insertName = findViewById(R.id.editText_save_highscore_name);
+        //GetTextViewValues
         Intent intent = getIntent();
         category = checkCategory(intent.getStringExtra("category"));
         points = intent.getIntExtra("points", 0);
-        amountOfStatements = intent.getIntExtra("amountOfStatements", amountOfStatements);
+        amountOfStatements = intent.getIntExtra("amountOfStatements", 0);
+        correctAnswers = getIntent().getIntExtra("correctAnswers", 0);
+        //SetTextViews
+        textViewCorrectAnswers.setText(Integer.toString(correctAnswers));
         amountOfPoints.setText((Integer.toString(points)));
         textViewAmountOfStatements.setText((Integer.toString(amountOfStatements)));
         playedCategory.setText(category);
+
         category = category.toLowerCase();
 
     }

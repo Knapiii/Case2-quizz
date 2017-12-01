@@ -56,7 +56,7 @@
     <string name="edit_category">Edit category</string>
     <string name="edit_statement">Edit statement</string>
     <string name="Edit">Edit</string>
-    <string name="points">Points:</string>
+    <string name="points">Points</string>
     <string name="mat">Food</string>
     <string name="amount_of_statements">Amount of statements:</string>
     <string name="choose_amount_of_statements">Amount of statements</string>
@@ -68,7 +68,8 @@
     <string name="false_statement">False</string>
     <string name="insert_name_hint">Insert name</string>
     <string name="get_ready">GET READY</string>
-    <string name="statements">Statements:</string>
+    <string name="statements">Statements</string>
+    <string name="statements_colon">Statements:</string>
     <string name="points_colon">Points:</string>
     <string name="true_statement">True</string>
     <string name="opposite">Answere the opposite</string>
