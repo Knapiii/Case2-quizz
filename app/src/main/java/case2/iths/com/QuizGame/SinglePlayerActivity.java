@@ -82,7 +82,6 @@ public class SinglePlayerActivity extends AppCompatActivity {
 
         if (getIntent().getIntExtra("p1points", 100) != 100)
             p1Points = getIntent().getIntExtra("p1points", 0);
-        correctAnswers = 0;
         points = 0;
         updateStatementsLeft = amountOfStatements;
         numDoneQuestions = 0;
