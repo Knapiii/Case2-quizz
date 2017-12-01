@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import case2.iths.com.QuizGame.QuizableDatabaseContract.CategoriesInfoEntry;
 
@@ -21,7 +22,7 @@ public class CreateStatementActivity extends AppCompatActivity {
     private EditText newStatement;
     private String statement;
     private String category;
-    private String answer;
+    private String answer = "";
     private QuizableOpenHelper mDbOpenHelper;
     private QuizableDBHelper dbHelper;
 
@@ -114,20 +115,25 @@ public class CreateStatementActivity extends AppCompatActivity {
 
     public void onButtonAddClicked(View view) {
       //  Toast.makeText(this, "Add", Toast.LENGTH_SHORT).show();
-        addStatement();
-
-        Intent intent = new Intent(this, HandleStatementsActivity.class);
-        startActivity(intent);
-
-
-
-
-
+        if (!addStatement()){
+            Intent intent = new Intent(this, HandleStatementsActivity.class);
+            startActivity(intent);
+        }
     }
-    private void addStatement() {
+    private boolean addStatement() {
 
         newStatement = findViewById(R.id.editText_add_statement);
         statement = newStatement.getText().toString();
+
+        if (statement.isEmpty()) {
+            Toast.makeText(this, "Statement cannot be empty", Toast.LENGTH_LONG).show();
+            return true;
+        }
+
+        if (answer.isEmpty()) {
+            Toast.makeText(this, "Please select an answer", Toast.LENGTH_SHORT).show();
+            return true;
+        }
 
         String input = "SAVED: Category: " + category + " Statement: " + statement + "Answer: " + answer;
 
@@ -137,7 +143,7 @@ public class CreateStatementActivity extends AppCompatActivity {
 
         dbHelper.insertStatement(category, statement, answer);
 
-
+    return false;
     }
 
 }

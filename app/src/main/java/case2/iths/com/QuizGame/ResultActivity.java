@@ -17,6 +17,12 @@ public class ResultActivity extends AppCompatActivity {
     private String name;
     private QuizableOpenHelper quizableOpenHelper;
 
+    //Saved values from multiplayer
+    private int p1Points;
+    private int p1CorrectAnswers;
+    private int p2Points;
+    private int p2CorrectAnswers;
+
     // categoryPos saves the chosen category. We use categoryPos to give a default value to our spinner in the HighScore Activity
     private int categoryPos;
 

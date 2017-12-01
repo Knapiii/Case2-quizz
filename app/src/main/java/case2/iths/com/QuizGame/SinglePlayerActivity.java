@@ -27,6 +27,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
     private boolean multiplayer;
 
     private int p1Points;
+    private int p1CorrectAnswers;
     private int p2Points;
 
     @Override
@@ -80,11 +81,11 @@ public class SinglePlayerActivity extends AppCompatActivity {
 
         //Get Values
         if (getIntent().getIntExtra("p1points", 100) != 100) {
-            p1Points = getIntent().getIntExtra("p1points", 0);
+            p1Points = getIntent().getIntExtra("p1points", 100);
+            p1CorrectAnswers = getIntent().getIntExtra("p1correctAnswers", 0);
         }
         category = getIntent().getStringExtra("category");
         amountOfStatements = getIntent().getIntExtra("amountOfStatements", 5);
-        correctAnswers = getIntent().getIntExtra("correctAnswers", 0);
         multiplayer = getIntent().getBooleanExtra("multiplayer", false);
 
         //Set values
@@ -176,7 +177,18 @@ public class SinglePlayerActivity extends AppCompatActivity {
      * TODO: genom att istället anropa CountDownActivity igen och spara första spelarens värden
      */
     public void startResultActivity() {
-        if (multiplayer) {
+        if (getIntent().getIntExtra("p1points", 100) != 100 &&
+                multiplayer){
+            Intent intent = new Intent(this, ResultActivity.class);
+            intent.putExtra("p1points", p1Points);
+            intent.putExtra("p2points", points);
+            intent.putExtra("category", category);
+            intent.putExtra("amountOfStatements", amountOfStatements);
+            intent.putExtra("p1correctAnswers", p1CorrectAnswers);
+            intent.putExtra("p2correctAnswers", correctAnswers);
+            startActivity(intent);
+        }
+        else if (multiplayer) {
             Intent multiIntent = new Intent(this, CountdownSplashActivity.class);
             multiIntent.putExtra("p1points", points);
             multiIntent.putExtra("p1category", category);
@@ -184,7 +196,6 @@ public class SinglePlayerActivity extends AppCompatActivity {
             multiIntent.putExtra("p1correctAnswers", correctAnswers);
             multiIntent.putExtra("multiplayer", multiplayer);
             startActivity(multiIntent);
-            return;
         }
         savedSettings.giveSound(this);
         Intent intent = new Intent(this, ResultActivity.class);

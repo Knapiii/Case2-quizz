@@ -39,18 +39,18 @@
         android:id="@+id/about_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:background="@color/ButtonBackground"
         android:gravity="center_vertical"
         android:text="@string/textview_about"
         android:textAlignment="center"
         android:textColor="@android:color/white"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/developed_by_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top_text"
-        app:layout_constraintBottom_toBottomOf="@+id/developed_by_text" />
+        android:maxLines="10"
+        android:scrollbars = "vertical" />
 
 </android.support.constraint.ConstraintLayout>
