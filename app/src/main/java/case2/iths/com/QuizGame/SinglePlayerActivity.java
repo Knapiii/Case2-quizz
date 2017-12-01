@@ -15,8 +15,8 @@ import java.util.Random;
 public class SinglePlayerActivity extends AppCompatActivity {
 
     private TextView pointsView, question, secondsView, headLine, statementsLeftView;
-    private String genre;
-    private int points, numDoneQuestions, seconds, amountOfStatements, updateStatementsLeft;
+    private String category;
+    private int points, numDoneQuestions, seconds, amountOfStatements, updateStatementsLeft, correctAnswers;
     private ArrayList<String> questions = new ArrayList<>();
     private ArrayList<String> answers = new ArrayList<>();
     private ArrayList<Integer> pastStatement = new ArrayList<>();
@@ -26,19 +26,22 @@ public class SinglePlayerActivity extends AppCompatActivity {
     private CountDownTimer cdTimer;
     private boolean multiplayer;
 
+    private int p1Points;
+    private int p2Points;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_singleplayer_game);
         savedSettings = new SavedSettings();
         Intent intent = getIntent();
-        genre = getIntent().getStringExtra("genre");
+        category = getIntent().getStringExtra("category");
         amountOfStatements = intent.getIntExtra("amountOfStatements", 5);
         multiplayer = getIntent().getBooleanExtra("multiplayer", false);
         quizableDBHelper = new QuizableDBHelper(this);
         initialize();
         statements();
-        headLine.setText(genre);
+        headLine.setText(category);
         updatePoints();
         cdTimer = new CountDownTimer(5000, 100) {
             @Override
@@ -49,17 +52,18 @@ public class SinglePlayerActivity extends AppCompatActivity {
                 } else if (l < 1000) {
                     secondsView.setText("1");
                     seconds = 1;
-                } else if (l < 4000 && l > 3000){
+                } else if (l < 4000 && l > 3000) {
                     secondsView.setText("4");
                     seconds = 4;
-                } else if (l < 3000 && l > 2000){
+                } else if (l < 3000 && l > 2000) {
                     secondsView.setText("3");
                     seconds = 3;
-                } else if (l < 2000 && l > 1000){
+                } else if (l < 2000 && l > 1000) {
                     secondsView.setText("2");
                     seconds = 2;
                 }
             }
+
             @Override
             public void onFinish() {
                 points--;
@@ -77,7 +81,10 @@ public class SinglePlayerActivity extends AppCompatActivity {
         headLine = findViewById(R.id.top_text_category);
         statementsLeftView = findViewById(R.id.text_statements_left);
 
+        if (getIntent().getIntExtra("p1points", 100) != 100)
+            p1Points = getIntent().getIntExtra("p1points", 0);
         points = 0;
+        correctAnswers = 0;
         updateStatementsLeft = amountOfStatements;
         numDoneQuestions = 0;
         questionString = "";
@@ -95,7 +102,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
      * Påståenden som ska slumpas i spelet
      */
     public void statements() {
-        setStatementsWithCategory(genre);
+        setStatementsWithCategory(category);
     }
 
     /**
@@ -126,8 +133,10 @@ public class SinglePlayerActivity extends AppCompatActivity {
      */
     public void trueButtonPressed(View view) {
         savedSettings.giveSound(this);
-        if (answerString.equalsIgnoreCase("True"))
+        if (answerString.equalsIgnoreCase("True")) {
             points += seconds;
+            correctAnswers++;
+        }
         if (isRoundOver()) {
             cdTimer.cancel();
             startResultActivity();
@@ -142,8 +151,11 @@ public class SinglePlayerActivity extends AppCompatActivity {
      */
     public void falseButtonPressed(View view) {
         savedSettings.giveSound(this);
-        if (answerString.equalsIgnoreCase("False"))
+
+        if (answerString.equalsIgnoreCase("False")) {
             points += seconds;
+            correctAnswers++;
+        }
         if (isRoundOver()) {
             cdTimer.cancel();
             startResultActivity();
@@ -155,12 +167,23 @@ public class SinglePlayerActivity extends AppCompatActivity {
 
     /**
      * Startar ResultActivity efter fem frågor har visats
+     * TODO: Här kan man nog fixa multiplayer funktionen
+     * TODO: genom att istället anropa CountDownActivity igen och spara första spelarens värden
      */
     public void startResultActivity() {
+        if (multiplayer) {
+            Intent multiIntent = new Intent(this, CountdownSplashActivity.class);
+            multiIntent.putExtra("p1points", points);
+            multiIntent.putExtra("p1category", category);
+            multiIntent.putExtra("p1amountStatements", amountOfStatements);
+            multiIntent.putExtra("multiplayer", multiplayer);
+            startActivity(multiIntent);
+            return;
+        }
         savedSettings.giveSound(this);
         Intent intent = new Intent(this, ResultActivity.class);
         intent.putExtra("points", points);
-        intent.putExtra("category", genre);
+        intent.putExtra("category", category);
         intent.putExtra("amountOfStatements", amountOfStatements);
         startActivity(intent);
     }
@@ -198,6 +221,15 @@ public class SinglePlayerActivity extends AppCompatActivity {
     public void setStatementsWithCategory(String cat) {
         if (cat.equals("Own")) {
             Cursor cursor = quizableDBHelper.getUserMadeStatements();
+            boolean success = cursor.moveToFirst();
+            if (success) {
+                while (cursor.moveToNext()) {
+                    questions.add(cursor.getString(2));
+                    answers.add(cursor.getString(3));
+                }
+            }
+        } else if (cat.equals("All categories")) {
+            Cursor cursor = quizableDBHelper.getQuestions();
             boolean success = cursor.moveToFirst();
             if (success) {
                 while (cursor.moveToNext()) {

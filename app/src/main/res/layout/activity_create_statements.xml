@@ -100,7 +100,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="48dp"
-        android:background="@color/ButtonBackground"
+        android:background="@drawable/button_background_switcher"
         android:onClick="onButtonAddClicked"
         android:text="@string/add"
         android:textColor="@android:color/background_light"

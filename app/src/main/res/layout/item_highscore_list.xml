@@ -64,6 +64,7 @@
                 android:id="@+id/text_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
                 android:text="TextView"
                 android:textAppearance="@android:style/TextAppearance.Material.Large"
                 android:textSize="30sp"

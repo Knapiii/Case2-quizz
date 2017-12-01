@@ -53,6 +53,7 @@
         <item>Hanna</item>
         <item>Knape</item>
     </string-array>
+
     <string name="statement_true_false">Välj om ditt påstående är \"sant\" eller \"falskt\"</string>
     <string name="points">Poäng:</string>
     <string name="mat">mat</string>
@@ -72,4 +73,7 @@
     <string name="false_statement">Falskt</string>
     <string name="insert_name_hint">Användarnamn</string>
     <string name="opposite">Svara svärt om</string>
+    <string name="p1_get_ready">Spelare 1 var beredd!</string>
+    <string name="p2_get_ready">Spelare 2 var beredd!</string>
+    <string name="correct_answers">Rätt svar</string>
 </resources>

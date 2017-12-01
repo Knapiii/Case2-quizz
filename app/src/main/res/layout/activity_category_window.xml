@@ -26,150 +26,175 @@
 
     <ImageView
         android:id="@+id/button_sport"
-        android:onClick="categoryButtonPressed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        app:srcCompat="@drawable/sport"
+        android:layout_marginTop="32dp"
+        android:onClick="categoryButtonPressed"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/button_music"
-        app:layout_constraintTop_toBottomOf="@+id/top_text" />
+        app:layout_constraintTop_toBottomOf="@+id/top_text"
+        app:srcCompat="@drawable/sport" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/sport"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="@+id/button_sport"
         app:layout_constraintRight_toRightOf="@+id/button_sport"
-        app:layout_constraintTop_toBottomOf="@+id/button_sport"/>
+        app:layout_constraintTop_toBottomOf="@+id/button_sport" />
 
     <ImageView
         android:id="@+id/button_music"
-        android:onClick="categoryButtonPressed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
-        app:srcCompat="@drawable/music"
+        android:onClick="categoryButtonPressed"
         app:layout_constraintLeft_toRightOf="@+id/button_sport"
         app:layout_constraintRight_toLeftOf="@+id/button_food"
-        app:layout_constraintTop_toBottomOf="@+id/top_text" />
+        app:layout_constraintTop_toBottomOf="@+id/top_text"
+        app:srcCompat="@drawable/music" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/music"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="@+id/button_music"
         app:layout_constraintRight_toRightOf="@+id/button_music"
-        app:layout_constraintTop_toBottomOf="@+id/button_music"/>
+        app:layout_constraintTop_toBottomOf="@+id/button_music" />
 
     <ImageView
         android:id="@+id/button_food"
-        android:onClick="categoryButtonPressed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
-        app:srcCompat="@drawable/food"
+        android:onClick="categoryButtonPressed"
         app:layout_constraintLeft_toRightOf="@+id/button_music"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/top_text" />
+        app:layout_constraintTop_toBottomOf="@+id/top_text"
+        app:srcCompat="@drawable/food" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/food"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="@+id/button_food"
         app:layout_constraintRight_toRightOf="@+id/button_food"
-        app:layout_constraintTop_toBottomOf="@+id/button_food"/>
+        app:layout_constraintTop_toBottomOf="@+id/button_food" />
 
     <ImageView
         android:id="@+id/button_science"
-        android:onClick="categoryButtonPressed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
-        app:srcCompat="@drawable/science"
+        android:onClick="categoryButtonPressed"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/button_geography"
-        app:layout_constraintTop_toBottomOf="@+id/button_sport" />
+        app:layout_constraintTop_toBottomOf="@+id/button_sport"
+        app:srcCompat="@drawable/science" />
 
     <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/science"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="@+id/button_science"
         app:layout_constraintRight_toRightOf="@+id/button_science"
-        app:layout_constraintTop_toBottomOf="@+id/button_science"/>
+        app:layout_constraintTop_toBottomOf="@+id/button_science" />
 
     <ImageView
         android:id="@+id/button_geography"
-        android:onClick="categoryButtonPressed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
-        app:srcCompat="@drawable/geography"
+        android:onClick="categoryButtonPressed"
         app:layout_constraintLeft_toRightOf="@+id/button_science"
         app:layout_constraintRight_toLeftOf="@+id/button_games"
-        app:layout_constraintTop_toBottomOf="@+id/button_sport" />
+        app:layout_constraintTop_toBottomOf="@+id/button_sport"
+        app:srcCompat="@drawable/geography" />
 
     <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/geography"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="@+id/button_geography"
         app:layout_constraintRight_toRightOf="@+id/button_geography"
-        app:layout_constraintTop_toBottomOf="@+id/button_geography"/>
+        app:layout_constraintTop_toBottomOf="@+id/button_geography" />
 
     <ImageView
         android:id="@+id/button_games"
-        android:onClick="categoryButtonPressed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
-        app:srcCompat="@drawable/games"
+        android:onClick="categoryButtonPressed"
         app:layout_constraintLeft_toRightOf="@+id/button_geography"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_sport" />
+        app:layout_constraintTop_toBottomOf="@+id/button_sport"
+        app:srcCompat="@drawable/games" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/games"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="@+id/button_games"
         app:layout_constraintRight_toRightOf="@+id/button_games"
-        app:layout_constraintTop_toBottomOf="@+id/button_games"/>
+        app:layout_constraintTop_toBottomOf="@+id/button_games" />
 
     <ImageView
-        android:id="@+id/button_own_questions"
-        android:onClick="categoryButtonPressed"
+        android:id="@+id/button_all_categories"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
-        app:srcCompat="@drawable/ic_build_24dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_geography" />
+        android:onClick="categoryButtonPressed"
+        app:layout_constraintEnd_toStartOf="@+id/button_own_questions"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_science"
+        app:srcCompat="@drawable/all_categories" />
 
     <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/all_categories"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/button_all_categories"
+        app:layout_constraintStart_toStartOf="@+id/button_all_categories"
+        app:layout_constraintTop_toBottomOf="@+id/button_all_categories" />
+
+    <ImageView
+        android:id="@+id/button_own_questions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="categoryButtonPressed"
+        android:layout_marginTop="35dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_all_categories"
+        app:layout_constraintTop_toBottomOf="@+id/button_science"
+        app:srcCompat="@drawable/ic_build_24dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/own_statements"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="@+id/button_own_questions"
         app:layout_constraintRight_toRightOf="@+id/button_own_questions"
-        app:layout_constraintTop_toBottomOf="@+id/button_own_questions"/>
+        app:layout_constraintTop_toBottomOf="@+id/button_own_questions" />
 
     <TextView
         android:id="@+id/developed_by_text"

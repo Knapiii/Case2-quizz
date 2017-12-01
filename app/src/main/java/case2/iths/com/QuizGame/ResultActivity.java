@@ -29,7 +29,7 @@ public class ResultActivity extends AppCompatActivity {
 
         amountOfPoints = findViewById(R.id.amount_of_points);
         playedCategory = findViewById(R.id.played_category);
-        textViewAmountOfStatements = findViewById(R.id.editText_save_amount_of_statements_result);
+        textViewAmountOfStatements = findViewById(R.id.save_amount_of_statements_result);
         insertName = findViewById(R.id.editText_save_highscore_name);
 
         openHelper();
@@ -131,9 +131,6 @@ public class ResultActivity extends AppCompatActivity {
         quizableOpenHelper = new QuizableOpenHelper(this);
         name = insertName.getText().toString();
         quizableOpenHelper.insertHighscore(category, points, amountOfStatements, name);
-
-
         startActivity(toHighscores);
-
     }
 }

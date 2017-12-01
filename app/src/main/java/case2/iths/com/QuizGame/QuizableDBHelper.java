@@ -25,13 +25,15 @@ public class QuizableDBHelper extends SQLiteAssetHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+    // Returns all questions from QuizableDB.db
     public Cursor getQuestions() {
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT * FROM " + TABLE;
         Cursor cursor = db.rawQuery(query, null);
         return cursor;
     }
 
+    // Returns all user-made statements from QuizableDB.db
     public Cursor getUserMadeStatements() {
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM " + TABLE + " WHERE " + OWN_STATEMENTS + " = '" + USER_STATEMENTS + "'";
@@ -39,6 +41,7 @@ public class QuizableDBHelper extends SQLiteAssetHelper {
         return cursor;
     }
 
+    // Returns all questions from specified category
     public Cursor getQuestionsFromCategory(String category) {
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT * FROM " + TABLE + " WHERE " + CATEGORY + " = '" + category + "'";
@@ -46,6 +49,7 @@ public class QuizableDBHelper extends SQLiteAssetHelper {
         return cursor;
     }
 
+    // Adds user-made statements to QuizableDB.db
     public long insertStatement(String category, String statement, String answer) {
         ContentValues cv = new ContentValues();
         cv.put(CATEGORY, category);
