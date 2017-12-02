@@ -18,8 +18,8 @@ public class HighScoreActivity extends AppCompatActivity {
     private QuizableOpenHelper mDbOpenHelper;
     private RecyclerView recyclerView;
     private LinearLayoutManager highscoresLayoutManager;
-    private String category_id;
-    private String category;
+    private String categoryId;
+    private String categoryTitle;
     private HighscoresAdapter highscoresAdapter;
     private Cursor highScoresByCategory;
     private int categoryPosition, amountOfStatements;
@@ -33,7 +33,7 @@ public class HighScoreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_highscore);
         mDbOpenHelper = new QuizableOpenHelper(this);
         Intent intent = getIntent();
-        categoryPosition = intent.getIntExtra("categoryPos", 0);
+        categoryPosition = intent.getIntExtra("spinnerPosition", 0);
         amountOfStatements = intent.getIntExtra("amountOfStatements", 0);
         displayCategoriesSpinner();
 
@@ -69,10 +69,11 @@ public class HighScoreActivity extends AppCompatActivity {
 
                 allCategories.moveToPosition(position);
 
-                category = allCategories.getString(allCategories.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE));
-                category_id = allCategories.getString(allCategories.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_ID));
+                categoryTitle = allCategories.getString(allCategories.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE));
+                categoryId = allCategories.getString(allCategories.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_ID));
 
-                highScoresByCategory = mDbOpenHelper.getHighScoresByCategory(category_id);
+
+                highScoresByCategory = mDbOpenHelper.getHighScoresByCategory(categoryId);
                 allHighscores = mDbOpenHelper.getAllHighScores();
 
                 if(position == 0)
