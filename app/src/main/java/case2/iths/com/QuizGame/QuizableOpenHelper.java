@@ -117,26 +117,27 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
     }
 
-    public Cursor getCategoryID(String category) {
-
+    public Cursor getCategoriesCreateStatement() {
         SQLiteDatabase db = getReadableDatabase();
+        String selection = CategoriesInfoEntry.COLUMN_CATEGORY_TITLE + " = ? OR " +
+                CategoriesInfoEntry.COLUMN_CATEGORY_TITLE + " = ? OR " +
+                CategoriesInfoEntry.COLUMN_CATEGORY_TITLE + " = ? OR " +
+                CategoriesInfoEntry.COLUMN_CATEGORY_TITLE + " = ? OR " +
+                CategoriesInfoEntry.COLUMN_CATEGORY_TITLE + " = ? OR " +
+                CategoriesInfoEntry.COLUMN_CATEGORY_TITLE + " = ?";
 
-        String selection = CategoriesInfoEntry._ID + " = ?";
-        String[] selectionArgs = {};
+        String[] selectionArgs = {"Food", "Games", "Geography", "Science", "Sport", "Music" };
 
         String[] categoryColumns = {
-                CategoriesInfoEntry.COLUMN_CATEGORY_ID,
-                CategoriesInfoEntry._ID
-
-
+                CategoriesInfoEntry.COLUMN_CATEGORY_TITLE,
+                CategoriesInfoEntry._ID,
+                CategoriesInfoEntry.COLUMN_CATEGORY_ID
         };
 
-        Cursor categoryCursor = db.query(CategoriesInfoEntry.TABLE_NAME, categoryColumns, selection, selectionArgs, null, null, null);
-
-        int categoryIDpos = categoryCursor.getColumnIndex(CategoriesInfoEntry._ID);
+        Cursor cursor = db.query(CategoriesInfoEntry.TABLE_NAME, categoryColumns,selection, selectionArgs, null, null, null);
 
 
-        return categoryCursor;
+        return cursor;
 
     }
 

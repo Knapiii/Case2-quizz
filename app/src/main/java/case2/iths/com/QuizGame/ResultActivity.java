@@ -60,7 +60,7 @@ public class ResultActivity extends AppCompatActivity {
         textViewAmountOfStatements.setText((Integer.toString(amountOfStatements)));
         spinnerPosition(category);
         playedCategory.setText(category);
-        category.toLowerCase();
+        category = category.toLowerCase();
 
 
 

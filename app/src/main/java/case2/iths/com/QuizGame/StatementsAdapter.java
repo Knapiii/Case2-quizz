@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,7 +21,6 @@ public class StatementsAdapter extends RecyclerView.Adapter<StatementsAdapter.Vi
     private final LayoutInflater mLayoutInflater;
     private Cursor mCursor;
     private int statementPos;
-    private int answerPos;
     private int categoryPos;
     private QuizableDBHelper quizableDBHelper;
 
@@ -38,18 +38,9 @@ public class StatementsAdapter extends RecyclerView.Adapter<StatementsAdapter.Vi
             return;
 
         statementPos = mCursor.getColumnIndex(QuizableDBHelper.QUESTION);
-        answerPos = mCursor.getColumnIndex(QuizableDBHelper.ANSWER);
         categoryPos = mCursor.getColumnIndex(QuizableDBHelper.CATEGORY);
     }
 
-    public void changeCursor(Cursor cursor) {
-        if(mCursor != null)
-            mCursor.close();
-        mCursor = cursor;
-        populateColumnPositions();
-        notifyDataSetChanged();
-
-    }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -66,7 +57,7 @@ public class StatementsAdapter extends RecyclerView.Adapter<StatementsAdapter.Vi
 
 
         holder.textStatement.setText(statement);
-        holder.textCategory.setText(category.toUpperCase());
+        holder.textCategory.setText(category);
 
     }
 
@@ -80,15 +71,15 @@ public class StatementsAdapter extends RecyclerView.Adapter<StatementsAdapter.Vi
 
         private final TextView textStatement;
         private final TextView textCategory;
+        private final ImageButton deleteButton;
 
 
         public ViewHolder(View itemView) {
             super(itemView);
-            itemView.setOnClickListener(this);
-
-
             textStatement = itemView.findViewById(R.id.text_statement);
             textCategory = itemView.findViewById(R.id.text_category);
+            deleteButton = itemView.findViewById(R.id.deleteButton);
+            deleteButton.setOnClickListener(this);
 
 
         }
@@ -100,7 +91,6 @@ public class StatementsAdapter extends RecyclerView.Adapter<StatementsAdapter.Vi
 
             mCursor.moveToPosition(position);
 
-            String answer = mCursor.getString(mCursor.getColumnIndex(QuizableDBHelper.ANSWER));
             String id = mCursor.getString(mCursor.getColumnIndex(QuizableDBHelper.KEY_ID));
 
             Toast.makeText(mContext, "Deleted ", Toast.LENGTH_LONG).show();
