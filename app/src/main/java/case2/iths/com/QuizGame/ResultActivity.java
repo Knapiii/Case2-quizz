@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ResultActivity extends AppCompatActivity {
 
@@ -61,9 +62,8 @@ public class ResultActivity extends AppCompatActivity {
         spinnerPosition(category);
         playedCategory.setText(category);
         category = category.toLowerCase();
-
-
-
+        if(category.equals("own"))
+            category = "own_statements";
     }
 
     private int spinnerPosition(String category) {
@@ -87,7 +87,7 @@ public class ResultActivity extends AppCompatActivity {
             case "Music":
                 spinnerPosition = 6;
                 break;
-            case "Own statements":
+            case "Own":
                 spinnerPosition = 7;
                 break;
             default:
@@ -123,13 +123,25 @@ public class ResultActivity extends AppCompatActivity {
      */
 
     public void onSaveButtonClick(View view) {
-        savedSettings.giveSound(this);
-        Intent toHighscores = new Intent(this, HighScoreActivity.class);
-        toHighscores.putExtra("spinnerPosition", spinnerPosition);
-        toHighscores.putExtra("amountOfStatements", amountOfStatements);
-        quizableOpenHelper = new QuizableOpenHelper(this);
         name = insertName.getText().toString();
-        quizableOpenHelper.insertHighscore(category, points, amountOfStatements, name);
-        startActivity(toHighscores);
+
+        if (name.isEmpty()) {
+            Toast.makeText(this, "Please insert your name", Toast.LENGTH_LONG).show();
+        } else {
+
+            savedSettings.giveSound(this);
+            Intent toHighscores = new Intent(this, HighScoreActivity.class);
+            toHighscores.putExtra("spinnerPosition", spinnerPosition);
+            toHighscores.putExtra("amountOfStatements", amountOfStatements);
+            quizableOpenHelper = new QuizableOpenHelper(this);
+
+
+            quizableOpenHelper.insertHighscore(category, points, amountOfStatements, name);
+            startActivity(toHighscores);
+        }
+
+
+
+
     }
 }
