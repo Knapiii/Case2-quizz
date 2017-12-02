@@ -17,8 +17,8 @@ public class ResultActivity extends AppCompatActivity {
     private String name;
     private QuizableOpenHelper quizableOpenHelper;
 
-    // categoryPos saves the chosen category. We use categoryPos to give a default value to our spinner in the HighScore Activity
-    private int categoryPos;
+    // spinnerPosition saves the chosen category. We use spinnerPosition to give a default value to our spinner in the HighScore Activity
+    private int spinnerPosition;
 
 
     @Override
@@ -50,7 +50,7 @@ public class ResultActivity extends AppCompatActivity {
         insertName = findViewById(R.id.editText_save_highscore_name);
         //GetTextViewValues
         Intent intent = getIntent();
-        category = checkCategory(intent.getStringExtra("category"));
+        category = intent.getStringExtra("category");
         points = intent.getIntExtra("points", 0);
         amountOfStatements = intent.getIntExtra("amountOfStatements", 0);
         correctAnswers = getIntent().getIntExtra("correctAnswers", 0);
@@ -58,50 +58,44 @@ public class ResultActivity extends AppCompatActivity {
         textViewCorrectAnswers.setText(Integer.toString(correctAnswers));
         amountOfPoints.setText((Integer.toString(points)));
         textViewAmountOfStatements.setText((Integer.toString(amountOfStatements)));
+        spinnerPosition(category);
         playedCategory.setText(category);
+        category.toLowerCase();
 
-        category = category.toLowerCase();
+
 
     }
 
-    //This methos translates category to english when necessary
+    private int spinnerPosition(String category) {
 
-    private String checkCategory(String category_id) {
-
-        switch (category_id) {
+        switch (category) {
             case "Food":
-                categoryPos = 1;
+                spinnerPosition = 1;
                 break;
             case "Games":
-                category_id = "Games";
-                categoryPos = 2;
+                spinnerPosition = 2;
                 break;
             case "Geography":
-                category_id = "Geography";
-                categoryPos = 3;
+                spinnerPosition = 3;
                 break;
             case "Science":
-                category_id = "Science";
-                categoryPos = 4;
+                spinnerPosition = 4;
                 break;
             case "Sport":
-                category_id = "Sport";
-                categoryPos = 5;
+                spinnerPosition = 5;
                 break;
             case "Music":
-                category_id = "Music";
-                categoryPos = 6;
+                spinnerPosition = 6;
                 break;
             case "Own statements":
-                category_id = "Own_statements";
-                categoryPos = 7;
+                spinnerPosition = 7;
                 break;
             default:
-                category_id = "All categories";
-                categoryPos = 0;
+                spinnerPosition = 0;
                 break;
         }
-        return category_id;
+
+        return spinnerPosition;
     }
 
     /**
@@ -131,7 +125,7 @@ public class ResultActivity extends AppCompatActivity {
     public void onSaveButtonClick(View view) {
         savedSettings.giveSound(this);
         Intent toHighscores = new Intent(this, HighScoreActivity.class);
-        toHighscores.putExtra("categoryPos", categoryPos);
+        toHighscores.putExtra("spinnerPosition", spinnerPosition);
         toHighscores.putExtra("amountOfStatements", amountOfStatements);
         quizableOpenHelper = new QuizableOpenHelper(this);
         name = insertName.getText().toString();
