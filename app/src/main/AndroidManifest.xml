@@ -22,6 +22,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ProfileActivity"
+            android:noHistory="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".HandleStatementsActivity"
@@ -68,14 +69,17 @@
             android:name=".EditStatementActivity"
             android:noHistory="true"
             android:screenOrientation="portrait" />
-        <activity android:name=".AmountOfStatementsActivity"
-            android:screenOrientation="portrait"
+        <activity
+            android:name=".AmountOfStatementsActivity"
             android:noHistory="true"
-            />
-        <activity android:name=".CountdownSplashActivity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CountdownSplashActivity"
             android:noHistory="true"
-            />
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CreateProfileActivity"
+            android:noHistory="true"></activity>
     </application>
 
 </manifest>

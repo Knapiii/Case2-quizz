@@ -76,4 +76,7 @@
     <string name="p1_get_ready">Player 1 get ready!</string>
     <string name="p2_get_ready">Player 2 get ready!</string>
     <string name="correct_answers">Correct answers</string>
+    <string name="delete_profile">Delete profile</string>
+    <string name="create_profile">Create profile</string>
+    <string name="add_profile">Add profile</string>
 </resources>

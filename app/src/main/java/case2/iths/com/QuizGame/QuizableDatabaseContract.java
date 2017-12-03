@@ -47,6 +47,21 @@ public final class QuizableDatabaseContract {
 
     }
 
+    public static final class UserInfoEntry implements BaseColumns {
+
+        public static final String TABLE_NAME = "user_info";
+        public static final String COLUMN_USERNAME = "username";
+        public static final String SQL_DELETE_TABLE = "DROP TABLE IF EXISTS ";
+
+        public static final String SQL_CREATE_TABLE =
+                "CREATE TABLE " + TABLE_NAME + " (" +
+                        _ID + " INTEGER PRIMARY KEY, " +
+                        COLUMN_USERNAME + " TEXT UNIQUE NOT NULL)";
+
+
+    }
+
+
 
 }
 

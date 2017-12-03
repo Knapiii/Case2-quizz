@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import case2.iths.com.QuizGame.QuizableDatabaseContract.UserInfoEntry;
+
 import static case2.iths.com.QuizGame.QuizableDatabaseContract.CategoriesInfoEntry;
 import static case2.iths.com.QuizGame.QuizableDatabaseContract.HighScoresInfoEntry;
 
@@ -16,7 +18,7 @@ import static case2.iths.com.QuizGame.QuizableDatabaseContract.HighScoresInfoEnt
 public class QuizableOpenHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "Quizable.db";
-    public static final int DATABASE_VERSION = 14;
+    public static final int DATABASE_VERSION = 18;
 
     public QuizableOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -29,6 +31,7 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
         db.execSQL(CategoriesInfoEntry.SQL_CREATE_TABLE);
         db.execSQL(HighScoresInfoEntry.SQL_CREATE_TABLE);
+        db.execSQL(UserInfoEntry.SQL_CREATE_TABLE);
 
         // Adds default categories to the categories table in the database
         DatabaseDataWorker databaseDataWorker = new DatabaseDataWorker(db);
@@ -42,6 +45,7 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
             db.execSQL(HighScoresInfoEntry.SQL_DELETE_TABLE + HighScoresInfoEntry.TABLE_NAME);
             db.execSQL(CategoriesInfoEntry.SQL_DELETE_TABLE + CategoriesInfoEntry.TABLE_NAME);
+            db.execSQL(UserInfoEntry.SQL_DELETE_TABLE + UserInfoEntry.TABLE_NAME);
 
             onCreate(db);
 
@@ -139,6 +143,35 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
         return cursor;
 
+    }
+
+    public void addUser(String username) {
+
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(UserInfoEntry.COLUMN_USERNAME, username);
+
+        long newRowId = db.insert(UserInfoEntry.TABLE_NAME, null, contentValues);
+
+
+    }
+
+    public Cursor getAllProfiles() {
+        SQLiteDatabase db = getReadableDatabase();
+        String[] profileColumns = {
+                UserInfoEntry.COLUMN_USERNAME,
+                UserInfoEntry._ID
+        };
+
+        Cursor cursor = db.query(UserInfoEntry.TABLE_NAME,
+                profileColumns,
+                null,
+                null,
+                null,
+                null,
+                UserInfoEntry.COLUMN_USERNAME);
+
+        return cursor;
     }
 
 }

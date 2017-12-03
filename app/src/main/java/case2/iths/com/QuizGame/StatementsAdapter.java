@@ -104,7 +104,7 @@ public class StatementsAdapter extends RecyclerView.Adapter<StatementsAdapter.Vi
         quizableDBHelper = new QuizableDBHelper(mContext);
         SQLiteDatabase db = quizableDBHelper.getWritableDatabase();
 
-        String[] selectionArgs = new String[]{id};
+        String[] selectionArgs = {id};
         db.delete(QuizableDBHelper.TABLE, QuizableDBHelper.KEY_ID+"=?", selectionArgs);
 
         mCursor = quizableDBHelper.getUserMadeStatements();

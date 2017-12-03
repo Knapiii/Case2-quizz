@@ -7,10 +7,35 @@
     android:background="@drawable/main_background"
     tools:context="case2.iths.com.QuizGame.ProfileActivity">
 
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="case2.iths.com.QuizGame.CategoryWindowActivity">
+    <Button
+        android:id="@+id/button_add"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/button_background_switcher"
+        android:onClick="onAddButtonClick"
+        android:text="@string/add_profile"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/developed_by_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list_profiles"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_text"
+        tools:listitem="@layout/item_profile_list" />
 
         <TextView
             android:id="@+id/top_text"
@@ -41,5 +66,4 @@
             app:layout_constraintStart_toStartOf="parent" />
 
 
-    </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>
