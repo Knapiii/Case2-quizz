@@ -1,6 +1,7 @@
 package case2.iths.com.QuizGame;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -20,6 +21,8 @@ public class ResultActivity extends AppCompatActivity {
 
     // spinnerPosition saves the chosen category. We use spinnerPosition to give a default value to our spinner in the HighScore Activity
     private int spinnerPosition;
+    private String userName;
+    private boolean isProfileChosen;
 
 
     @Override
@@ -64,6 +67,17 @@ public class ResultActivity extends AppCompatActivity {
         category = category.toLowerCase();
         if(category.equals("own"))
             category = "own_statements";
+        SharedPreferences sp = getSharedPreferences("user_prefs", 0);
+        userName = sp.getString("userName", "");
+        isProfileChosen = sp.getBoolean("profileChoosed", false);
+
+        if(isProfileChosen) {
+            name = userName;
+            insertName.setVisibility(View.GONE);
+        } else
+            name = insertName.getText().toString();
+
+
     }
 
     private int spinnerPosition(String category) {
@@ -123,7 +137,11 @@ public class ResultActivity extends AppCompatActivity {
      */
 
     public void onSaveButtonClick(View view) {
-        name = insertName.getText().toString();
+        if(isProfileChosen) {
+            name = userName;
+            insertName.setVisibility(View.GONE);
+        } else
+            name = insertName.getText().toString();
 
         if (name.isEmpty()) {
             Toast.makeText(this, "Please insert your name", Toast.LENGTH_LONG).show();
