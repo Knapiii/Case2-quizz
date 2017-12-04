@@ -33,7 +33,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/button_music"
         app:layout_constraintTop_toBottomOf="@+id/top_text"
-        app:srcCompat="@drawable/sport" />
+        app:srcCompat="@drawable/sport_switcher" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -54,7 +54,7 @@
         app:layout_constraintLeft_toRightOf="@+id/button_sport"
         app:layout_constraintRight_toLeftOf="@+id/button_food"
         app:layout_constraintTop_toBottomOf="@+id/top_text"
-        app:srcCompat="@drawable/music" />
+        app:srcCompat="@drawable/music_switcher" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -75,7 +75,7 @@
         app:layout_constraintLeft_toRightOf="@+id/button_music"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top_text"
-        app:srcCompat="@drawable/food" />
+        app:srcCompat="@drawable/food_switcher" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -96,7 +96,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/button_geography"
         app:layout_constraintTop_toBottomOf="@+id/button_sport"
-        app:srcCompat="@drawable/science" />
+        app:srcCompat="@drawable/science_switcher" />
 
     <TextView
         android:id="@+id/textView3"
@@ -118,7 +118,7 @@
         app:layout_constraintLeft_toRightOf="@+id/button_science"
         app:layout_constraintRight_toLeftOf="@+id/button_games"
         app:layout_constraintTop_toBottomOf="@+id/button_sport"
-        app:srcCompat="@drawable/geography" />
+        app:srcCompat="@drawable/geography_switcher" />
 
     <TextView
         android:id="@+id/textView2"
@@ -140,7 +140,7 @@
         app:layout_constraintLeft_toRightOf="@+id/button_geography"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_sport"
-        app:srcCompat="@drawable/games" />
+        app:srcCompat="@drawable/games_switcher" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -162,7 +162,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_science"
-        app:srcCompat="@drawable/all_categories" />
+        app:srcCompat="@drawable/all_categories_switcher" />
 
     <TextView
         android:id="@+id/textView"
@@ -184,7 +184,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button_all_categories"
         app:layout_constraintTop_toBottomOf="@+id/button_science"
-        app:srcCompat="@drawable/ic_build_24dp" />
+        app:srcCompat="@drawable/own_categories_switcher" />
 
     <TextView
         android:layout_width="wrap_content"
