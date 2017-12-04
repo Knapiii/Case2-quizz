@@ -28,7 +28,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
 
     private int p1Points;
     private int p1CorrectAnswers;
-    private int p2Points;
+    private boolean p2sTurn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,9 +78,10 @@ public class SinglePlayerActivity extends AppCompatActivity {
         pointsView = findViewById(R.id.points);
         headLine = findViewById(R.id.top_text_category);
         statementsLeftView = findViewById(R.id.text_statements_left);
-
+        Bundle args = getIntent().getExtras();
+        p2sTurn = args.getBoolean("p2sTurn");
         //Get Values
-        if (getIntent().getIntExtra("p1points", 100) != 100) {
+        if (p2sTurn) {
             p1Points = getIntent().getIntExtra("p1points", 100);
             p1CorrectAnswers = getIntent().getIntExtra("p1correctAnswers", 0);
         }
@@ -139,7 +140,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
      */
     public void trueButtonPressed(View view) {
         savedSettings.giveSound(this);
-        if (answerString.equalsIgnoreCase("True")) {
+        if (answerString.equalsIgnoreCase("Sant")) {
             points += seconds;
             correctAnswers++;
         }
@@ -158,7 +159,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
     public void falseButtonPressed(View view) {
         savedSettings.giveSound(this);
 
-        if (answerString.equalsIgnoreCase("False")) {
+        if (answerString.equalsIgnoreCase("Falskt")) {
             points += seconds;
             correctAnswers++;
         }
@@ -177,33 +178,40 @@ public class SinglePlayerActivity extends AppCompatActivity {
      * TODO: genom att istället anropa CountDownActivity igen och spara första spelarens värden
      */
     public void startResultActivity() {
-        if (getIntent().getIntExtra("p1points", 100) != 100 &&
-                multiplayer){
-            Intent intent = new Intent(this, ResultActivity.class);
-            intent.putExtra("p1points", p1Points);
-            intent.putExtra("p2points", points);
+        if (!p2sTurn && multiplayer){
+            p2sTurn = true;
+            Intent intent = new Intent(this, CountdownSplashActivity.class);
+            intent.putExtra("p1points", points);
             intent.putExtra("category", category);
             intent.putExtra("amountOfStatements", amountOfStatements);
-            intent.putExtra("p1correctAnswers", p1CorrectAnswers);
-            intent.putExtra("p2correctAnswers", correctAnswers);
+            intent.putExtra("p1correctAnswers", correctAnswers);
+            intent.putExtra("multiplayer", multiplayer);
+            intent.putExtra("p2sTurn", p2sTurn);
             startActivity(intent);
+            finish();
         }
-        else if (multiplayer) {
-            Intent multiIntent = new Intent(this, CountdownSplashActivity.class);
-            multiIntent.putExtra("p1points", points);
-            multiIntent.putExtra("p1category", category);
-            multiIntent.putExtra("p1amountStatements", amountOfStatements);
-            multiIntent.putExtra("p1correctAnswers", correctAnswers);
+        else if (p2sTurn && multiplayer) {
+            Intent multiIntent = new Intent(this, ResultActivity.class);
+            multiIntent.putExtra("p1points", p1Points);
+            multiIntent.putExtra("p2points", points);
+            multiIntent.putExtra("category", category);
+            multiIntent.putExtra("amountOfStatements", amountOfStatements);
+            multiIntent.putExtra("p1correctAnswers", p1CorrectAnswers);
+            multiIntent.putExtra("p2correctAnswers", correctAnswers);
             multiIntent.putExtra("multiplayer", multiplayer);
             startActivity(multiIntent);
+            finish();
         }
-        savedSettings.giveSound(this);
-        Intent intent = new Intent(this, ResultActivity.class);
-        intent.putExtra("points", points);
-        intent.putExtra("category", category);
-        intent.putExtra("amountOfStatements", amountOfStatements);
-        intent.putExtra("correctAnswers", correctAnswers);
-        startActivity(intent);
+        else {
+            savedSettings.giveSound(this);
+            Intent intent = new Intent(this, ResultActivity.class);
+            intent.putExtra("points", points);
+            intent.putExtra("category", category);
+            intent.putExtra("amountOfStatements", amountOfStatements);
+            intent.putExtra("correctAnswers", correctAnswers);
+            startActivity(intent);
+            finish();
+        }
     }
 
     /**

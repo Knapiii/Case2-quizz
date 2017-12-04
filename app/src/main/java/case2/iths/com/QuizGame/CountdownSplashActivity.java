@@ -17,6 +17,7 @@ public class CountdownSplashActivity extends AppCompatActivity {
 
     private int p1Points;
     private int correctAnswers;
+    private boolean p2sTurn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,14 +60,16 @@ public class CountdownSplashActivity extends AppCompatActivity {
         headLine = findViewById(R.id.text_countdown_genre);
         //Get Values
         multiplayer = getIntent().getBooleanExtra("multiplayer", false);
+        p2sTurn = getIntent().getBooleanExtra("p2sTurn", false);
 
-        //Om första spelarens antal påståenden inte är noll ska värden från förra spelet hämtas
-        if (getIntent().getIntExtra("p1amountStatements", 0) != 0){
+        //Om det är andra spelarens tur ska värden från första spelet hämtas
+        if (p2sTurn){
             p1Points = getIntent().getIntExtra("p1points", 0);
-            chosenCategory = getIntent().getStringExtra("p1category");
-            amountOfStatements = getIntent().getIntExtra("p1amountStatements", 5);
+            chosenCategory = getIntent().getStringExtra("category");
+            amountOfStatements = getIntent().getIntExtra("amountOfStatements", 5);
             correctAnswers = getIntent().getIntExtra("p1correctAnswers", 0);
         }
+        //Annars hämtas värden som behövs för första spelet
         else{
             chosenCategory = getIntent().getStringExtra("category");
             amountOfStatements = getIntent().getIntExtra("amountOfStatements", 5);
@@ -77,11 +80,9 @@ public class CountdownSplashActivity extends AppCompatActivity {
     }
 
     private void decideGetReadyText(){
-        if (getIntent().getIntExtra("p1amountStatements", 0) != 0 &&
-                multiplayer)
+        if (p2sTurn && multiplayer)
             getReady.setText(R.string.p2_get_ready);
-        else if (getIntent().getIntExtra("p1amountStatements", 0) == 0 &&
-                multiplayer)
+        else if (!p2sTurn && multiplayer)
             getReady.setText(R.string.p1_get_ready);
         else
             getReady.setText(R.string.get_ready);
@@ -93,21 +94,27 @@ public class CountdownSplashActivity extends AppCompatActivity {
      */
     public void toSinglePlayer(){
         cdTimer.cancel();
-        if (getIntent().getIntExtra("p1amountStatements", 0) != 0 &&
-                multiplayer){
+        //Om det är andra spelarens tur skickas relevanta värden vidare
+        if (p2sTurn && multiplayer){
             Intent multiIntent = new Intent(CountdownSplashActivity.this, SinglePlayerActivity.class);
             multiIntent.putExtra("p1points", p1Points);
             multiIntent.putExtra("p1correctAnswers", correctAnswers);
-            multiIntent.putExtra("genre", chosenCategory);
+            multiIntent.putExtra("category", chosenCategory);
             multiIntent.putExtra("amountOfStatements", amountOfStatements);
             multiIntent.putExtra("multiplayer", multiplayer);
+            multiIntent.putExtra("p2sTurn", p2sTurn);
             startActivity(multiIntent);
+            finish();
         }
-        Intent intent = new Intent(CountdownSplashActivity.this, SinglePlayerActivity.class);
-        intent.putExtra("amountOfStatements", amountOfStatements);
-        intent.putExtra("category", chosenCategory);
-        intent.putExtra("multiplayer", multiplayer);
-        startActivity(intent);
+        //Annars skickad relevanta värden som är nödvändiga för första rundan
+        else{
+            Intent intent = new Intent(CountdownSplashActivity.this, SinglePlayerActivity.class);
+            intent.putExtra("amountOfStatements", amountOfStatements);
+            intent.putExtra("category", chosenCategory);
+            intent.putExtra("multiplayer", multiplayer);
+            startActivity(intent);
+            finish();
+        }
     }
 
     //Stops the timer when the back button is pressed

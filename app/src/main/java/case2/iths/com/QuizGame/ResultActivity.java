@@ -19,6 +19,10 @@ public class ResultActivity extends AppCompatActivity {
     private String name;
     private QuizableOpenHelper quizableOpenHelper;
 
+    //multiplayer variables
+    private boolean p2sTurn, multiplayer;
+    private int p1Points, p1CorrectAnswers, p2Points, p2CorrectAnswers;
+
     // spinnerPosition saves the chosen category. We use spinnerPosition to give a default value to our spinner in the HighScore Activity
     private int spinnerPosition;
     private String userName;
@@ -52,15 +56,39 @@ public class ResultActivity extends AppCompatActivity {
         playedCategory = findViewById(R.id.played_category);
         textViewAmountOfStatements = findViewById(R.id.save_amount_of_statements_result);
         insertName = findViewById(R.id.editText_save_highscore_name);
-        //GetTextViewValues
-        Intent intent = getIntent();
-        category = intent.getStringExtra("category");
-        points = intent.getIntExtra("points", 0);
-        amountOfStatements = intent.getIntExtra("amountOfStatements", 0);
-        correctAnswers = getIntent().getIntExtra("correctAnswers", 0);
+        //Get values relevant if multiplayer is true
+        if (getIntent().getBooleanExtra("multiplayer", false)){
+            Intent intent = getIntent();
+            multiplayer = intent.getBooleanExtra("multiplayer", false);
+            category = intent.getStringExtra("category");
+            amountOfStatements = intent.getIntExtra("amountOfStatements", 5);
+            p1Points = intent.getIntExtra("p1points", 0);
+            p1CorrectAnswers = intent.getIntExtra("p1correctAnswers", 0);
+            p2Points = intent.getIntExtra("p2points", 0);
+            p2CorrectAnswers = intent.getIntExtra("p2correctAnswers", 0);
+            p2sTurn = intent.getBooleanExtra("p2sTurn", false);
+        }
+        //Get values relevant for singleplayer
+        else{
+            Intent intent = getIntent();
+            category = intent.getStringExtra("category");
+            points = intent.getIntExtra("points", 0);
+            amountOfStatements = intent.getIntExtra("amountOfStatements", 5);
+            correctAnswers = getIntent().getIntExtra("correctAnswers", 0);
+        }
         //SetTextViews
-        textViewCorrectAnswers.setText(Integer.toString(correctAnswers));
-        amountOfPoints.setText((Integer.toString(points)));
+        if (multiplayer && !p2sTurn){
+            textViewCorrectAnswers.setText(Integer.toString(p1CorrectAnswers));
+            amountOfPoints.setText((Integer.toString(p1Points)));
+        }
+        else if (multiplayer && p2sTurn){
+            textViewCorrectAnswers.setText(Integer.toString(p2CorrectAnswers));
+            amountOfPoints.setText((Integer.toString(p2Points)));
+        }
+        else{
+            textViewCorrectAnswers.setText(Integer.toString(correctAnswers));
+            amountOfPoints.setText((Integer.toString(points)));
+        }
         textViewAmountOfStatements.setText((Integer.toString(amountOfStatements)));
         spinnerPosition(category);
         playedCategory.setText(category);
@@ -119,6 +147,8 @@ public class ResultActivity extends AppCompatActivity {
     public void playAgain(View view) {
         savedSettings.giveSound(this);
         Intent intent = new Intent(this, CategoryWindowActivity.class);
+        if (multiplayer)
+            intent.putExtra("multiplayer", multiplayer);
         startActivity(intent);
     }
 
@@ -146,20 +176,39 @@ public class ResultActivity extends AppCompatActivity {
         if (name.isEmpty()) {
             Toast.makeText(this, "Please insert your name", Toast.LENGTH_LONG).show();
         } else {
+            //Save first players score to highscore before showing results for second player
+            if (multiplayer && !p2sTurn){
+                Intent toNextResult = new Intent(this, ResultActivity.class);
+                toNextResult.putExtra("multiplayer", multiplayer);
+                toNextResult.putExtra("category", category);
+                toNextResult.putExtra("p2points", p2Points);
+                toNextResult.putExtra("p2correctAnswers", p2CorrectAnswers);
+                toNextResult.putExtra("p2sTurn", true);
+                quizableOpenHelper = new QuizableOpenHelper(this);
+                quizableOpenHelper.insertHighscore(category, p1Points, amountOfStatements, name);
+                startActivity(toNextResult);
+            }
+            //Saves second players score and starts HighscoreActivity
+            else if (multiplayer && p2sTurn){
+                Intent toHighscore = new Intent(this, HighScoreActivity.class);
+                toHighscore.putExtra("spinnerPosition", spinnerPosition);
+                toHighscore.putExtra("amountOfStatements", amountOfStatements);
+                quizableOpenHelper = new QuizableOpenHelper(this);
+                quizableOpenHelper.insertHighscore(category, p2Points, amountOfStatements, name);
+                startActivity(toHighscore);
+            }
+            //Saves the score from a single player game
+            else{
+                savedSettings.giveSound(this);
+                Intent toHighscores = new Intent(this, HighScoreActivity.class);
+                toHighscores.putExtra("spinnerPosition", spinnerPosition);
+                toHighscores.putExtra("amountOfStatements", amountOfStatements);
+                quizableOpenHelper = new QuizableOpenHelper(this);
 
-            savedSettings.giveSound(this);
-            Intent toHighscores = new Intent(this, HighScoreActivity.class);
-            toHighscores.putExtra("spinnerPosition", spinnerPosition);
-            toHighscores.putExtra("amountOfStatements", amountOfStatements);
-            quizableOpenHelper = new QuizableOpenHelper(this);
+                quizableOpenHelper.insertHighscore(category, points, amountOfStatements, name);
 
-
-            quizableOpenHelper.insertHighscore(category, points, amountOfStatements, name);
-            startActivity(toHighscores);
+                startActivity(toHighscores);
+            }
         }
-
-
-
-
     }
 }
