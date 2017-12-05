@@ -23,7 +23,8 @@ public class CategoryWindowActivity extends AppCompatActivity {
     // TODO: Enable the choice of multiple categories
 
     /**
-     * När vi är i Singelplayer-mode och klickar på de olika knapparna så ska olika Intents öppnar beroende på vad vi klickar på
+     * När vi är i category_window.xml och klickar på de olika knapparna så ska
+     * olika intents öppnas beroende på vad vi klickade på.
      */
     public void categoryButtonPressed(View view){
         int id = view.getId();
