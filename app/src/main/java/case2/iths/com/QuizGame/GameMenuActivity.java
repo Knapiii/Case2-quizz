@@ -26,15 +26,11 @@ public class GameMenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_menu);
         savedSettings = new SavedSettings();
-
         mDbOpenHelper = new QuizableOpenHelper(this);
         displayProfilesSpinner();
-
-
     }
 
     private void displayProfilesSpinner() {
-
         mProfilesSpinner = findViewById(R.id.spinner_profiles);
         allProfiles = mDbOpenHelper.getAllProfiles();
         ProfilesCursorAdapter profilesCursorAdapter = new ProfilesCursorAdapter(this, allProfiles, 0);
@@ -44,35 +40,26 @@ public class GameMenuActivity extends AppCompatActivity {
         mProfilesSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-
                 allProfiles.moveToPosition(position);
-
                 profileChoosed = true;
-
                 userName = allProfiles.getString(allProfiles.getColumnIndex(UserInfoEntry.COLUMN_USERNAME));
-
                 SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("userName", userName);
                 editor.putBoolean("profileChoosed", profileChoosed);
                 editor.commit();
-
                 showUserToast(userName);
-
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
             }
         });
     }
 
     private void showUserToast(String userName) {
-
         Toast.makeText(this, userName, Toast.LENGTH_LONG).show();
     }
-
 
     /**
      * När vi klickar på knappen "Manage Statements" så ska vi komma till HandleStatementsActivity
@@ -109,4 +96,5 @@ public class GameMenuActivity extends AppCompatActivity {
         mDbOpenHelper.close();
         super.onDestroy();
     }
+
 }
