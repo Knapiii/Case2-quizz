@@ -14,7 +14,6 @@ public class CountdownSplashActivity extends AppCompatActivity {
     private TextView headLine;
     private String chosenCategory;
     private boolean multiplayer;
-
     private int p1Points;
     private int correctAnswers;
     private boolean p2sTurn;
@@ -52,34 +51,35 @@ public class CountdownSplashActivity extends AppCompatActivity {
         }.start();
     }
 
-    public void initialize(){
-        //TextViews
+    /**
+     * Textviews
+     * Hämtar värden
+     * If-sats: om det är andra spelarens tur ska värden från första spelet hämtas,
+     * annars ska värden hämtas som behövs för första spelet.
+     * Sätter värden
+     */
+    public void initialize() {
         getReady = findViewById(R.id.text_get_ready);
         reversed = findViewById(R.id.text_reversed);
         countdown = findViewById(R.id.text_countdown_splash);
         headLine = findViewById(R.id.text_countdown_genre);
-        //Get Values
         multiplayer = getIntent().getBooleanExtra("multiplayer", false);
         p2sTurn = getIntent().getBooleanExtra("p2sTurn", false);
 
-        //Om det är andra spelarens tur ska värden från första spelet hämtas
-        if (p2sTurn){
+        if (p2sTurn) {
             p1Points = getIntent().getIntExtra("p1points", 0);
             chosenCategory = getIntent().getStringExtra("category");
             amountOfStatements = getIntent().getIntExtra("amountOfStatements", 5);
             correctAnswers = getIntent().getIntExtra("p1correctAnswers", 0);
-        }
-        //Annars hämtas värden som behövs för första spelet
-        else{
+        } else {
             chosenCategory = getIntent().getStringExtra("category");
             amountOfStatements = getIntent().getIntExtra("amountOfStatements", 5);
         }
-        //Set values
-        headLine.setText(chosenCategory);
 
+        headLine.setText(chosenCategory);
     }
 
-    private void decideGetReadyText(){
+    private void decideGetReadyText() {
         if (p2sTurn && multiplayer)
             getReady.setText(R.string.p2_get_ready);
         else if (!p2sTurn && multiplayer)
@@ -89,13 +89,14 @@ public class CountdownSplashActivity extends AppCompatActivity {
     }
 
     /**
-     * Startar SingleActivity och skicka mer lämpliga värden beroende på om en spelare
-     * har spelat en runda eller inte
+     * Startar SingleActivity och skicka mer lämpliga värden beroende på om en spelare har spelat
+     * en runda eller inte. If-sats om vi kör i multiplayer så ska relevanta värden skickas vidare, annars
+     * skickas relevanta värden vidare som är nödvändiga för första rundan.
      */
-    public void toSinglePlayer(){
+    public void toSinglePlayer() {
         cdTimer.cancel();
-        //Om det är andra spelarens tur skickas relevanta värden vidare
-        if (p2sTurn && multiplayer){
+
+        if (p2sTurn && multiplayer) {
             Intent multiIntent = new Intent(CountdownSplashActivity.this, SinglePlayerActivity.class);
             multiIntent.putExtra("p1points", p1Points);
             multiIntent.putExtra("p1correctAnswers", correctAnswers);
@@ -105,9 +106,7 @@ public class CountdownSplashActivity extends AppCompatActivity {
             multiIntent.putExtra("p2sTurn", p2sTurn);
             startActivity(multiIntent);
             finish();
-        }
-        //Annars skickad relevanta värden som är nödvändiga för första rundan
-        else{
+        } else {
             Intent intent = new Intent(CountdownSplashActivity.this, SinglePlayerActivity.class);
             intent.putExtra("amountOfStatements", amountOfStatements);
             intent.putExtra("category", chosenCategory);
@@ -117,10 +116,14 @@ public class CountdownSplashActivity extends AppCompatActivity {
         }
     }
 
-    //Stops the timer when the back button is pressed
+    /**
+     * Stops the timer when the back button is pressed.
+     * Stannar timern när vi klickar på bakåt-knappen.
+     */
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         cdTimer.cancel();
     }
+
 }
