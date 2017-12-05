@@ -26,20 +26,27 @@ public class EditStatementActivity extends AppCompatActivity {
         initialize();
     }
 
-    public void initialize(){
-        //TextViews
+    /**
+     * TextViews
+     */
+    public void initialize() {
         buttonTrue = findViewById(R.id.togglebutton_edit_true);
         buttonFalse = findViewById(R.id.togglebutton_edit_false);
     }
 
+    /**
+     * Möjliggör ljud för editButton
+     */
     public void editButtonTrueClicked(View view) {
         savedSettings.giveSound(this);
-
         buttonTrueClicked = true;
         changeButtonColor();
         answer = "true";
     }
 
+    /**
+     * Möjliggör att inte ha ljud för editButton
+     */
     public void editButtonFalseClicked(View view) {
         savedSettings.giveSound(this);
         buttonTrueClicked = false;
@@ -47,6 +54,10 @@ public class EditStatementActivity extends AppCompatActivity {
         answer = "false";
     }
 
+    /**
+     * När vi klickar på knappen ska ett klickljud låta om ljudet är på och
+     * det ska vara tyst om ljuget inte är på.
+     */
     public void editButtonEditClicked(View view) {
         savedSettings.giveSound(this);
 
@@ -56,8 +67,8 @@ public class EditStatementActivity extends AppCompatActivity {
         editStatement = findViewById(R.id.editText_edit_statement);
     }
 
-
     private void changeButtonColor() {
+
         if (buttonTrueClicked) {
             buttonTrue.setBackgroundResource(R.drawable.pressed_button_shape);
             buttonFalse.setBackgroundResource(R.drawable.button_shape);
@@ -66,5 +77,6 @@ public class EditStatementActivity extends AppCompatActivity {
             buttonFalse.setBackgroundResource(R.drawable.pressed_button_shape);
         }
     }
+
 }
 
