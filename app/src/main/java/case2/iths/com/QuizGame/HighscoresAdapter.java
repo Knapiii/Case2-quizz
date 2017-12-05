@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import case2.iths.com.QuizGame.QuizableDatabaseContract.HighScoresInfoEntry;
 
-
 public class HighscoresAdapter extends  RecyclerView.Adapter<HighscoresAdapter.ViewHolder>  {
 
     private final Context mContext;
@@ -21,17 +20,16 @@ public class HighscoresAdapter extends  RecyclerView.Adapter<HighscoresAdapter.V
     private int idPos;
     private int amountOfStatementsPos;
 
-
     public HighscoresAdapter(Context context, Cursor cursor) {
         mContext = context;
         mCursor = cursor;
         mLayoutInflater = LayoutInflater.from(mContext);
         populateColumnPositions();
-
     }
 
     private void populateColumnPositions() {
-        if(mCursor == null)
+
+        if (mCursor == null)
             return;
 
         namePos = mCursor.getColumnIndex(HighScoresInfoEntry.COLUMN_USER_ID);
@@ -57,20 +55,17 @@ public class HighscoresAdapter extends  RecyclerView.Adapter<HighscoresAdapter.V
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-
         mCursor.moveToPosition(position);
         String name = mCursor.getString(namePos);
         String score = mCursor.getString(scorePos);
         int id = mCursor.getInt(idPos);
         int amountOfStatements = mCursor.getInt(amountOfStatementsPos);
-
         holder.textName.setText(name);
         holder.textScore.setText(score);
         holder.textPoints.setText(R.string.points);
         holder.textRounds.setText(String.valueOf(amountOfStatements));
         holder.amountOfStatements.setText(R.string.statements);
         holder.id = id;
-
     }
 
     @Override
@@ -79,13 +74,11 @@ public class HighscoresAdapter extends  RecyclerView.Adapter<HighscoresAdapter.V
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-
         public final TextView textName;
         public final TextView textScore;
         public final TextView textPoints;
         public final TextView textRounds;
         public final TextView amountOfStatements;
-
         public int id;
 
         public ViewHolder(View itemView) {
@@ -95,7 +88,6 @@ public class HighscoresAdapter extends  RecyclerView.Adapter<HighscoresAdapter.V
             textPoints = itemView.findViewById(R.id.text_points);
             textRounds = itemView.findViewById(R.id.text_rounds);
             amountOfStatements = itemView.findViewById(R.id.text_amount_of_statements);
-
         }
     }
 
