@@ -20,12 +20,16 @@ public class QuizableDBHelper extends SQLiteAssetHelper {
     private static final String DATABASE_NAME = "QuizableDB.db";
     private static final int DATABASE_VERSION = 1;
 
-
+    /**
+     * Databasens namn och version
+     */
     public QuizableDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    // Returns all statements from Quizable.db
+    /**
+     * Returns all statements from Quizable.db
+     */
     public Cursor getStatements() {
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT * FROM " + TABLE;
@@ -33,7 +37,9 @@ public class QuizableDBHelper extends SQLiteAssetHelper {
         return cursor;
     }
 
-    // Returns all user-made statements from QuizableDB.db
+    /**
+     * Returns all user-made statements from QuizableDB.db
+     */
     public Cursor getUserMadeStatements() {
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM " + TABLE + " WHERE " + OWN_STATEMENTS + " = '" + USER_STATEMENTS + "'";
@@ -41,7 +47,9 @@ public class QuizableDBHelper extends SQLiteAssetHelper {
         return cursor;
     }
 
-    // Returns all questions from specified category
+    /**
+     * Returns all questions from specified category
+     */
     public Cursor getQuestionsFromCategory(String category) {
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT * FROM " + TABLE + " WHERE " + CATEGORY + " = '" + category + "'";
@@ -49,7 +57,9 @@ public class QuizableDBHelper extends SQLiteAssetHelper {
         return cursor;
     }
 
-    // Adds user-made statements to QuizableDB.db
+    /**
+     * Adds user-made statements to QuizableDB.db
+     */
     public long insertStatement(String category, String statement, String answer) {
         ContentValues cv = new ContentValues();
         cv.put(CATEGORY, category);
@@ -58,9 +68,5 @@ public class QuizableDBHelper extends SQLiteAssetHelper {
         cv.put(OWN_STATEMENTS, 1);
         return getWritableDatabase().insert(TABLE, null, cv);
     }
-
-
-
-
 
 }
