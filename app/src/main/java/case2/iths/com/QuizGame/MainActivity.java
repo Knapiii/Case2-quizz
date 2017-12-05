@@ -12,22 +12,17 @@ public class MainActivity extends AppCompatActivity {
     private static final String PREFS_NAME = "saveSettings";
     private QuizableOpenHelper mDbOpenHelper;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         savedSettings = new SavedSettings();
-
         mDbOpenHelper = new QuizableOpenHelper(this);
-
-  //      SQLiteDatabase db = mDbOpenHelper.getReadableDatabase();
-
+        // SQLiteDatabase db = mDbOpenHelper.getReadableDatabase();
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         boolean silent = settings.getBoolean("silentMode", false);
         savedSettings.setSoundOn(silent);
     }
-
 
     /**
      * När vi klickar på knappen "Play" så ska vi komma till GameMenuActivity
