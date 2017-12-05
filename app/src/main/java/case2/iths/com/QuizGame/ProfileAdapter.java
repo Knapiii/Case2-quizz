@@ -30,14 +30,13 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
         mCursor = cursor;
         mLayoutInflater = LayoutInflater.from(mContext);
         populateColumnPositions();
-
     }
 
     private void populateColumnPositions() {
+
         if(mCursor == null)
             return;
         userNamePos = mCursor.getColumnIndex(UserInfoEntry.COLUMN_USERNAME);
-
     }
 
     @Override
@@ -50,9 +49,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
     public void onBindViewHolder(ProfileAdapter.ViewHolder holder, int position) {
         mCursor.moveToPosition(position);
         String userName = mCursor.getString(userNamePos);
-
         holder.textUserName.setText(userName);
-
     }
 
     @Override
@@ -61,7 +58,6 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-
 
         private final TextView textUserName;
         private final ImageButton deleteButton;
@@ -72,12 +68,9 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
             textUserName = itemView.findViewById(R.id.text_user_name);
             deleteButton = itemView.findViewById(R.id.deleteButton);
             cardView = itemView.findViewById(R.id.card_user);
-
-        //    textUserName.setOnClickListener(this);
+            // textUserName.setOnClickListener(this);
             deleteButton.setOnClickListener(this);
             cardView.setOnClickListener(this);
-
-
         }
 
         @Override
@@ -101,28 +94,18 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
 
             /*int position = getAdapterPosition();
             mCursor.moveToPosition(position);
-
             String id = mCursor.getString(mCursor.getColumnIndex(UserInfoEntry._ID));
-
             deleteStatement(id, position);*/
-
-
         }
     }
 
     private void deleteStatement(String id, int position) {
-
         QuizableOpenHelper mDbOpenHelper = new QuizableOpenHelper(mContext);
         SQLiteDatabase db = mDbOpenHelper.getWritableDatabase();
-
-
         String[] selectionArgs = {id};
         db.delete(UserInfoEntry.TABLE_NAME, UserInfoEntry._ID+"=?", selectionArgs);
-
         mCursor = mDbOpenHelper.getAllProfiles();
-
         notifyItemRemoved(position);
         notifyItemRangeChanged(position, getItemCount());
-
     }
 }
