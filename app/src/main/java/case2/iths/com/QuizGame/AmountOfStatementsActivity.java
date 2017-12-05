@@ -27,7 +27,7 @@ public class AmountOfStatementsActivity extends AppCompatActivity {
     /**
      * Knapparna för de olika valen samt sätter och hämtar korrekta värden
      */
-    public void initialize(){
+    public void initialize() {
         button5Statements = findViewById(R.id.button_statements_5);
         button10Statements = findViewById(R.id.button_statements_10);
         button15Statements = findViewById(R.id.button_statements_15);
