@@ -26,89 +26,88 @@ public class CreateStatementActivity extends AppCompatActivity {
     private QuizableDBHelper dbHelper;
     private Cursor categoriesCursor;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_statements);
         buttonTrueClicked = false;
         initialize();
-
         mDbOpenHelper = new QuizableOpenHelper(this);
         dbHelper = new QuizableDBHelper(this);
-
         loadCategoriesData();
     }
 
-    public void initialize(){
-        //TextViews
+    /**
+     * TextViews
+     */
+    public void initialize() {
         buttonTrue = findViewById(R.id.togglebutton_add_true);
         buttonFalse = findViewById(R.id.togglebutton_add_false);
     }
 
     private void loadCategoriesData() {
         spinner = findViewById(R.id.spinner_add_category);
-
         categoriesCursor = mDbOpenHelper.getCategoriesCreateStatement();
-
         CategoriesCursorAdapter categoriesCursorAdapter = new CategoriesCursorAdapter(this, categoriesCursor);
-
         spinner.setAdapter(categoriesCursorAdapter);
-
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-
                 categoriesCursor.moveToPosition(position);
                 category = categoriesCursor.getString(categoriesCursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE));
-
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
             }
         });
-
-
     }
 
+    /**
+     * Möjliggör en ändrad färg när vi klickar på en knapp.
+     */
     public void onButtonTrueClicked(View view){
         buttonTrueClicked = true;
         changeButtonColor();
         answer = "true";
     }
 
+    /**
+     * Möjliggör en ändrad färg när vi klickar på en knapp.
+     */
     public void onButtonFalseClicked(View view){
         buttonTrueClicked = false;
         changeButtonColor();
         answer = "false";
     }
 
-    private void changeButtonColor(){
+    private void changeButtonColor() {
+
         if (buttonTrueClicked){
             buttonTrue.setBackgroundResource(R.drawable.pressed_button_shape);
             buttonFalse.setBackgroundResource(R.drawable.button_shape);
-        }
-        else{
+        } else{
             buttonTrue.setBackgroundResource(R.drawable.button_shape);
             buttonFalse.setBackgroundResource(R.drawable.pressed_button_shape);
         }
     }
 
-    // Calles addStatement method which adds statement to the database + starts HandleStatements activity.
-
+    /**
+     * Calles addStatement method which adds statement to the database + starts
+     * HandleStatements activity.
+     */
     public void onButtonAddClicked(View view) {
-      //  Toast.makeText(this, "Add", Toast.LENGTH_SHORT).show();
+        //  Toast.makeText(this, "Add", Toast.LENGTH_SHORT).show();
+
         if (!addStatement()){
             Intent intent = new Intent(this, HandleStatementsActivity.class);
             startActivity(intent);
         }
     }
-    private boolean addStatement() {
 
+    private boolean addStatement() {
         newStatement = findViewById(R.id.editText_add_statement);
         statement = newStatement.getText().toString();
 
@@ -123,9 +122,7 @@ public class CreateStatementActivity extends AppCompatActivity {
         }
 
         String input = "SAVED: Category: " + category + " Statement: " + statement + "Answer: " + answer;
-
         Toast.makeText(this, input, Toast.LENGTH_SHORT).show();
-
         dbHelper.insertStatement(category, statement, answer);
 
     return false;
