@@ -1,5 +1,10 @@
 package case2.iths.com.QuizGame;
 
+// TODO: 2017-11-14 Lägg till:
+// TODO: PLAY HISTORY
+// TODO: STATISTIC FOR ALL CATEGIRES OR A SPESIFIC CAREGORY
+// TODO: RANKING
+
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -26,7 +31,6 @@ public class HighScoreActivity extends AppCompatActivity {
     private Cursor allHighscores;
     private Cursor allCategories;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,24 +40,19 @@ public class HighScoreActivity extends AppCompatActivity {
         categoryPosition = intent.getIntExtra("spinnerPosition", 0);
         amountOfStatements = intent.getIntExtra("amountOfStatements", 0);
         displayCategoriesSpinner();
-
     }
 
     private void loadHighscores() {
-
     showHighscores(highScoresByCategory);
-
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
         loadHighscores();
     }
 
     private void displayCategoriesSpinner() {
-
         mSpinnerCategories = findViewById(R.id.spinner);
         allCategories = mDbOpenHelper.loadCategoriesData();
         CategoriesCursorAdapter categoriesCursorAdapter = new CategoriesCursorAdapter(this, allCategories);
@@ -66,53 +65,36 @@ public class HighScoreActivity extends AppCompatActivity {
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
                 allCategories.moveToPosition(position);
-
                 categoryTitle = allCategories.getString(allCategories.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE));
                 categoryId = allCategories.getString(allCategories.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_ID));
-
-
                 highScoresByCategory = mDbOpenHelper.getHighScoresByCategory(categoryId);
                 allHighscores = mDbOpenHelper.getAllHighScores();
 
-                if(position == 0)
+                if (position == 0)
                     showHighscores(allHighscores);
                 else
                     showHighscores(highScoresByCategory);
-
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
-
     }
 
     private void showHighscores(Cursor cursor) {
-
         recyclerView = findViewById(R.id.highscores_list);
         highscoresLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(highscoresLayoutManager);
-
         highscoresAdapter = new HighscoresAdapter(this, cursor);
-
         recyclerView.setAdapter(highscoresAdapter);
-
     }
-
 
     @Override
     protected void onDestroy() {
         mDbOpenHelper.close();
         super.onDestroy();
     }
+
 }
-
-
-// TODO: 2017-11-14 Lägg till:
-// TODO: PLAY HISTORY
-// TODO: STATISTIC FOR ALL CATEGIRES OR A SPESIFIC CAREGORY
-// TODO: RANKING
