@@ -24,39 +24,38 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-
-    // Creates 3 database tables
+    /**
+     * Creates 3 database tables
+     * Adds default categories to the categories table in the database
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
-
         db.execSQL(CategoriesInfoEntry.SQL_CREATE_TABLE);
         db.execSQL(HighScoresInfoEntry.SQL_CREATE_TABLE);
         db.execSQL(UserInfoEntry.SQL_CREATE_TABLE);
-
-        // Adds default categories to the categories table in the database
         DatabaseDataWorker databaseDataWorker = new DatabaseDataWorker(db);
         databaseDataWorker.insertCategories();
-
     }
 
+    /**
+     * onUpgrade if new version
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        if (oldVersion < newVersion) {
 
+        if (oldVersion < newVersion) {
             db.execSQL(HighScoresInfoEntry.SQL_DELETE_TABLE + HighScoresInfoEntry.TABLE_NAME);
             db.execSQL(CategoriesInfoEntry.SQL_DELETE_TABLE + CategoriesInfoEntry.TABLE_NAME);
             db.execSQL(UserInfoEntry.SQL_DELETE_TABLE + UserInfoEntry.TABLE_NAME);
-
             onCreate(db);
-
         }
     }
 
-    // returns highscores for the specific category
+    /**
+     * Returns highscores for the specific category.
+     */
     public Cursor getHighScoresByCategory(String categoryId) {
-
         SQLiteDatabase db = this.getReadableDatabase();
-
         String selection = HighScoresInfoEntry.COLUMN_CATEGORY_ID + " = ?";
         String[] selectionArgs = {categoryId};
         String[] highscoresColumns = {
@@ -68,11 +67,12 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
         };
         Cursor cursor = db.query(HighScoresInfoEntry.TABLE_NAME, highscoresColumns, selection, selectionArgs, null, null, HighScoresInfoEntry.COLUMN_HIGHSCORE + " DESC");
         return cursor;
-
     }
 
+    /**
+     * Get all highscores
+     */
     public Cursor getAllHighScores() {
-
         SQLiteDatabase db = this.getReadableDatabase();
 
         String[] highscoresColumns = {
@@ -85,27 +85,24 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
         Cursor cursor = db.query(HighScoresInfoEntry.TABLE_NAME, highscoresColumns, null, null, null, null, HighScoresInfoEntry.COLUMN_HIGHSCORE + " DESC");
         return cursor;
-
     }
 
-    // Use this method to add a new highscore to the database highscore table;
-
+    /**
+     * Use this method to add a new highscore to the database highscore table
+     */
     public void insertHighscore(String categoryId, int score, int amountOfStatements, String userId) {
-
         SQLiteDatabase db = this.getWritableDatabase();
-
         ContentValues contentValues = new ContentValues();
         contentValues.put(HighScoresInfoEntry.COLUMN_CATEGORY_ID, categoryId);
         contentValues.put(HighScoresInfoEntry.COLUMN_HIGHSCORE, score);
         contentValues.put(HighScoresInfoEntry.COLUMN_AMOUNT_OF_STATEMENTS, amountOfStatements);
         contentValues.put(HighScoresInfoEntry.COLUMN_USER_ID, userId);
-
         long newRowId = db.insert(HighScoresInfoEntry.TABLE_NAME, null, contentValues);
-
     }
 
-    // returns all categeories
-
+    /**
+     * Returns all categories
+     */
     public Cursor loadCategoriesData() {
         SQLiteDatabase db = getReadableDatabase();
         String[] categoryColumns = {
@@ -118,9 +115,11 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
                 null, null, null, null, null);
 
         return cursor;
-
     }
 
+    /**
+     * Cursur for getCategoriesCreateStatement
+     */
     public Cursor getCategoriesCreateStatement() {
         SQLiteDatabase db = getReadableDatabase();
         String selection = CategoriesInfoEntry.COLUMN_CATEGORY_TITLE + " = ? OR " +
@@ -139,23 +138,22 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
         };
 
         Cursor cursor = db.query(CategoriesInfoEntry.TABLE_NAME, categoryColumns,selection, selectionArgs, null, null, null);
-
-
         return cursor;
-
     }
 
+    /**
+     * Adds a user to the databse
+     */
     public void addUser(String username) {
-
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(UserInfoEntry.COLUMN_USERNAME, username);
-
         long newRowId = db.insert(UserInfoEntry.TABLE_NAME, null, contentValues);
-
-
     }
 
+    /**
+     * Cursur get all profiles
+     */
     public Cursor getAllProfiles() {
         SQLiteDatabase db = getReadableDatabase();
         String[] profileColumns = {
