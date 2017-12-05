@@ -26,20 +26,14 @@ public class HandleStatementsActivity extends AppCompatActivity {
     private StatementsAdapter statementsAdapter;
     private QuizableDBHelper quizableDBHelper;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_handle_questions);
         savedSettings = new SavedSettings();
-
         quizableDBHelper = new QuizableDBHelper(this);
-
         cursor = quizableDBHelper.getUserMadeStatements();
-
         displayStatements(cursor);
-
-
     }
 
     @Override
@@ -48,28 +42,27 @@ public class HandleStatementsActivity extends AppCompatActivity {
     }
 
     private void displayStatements(Cursor cursor) {
-
         recyclerView = findViewById(R.id.list_statements);
         LinearLayoutManager statementsLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(statementsLayoutManager);
-
-
         statementsAdapter = new StatementsAdapter(this, cursor);
         recyclerView.setAdapter(statementsAdapter);
-
-
-
-
     }
 
+    /**
+     * När vi klickar på knappen så ska vi komma till CreateStatementActivity
+     * Och klickljud ska låta om det är på.
+     */
     public void onButtonClick(View v) {
         savedSettings.giveSound(this);
-
         Intent intent = new Intent(this, CreateStatementActivity.class);
         startActivity(intent);
     }
 
-
+    /**
+     * När vi klickar på knappen så ska vi komma till EditStatementActivity
+     * Och klickljud ska låta om det är på.
+     */
     public void editStatement(View view) {
         savedSettings.giveSound(this);
         Intent intent = new Intent(this, EditStatementActivity.class);
