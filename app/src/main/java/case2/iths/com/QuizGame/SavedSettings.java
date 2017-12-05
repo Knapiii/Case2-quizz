@@ -1,30 +1,28 @@
 package case2.iths.com.QuizGame;
 
-
 import android.content.Context;
 import android.media.MediaPlayer;
 
-
-public class SavedSettings{
+public class SavedSettings {
 
     private static boolean soundOn;
 
     /**
-     * Gör så att vi kan sätta på ljudet
+     * Gör så att vi kan sätta på ljudet.
      */
     public void setSoundOn(boolean soundOn) {
         this.soundOn = soundOn;
     }
 
     /**
-     * Kontrollerar om ljudet är på eller inte
+     * Kontrollerar om ljudet är på eller inte.
      */
     public boolean isSoundOn() {
         return soundOn;
     }
 
     /**
-     * Möjliggör ljud till appen
+     * Möjliggör ljud till appen.
      */
     public boolean giveSound(Context context) {
         if (!soundOn) {
@@ -32,7 +30,6 @@ public class SavedSettings{
             mMediaPlayer.start();
         }
         return soundOn;
-
     }
 
 }
