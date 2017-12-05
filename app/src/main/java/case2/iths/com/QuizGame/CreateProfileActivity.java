@@ -14,12 +14,13 @@ public class CreateProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_profile);
-
         insertUsername = findViewById(R.id.text_username);
-
-
     }
 
+    /**
+     * När vi klickar på spara i acitivty_create_profile.xml så ska namnet vi angav
+     * sparas i den lokala databasen.
+     */
     public void onClickSaveButton(View view) {
         Intent intent = new Intent(this, ProfileActivity.class);
         QuizableOpenHelper mDbOpenHelper = new QuizableOpenHelper(this);
@@ -27,7 +28,5 @@ public class CreateProfileActivity extends AppCompatActivity {
         mDbOpenHelper.addUser(input);
         startActivity(intent);
     }
-
-
 
 }
