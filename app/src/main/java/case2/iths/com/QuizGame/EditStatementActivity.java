@@ -53,9 +53,7 @@ public class EditStatementActivity extends AppCompatActivity {
     }
 
     private void editStatement(){
-
         editStatement = findViewById(R.id.editText_edit_statement);
-
     }
 
 
