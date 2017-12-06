@@ -9,14 +9,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
 
-/**
- * 1. Komponera GET-meddelande
- * 2. Skicka meddelandet
- * 3. Ta emot svaret
- * 4. Hämta ut JSON-objektet
- * 5. Hämta IP ur objektet
- */
-
 public class JSONTask extends AsyncTask <Void, Void, String> {
 
     /**
@@ -62,6 +54,10 @@ public class JSONTask extends AsyncTask <Void, Void, String> {
         }
 
     }
+
+    //@Override
+    //protected void onPostExecute(ArrayList<JSONTask> result) {
+    // ArrayAdapter<JSONTask> plantAdapter = new ArrayAdapter<JSONTask>(this,  )
 
     /**
     * Tittar på resultatet
