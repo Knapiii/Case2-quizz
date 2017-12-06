@@ -82,5 +82,6 @@
     <string name="send">Send</string>
     <string name="enter_nr">Enter phone number</string>
     <string name="enter_message">Enter message</string>
+    <string name="expansion">Expansion</string>
 
 </resources>
