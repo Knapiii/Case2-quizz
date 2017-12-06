@@ -1,14 +1,9 @@
-/*
 package case2.iths.com.QuizGame;
 
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -16,18 +11,17 @@ import java.util.Scanner;
 
 public class JSONTask extends AsyncTask <Void, Void, String> {
 
-    // private JSONTask listener;
-
-    */
-/**
-     * Hämta datan
-     *//*
-
+    /**
+     * Hämtar datan
+     * Ansluter till servern
+     */
     @Override
     protected String doInBackground(Void... params) {
 
         try {
-            URL url = new URL(https:knapiii.guthub.io/Case2-quizz);
+            URL url = new URL("https:knapiii.github.io/Case2-quizz/app/src/main/res/Expansion.JSON");
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
             return getStringFromBuffer(connection.getInputStream());
         } catch (Exception e) {
             e.printStackTrace();
@@ -36,11 +30,9 @@ public class JSONTask extends AsyncTask <Void, Void, String> {
 
     }
 
-    */
-/**
-     * Konverterar till sträng
-     *//*
-
+    /**
+     * Konverterar till sträng
+     */
     private String getStringFromBuffer(InputStream inputStream) {
         Scanner sc = new Scanner(inputStream);
         String str = "";
@@ -50,28 +42,33 @@ public class JSONTask extends AsyncTask <Void, Void, String> {
         return str;
     }
 
-    */
-/**
-     * Skicka tillbaka resultatet
-     *//*
-
+    /**
+     * Skickar tillbaka resultatet
+     */
     @Override
     protected void onPostExecute(String s) {
 
+
+
+
+        /**
+         *
         try {
+
             JSONArray array = new JSONArray(s); this.listener.onJSONResult(array);
         } catch (JSONException e) {
             e.printStackTrace();
             this.listener.onJSONResult(null);
         }
+
+         */
+
     }
 
+    /**
+    * Hej
     */
-/**
-     * Titta på resultatet
-     *//*
-
-    @Override
+    //@Override
     public void onJSONResult(JSONArray json) {
         try {
             for(int i = 0; i < json.length(); i++) {
@@ -82,4 +79,4 @@ public class JSONTask extends AsyncTask <Void, Void, String> {
         }
     }
 
-}*/
+}

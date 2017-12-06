@@ -78,4 +78,11 @@
     <string name="p2_get_ready">Spelare 2 var beredd!</string>
     <string name="correct_answers">Rätt svar</string>
     <string name="sms">Skicka ett meddelande</string>
+    <string name="choose_player">Välj spelare</string>
+    <string name="add_profile">Lägg till profil</string>
+    <string name="create_profile">Skapa profil</string>
+    <string name="delete_profile">Ta bort profil</string>
+    <string name="send">Skicka</string>
+    <string name="enter_nr">Mata in telefonnummer</string>
+    <string name="enter_message">Mata in textmeddelande</string>
 </resources>

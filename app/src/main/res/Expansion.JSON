@@ -1,8 +1,47 @@
-// Här ska statements funka
-
-{
-
+[
+  {
   "category": "expansion",
-  "statement": "Hanna is a girl"
-  
-}
+  "statement": "Julafton är i November",
+  "answer": "true"
+  },
+  {
+  "category": "expansion",
+  "statement": "Juldagen är den 24/12",
+  "answer" : "true"
+  },
+  {
+    "category": "expansion",
+    "statement": "Juldagen är den 25/12",
+    "answer" : "false"
+  },
+  {
+    "category": "expansion",
+    "statement": "Julafton är den 24/12",
+    "answer" : "false"
+  },
+  {
+    "category": "expansion",
+    "statement": "Julafton är den 25/12",
+    "answer" : "true"
+  },
+  {
+    "category": "expansion",
+    "statement": "Kalle Anka brukar vara på TV klockan 15.00",
+    "answer" : "false"
+  },
+  {
+    "category": "expansion",
+    "statement": "Kalle Anka brukar inte vara på TV klockan 15.00",
+    "answer" : "true"
+  },
+  {
+    "category": "expansion",
+    "statement": "Kalle Anka brukar vara på TV klockan 16.00",
+    "answer" : "true"
+  },
+  {
+    "category": "expansion",
+    "statement": "Kalle Anka är ursprungligen en filmfigur skapad av Walt Disneys animatörer",
+    "answer" : "false"
+  }
+]
