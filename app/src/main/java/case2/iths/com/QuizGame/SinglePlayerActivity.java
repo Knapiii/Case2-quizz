@@ -140,7 +140,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
     public void trueButtonPressed(View view) {
         savedSettings.giveSound(this);
 
-        if (answerString.equalsIgnoreCase("Sant")) {
+        if (answerString.equalsIgnoreCase("True")) {
             points += seconds;
             correctAnswers++;
         }
@@ -161,7 +161,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
     public void falseButtonPressed(View view) {
         savedSettings.giveSound(this);
 
-        if (answerString.equalsIgnoreCase("Falskt")) {
+        if (answerString.equalsIgnoreCase("False")) {
             points += seconds;
             correctAnswers++;
         }
