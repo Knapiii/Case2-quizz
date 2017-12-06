@@ -1,10 +1,5 @@
 package case2.iths.com.QuizGame;
 
-// TODO: 2017-11-14 Lägg till:
-// TODO: CHOOSE BEETWEEN ALL CATEGORIES
-// TODO: FIX MULTIPLAYER
-// TODO:     - MORE TIME YOU USE
-
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -15,6 +10,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Random;
+
 
 public class SinglePlayerActivity extends AppCompatActivity {
 
@@ -29,6 +25,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
     private QuizableDBHelper quizableDBHelper;
     private CountDownTimer cdTimer;
     private boolean multiplayer;
+
     private int p1Points;
     private int p1CorrectAnswers;
     private boolean p2sTurn;
@@ -74,12 +71,9 @@ public class SinglePlayerActivity extends AppCompatActivity {
         showRandomQuestion();
     }
 
-    /**
-     * Textviews
-     * Get Values
-     * Set values
-     */
+
     public void initialize() {
+        //Textviews
         question = findViewById(R.id.questionField);
         secondsView = findViewById(R.id.display_seconds);
         pointsView = findViewById(R.id.points);
@@ -87,15 +81,15 @@ public class SinglePlayerActivity extends AppCompatActivity {
         statementsLeftView = findViewById(R.id.text_statements_left);
         Bundle args = getIntent().getExtras();
         p2sTurn = args.getBoolean("p2sTurn");
-
+        //Get Values
         if (p2sTurn) {
             p1Points = getIntent().getIntExtra("p1points", 100);
             p1CorrectAnswers = getIntent().getIntExtra("p1correctAnswers", 0);
         }
-
         category = getIntent().getStringExtra("category");
         amountOfStatements = getIntent().getIntExtra("amountOfStatements", 5);
         multiplayer = getIntent().getBooleanExtra("multiplayer", false);
+        //Set values
         headLine.setText(category);
         points = 0;
         correctAnswers = 0;
@@ -140,18 +134,15 @@ public class SinglePlayerActivity extends AppCompatActivity {
      */
     public void trueButtonPressed(View view) {
         savedSettings.giveSound(this);
-
         if (answerString.equalsIgnoreCase("True")) {
             points += seconds;
             correctAnswers++;
         }
-
         if (isRoundOver()) {
             cdTimer.cancel();
             startResultActivity();
             return;
         }
-
         updatePoints();
         showRandomQuestion();
     }
@@ -166,13 +157,11 @@ public class SinglePlayerActivity extends AppCompatActivity {
             points += seconds;
             correctAnswers++;
         }
-
         if (isRoundOver()) {
             cdTimer.cancel();
             startResultActivity();
             return;
         }
-
         updatePoints();
         showRandomQuestion();
     }
@@ -183,8 +172,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
      * TODO: genom att istället anropa CountDownActivity igen och spara första spelarens värden
      */
     public void startResultActivity() {
-
-        if (!p2sTurn && multiplayer) {
+        if (!p2sTurn && multiplayer){
             p2sTurn = true;
             Intent intent = new Intent(this, CountdownSplashActivity.class);
             intent.putExtra("p1points", points);
@@ -195,7 +183,8 @@ public class SinglePlayerActivity extends AppCompatActivity {
             intent.putExtra("p2sTurn", p2sTurn);
             startActivity(intent);
             finish();
-        } else if (p2sTurn && multiplayer) {
+        }
+        else if (p2sTurn && multiplayer) {
             Intent multiIntent = new Intent(this, ResultActivity.class);
             multiIntent.putExtra("p1points", p1Points);
             multiIntent.putExtra("p2points", points);
@@ -206,7 +195,8 @@ public class SinglePlayerActivity extends AppCompatActivity {
             multiIntent.putExtra("multiplayer", multiplayer);
             startActivity(multiIntent);
             finish();
-        } else {
+        }
+        else {
             savedSettings.giveSound(this);
             Intent intent = new Intent(this, ResultActivity.class);
             intent.putExtra("points", points);
@@ -222,11 +212,9 @@ public class SinglePlayerActivity extends AppCompatActivity {
      * Gör så att poängen uppdateras under spelets gång
      */
     public void updatePoints() {
-
         if (points < 0) {
             points = 0;
         }
-
         pointsView.setText("" + points);
         statementsLeftView.setText("" + updateStatementsLeft);
     }
@@ -238,13 +226,12 @@ public class SinglePlayerActivity extends AppCompatActivity {
         return numDoneQuestions == amountOfStatements;
     }
 
+
     /**
      * Gör så att inte samma påstående kan upprepas under en runda
      */
     public boolean isStatementRepeated(int randId) {
-
         for (int i = 0; i < pastStatement.size(); i++) {
-
             if (pastStatement.get(i) == randId)
                 return true;
         }
@@ -252,11 +239,9 @@ public class SinglePlayerActivity extends AppCompatActivity {
     }
 
     public void setStatementsWithCategory(String cat) {
-
         if (cat.equals("Own")) {
             Cursor cursor = quizableDBHelper.getUserMadeStatements();
             boolean success = cursor.moveToFirst();
-
             if (success) {
                 while (cursor.moveToNext()) {
                     questions.add(cursor.getString(2));
@@ -266,7 +251,6 @@ public class SinglePlayerActivity extends AppCompatActivity {
         } else if (cat.equals("All categories")) {
             Cursor cursor = quizableDBHelper.getStatements();
             boolean success = cursor.moveToFirst();
-
             if (success) {
                 while (cursor.moveToNext()) {
                     questions.add(cursor.getString(2));
@@ -276,7 +260,6 @@ public class SinglePlayerActivity extends AppCompatActivity {
         } else {
             Cursor cursor = quizableDBHelper.getStatementsFromCategory(cat);
             boolean success = cursor.moveToFirst();
-
             if (success) {
                 while (cursor.moveToNext()) {
                     questions.add(cursor.getString(2));
@@ -290,6 +273,6 @@ public class SinglePlayerActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         cdTimer.cancel();
-    }
 
+    }
 }

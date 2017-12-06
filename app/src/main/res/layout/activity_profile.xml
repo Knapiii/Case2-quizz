@@ -12,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/button_background_switcher"
+        android:background="@drawable/button_rectangle_switcher"
         android:onClick="onAddButtonClick"
         android:text="@string/add_profile"
         android:textColor="@android:color/background_light"

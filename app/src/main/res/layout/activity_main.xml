@@ -28,8 +28,8 @@
         android:id="@+id/button_play_game"
         android:layout_width="0dp"
         android:layout_height="49dp"
-        android:layout_marginTop="52dp"
-        android:background="@drawable/button_background_switcher"
+        android:layout_marginTop="96dp"
+        android:background="@drawable/button_rectangle_switcher"
         android:elevation="0dp"
         android:onClick="toTheGame"
         android:text="@string/play"
@@ -42,13 +42,29 @@
         app:layout_constraintTop_toBottomOf="@+id/top_text" />
 
     <Button
-        android:id="@+id/button_settings"
+        android:id="@+id/button_highscores"
         android:layout_width="0dp"
         android:layout_height="44dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/button_background_switcher"
-        android:onClick="toTheSettings"
-        android:text="@string/settings"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_rectangle_switcher"
+        android:onClick="toTheHighscores"
+        android:text="@string/highscore"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_play_game" />
+
+    <Button
+        android:id="@+id/button_about"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_rectangle_switcher"
+        android:onClick="toTheAbout"
+        android:text="@string/about"
         android:textColor="@android:color/background_light"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -57,35 +73,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_highscores" />
 
-    <Button
-        android:id="@+id/button_highscores"
-        android:layout_width="0dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/button_background_switcher"
-        android:onClick="toTheHighscores"
-        android:text="@string/highscore"
-        android:textColor="@android:color/background_light"
-        android:textSize="24sp"
-        android:textStyle="bold"
+    <ImageButton
+        android:id="@+id/imagebutton_mute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/button_shape_switcher"
+        android:contentDescription="@string/sound_on_off_button"
+        android:onClick="toggleSoundOnClick"
+        app:layout_constraintBottom_toTopOf="@+id/developed_by_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_play_game" />
+        app:srcCompat="@drawable/sound_switcher" />
 
-    <Button
-        android:id="@+id/button_about"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/button_background_switcher"
-        android:onClick="toTheAbout"
-        android:text="@string/about"
+    <ImageButton
+        android:id="@+id/button_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/button_shape_switcher"
+        android:onClick="toTheProfile"
+        android:text="@string/profile"
         android:textColor="@android:color/background_light"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_settings" />
+        app:layout_constraintBottom_toTopOf="@+id/developed_by_text"
+        app:layout_constraintEnd_toStartOf="@+id/imagebutton_mute"
+        app:srcCompat="@drawable/profile" />
 
     <TextView
         android:id="@+id/developed_by_text"

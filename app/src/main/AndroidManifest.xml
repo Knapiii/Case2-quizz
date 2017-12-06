@@ -40,9 +40,6 @@
             android:name=".CategoryWindowActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SettingsActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".AboutActivity"
             android:screenOrientation="portrait" />
         <activity

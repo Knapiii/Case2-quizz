@@ -86,11 +86,11 @@ public class CreateStatementActivity extends AppCompatActivity {
     private void changeButtonColor() {
 
         if (buttonTrueClicked){
-            buttonTrue.setBackgroundResource(R.drawable.pressed_button_shape);
+            buttonTrue.setBackgroundResource(R.drawable.button_shape_pressed);
             buttonFalse.setBackgroundResource(R.drawable.button_shape);
         } else{
             buttonTrue.setBackgroundResource(R.drawable.button_shape);
-            buttonFalse.setBackgroundResource(R.drawable.pressed_button_shape);
+            buttonFalse.setBackgroundResource(R.drawable.button_shape_pressed);
         }
     }
 

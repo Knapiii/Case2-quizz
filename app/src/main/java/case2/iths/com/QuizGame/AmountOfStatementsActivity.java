@@ -98,28 +98,28 @@ public class AmountOfStatementsActivity extends AppCompatActivity {
     private void changeButtonColor(int rounds) {
         switch (rounds) {
             case 5:
-                button5Statements.setBackgroundResource(R.drawable.pressed_button_rectangle);
+                button5Statements.setBackgroundResource(R.drawable.button_rectangle_pressed);
                 button10Statements.setBackgroundResource(R.drawable.button_rectangle);
                 button15Statements.setBackgroundResource(R.drawable.button_rectangle);
                 button20Statements.setBackgroundResource(R.drawable.button_rectangle);
                 break;
             case 10:
                 button5Statements.setBackgroundResource(R.drawable.button_rectangle);
-                button10Statements.setBackgroundResource(R.drawable.pressed_button_rectangle);
+                button10Statements.setBackgroundResource(R.drawable.button_rectangle_pressed);
                 button15Statements.setBackgroundResource(R.drawable.button_rectangle);
                 button20Statements.setBackgroundResource(R.drawable.button_rectangle);
                 break;
             case 15:
                 button5Statements.setBackgroundResource(R.drawable.button_rectangle);
                 button10Statements.setBackgroundResource(R.drawable.button_rectangle);
-                button15Statements.setBackgroundResource(R.drawable.pressed_button_rectangle);
+                button15Statements.setBackgroundResource(R.drawable.button_rectangle_pressed);
                 button20Statements.setBackgroundResource(R.drawable.button_rectangle);
                 break;
             case 20:
                 button5Statements.setBackgroundResource(R.drawable.button_rectangle);
                 button10Statements.setBackgroundResource(R.drawable.button_rectangle);
                 button15Statements.setBackgroundResource(R.drawable.button_rectangle);
-                button20Statements.setBackgroundResource(R.drawable.pressed_button_rectangle);
+                button20Statements.setBackgroundResource(R.drawable.button_rectangle_pressed);
                 break;
         }
     }
