@@ -38,7 +38,7 @@ public class DatabaseDataWorker {
     }
 
     public void insertDefaultPlayers() {
-        insertPlayer("Player");
+        insertPlayer("Player 1");
         insertPlayer("Player 2");
     }
 

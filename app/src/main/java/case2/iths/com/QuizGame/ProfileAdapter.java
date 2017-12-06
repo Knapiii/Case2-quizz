@@ -87,18 +87,10 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
                     if(getItemCount() > 2)
                         deleteStatement(id, position);
                     else
-                        Toast.makeText(mContext, "Error", Toast.LENGTH_LONG).show();
-                    break;
-                case R.id.card_user:
-                    Toast.makeText(mContext, "CardView", Toast.LENGTH_LONG).show();
+                        Toast.makeText(mContext, "At least 2 profiles required", Toast.LENGTH_LONG).show();
                     break;
 
             }
-
-            /*int position = getAdapterPosition();
-            mCursor.moveToPosition(position);
-            String id = mCursor.getString(mCursor.getColumnIndex(UserInfoEntry._ID));
-            deleteStatement(id, position);*/
         }
     }
 

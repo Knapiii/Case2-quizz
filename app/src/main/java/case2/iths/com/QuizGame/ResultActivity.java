@@ -11,12 +11,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class ResultActivity extends AppCompatActivity {
 
     private SavedSettings savedSettings;
-    private TextView amountOfPoints, playedCategory, textViewAmountOfStatements, textViewCorrectAnswers;
+    private TextView amountOfPoints, textViewAmountOfStatements, textViewCorrectAnswers;
     private String category;
     private int points, amountOfStatements, correctAnswers;
     private TextView playerName;
@@ -25,8 +24,6 @@ public class ResultActivity extends AppCompatActivity {
     //multiplayer variables
     private boolean p2sTurn, multiplayer;
     private int p1Points, p1CorrectAnswers, p2Points, p2CorrectAnswers;
-    // spinnerPosition saves the chosen category. We use spinnerPosition to give a default value to our spinner in the HighScore Activity
-    private int spinnerPosition;
     private String player1, player2;
     private boolean isProfileChosen;
 
@@ -73,7 +70,7 @@ public class ResultActivity extends AppCompatActivity {
             p2sTurn = intent.getBooleanExtra("p2sTurn", false);
         } else {
             Intent intent = getIntent();
-            category = intent.getStringExtra("category");
+            category = intent.getStringExtra("category").toLowerCase();
             points = intent.getIntExtra("points", 0);
             amountOfStatements = intent.getIntExtra("amountOfStatements", 5);
             correctAnswers = getIntent().getIntExtra("correctAnswers", 0);
@@ -95,13 +92,8 @@ public class ResultActivity extends AppCompatActivity {
 
         textViewAmountOfStatements.setText((Integer.toString(amountOfStatements)));
 
- //       playedCategory.setText(category);
-//        category = category.toLowerCase();
 
-//        if (category.equals("own"))
-//            category = "own_statements";
-
-        isProfileChosen = sp.getBoolean("profileChoosed", false);
+        isProfileChosen = sp.getBoolean("isProfileChosen", false);
 
         if (isProfileChosen) {
             name = player1;
@@ -142,10 +134,6 @@ public class ResultActivity extends AppCompatActivity {
      */
     public void onSaveButtonClick(View view) {
 
-        if (name.isEmpty()) {
-            Toast.makeText(this, "Please insert your name", Toast.LENGTH_LONG).show();
-        } else {
-
             if (multiplayer && !p2sTurn) {
                 Intent toNextResult = new Intent(this, ResultActivity.class);
                 toNextResult.putExtra("multiplayer", multiplayer);
@@ -158,7 +146,6 @@ public class ResultActivity extends AppCompatActivity {
                 startActivity(toNextResult);
             } else if (multiplayer && p2sTurn) {
                 Intent toHighscore = new Intent(this, HighScoreActivity.class);
-                toHighscore.putExtra("spinnerPosition", spinnerPosition);
                 toHighscore.putExtra("amountOfStatements", amountOfStatements);
                 quizableOpenHelper = new QuizableOpenHelper(this);
                 quizableOpenHelper.insertHighscore(category, p2Points, amountOfStatements, name2);
@@ -167,15 +154,12 @@ public class ResultActivity extends AppCompatActivity {
                 savedSettings.giveSound(this);
                 showPlayerName(player1);
                 Intent toHighscores = new Intent(this, HighScoreActivity.class);
-                toHighscores.putExtra("spinnerPosition", spinnerPosition);
                 toHighscores.putExtra("amountOfStatements", amountOfStatements);
                 quizableOpenHelper = new QuizableOpenHelper(this);
                 quizableOpenHelper.insertHighscore(category, points, amountOfStatements, name);
                 startActivity(toHighscores);
             }
         }
-
-    }
 
     private void showPlayerName(String name) {
         playerName.setText(name);

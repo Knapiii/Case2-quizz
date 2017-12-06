@@ -28,7 +28,7 @@ public class HighScoreActivity extends AppCompatActivity {
     private String categoryTitle;
     private HighscoresAdapter highscoresAdapter;
     private Cursor highScoresByCategory;
-    private int categoryPosition, amountOfStatements;
+    private int amountOfStatements;
     private Cursor allHighscores;
     private Cursor allCategories;
 
@@ -38,8 +38,7 @@ public class HighScoreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_highscore);
         mDbOpenHelper = new QuizableOpenHelper(this);
         Intent intent = getIntent();
-        categoryPosition = intent.getIntExtra("spinnerPosition", 0);
-        amountOfStatements = intent.getIntExtra("amountOfStatements", 0);
+   //     int amountOfStatements = intent.getIntExtra("amountOfStatements", 0);
         displayCategoriesSpinner();
     }
 
@@ -59,10 +58,9 @@ public class HighScoreActivity extends AppCompatActivity {
         CategoriesCursorAdapter categoriesCursorAdapter = new CategoriesCursorAdapter(this, allCategories);
         mSpinnerCategories.setAdapter(categoriesCursorAdapter);
 
-
         setSpinnerSelection();
 
-        if(categoryPosition > -1)
+        if(setSpinnerSelection() > -1)
             mSpinnerCategories.setSelection(setSpinnerSelection());
 
         mSpinnerCategories.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

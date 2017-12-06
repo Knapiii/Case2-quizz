@@ -125,14 +125,14 @@ public class CategoryWindowActivity extends AppCompatActivity {
                     ownIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(ownIntent);
                 break;
-            /*case R.id.button_expansion:
+            case R.id.button_expansion:
                 savedSettings.giveSound(this);
                 Intent expansionIntent = new Intent(this, AmountOfStatementsActivity.class);
                 expansionIntent.putExtra("category", getResources().getString(R.string.expansion));
                 if (isMultiplayer)
                     expansionIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(expansionIntent);
-                break;*/
+                break;
         }
     }
 
@@ -183,7 +183,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
     }
 
     private void displayProfileSpinner2() {
-        player2Spinner = findViewById(R.id.spinner_player2);
+        player2Spinner = findViewById(R.id.spinner_player_2);
         player2Spinner.setAdapter(profilesCursorAdapter);
         player2Spinner.setSelection(1);
 
@@ -198,7 +198,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("player2", player2);
-                editor.putBoolean("profileChoosed", isProfileChosen);
+                editor.putBoolean("isProfileChosen", isProfileChosen);
                 editor.commit();
 
             }
@@ -211,17 +211,6 @@ public class CategoryWindowActivity extends AppCompatActivity {
 
 
     }
-/*
-    private void saveUserProfile() {
-
-        SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("player1", player1);
-        editor.putString("player2", player2);
-        editor.commit();
-
-
-    }*/
 
     private void startSingleGame(Intent intent){
         saveSpinnerSelectionPosition();
