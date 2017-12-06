@@ -1,3 +1,4 @@
+/*
 package case2.iths.com.QuizGame;
 
 import android.os.AsyncTask;
@@ -17,9 +18,11 @@ public class JSONTask extends AsyncTask <Void, Void, String> {
 
     // private JSONTask listener;
 
-    /**
+    */
+/**
      * Hämta datan
-     */
+     *//*
+
     @Override
     protected String doInBackground(Void... params) {
 
@@ -33,9 +36,11 @@ public class JSONTask extends AsyncTask <Void, Void, String> {
 
     }
 
-    /**
+    */
+/**
      * Konverterar till sträng
-     */
+     *//*
+
     private String getStringFromBuffer(InputStream inputStream) {
         Scanner sc = new Scanner(inputStream);
         String str = "";
@@ -45,9 +50,11 @@ public class JSONTask extends AsyncTask <Void, Void, String> {
         return str;
     }
 
-    /**
+    */
+/**
      * Skicka tillbaka resultatet
-     */
+     *//*
+
     @Override
     protected void onPostExecute(String s) {
 
@@ -59,9 +66,11 @@ public class JSONTask extends AsyncTask <Void, Void, String> {
         }
     }
 
-    /**
+    */
+/**
      * Titta på resultatet
-     */
+     *//*
+
     @Override
     public void onJSONResult(JSONArray json) {
         try {
@@ -72,5 +81,4 @@ public class JSONTask extends AsyncTask <Void, Void, String> {
             e.printStackTrace();
         }
     }
-
-}
+}*/
