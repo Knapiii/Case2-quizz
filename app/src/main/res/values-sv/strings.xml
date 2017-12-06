@@ -77,4 +77,5 @@
     <string name="p1_get_ready">Spelare 1 var beredd!</string>
     <string name="p2_get_ready">Spelare 2 var beredd!</string>
     <string name="correct_answers">Rätt svar</string>
+    <string name="sms">Skicka ett meddelande</string>
 </resources>

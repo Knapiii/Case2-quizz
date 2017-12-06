@@ -79,7 +79,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".CreateProfileActivity"
-            android:noHistory="true"></activity>
+            android:noHistory="true" />
+        <activity android:name=".SmsActivity"></activity>
     </application>
 
 </manifest>

@@ -79,4 +79,5 @@
     <string name="delete_profile">Delete profile</string>
     <string name="create_profile">Create profile</string>
     <string name="add_profile">Add profile</string>
+    <string name="sms">Send a messge</string>
 </resources>
