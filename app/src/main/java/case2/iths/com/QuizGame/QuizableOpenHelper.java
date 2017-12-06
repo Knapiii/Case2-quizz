@@ -35,6 +35,7 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
         db.execSQL(UserInfoEntry.SQL_CREATE_TABLE);
         DatabaseDataWorker databaseDataWorker = new DatabaseDataWorker(db);
         databaseDataWorker.insertCategories();
+        databaseDataWorker.insertDefaultPlayers();
     }
 
     /**

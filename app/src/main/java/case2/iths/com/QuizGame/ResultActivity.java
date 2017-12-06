@@ -57,14 +57,14 @@ public class ResultActivity extends AppCompatActivity {
 
         textViewCorrectAnswers = findViewById(R.id.amount_of_correct_answers);
         amountOfPoints = findViewById(R.id.amount_of_points);
-        playedCategory = findViewById(R.id.played_category);
+        playerName = findViewById(R.id.played_category);
         textViewAmountOfStatements = findViewById(R.id.save_amount_of_statements_result);
-        playerName = findViewById(R.id.player_name);
+        //playerName = findViewById(R.id.player_name);
 
         if (getIntent().getBooleanExtra("multiplayer", false)) {
             Intent intent = getIntent();
             multiplayer = intent.getBooleanExtra("multiplayer", false);
-            category = intent.getStringExtra("category");
+            category = intent.getStringExtra("category").toLowerCase();
             amountOfStatements = intent.getIntExtra("amountOfStatements", 5);
             p1Points = intent.getIntExtra("p1points", 0);
             p1CorrectAnswers = intent.getIntExtra("p1correctAnswers", 0);
@@ -95,11 +95,11 @@ public class ResultActivity extends AppCompatActivity {
 
         textViewAmountOfStatements.setText((Integer.toString(amountOfStatements)));
 
-        playedCategory.setText(category);
-        category = category.toLowerCase();
+ //       playedCategory.setText(category);
+//        category = category.toLowerCase();
 
-        if (category.equals("own"))
-            category = "own_statements";
+//        if (category.equals("own"))
+//            category = "own_statements";
 
         isProfileChosen = sp.getBoolean("profileChoosed", false);
 

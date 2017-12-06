@@ -125,14 +125,14 @@ public class CategoryWindowActivity extends AppCompatActivity {
                     ownIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(ownIntent);
                 break;
-            case R.id.button_expansion:
+            /*case R.id.button_expansion:
                 savedSettings.giveSound(this);
                 Intent expansionIntent = new Intent(this, AmountOfStatementsActivity.class);
                 expansionIntent.putExtra("category", getResources().getString(R.string.expansion));
                 if (isMultiplayer)
                     expansionIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(expansionIntent);
-                break;
+                break;*/
         }
     }
 
@@ -155,7 +155,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
 
         //Cursor spesificProfile = mDbOpenHelper.getChooseProfile();
 
-        player1Spinner.setSelection(6);
+        player1Spinner.setSelection(0);
 
         player1Spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
@@ -185,7 +185,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
     private void displayProfileSpinner2() {
         player2Spinner = findViewById(R.id.spinner_player2);
         player2Spinner.setAdapter(profilesCursorAdapter);
-        player2Spinner.setSelection(6);
+        player2Spinner.setSelection(1);
 
         player2Spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
