@@ -9,6 +9,7 @@ import android.widget.EditText;
 public class CreateProfileActivity extends AppCompatActivity {
 
     private EditText insertUsername;
+    private String input;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +25,12 @@ public class CreateProfileActivity extends AppCompatActivity {
     public void onClickSaveButton(View view) {
         Intent intent = new Intent(this, ProfileActivity.class);
         QuizableOpenHelper mDbOpenHelper = new QuizableOpenHelper(this);
-        String input = insertUsername.getText().toString();
-        mDbOpenHelper.addUser(input);
-        startActivity(intent);
+        input = insertUsername.getText().toString();
+        if (!input.isEmpty()) {
+            mDbOpenHelper.addUser(input);
+            startActivity(intent);
+        }
+
     }
 
 }

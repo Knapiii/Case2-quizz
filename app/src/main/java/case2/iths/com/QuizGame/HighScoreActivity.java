@@ -6,6 +6,7 @@ package case2.iths.com.QuizGame;
 // TODO: RANKING
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -58,8 +59,11 @@ public class HighScoreActivity extends AppCompatActivity {
         CategoriesCursorAdapter categoriesCursorAdapter = new CategoriesCursorAdapter(this, allCategories);
         mSpinnerCategories.setAdapter(categoriesCursorAdapter);
 
+
+        setSpinnerSelection();
+
         if(categoryPosition > -1)
-            mSpinnerCategories.setSelection(categoryPosition);
+            mSpinnerCategories.setSelection(setSpinnerSelection());
 
         mSpinnerCategories.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
@@ -83,6 +87,14 @@ public class HighScoreActivity extends AppCompatActivity {
         });
     }
 
+    private int setSpinnerSelection() {
+        SharedPreferences sp = getSharedPreferences("user_prefs", 0);
+        int spinnerSelection = sp.getInt("spinnerSelection", 0);
+
+        return spinnerSelection;
+
+    }
+
     private void showHighscores(Cursor cursor) {
         recyclerView = findViewById(R.id.highscores_list);
         highscoresLayoutManager = new LinearLayoutManager(this);
@@ -96,5 +108,7 @@ public class HighScoreActivity extends AppCompatActivity {
         mDbOpenHelper.close();
         super.onDestroy();
     }
+
+
 
 }

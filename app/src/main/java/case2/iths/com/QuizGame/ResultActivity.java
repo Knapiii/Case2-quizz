@@ -10,7 +10,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,15 +19,15 @@ public class ResultActivity extends AppCompatActivity {
     private TextView amountOfPoints, playedCategory, textViewAmountOfStatements, textViewCorrectAnswers;
     private String category;
     private int points, amountOfStatements, correctAnswers;
-    private EditText insertName;
-    private String name;
+    private TextView playerName;
+    private String name, name2;
     private QuizableOpenHelper quizableOpenHelper;
     //multiplayer variables
     private boolean p2sTurn, multiplayer;
     private int p1Points, p1CorrectAnswers, p2Points, p2CorrectAnswers;
     // spinnerPosition saves the chosen category. We use spinnerPosition to give a default value to our spinner in the HighScore Activity
     private int spinnerPosition;
-    private String userName;
+    private String player1, player2;
     private boolean isProfileChosen;
 
     @Override
@@ -51,11 +50,16 @@ public class ResultActivity extends AppCompatActivity {
      * Second if-else is for set Textviews
      */
     public void initialize() {
+
+        SharedPreferences sp = getSharedPreferences("user_prefs", 0);
+        player1 = sp.getString("player1", "");
+        player2 = sp.getString("player2", "");
+
         textViewCorrectAnswers = findViewById(R.id.amount_of_correct_answers);
         amountOfPoints = findViewById(R.id.amount_of_points);
         playedCategory = findViewById(R.id.played_category);
         textViewAmountOfStatements = findViewById(R.id.save_amount_of_statements_result);
-        insertName = findViewById(R.id.editText_save_highscore_name);
+        playerName = findViewById(R.id.player_name);
 
         if (getIntent().getBooleanExtra("multiplayer", false)) {
             Intent intent = getIntent();
@@ -78,63 +82,35 @@ public class ResultActivity extends AppCompatActivity {
         if (multiplayer && !p2sTurn) {
             textViewCorrectAnswers.setText(Integer.toString(p1CorrectAnswers));
             amountOfPoints.setText((Integer.toString(p1Points)));
+            showPlayerName(player1);
         } else if (multiplayer && p2sTurn) {
             textViewCorrectAnswers.setText(Integer.toString(p2CorrectAnswers));
             amountOfPoints.setText((Integer.toString(p2Points)));
+            showPlayerName(player2);
         } else {
             textViewCorrectAnswers.setText(Integer.toString(correctAnswers));
             amountOfPoints.setText((Integer.toString(points)));
+            showPlayerName(player1);
         }
 
         textViewAmountOfStatements.setText((Integer.toString(amountOfStatements)));
-        spinnerPosition(category);
+
         playedCategory.setText(category);
         category = category.toLowerCase();
 
         if (category.equals("own"))
             category = "own_statements";
-        SharedPreferences sp = getSharedPreferences("user_prefs", 0);
-        userName = sp.getString("userName", "");
+
         isProfileChosen = sp.getBoolean("profileChoosed", false);
 
         if (isProfileChosen) {
-            name = userName;
-            insertName.setVisibility(View.GONE);
-        } else
-            name = insertName.getText().toString();
-    }
-
-    private int spinnerPosition(String category) {
-
-        switch (category) {
-            case "Food":
-                spinnerPosition = 1;
-                break;
-            case "Games":
-                spinnerPosition = 2;
-                break;
-            case "Geography":
-                spinnerPosition = 3;
-                break;
-            case "Science":
-                spinnerPosition = 4;
-                break;
-            case "Sport":
-                spinnerPosition = 5;
-                break;
-            case "Music":
-                spinnerPosition = 6;
-                break;
-            case "Own":
-                spinnerPosition = 7;
-                break;
-            default:
-                spinnerPosition = 0;
-                break;
+            name = player1;
+            name2 = player2;
         }
 
-        return spinnerPosition;
+
     }
+
 
     /**
      * Låter spelaren spela en gång till
@@ -166,12 +142,6 @@ public class ResultActivity extends AppCompatActivity {
      */
     public void onSaveButtonClick(View view) {
 
-        if (isProfileChosen) {
-            name = userName;
-            insertName.setVisibility(View.GONE);
-        } else
-            name = insertName.getText().toString();
-
         if (name.isEmpty()) {
             Toast.makeText(this, "Please insert your name", Toast.LENGTH_LONG).show();
         } else {
@@ -191,10 +161,11 @@ public class ResultActivity extends AppCompatActivity {
                 toHighscore.putExtra("spinnerPosition", spinnerPosition);
                 toHighscore.putExtra("amountOfStatements", amountOfStatements);
                 quizableOpenHelper = new QuizableOpenHelper(this);
-                quizableOpenHelper.insertHighscore(category, p2Points, amountOfStatements, name);
+                quizableOpenHelper.insertHighscore(category, p2Points, amountOfStatements, name2);
                 startActivity(toHighscore);
             } else {
                 savedSettings.giveSound(this);
+                showPlayerName(player1);
                 Intent toHighscores = new Intent(this, HighScoreActivity.class);
                 toHighscores.putExtra("spinnerPosition", spinnerPosition);
                 toHighscores.putExtra("amountOfStatements", amountOfStatements);
@@ -203,6 +174,11 @@ public class ResultActivity extends AppCompatActivity {
                 startActivity(toHighscores);
             }
         }
+
+    }
+
+    private void showPlayerName(String name) {
+        playerName.setText(name);
     }
 
 }

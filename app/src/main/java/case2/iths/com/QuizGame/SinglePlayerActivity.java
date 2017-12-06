@@ -7,11 +7,12 @@ package case2.iths.com.QuizGame;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -140,7 +141,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
     public void trueButtonPressed(View view) {
         savedSettings.giveSound(this);
 
-        if (answerString.equalsIgnoreCase("Sant")) {
+        if (answerString.equalsIgnoreCase("True")) {
             points += seconds;
             correctAnswers++;
         }
@@ -161,7 +162,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
     public void falseButtonPressed(View view) {
         savedSettings.giveSound(this);
 
-        if (answerString.equalsIgnoreCase("Falskt")) {
+        if (answerString.equalsIgnoreCase("False")) {
             points += seconds;
             correctAnswers++;
         }

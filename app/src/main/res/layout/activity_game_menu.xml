@@ -7,6 +7,17 @@
     android:background="@drawable/main_background"
     tools:context="case2.iths.com.QuizGame.GameMenuActivity">
 
+    <Spinner
+        android:id="@+id/spinner_profiles2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@null"
+        android:spinnerMode="dialog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_profiles" />
+
     <Button
         android:id="@+id/button_manage_statements"
         android:onClick="toManagestatements"

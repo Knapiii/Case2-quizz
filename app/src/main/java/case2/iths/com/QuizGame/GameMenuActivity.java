@@ -27,7 +27,7 @@ public class GameMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game_menu);
         savedSettings = new SavedSettings();
         mDbOpenHelper = new QuizableOpenHelper(this);
-        displayProfilesSpinner();
+     //   displayProfilesSpinner();
     }
 
     private void displayProfilesSpinner() {

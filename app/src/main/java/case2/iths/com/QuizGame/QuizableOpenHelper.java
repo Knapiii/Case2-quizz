@@ -137,7 +137,10 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
                 CategoriesInfoEntry.COLUMN_CATEGORY_ID
         };
 
+
+
         Cursor cursor = db.query(CategoriesInfoEntry.TABLE_NAME, categoryColumns,selection, selectionArgs, null, null, null);
+
         return cursor;
     }
 
@@ -167,9 +170,26 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
                 null,
                 null,
                 null,
-                UserInfoEntry.COLUMN_USERNAME);
+                null);
 
         return cursor;
+    }
+
+    public Cursor getChooseProfile() {
+        SQLiteDatabase db = getReadableDatabase();
+        String selection = UserInfoEntry.COLUMN_USERNAME;
+        String[] selectionArgs = {"Choose profile"};
+
+        String[] userColumns = {
+                UserInfoEntry.COLUMN_USERNAME,
+                UserInfoEntry._ID
+        };
+
+        Cursor cursor = db.query(UserInfoEntry.TABLE_NAME, userColumns, selection, selectionArgs, null, null, null);
+        cursor.moveToNext();
+
+        return cursor;
+
     }
 
 }

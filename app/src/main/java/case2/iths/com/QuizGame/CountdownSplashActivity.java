@@ -1,6 +1,7 @@
 package case2.iths.com.QuizGame;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
@@ -17,11 +18,15 @@ public class CountdownSplashActivity extends AppCompatActivity {
     private int p1Points;
     private int correctAnswers;
     private boolean p2sTurn;
+    private String player1, player2;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_countdown_splash);
+        initializePlayers();
         initialize();
 
         cdTimer = new CountDownTimer(4000, 100) {
@@ -49,6 +54,14 @@ public class CountdownSplashActivity extends AppCompatActivity {
                 toSinglePlayer();
             }
         }.start();
+    }
+
+    private void initializePlayers() {
+
+        SharedPreferences sp = getSharedPreferences("user_prefs", 0);
+        player1 = sp.getString("player1", "");
+        player2 = sp.getString("player2", "");
+
     }
 
     /**
@@ -81,11 +94,11 @@ public class CountdownSplashActivity extends AppCompatActivity {
 
     private void decideGetReadyText() {
         if (p2sTurn && multiplayer)
-            getReady.setText(R.string.p2_get_ready);
+            getReady.setText(player2 + "\n get ready!");
         else if (!p2sTurn && multiplayer)
-            getReady.setText(R.string.p1_get_ready);
+            getReady.setText(player1 + "\n get ready!");
         else
-            getReady.setText(R.string.get_ready);
+            getReady.setText(player1 + "\n get ready");
     }
 
     /**
