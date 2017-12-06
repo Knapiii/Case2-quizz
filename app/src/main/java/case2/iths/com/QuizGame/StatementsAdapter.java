@@ -24,7 +24,11 @@ public class StatementsAdapter extends RecyclerView.Adapter<StatementsAdapter.Vi
     private int categoryPos;
     private QuizableDBHelper quizableDBHelper;
 
-
+    /**
+     *
+     * @param context
+     * @param cursor
+     */
     public StatementsAdapter(Context context, Cursor cursor) {
         mContext = context;
         mCursor = cursor;
@@ -34,6 +38,7 @@ public class StatementsAdapter extends RecyclerView.Adapter<StatementsAdapter.Vi
     }
 
     private void populateColumnPositions() {
+
         if(mCursor == null)
             return;
 
@@ -41,77 +46,84 @@ public class StatementsAdapter extends RecyclerView.Adapter<StatementsAdapter.Vi
         categoryPos = mCursor.getColumnIndex(QuizableDBHelper.CATEGORY);
     }
 
-
+    /**
+     *
+     * @param parent
+     * @param viewType
+     * @return
+     */
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = mLayoutInflater.inflate(R.layout.item_statement_list, parent, false);
         return new ViewHolder(itemView);
     }
 
+    /**
+     *
+     * @param holder
+     * @param position
+     */
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-
         mCursor.moveToPosition(position);
         String statement = mCursor.getString(statementPos);
         String category = mCursor.getString(categoryPos);
-
-
         holder.textStatement.setText(statement);
         holder.textCategory.setText(category);
-
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int getItemCount() {
         return mCursor == null ? 0 : mCursor.getCount();
     }
 
+    /**
+     *
+     */
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-
 
         private final TextView textStatement;
         private final TextView textCategory;
         private final ImageButton deleteButton;
 
-
+        /**
+         *
+         * @param itemView
+         */
         public ViewHolder(View itemView) {
             super(itemView);
             textStatement = itemView.findViewById(R.id.text_statement);
             textCategory = itemView.findViewById(R.id.text_category);
             deleteButton = itemView.findViewById(R.id.deleteButton);
             deleteButton.setOnClickListener(this);
-
-
         }
 
+        /**
+         *
+         * @param view
+         */
         @Override
         public void onClick(View view) {
-
             int position = getAdapterPosition();
-
             mCursor.moveToPosition(position);
-
             String id = mCursor.getString(mCursor.getColumnIndex(QuizableDBHelper.KEY_ID));
-
             Toast.makeText(mContext, "Deleted ", Toast.LENGTH_LONG).show();
-
             deleteStatement(id, position);
         }
     }
 
     private void deleteStatement(String id, int position) {
-
         quizableDBHelper = new QuizableDBHelper(mContext);
         SQLiteDatabase db = quizableDBHelper.getWritableDatabase();
-
         String[] selectionArgs = {id};
         db.delete(QuizableDBHelper.TABLE, QuizableDBHelper.KEY_ID+"=?", selectionArgs);
-
         mCursor = quizableDBHelper.getUserMadeStatements();
-
         notifyItemRemoved(position);
         notifyItemRangeChanged(position, getItemCount());
-
     }
 
 }

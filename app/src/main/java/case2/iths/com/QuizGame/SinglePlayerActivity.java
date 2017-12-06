@@ -290,5 +290,5 @@ public class SinglePlayerActivity extends AppCompatActivity {
         super.onBackPressed();
         cdTimer.cancel();
     }
-    
+
 }

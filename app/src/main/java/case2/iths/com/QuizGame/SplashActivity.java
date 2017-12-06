@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 public class SplashActivity extends AppCompatActivity {
 
     /**
-     * Set splash for 2 seconds
+     * Set splash for 2 seconds.
      */
     private static int SPLASH_TIME_OUT = 2000;
 
@@ -34,4 +34,5 @@ public class SplashActivity extends AppCompatActivity {
 
         } ,SPLASH_TIME_OUT);
     }
+
 }
