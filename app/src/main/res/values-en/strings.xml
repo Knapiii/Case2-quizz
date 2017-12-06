@@ -80,4 +80,8 @@
     <string name="create_profile">Create profile</string>
     <string name="add_profile">Add profile</string>
     <string name="sms">Send a messge</string>
+    <string name="expansion">Expansion</string>
+    <string name="enter_message">Enter message</string>
+    <string name="enter_nr">Enter phone number</string>
+    <string name="send">Send</string>
 </resources>
