@@ -125,5 +125,5 @@ public class StatementsAdapter extends RecyclerView.Adapter<StatementsAdapter.Vi
         notifyItemRemoved(position);
         notifyItemRangeChanged(position, getItemCount());
     }
-
+    
 }
