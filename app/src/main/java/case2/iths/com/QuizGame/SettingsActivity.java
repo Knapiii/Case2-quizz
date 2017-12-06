@@ -13,6 +13,10 @@ public class SettingsActivity extends AppCompatActivity {
     private SavedSettings savedSettings;
     private ImageButton imageButton;
 
+    /**
+     * När appen startas ska de senaste ändringarna vara sparade
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,21 +26,28 @@ public class SettingsActivity extends AppCompatActivity {
         storeSettings();
     }
 
+    /**
+     * Tar oss till ProfileActivity
+     */
     public void toTheProfile(View view) {
         savedSettings.giveSound(this);
         Intent toProfile = new Intent(this, ProfileActivity.class);
         startActivity(toProfile);
     }
 
+    /**
+     * Olika bilder beroende om ljuder är på eller inte
+     */
     public void toggleSoundOnClick(View view) {
+
         if (savedSettings.isSoundOn()) {
             imageButton.setImageResource(R.drawable.muted_sound);
             savedSettings.setSoundOn(false);
-
         } else {
             imageButton.setImageResource(R.drawable.unmuted_sound);
             savedSettings.setSoundOn(true);
         }
+
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         SharedPreferences.Editor editor = settings.edit();
         editor.putBoolean("silentMode", savedSettings.isSoundOn());
@@ -61,12 +72,8 @@ public class SettingsActivity extends AppCompatActivity {
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         SharedPreferences.Editor editor = settings.edit();
         editor.putBoolean("silentMode", savedSettings.isSoundOn());
-
         editor.apply();
     }
 
-    public void buttonPressed(){
-
-    }
 }
 
