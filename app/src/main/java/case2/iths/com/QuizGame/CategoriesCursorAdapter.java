@@ -32,7 +32,7 @@ public class CategoriesCursorAdapter extends CursorAdapter {
      */
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
-        TextView textView = view.findViewById(R.id.textView);
+        TextView textView = view.findViewById(R.id.text_all_categories);
         String category = cursor.getString(cursor.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE));
         textView.setText(category);
     }

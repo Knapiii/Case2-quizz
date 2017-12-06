@@ -28,7 +28,7 @@ public class QuizableDBHelper extends SQLiteAssetHelper {
     }
 
     /**
-     * Returns all statements from Quizable.db
+     * Returns all statements from QuizableDB.db
      */
     public Cursor getStatements() {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -48,9 +48,9 @@ public class QuizableDBHelper extends SQLiteAssetHelper {
     }
 
     /**
-     * Returns all questions from specified category
+     * Returns all statements from specified category
      */
-    public Cursor getQuestionsFromCategory(String category) {
+    public Cursor getStatementsFromCategory(String category) {
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT * FROM " + TABLE + " WHERE " + CATEGORY + " = '" + category + "'";
         Cursor cursor = db.rawQuery(query, null);

@@ -26,7 +26,7 @@ public class ProfilesCursorAdapter extends CursorAdapter {
 
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
-        TextView textView = view.findViewById(R.id.textView);
+        TextView textView = view.findViewById(R.id.text_all_categories);
         String userName = cursor.getString(cursor.getColumnIndex(UserInfoEntry.COLUMN_USERNAME));
         textView.setText(userName);
 

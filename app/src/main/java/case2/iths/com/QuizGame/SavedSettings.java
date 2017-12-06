@@ -25,6 +25,7 @@ public class SavedSettings {
      * Möjliggör ljud till appen.
      */
     public boolean giveSound(Context context) {
+
         if (!soundOn) {
             MediaPlayer mMediaPlayer = MediaPlayer.create(context, R.raw.button_click_sound);
             mMediaPlayer.start();
