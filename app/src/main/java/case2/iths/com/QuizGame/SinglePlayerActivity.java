@@ -258,7 +258,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
                 }
             }
         } else {
-            Cursor cursor = quizableDBHelper.getQuestionsFromCategory(cat);
+            Cursor cursor = quizableDBHelper.getStatementsFromCategory(cat);
             boolean success = cursor.moveToFirst();
             if (success) {
                 while (cursor.moveToNext()) {
