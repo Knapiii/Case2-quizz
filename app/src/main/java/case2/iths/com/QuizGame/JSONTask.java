@@ -9,11 +9,18 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
 
+/**
+ * 1. Komponera GET-meddelande
+ * 2. Skicka meddelandet
+ * 3. Ta emot svaret
+ * 4. Hämta ut JSON-objektet
+ * 5. Hämta IP ur objektet
+ */
+
 public class JSONTask extends AsyncTask <Void, Void, String> {
 
     /**
-     * Hämtar datan
-     * Ansluter till servern
+     * Hämtar datan, ansluter till servern
      */
     @Override
     protected String doInBackground(Void... params) {
@@ -48,32 +55,24 @@ public class JSONTask extends AsyncTask <Void, Void, String> {
     @Override
     protected void onPostExecute(String s) {
 
-
-
-
-        /**
-         *
         try {
-
-            JSONArray array = new JSONArray(s); this.listener.onJSONResult(array);
+            JSONArray array = new JSONArray(s);
         } catch (JSONException e) {
             e.printStackTrace();
-            this.listener.onJSONResult(null);
         }
-
-         */
 
     }
 
     /**
-    * Hej
+    * Tittar på resultatet
     */
-    //@Override
-    public void onJSONResult(JSONArray json) {
+    public void onJSONResult (JSONArray json) {
+
         try {
-            for(int i = 0; i < json.length(); i++) {
+            for (int i = 0; i < json.length(); i++) {
                 JSONObject jsonObject = (JSONObject) json.get(i);
-                System.out.println(jsonObject.getString("name")); }
+                System.out.println(jsonObject.getString("true"));
+            }
         } catch(JSONException e) {
             e.printStackTrace();
         }
