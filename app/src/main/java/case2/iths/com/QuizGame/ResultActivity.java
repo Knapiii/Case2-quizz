@@ -12,6 +12,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import case2.iths.com.QuizGame.Data.QuizableOpenHelper;
+
 public class ResultActivity extends AppCompatActivity {
 
     private SavedSettings savedSettings;

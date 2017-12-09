@@ -1,11 +1,11 @@
-package case2.iths.com.QuizGame;
+package case2.iths.com.QuizGame.Data;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 
-import case2.iths.com.QuizGame.QuizableDatabaseContract.CategoriesInfoEntry;
+import case2.iths.com.QuizGame.Data.QuizableDatabaseContract.CategoriesInfoEntry;
 
-import static case2.iths.com.QuizGame.QuizableDatabaseContract.*;
+import static case2.iths.com.QuizGame.Data.QuizableDatabaseContract.*;
 
 public class DatabaseDataWorker {
 

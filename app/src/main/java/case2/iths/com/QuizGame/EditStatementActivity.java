@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import case2.iths.com.QuizGame.Data.QuizableOpenHelper;
+
 public class EditStatementActivity extends AppCompatActivity {
     public Spinner spinner;
     private Button buttonTrue, buttonFalse;

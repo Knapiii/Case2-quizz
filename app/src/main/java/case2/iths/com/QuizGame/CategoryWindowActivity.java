@@ -9,7 +9,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
 
-import case2.iths.com.QuizGame.QuizableDatabaseContract.UserInfoEntry;
+import case2.iths.com.QuizGame.Adapters.ProfilesCursorAdapter;
+import case2.iths.com.QuizGame.Data.QuizableOpenHelper;
+import case2.iths.com.QuizGame.Data.QuizableDatabaseContract.UserInfoEntry;
 
 public class CategoryWindowActivity extends AppCompatActivity {
 
@@ -150,15 +152,21 @@ public class CategoryWindowActivity extends AppCompatActivity {
     private void displayProfileSpinner1() {
         player1Spinner = findViewById(R.id.spinner_player_1);
         allProfiles = mDbOpenHelper.getAllProfiles();
-        profilesCursorAdapter = new ProfilesCursorAdapter(this, allProfiles, 0);
+        profilesCursorAdapter = new ProfilesCursorAdapter(this, allProfiles);
         player1Spinner.setAdapter(profilesCursorAdapter);
-
-        //Cursor spesificProfile = mDbOpenHelper.getChooseProfile();
 
         player1Spinner.setSelection(0);
 
         player1Spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
+
+            /**
+             * Callback method to be invoked when an item in this view has been selected.
+             * @param adapterView The adapterView where the selection happened
+             * @param view The view within the AdapterView that was selected
+             * @param position The position of the view in the adapter
+             * @param id The row id of the item that is selected
+             */
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 allProfiles.moveToPosition(position);
@@ -172,6 +180,10 @@ public class CategoryWindowActivity extends AppCompatActivity {
 
             }
 
+            /**
+             * Callback method to be invoked when the selection disappears from this view.
+             * @param adapterView The AdapterView that now contains no selected item.
+             */
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
@@ -189,6 +201,14 @@ public class CategoryWindowActivity extends AppCompatActivity {
 
         player2Spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
+            /**
+             * Callback method to be invoked when an item in this view has been selected.
+             * @param adapterView The adapterView where the selection happened
+             * @param view The view within the AdapterView that was selected
+             * @param position The position of the view in the adapter
+             * @param id The row id of the item that is selected
+             */
+
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
 
@@ -203,6 +223,10 @@ public class CategoryWindowActivity extends AppCompatActivity {
 
             }
 
+            /**
+             * Callback method to be invoked when the selection disappears from this view.
+             * @param adapterView The AdapterView that now contains no selected item.
+             */
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 

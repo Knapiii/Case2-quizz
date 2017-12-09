@@ -7,17 +7,6 @@
     android:background="@drawable/main_background"
     tools:context="case2.iths.com.QuizGame.GameMenuActivity">
 
-    <Spinner
-        android:id="@+id/spinner_profiles2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@null"
-        android:spinnerMode="dialog"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_profiles" />
-
     <Button
         android:id="@+id/button_manage_statements"
         android:onClick="toManagestatements"
@@ -54,7 +43,7 @@
         android:id="@+id/button_singelplayer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="96dp"
         android:background="@drawable/button_rectangle_switcher"
         android:onClick="toSingelGame"
         android:text="@string/singleplayer"
@@ -64,7 +53,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_profiles" />
+        app:layout_constraintTop_toBottomOf="@+id/top_text" />
 
     <TextView
         android:id="@+id/top_text"
@@ -93,16 +82,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <Spinner
-        android:id="@+id/spinner_profiles"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@null"
-        android:spinnerMode="dialog"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/top_text" />
 
 </android.support.constraint.ConstraintLayout>

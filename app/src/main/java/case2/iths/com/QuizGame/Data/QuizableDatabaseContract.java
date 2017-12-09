@@ -1,11 +1,17 @@
-package case2.iths.com.QuizGame;
+package case2.iths.com.QuizGame.Data;
 
 import android.provider.BaseColumns;
 
+/**
+ * A helper class that defines the Quizable database.
+ */
 public final class QuizableDatabaseContract {
 
     private QuizableDatabaseContract () {} // makes the class non-creatable
 
+    /**
+     * Defines highscores database table
+     */
     public static final class HighScoresInfoEntry implements BaseColumns {
         public static final String TABLE_NAME = "highscores_info";
         public static final String COLUMN_CATEGORY_TITLE = "category_title";
@@ -25,6 +31,10 @@ public final class QuizableDatabaseContract {
                         COLUMN_USER_ID  + " TEXT)";
     }
 
+    /**
+     * Defines categories database table
+     */
+
     public static final class CategoriesInfoEntry implements BaseColumns {
         public static final String TABLE_NAME = "categories_info";
         public static final String COLUMN_CATEGORY_TITLE = "category_title";
@@ -35,6 +45,10 @@ public final class QuizableDatabaseContract {
                         _ID + " INTEGER PRIMARY KEY, " +
                         COLUMN_CATEGORY_TITLE + " TEXT UNIQUE NOT NULL)";
     }
+
+    /**
+     * Defines profiles database table
+     */
 
     public static final class UserInfoEntry implements BaseColumns {
         public static final String TABLE_NAME = "user_info";

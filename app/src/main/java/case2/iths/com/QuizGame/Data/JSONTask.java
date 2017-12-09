@@ -1,4 +1,4 @@
-package case2.iths.com.QuizGame;
+package case2.iths.com.QuizGame.Data;
 
 import android.os.AsyncTask;
 import org.json.JSONArray;

@@ -1,4 +1,4 @@
-package case2.iths.com.QuizGame;
+package case2.iths.com.QuizGame.Data;
 
 import android.content.ContentValues;
 import android.content.Context;

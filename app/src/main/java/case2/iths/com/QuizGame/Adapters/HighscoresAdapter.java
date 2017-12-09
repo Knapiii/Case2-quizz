@@ -1,4 +1,4 @@
-package case2.iths.com.QuizGame;
+package case2.iths.com.QuizGame.Adapters;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -8,8 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import case2.iths.com.QuizGame.QuizableDatabaseContract.HighScoresInfoEntry;
+import case2.iths.com.QuizGame.Data.QuizableDatabaseContract.HighScoresInfoEntry;
+import case2.iths.com.QuizGame.R;
 
+
+/**
+ * Adapter that provides a binding from a cursor with highscores data to views that are displayed within a RecyclerView
+ */
 public class HighscoresAdapter extends  RecyclerView.Adapter<HighscoresAdapter.ViewHolder>  {
 
     private final Context mContext;
@@ -21,6 +26,11 @@ public class HighscoresAdapter extends  RecyclerView.Adapter<HighscoresAdapter.V
     private int amountOfStatementsPos;
     private int categoryPos;
 
+    /**
+     * Constructor
+     * @param context- the context
+     * @param cursor- the cursor from which to get the highscores data
+     */
     public HighscoresAdapter(Context context, Cursor cursor) {
         mContext = context;
         mCursor = cursor;
@@ -41,20 +51,25 @@ public class HighscoresAdapter extends  RecyclerView.Adapter<HighscoresAdapter.V
 
     }
 
-    public void changeCursor(Cursor cursor) {
-        if(mCursor != null)
-            mCursor.close();
-        mCursor = cursor;
-        populateColumnPositions();
-        notifyDataSetChanged();
-
-    }
+    /**
+     * Called when Recyclerview needs a new RecyclerView.Viewholder of the given type to repersent an item
+     * @param parent- The ViewGroup into which the new View will be added after it is bound to and adapter position
+     * @param viewType- The view type of the new view
+     * @return- An new ViewHolder that holds a View of the given view type
+     */
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = mLayoutInflater.inflate(R.layout.item_highscore_list, parent, false);
         return new ViewHolder(itemView);
     }
+
+    /**
+     * Called by RecyclerView to display the data at the specified position.
+     * @param holder-The ViewHolder which should be updated
+     * to represent the contents fo the item at the given position in the data set
+     * @param position- The position of the item within the adapter's data set.
+     */
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
@@ -73,11 +88,19 @@ public class HighscoresAdapter extends  RecyclerView.Adapter<HighscoresAdapter.V
         holder.textCategory.setText(category);
     }
 
+    /**
+     * Returns the total number of items in the data set held by the adapter
+     * @return the total number of items in this adapter
+     */
+
     @Override
     public int getItemCount() {
         return mCursor == null ? 0 : mCursor.getCount();
     }
 
+    /**
+     * ViewHolder class describes an item view and metadata about its place within the RecyclerView
+     */
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView textName;
         public final TextView textScore;
@@ -87,7 +110,9 @@ public class HighscoresAdapter extends  RecyclerView.Adapter<HighscoresAdapter.V
         public final TextView textCategory;
 
         public int id;
-
+        /**
+         * @param itemView- the view tho attach the data to
+         */
         public ViewHolder(View itemView) {
             super(itemView);
             textName = itemView.findViewById(R.id.text_name);

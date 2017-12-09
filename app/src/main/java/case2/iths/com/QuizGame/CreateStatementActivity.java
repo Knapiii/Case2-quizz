@@ -11,7 +11,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import case2.iths.com.QuizGame.QuizableDatabaseContract.CategoriesInfoEntry;
+import case2.iths.com.QuizGame.Adapters.CategoriesCursorAdapter;
+import case2.iths.com.QuizGame.Data.QuizableDBHelper;
+import case2.iths.com.QuizGame.Data.QuizableOpenHelper;
+import case2.iths.com.QuizGame.Data.QuizableDatabaseContract.CategoriesInfoEntry;
 
 public class CreateStatementActivity extends AppCompatActivity {
 
@@ -40,7 +43,7 @@ public class CreateStatementActivity extends AppCompatActivity {
     /**
      * TextViews
      */
-    public void initialize() {
+    private void initialize() {
         buttonTrue = findViewById(R.id.togglebutton_add_true);
         buttonFalse = findViewById(R.id.togglebutton_add_false);
     }

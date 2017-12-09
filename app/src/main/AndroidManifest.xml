@@ -81,7 +81,7 @@
         <activity
             android:name=".CreateProfileActivity"
             android:noHistory="true" />
-        <activity android:name=".JSONTask"></activity>
+        <activity android:name=".Data.JSONTask"></activity>
     </application>
 
 </manifest>
