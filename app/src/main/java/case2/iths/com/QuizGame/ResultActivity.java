@@ -61,7 +61,9 @@ public class ResultActivity extends AppCompatActivity {
         if (getIntent().getBooleanExtra("multiplayer", false)) {
             Intent intent = getIntent();
             multiplayer = intent.getBooleanExtra("multiplayer", false);
-            category = intent.getStringExtra("category").toLowerCase();
+            category = intent.getStringExtra("category");
+            if(category.equals("Own"))
+                category = "Own statements";
             amountOfStatements = intent.getIntExtra("amountOfStatements", 5);
             p1Points = intent.getIntExtra("p1points", 0);
             p1CorrectAnswers = intent.getIntExtra("p1correctAnswers", 0);
@@ -70,7 +72,9 @@ public class ResultActivity extends AppCompatActivity {
             p2sTurn = intent.getBooleanExtra("p2sTurn", false);
         } else {
             Intent intent = getIntent();
-            category = intent.getStringExtra("category").toLowerCase();
+            category = intent.getStringExtra("category");
+            if(category.equals("Own"))
+                category = "Own statements";
             points = intent.getIntExtra("points", 0);
             amountOfStatements = intent.getIntExtra("amountOfStatements", 5);
             correctAnswers = getIntent().getIntExtra("correctAnswers", 0);

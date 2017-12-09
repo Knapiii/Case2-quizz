@@ -18,7 +18,7 @@ import static case2.iths.com.QuizGame.QuizableDatabaseContract.HighScoresInfoEnt
 public class QuizableOpenHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "Quizable.db";
-    public static final int DATABASE_VERSION = 19;
+    public static final int DATABASE_VERSION = 20;
 
     public QuizableOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -57,12 +57,12 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
      */
     public Cursor getHighScoresByCategory(String categoryId) {
         SQLiteDatabase db = this.getReadableDatabase();
-        String selection = HighScoresInfoEntry.COLUMN_CATEGORY_ID + " = ?";
+        String selection = HighScoresInfoEntry.COLUMN_CATEGORY_TITLE + " = ?";
         String[] selectionArgs = {categoryId};
         String[] highscoresColumns = {
-                HighScoresInfoEntry.COLUMN_CATEGORY_ID,
                 HighScoresInfoEntry.COLUMN_HIGHSCORE,
                 HighScoresInfoEntry.COLUMN_AMOUNT_OF_STATEMENTS,
+                HighScoresInfoEntry.COLUMN_CATEGORY_TITLE,
                 HighScoresInfoEntry.COLUMN_USER_ID,
                 HighScoresInfoEntry._ID
         };
@@ -77,8 +77,8 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String[] highscoresColumns = {
-                HighScoresInfoEntry.COLUMN_CATEGORY_ID,
                 HighScoresInfoEntry.COLUMN_HIGHSCORE,
+                HighScoresInfoEntry.COLUMN_CATEGORY_TITLE,
                 HighScoresInfoEntry.COLUMN_AMOUNT_OF_STATEMENTS,
                 HighScoresInfoEntry.COLUMN_USER_ID,
                 HighScoresInfoEntry._ID
@@ -91,11 +91,11 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
     /**
      * Use this method to add a new highscore to the database highscore table
      */
-    public void insertHighscore(String categoryId, int score, int amountOfStatements, String userId) {
+    public void insertHighscore(String categoryTitle, int score, int amountOfStatements, String userId) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(HighScoresInfoEntry.COLUMN_CATEGORY_ID, categoryId);
         contentValues.put(HighScoresInfoEntry.COLUMN_HIGHSCORE, score);
+        contentValues.put(HighScoresInfoEntry.COLUMN_CATEGORY_TITLE, categoryTitle);
         contentValues.put(HighScoresInfoEntry.COLUMN_AMOUNT_OF_STATEMENTS, amountOfStatements);
         contentValues.put(HighScoresInfoEntry.COLUMN_USER_ID, userId);
         long newRowId = db.insert(HighScoresInfoEntry.TABLE_NAME, null, contentValues);
@@ -108,7 +108,6 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         String[] categoryColumns = {
                 CategoriesInfoEntry.COLUMN_CATEGORY_TITLE,
-                CategoriesInfoEntry.COLUMN_CATEGORY_ID,
                 CategoriesInfoEntry._ID
         };
 
@@ -134,8 +133,7 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
         String[] categoryColumns = {
                 CategoriesInfoEntry.COLUMN_CATEGORY_TITLE,
-                CategoriesInfoEntry._ID,
-                CategoriesInfoEntry.COLUMN_CATEGORY_ID
+                CategoriesInfoEntry._ID
         };
 
 

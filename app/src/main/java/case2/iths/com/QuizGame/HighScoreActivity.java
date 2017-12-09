@@ -69,7 +69,7 @@ public class HighScoreActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 allCategories.moveToPosition(position);
                 categoryTitle = allCategories.getString(allCategories.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE));
-                categoryId = allCategories.getString(allCategories.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_ID));
+                categoryId = allCategories.getString(allCategories.getColumnIndex(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE));
                 highScoresByCategory = mDbOpenHelper.getHighScoresByCategory(categoryId);
                 allHighscores = mDbOpenHelper.getAllHighScores();
 

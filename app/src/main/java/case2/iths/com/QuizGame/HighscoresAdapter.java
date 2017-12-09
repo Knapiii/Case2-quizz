@@ -19,6 +19,7 @@ public class HighscoresAdapter extends  RecyclerView.Adapter<HighscoresAdapter.V
     private int scorePos;
     private int idPos;
     private int amountOfStatementsPos;
+    private int categoryPos;
 
     public HighscoresAdapter(Context context, Cursor cursor) {
         mContext = context;
@@ -36,6 +37,8 @@ public class HighscoresAdapter extends  RecyclerView.Adapter<HighscoresAdapter.V
         scorePos = mCursor.getColumnIndex(HighScoresInfoEntry.COLUMN_HIGHSCORE);
         idPos = mCursor.getColumnIndex(HighScoresInfoEntry._ID);
         amountOfStatementsPos = mCursor.getColumnIndex(HighScoresInfoEntry.COLUMN_AMOUNT_OF_STATEMENTS);
+        categoryPos = mCursor.getColumnIndex(HighScoresInfoEntry.COLUMN_CATEGORY_TITLE);
+
     }
 
     public void changeCursor(Cursor cursor) {
@@ -60,12 +63,14 @@ public class HighscoresAdapter extends  RecyclerView.Adapter<HighscoresAdapter.V
         String score = mCursor.getString(scorePos);
         int id = mCursor.getInt(idPos);
         int amountOfStatements = mCursor.getInt(amountOfStatementsPos);
+        String category = mCursor.getString(categoryPos);
         holder.textName.setText(name);
         holder.textScore.setText(score);
         holder.textPoints.setText(R.string.points);
         holder.textRounds.setText(String.valueOf(amountOfStatements));
         holder.amountOfStatements.setText(R.string.statements);
         holder.id = id;
+        holder.textCategory.setText(category);
     }
 
     @Override
@@ -79,6 +84,8 @@ public class HighscoresAdapter extends  RecyclerView.Adapter<HighscoresAdapter.V
         public final TextView textPoints;
         public final TextView textRounds;
         public final TextView amountOfStatements;
+        public final TextView textCategory;
+
         public int id;
 
         public ViewHolder(View itemView) {
@@ -87,6 +94,7 @@ public class HighscoresAdapter extends  RecyclerView.Adapter<HighscoresAdapter.V
             textScore = itemView.findViewById(R.id.text_score);
             textPoints = itemView.findViewById(R.id.text_points);
             textRounds = itemView.findViewById(R.id.text_rounds);
+            textCategory = itemView.findViewById(R.id.text_category);
             amountOfStatements = itemView.findViewById(R.id.text_amount_of_statements);
         }
     }
