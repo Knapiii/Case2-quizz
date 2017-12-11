@@ -59,7 +59,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 savedSettings.giveSound(this);
                 Intent sportIntent = new Intent(this, AmountOfStatementsActivity.class);
                 sportIntent.putExtra("category", getResources().getString(R.string.sport));
-                spinnerSelectionPosition = 5;
+                spinnerSelectionPosition = 6;
                 if (isMultiplayer)
                     sportIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(sportIntent);
@@ -68,7 +68,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 savedSettings.giveSound(this);
                 Intent musicIntent = new Intent(this, AmountOfStatementsActivity.class);
                 musicIntent.putExtra("category", getResources().getString(R.string.music));
-                spinnerSelectionPosition= 6;
+                spinnerSelectionPosition= 7;
                 if (isMultiplayer)
                     musicIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(musicIntent);
@@ -77,7 +77,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 savedSettings.giveSound(this);
                 Intent geoIntent = new Intent(this, AmountOfStatementsActivity.class);
                 geoIntent.putExtra("category", getResources().getString(R.string.geography));
-                spinnerSelectionPosition= 3;
+                spinnerSelectionPosition= 4;
                 if (isMultiplayer)
                     geoIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(geoIntent);
@@ -86,7 +86,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 savedSettings.giveSound(this);
                 Intent scienceIntent = new Intent(this, AmountOfStatementsActivity.class);
                 scienceIntent.putExtra("category", getResources().getString(R.string.science));
-                spinnerSelectionPosition= 4;
+                spinnerSelectionPosition= 5;
                 if (isMultiplayer)
                     scienceIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(scienceIntent);
@@ -95,7 +95,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 savedSettings.giveSound(this);
                 Intent foodIntent = new Intent(this, AmountOfStatementsActivity.class);
                 foodIntent.putExtra("category", getResources().getString(R.string.food));
-                spinnerSelectionPosition= 1;
+                spinnerSelectionPosition= 2;
                 if (isMultiplayer)
                     foodIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(foodIntent);
@@ -104,7 +104,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 savedSettings.giveSound(this);
                 Intent gamesIntent = new Intent(this, AmountOfStatementsActivity.class);
                 gamesIntent.putExtra("category", getResources().getString(R.string.games));
-                spinnerSelectionPosition= 2;
+                spinnerSelectionPosition= 3;
                 if (isMultiplayer)
                     gamesIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(gamesIntent);
@@ -113,7 +113,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 savedSettings.giveSound(this);
                 Intent allIntent = new Intent(this, AmountOfStatementsActivity.class);
                 allIntent.putExtra("category", getResources().getString(R.string.all_categories));
-                spinnerSelectionPosition= 0;
+                spinnerSelectionPosition= 1;
                 if (isMultiplayer)
                     allIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(allIntent);
@@ -122,7 +122,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 savedSettings.giveSound(this);
                 Intent ownIntent = new Intent(this, AmountOfStatementsActivity.class);
                 ownIntent.putExtra("category", getResources().getString(R.string.own));
-                spinnerSelectionPosition= 7;
+                spinnerSelectionPosition= 8;
                 if (isMultiplayer)
                     ownIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(ownIntent);

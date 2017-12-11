@@ -20,6 +20,7 @@ public class DatabaseDataWorker {
      * Möjliggör olika kategorier i databasen
      */
     public void insertCategories() {
+        insertCategory("All highscores");
         insertCategory("All categories");
         insertCategory("Food");
         insertCategory("Games");
