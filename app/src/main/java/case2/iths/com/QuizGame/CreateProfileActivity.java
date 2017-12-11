@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
+import case2.iths.com.QuizGame.Data.QuizableOpenHelper;
+
 public class CreateProfileActivity extends AppCompatActivity {
 
     private EditText insertUsername;

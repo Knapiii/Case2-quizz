@@ -1,11 +1,11 @@
-package case2.iths.com.QuizGame;
+package case2.iths.com.QuizGame.Data;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 
-import case2.iths.com.QuizGame.QuizableDatabaseContract.CategoriesInfoEntry;
+import case2.iths.com.QuizGame.Data.QuizableDatabaseContract.CategoriesInfoEntry;
 
-import static case2.iths.com.QuizGame.QuizableDatabaseContract.*;
+import static case2.iths.com.QuizGame.Data.QuizableDatabaseContract.*;
 
 public class DatabaseDataWorker {
 
@@ -20,19 +20,18 @@ public class DatabaseDataWorker {
      * Möjliggör olika kategorier i databasen
      */
     public void insertCategories() {
-        insertCategory("all_categories","All categories");
-        insertCategory("food","Food");
-        insertCategory("games","Games");
-        insertCategory("geography","Geography");
-        insertCategory("science","Science");
-        insertCategory("sport","Sport");
-        insertCategory("music","Music");
-        insertCategory("own","Own statements");
+        insertCategory("All categories");
+        insertCategory("Food");
+        insertCategory("Games");
+        insertCategory("Geography");
+        insertCategory("Science");
+        insertCategory("Sport");
+        insertCategory("Music");
+        insertCategory("Own statements");
     }
 
-    private void insertCategory(String category_id, String category_title) {
+    private void insertCategory(String category_title) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(CategoriesInfoEntry.COLUMN_CATEGORY_ID, category_id);
         contentValues.put(CategoriesInfoEntry.COLUMN_CATEGORY_TITLE, category_title);
         long id = mDb.insert(CategoriesInfoEntry.TABLE_NAME, null, contentValues);
     }

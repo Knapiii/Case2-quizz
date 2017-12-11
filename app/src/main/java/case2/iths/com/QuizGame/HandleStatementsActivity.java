@@ -18,6 +18,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import case2.iths.com.QuizGame.Adapters.StatementsAdapter;
+import case2.iths.com.QuizGame.Data.QuizableDBHelper;
+
 public class HandleStatementsActivity extends AppCompatActivity {
 
     private SavedSettings savedSettings;

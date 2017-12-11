@@ -11,6 +11,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Random;
 
+import case2.iths.com.QuizGame.Data.QuizableDBHelper;
+
 
 public class SinglePlayerActivity extends AppCompatActivity {
 

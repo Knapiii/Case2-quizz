@@ -8,6 +8,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import case2.iths.com.QuizGame.Adapters.ProfileAdapter;
+import case2.iths.com.QuizGame.Data.QuizableOpenHelper;
+
 public class ProfileActivity extends AppCompatActivity {
 
     private SavedSettings savedSettings;

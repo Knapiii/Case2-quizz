@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
 
+import case2.iths.com.QuizGame.Data.QuizableOpenHelper;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String PREFS_NAME = "saveSettings";
@@ -27,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         storeSettings();
     }
 
-    public void initialize(){
+    private void initialize(){
         imageButton = findViewById(R.id.imagebutton_mute);
     }
 

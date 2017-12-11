@@ -1,4 +1,4 @@
-package case2.iths.com.QuizGame;
+package case2.iths.com.QuizGame.Data;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,27 +6,28 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import case2.iths.com.QuizGame.QuizableDatabaseContract.UserInfoEntry;
+import case2.iths.com.QuizGame.Data.QuizableDatabaseContract.UserInfoEntry;
 
-import static case2.iths.com.QuizGame.QuizableDatabaseContract.CategoriesInfoEntry;
-import static case2.iths.com.QuizGame.QuizableDatabaseContract.HighScoresInfoEntry;
+import static case2.iths.com.QuizGame.Data.QuizableDatabaseContract.CategoriesInfoEntry;
+import static case2.iths.com.QuizGame.Data.QuizableDatabaseContract.HighScoresInfoEntry;
 
 /**
- * Created by alvaro on 2017-11-19.
- */
 
+ * A helper class to manage database creation and verion managment.
+ */
 public class QuizableOpenHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "Quizable.db";
-    public static final int DATABASE_VERSION = 19;
+    public static final int DATABASE_VERSION = 20;
 
     public QuizableOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     /**
-     * Creates 3 database tables
+     * Called when the database is created for the first time
      * Adds default categories to the categories table in the database
+     * @param db the database
      */
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -38,8 +39,13 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
         databaseDataWorker.insertDefaultPlayers();
     }
 
+
     /**
-     * onUpgrade if new version
+     *
+     * Called when the database needs to be upgraded
+     * @param db The datbase
+     * @param oldVersion The old database version
+     * @param newVersion The new database version
      */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -55,14 +61,14 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
     /**
      * Returns highscores for the specific category.
      */
-    public Cursor getHighScoresByCategory(String categoryId) {
+    public Cursor getHighScoresByCategory(String categoryTitle) {
         SQLiteDatabase db = this.getReadableDatabase();
-        String selection = HighScoresInfoEntry.COLUMN_CATEGORY_ID + " = ?";
-        String[] selectionArgs = {categoryId};
+        String selection = HighScoresInfoEntry.COLUMN_CATEGORY_TITLE + " = ?";
+        String[] selectionArgs = {categoryTitle};
         String[] highscoresColumns = {
-                HighScoresInfoEntry.COLUMN_CATEGORY_ID,
                 HighScoresInfoEntry.COLUMN_HIGHSCORE,
                 HighScoresInfoEntry.COLUMN_AMOUNT_OF_STATEMENTS,
+                HighScoresInfoEntry.COLUMN_CATEGORY_TITLE,
                 HighScoresInfoEntry.COLUMN_USER_ID,
                 HighScoresInfoEntry._ID
         };
@@ -72,13 +78,14 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
     /**
      * Get all highscores
+     * @return cursor with the highscores in descending order
      */
     public Cursor getAllHighScores() {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String[] highscoresColumns = {
-                HighScoresInfoEntry.COLUMN_CATEGORY_ID,
                 HighScoresInfoEntry.COLUMN_HIGHSCORE,
+                HighScoresInfoEntry.COLUMN_CATEGORY_TITLE,
                 HighScoresInfoEntry.COLUMN_AMOUNT_OF_STATEMENTS,
                 HighScoresInfoEntry.COLUMN_USER_ID,
                 HighScoresInfoEntry._ID
@@ -88,27 +95,32 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+
     /**
-     * Use this method to add a new highscore to the database highscore table
+     * This adds a new highscore to the database highscore table
+     * @param categoryTitle- played category
+     * @param score- players score
+     * @param amountOfStatements- amount of statements played
+     * @param userId- the user profile name
      */
-    public void insertHighscore(String categoryId, int score, int amountOfStatements, String userId) {
+    public void insertHighscore(String categoryTitle, int score, int amountOfStatements, String userId) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(HighScoresInfoEntry.COLUMN_CATEGORY_ID, categoryId);
         contentValues.put(HighScoresInfoEntry.COLUMN_HIGHSCORE, score);
+        contentValues.put(HighScoresInfoEntry.COLUMN_CATEGORY_TITLE, categoryTitle);
         contentValues.put(HighScoresInfoEntry.COLUMN_AMOUNT_OF_STATEMENTS, amountOfStatements);
         contentValues.put(HighScoresInfoEntry.COLUMN_USER_ID, userId);
         long newRowId = db.insert(HighScoresInfoEntry.TABLE_NAME, null, contentValues);
     }
 
+
     /**
-     * Returns all categories
+     * @return cursor with all the categories
      */
     public Cursor loadCategoriesData() {
         SQLiteDatabase db = getReadableDatabase();
         String[] categoryColumns = {
                 CategoriesInfoEntry.COLUMN_CATEGORY_TITLE,
-                CategoriesInfoEntry.COLUMN_CATEGORY_ID,
                 CategoriesInfoEntry._ID
         };
 
@@ -120,6 +132,7 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
     /**
      * Cursur for getCategoriesCreateStatement
+     * @return cursor with spesific categories chosen with selectionArgs array.
      */
     public Cursor getCategoriesCreateStatement() {
         SQLiteDatabase db = getReadableDatabase();
@@ -134,8 +147,7 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
         String[] categoryColumns = {
                 CategoriesInfoEntry.COLUMN_CATEGORY_TITLE,
-                CategoriesInfoEntry._ID,
-                CategoriesInfoEntry.COLUMN_CATEGORY_ID
+                CategoriesInfoEntry._ID
         };
 
 
@@ -146,7 +158,7 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * Adds a user to the databse
+     * Adds a user to the database
      */
     public void addUser(String username) {
         SQLiteDatabase db = getWritableDatabase();
@@ -157,6 +169,7 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
 
     /**
      * Cursur get all profiles
+     * @return cursor including all the profiles in the database
      */
     public Cursor getAllProfiles() {
         SQLiteDatabase db = getReadableDatabase();
@@ -176,21 +189,5 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public Cursor getChooseProfile() {
-        SQLiteDatabase db = getReadableDatabase();
-        String selection = UserInfoEntry.COLUMN_USERNAME;
-        String[] selectionArgs = {"Choose profile"};
-
-        String[] userColumns = {
-                UserInfoEntry.COLUMN_USERNAME,
-                UserInfoEntry._ID
-        };
-
-        Cursor cursor = db.query(UserInfoEntry.TABLE_NAME, userColumns, selection, selectionArgs, null, null, null);
-        cursor.moveToNext();
-
-        return cursor;
-
-    }
 
 }
