@@ -51,8 +51,8 @@ public class ResultActivity extends AppCompatActivity {
     public void initialize() {
 
         SharedPreferences sp = getSharedPreferences("user_prefs", 0);
-        player1 = sp.getString("player1", "");
-        player2 = sp.getString("player2", "");
+        player1 = sp.getString("player1", "Player 1");
+        player2 = sp.getString("player2", "Player 2");
 
         textViewCorrectAnswers = findViewById(R.id.amount_of_correct_answers);
         amountOfPoints = findViewById(R.id.amount_of_points);
@@ -101,9 +101,11 @@ public class ResultActivity extends AppCompatActivity {
 
         isProfileChosen = sp.getBoolean("isProfileChosen", false);
 
-        if (isProfileChosen) {
+        if (multiplayer) {
             name = player1;
             name2 = player2;
+        } else {
+            name = player1;
         }
 
 
