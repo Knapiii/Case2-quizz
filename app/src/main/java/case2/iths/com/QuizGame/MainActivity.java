@@ -90,7 +90,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void storeSettings() {
-        // Restore preferences
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         boolean silent = settings.getBoolean("silentMode", false);
         savedSettings.setSoundOn(silent);
