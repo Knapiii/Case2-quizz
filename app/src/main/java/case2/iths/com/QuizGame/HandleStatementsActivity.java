@@ -62,14 +62,4 @@ public class HandleStatementsActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    /**
-     * När vi klickar på knappen så ska vi komma till EditStatementActivity
-     * Och klickljud ska låta om det är på.
-     */
-    public void editStatement(View view) {
-        savedSettings.giveSound(this);
-        Intent intent = new Intent(this, EditStatementActivity.class);
-        startActivity(intent);
-    }
-
 }

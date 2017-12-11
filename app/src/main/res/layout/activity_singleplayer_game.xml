@@ -132,8 +132,7 @@
         app:layout_constraintEnd_toStartOf="@+id/gameField"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/gameField"
-        app:layout_constraintTop_toBottomOf="@+id/point_text"
-        tools:text="?" />
+        app:layout_constraintTop_toBottomOf="@+id/point_text" />
 
     <TextView
         android:id="@+id/developed_by_text"

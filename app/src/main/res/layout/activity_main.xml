@@ -27,7 +27,7 @@
     <Button
         android:id="@+id/button_play_game"
         android:layout_width="0dp"
-        android:layout_height="49dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="96dp"
         android:background="@drawable/button_rectangle_switcher"
         android:elevation="0dp"
@@ -44,7 +44,7 @@
     <Button
         android:id="@+id/button_highscores"
         android:layout_width="0dp"
-        android:layout_height="44dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/button_rectangle_switcher"
         android:onClick="toTheHighscores"
@@ -60,7 +60,7 @@
     <Button
         android:id="@+id/button_about"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/button_rectangle_switcher"
         android:onClick="toTheAbout"
