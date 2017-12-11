@@ -1,6 +1,5 @@
 package case2.iths.com.QuizGame.Activities;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -8,9 +7,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import case2.iths.com.QuizGame.Adapters.ProfilesCursorAdapter;
 import case2.iths.com.QuizGame.Data.JSONTask;
@@ -32,7 +30,8 @@ public class CategoryWindowActivity extends AppCompatActivity {
     private String player2;
     private int spinnerSelectionPosition;
     private SharedPreferences sharedPreferences;
-    private QuizableDBHelper s;
+    private QuizableDBHelper db;
+    // private ImageView expansionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +42,9 @@ public class CategoryWindowActivity extends AppCompatActivity {
         isMultiplayer = intent.getBooleanExtra("multiplayer", false);
         mDbOpenHelper = new QuizableOpenHelper(this);
         displayProfileSpinner1();
-        s = new QuizableDBHelper(this);
-
+        db = new QuizableDBHelper(this);
         if (isMultiplayer)
             displayProfileSpinner2();
-
     }
     
     // TODO: FUTURE FEATURES:
@@ -135,11 +132,16 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 break;
             case R.id.button_expansion:
                 savedSettings.giveSound(this);
-                Cursor c = s.getStatementsFromCategory("expansion");
+                Cursor c = db.getStatementsFromCategory("expansion");
+
                 if (c.moveToNext()) {
                     c.close();
                     Intent expansionIntent = new Intent(this, AmountOfStatementsActivity.class);
                     expansionIntent.putExtra("category", "expansion");
+
+                    // expansionButton = findViewById(R.id.button_expansion);
+                    // expansionButton.setImageResource(R.drawable.expansion_downloaded);
+
                     if (isMultiplayer)
                         expansionIntent.putExtra("multiplayer", isMultiplayer);
                     startSingleGame(expansionIntent);
@@ -147,6 +149,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
                     c.close();
                     new JSONTask(this).execute();
                 }
+
                 // Toast.makeText(this, "There is no expansion at the moment", Toast.LENGTH_LONG).show();
                 break;
         }
@@ -184,7 +187,6 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 editor.putString("player1", player1);
                 editor.putBoolean("profileChoosed", isProfileChosen);
                 editor.commit();
-
             }
 
             /**
@@ -224,7 +226,6 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 editor.putString("player2", player2);
                 editor.putBoolean("isProfileChosen", isProfileChosen);
                 editor.commit();
-
             }
 
             /**

@@ -1,10 +1,10 @@
 package case2.iths.com.QuizGame.Data;
 
 import android.content.Context;
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -13,15 +13,14 @@ import org.json.JSONObject;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Scanner;
 
-import case2.iths.com.QuizGame.Activities.AmountOfStatementsActivity;
+import case2.iths.com.QuizGame.Activities.CategoryWindowActivity;
 import case2.iths.com.QuizGame.R;
 
 public class JSONTask extends AsyncTask <Void, Void, String> {
 
-    private QuizableDBHelper s;
+    private QuizableDBHelper db;
     private Context context;
 
     /**
@@ -29,7 +28,7 @@ public class JSONTask extends AsyncTask <Void, Void, String> {
      */
     public JSONTask (Context context) {
         this.context = context;
-        s = new QuizableDBHelper(context);
+        db = new QuizableDBHelper(context);
     }
 
     /**
@@ -75,7 +74,6 @@ public class JSONTask extends AsyncTask <Void, Void, String> {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
     }
 
     /**
@@ -89,7 +87,7 @@ public class JSONTask extends AsyncTask <Void, Void, String> {
                 String category = jsonObject.getString("category");
                 String statement = jsonObject.getString("statement");
                 String answer = String.valueOf(jsonObject.getBoolean("answer"));
-                s.insertStatement(category, statement, answer);
+                db.insertStatement(category, statement, answer);
             }
         } catch(JSONException e) {
             e.printStackTrace();
