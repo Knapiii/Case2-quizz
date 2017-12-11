@@ -7,25 +7,17 @@ import case2.iths.com.QuizGame.Data.QuizableDatabaseContract.CategoriesInfoEntry
 
 import static case2.iths.com.QuizGame.Data.QuizableDatabaseContract.*;
 
-/**
- * Helper class that adds defaut categories and players to the database
- */
 public class DatabaseDataWorker {
 
     private SQLiteDatabase mDb;
 
-
-    /**
-     * Constructor
-     * @param db the database
-     */
     public DatabaseDataWorker(SQLiteDatabase db) {
         mDb = db;
 
     }
 
     /**
-     * Adds default categories to the database
+     * Möjliggör olika kategorier i databasen
      */
     public void insertCategories() {
         insertCategory("All categories");
@@ -44,9 +36,6 @@ public class DatabaseDataWorker {
         long id = mDb.insert(CategoriesInfoEntry.TABLE_NAME, null, contentValues);
     }
 
-    /**
-     * Adds 2 default players to the database
-     */
     public void insertDefaultPlayers() {
         insertPlayer("Player 1");
         insertPlayer("Player 2");

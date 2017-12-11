@@ -20,22 +20,7 @@
         android:textColor="@android:color/white"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_player_2" />
-
-    <TextView
-        android:id="@+id/player_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/lobster_two_bold"
-        android:text="Choose player"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,7 +33,7 @@
         app:layout_constraintEnd_toStartOf="@+id/button_music"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/top_text"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_player_2"
         app:srcCompat="@drawable/sport_switcher" />
 
     <TextView
@@ -72,7 +57,7 @@
         app:layout_constraintEnd_toStartOf="@+id/button_food"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button_sport"
-        app:layout_constraintTop_toBottomOf="@+id/top_text"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_player_2"
         app:srcCompat="@drawable/music_switcher" />
 
     <TextView
@@ -96,7 +81,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button_music"
-        app:layout_constraintTop_toBottomOf="@+id/top_text"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_player_2"
         app:srcCompat="@drawable/food_switcher" />
 
     <TextView
@@ -277,7 +262,7 @@
         android:spinnerMode="dialog"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/player_text" />
+        app:layout_constraintTop_toBottomOf="@+id/top_text" />
 
     <Spinner
         android:id="@+id/spinner_player_2"
@@ -287,6 +272,7 @@
         android:background="@null"
         android:spinnerMode="dialog"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner_player_1" />
 
