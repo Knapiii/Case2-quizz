@@ -1,4 +1,4 @@
-package case2.iths.com.QuizGame;
+package case2.iths.com.QuizGame.Activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,6 +13,7 @@ import android.widget.Toast;
 import case2.iths.com.QuizGame.Adapters.ProfilesCursorAdapter;
 import case2.iths.com.QuizGame.Data.QuizableOpenHelper;
 import case2.iths.com.QuizGame.Data.QuizableDatabaseContract.UserInfoEntry;
+import case2.iths.com.QuizGame.R;
 
 public class CategoryWindowActivity extends AppCompatActivity {
 

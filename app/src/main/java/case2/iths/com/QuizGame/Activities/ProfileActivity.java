@@ -1,4 +1,4 @@
-package case2.iths.com.QuizGame;
+package case2.iths.com.QuizGame.Activities;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -10,6 +10,7 @@ import android.view.View;
 
 import case2.iths.com.QuizGame.Adapters.ProfileAdapter;
 import case2.iths.com.QuizGame.Data.QuizableOpenHelper;
+import case2.iths.com.QuizGame.R;
 
 public class ProfileActivity extends AppCompatActivity {
 

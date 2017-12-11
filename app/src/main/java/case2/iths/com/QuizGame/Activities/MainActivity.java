@@ -1,4 +1,4 @@
-package case2.iths.com.QuizGame;
+package case2.iths.com.QuizGame.Activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import case2.iths.com.QuizGame.Data.QuizableOpenHelper;
+import case2.iths.com.QuizGame.HighScoreActivity;
+import case2.iths.com.QuizGame.R;
 
 public class MainActivity extends AppCompatActivity {
 

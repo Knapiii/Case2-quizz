@@ -1,7 +1,9 @@
-package case2.iths.com.QuizGame;
+package case2.iths.com.QuizGame.Activities;
 
 import android.content.Context;
 import android.media.MediaPlayer;
+
+import case2.iths.com.QuizGame.R;
 
 public class SavedSettings {
 

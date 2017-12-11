@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_background"
-    tools:context="case2.iths.com.QuizGame.GameMenuActivity">
+    tools:context="case2.iths.com.QuizGame.Activities.GameMenuActivity">
 
     <Button
         android:id="@+id/button_manage_statements"
