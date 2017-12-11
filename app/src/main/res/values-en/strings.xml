@@ -86,4 +86,5 @@
     <string name="enter_nr">Enter phone number</string>
     <string name="send">Send</string>
     <string name="choose_player">Choose player</string>
+    <string name="ready">ready</string>
 </resources>
