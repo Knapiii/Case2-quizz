@@ -29,7 +29,10 @@ public class CountdownSplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_countdown_splash);
         initializePlayers();
         initialize();
+        setupTimer();
+    }
 
+    private void setupTimer(){
         cdTimer = new CountDownTimer(4000, 100) {
             @Override
             public void onTick(long l) {
