@@ -66,7 +66,7 @@
   },
   {
     "category": "expansion",
-    "statement": "Lägg till",
+    "statement": "Många delar av julgranen är ätbar",
     "answer" : false
   },
   {
@@ -76,32 +76,37 @@
   },
   {
     "category": "expansion",
-    "statement": "Lägg till",
+    "statement": "Det finns fem advent på ett år",
+    "answer" : true
+  },
+  {
+    "category": "expansion",
+    "statement": "Det finns fyra advent på ett år",
     "answer" : false
   },
   {
     "category": "expansion",
-    "statement": "Lägg till",
+    "statement": "Pepparkakor har funnits sedan 1300-talet",
     "answer" : false
   },
   {
     "category": "expansion",
-    "statement": "Lägg till",
+    "statement": "Tomten brukar klä sig i röda kläder",
     "answer" : false
   },
   {
     "category": "expansion",
-    "statement": "Lägg till",
+    "statement": "Tomten brukar klä sig i svarta kläder",
     "answer" : false
   },
   {
     "category": "expansion",
-    "statement": "Lägg till",
+    "statement": "Risgrynsgröt är gjort på ris, mjölk, kanelstång, salt och vatten",
     "answer" : false
   },
   {
     "category": "expansion",
-    "statement": "Lägg till",
-    "answer" : false
+    "statement": "Risgrynsgröt är gjort på ris, mjölk, juice och vatten",
+    "answer" : true
   }
 ]
