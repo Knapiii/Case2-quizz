@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class CountdownSplashActivity extends AppCompatActivity {
@@ -19,6 +21,7 @@ public class CountdownSplashActivity extends AppCompatActivity {
     private int correctAnswers;
     private boolean p2sTurn;
     private String player1, player2;
+    private Button readyBtn;
 
 
 
@@ -53,7 +56,9 @@ public class CountdownSplashActivity extends AppCompatActivity {
             public void onFinish() {
                 toSinglePlayer();
             }
-        }.start();
+        };
+        if (!p2sTurn)
+            cdTimer.start();
     }
 
     private void initializePlayers() {
@@ -76,6 +81,7 @@ public class CountdownSplashActivity extends AppCompatActivity {
         reversed = findViewById(R.id.text_reversed);
         countdown = findViewById(R.id.text_countdown_splash);
         headLine = findViewById(R.id.text_countdown_genre);
+        readyBtn = findViewById(R.id.ready_button);
         multiplayer = getIntent().getBooleanExtra("multiplayer", false);
         p2sTurn = getIntent().getBooleanExtra("p2sTurn", false);
 
@@ -84,9 +90,11 @@ public class CountdownSplashActivity extends AppCompatActivity {
             chosenCategory = getIntent().getStringExtra("category");
             amountOfStatements = getIntent().getIntExtra("amountOfStatements", 5);
             correctAnswers = getIntent().getIntExtra("p1correctAnswers", 0);
+            getReady.setText(R.string.are_you_ready);
         } else {
             chosenCategory = getIntent().getStringExtra("category");
             amountOfStatements = getIntent().getIntExtra("amountOfStatements", 5);
+            readyBtn.setVisibility(readyBtn.GONE);
         }
 
         headLine.setText(chosenCategory);
@@ -127,6 +135,15 @@ public class CountdownSplashActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+    }
+
+    /**
+     * Starts the timer for player 2 and hides the button
+     * @param view
+     */
+    public void onReadyButtonPressed(View view){
+        cdTimer.start();
+        readyBtn.setVisibility(readyBtn.GONE);
     }
 
     /**

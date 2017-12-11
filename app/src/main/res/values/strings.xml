@@ -84,5 +84,6 @@
     <string name="enter_message">Enter message</string>
     <string name="expansion">Expansion</string>
     <string name="choose_player">Choose player</string>
+    <string name="ready">ready</string>
 
 </resources>

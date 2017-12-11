@@ -78,4 +78,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_countdown_splash"
         tools:text="@string/opposite" />
+
+    <Button
+        android:id="@+id/ready_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/ready"
+        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        android:onClick="onReadyButtonPressed"
+        android:background="@drawable/button_shape"
+        app:layout_constraintTop_toBottomOf="@+id/text_get_ready"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 </android.support.constraint.ConstraintLayout>
