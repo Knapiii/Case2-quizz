@@ -42,10 +42,8 @@ public class CategoryWindowActivity extends AppCompatActivity {
         if (isMultiplayer)
             displayProfileSpinner2();
 
-
     }
-
-
+    
     // TODO: FUTURE FEATURES:
     // TODO: Enable the choice of multiple categories
 
@@ -142,28 +140,20 @@ public class CategoryWindowActivity extends AppCompatActivity {
         }
     }
 
-
     private void saveSpinnerSelectionPosition() {
         sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt("spinnerSelection", spinnerSelectionPosition);
         editor.commit();
-
-
-
     }
-
 
     private void displayProfileSpinner1() {
         player1Spinner = findViewById(R.id.spinner_player_1);
         allProfiles = mDbOpenHelper.getAllProfiles();
         profilesCursorAdapter = new ProfilesCursorAdapter(this, allProfiles);
         player1Spinner.setAdapter(profilesCursorAdapter);
-
         player1Spinner.setSelection(0);
-
         player1Spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
 
             /**
              * Callback method to be invoked when an item in this view has been selected.
@@ -194,9 +184,6 @@ public class CategoryWindowActivity extends AppCompatActivity {
 
             }
         });
-
-
-
     }
 
     private void displayProfileSpinner2() {
@@ -237,8 +224,6 @@ public class CategoryWindowActivity extends AppCompatActivity {
 
             }
         });
-
-
     }
 
     private void startSingleGame(Intent intent){
