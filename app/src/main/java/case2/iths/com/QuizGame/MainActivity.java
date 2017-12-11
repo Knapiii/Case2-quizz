@@ -47,7 +47,9 @@ public class MainActivity extends AppCompatActivity {
      */
     public void toTheHighscores(View view) {
         savedSettings.giveSound(this);
+        int spinnerSelection = 0;
         Intent toHighscores = new Intent(this, HighScoreActivity.class);
+        toHighscores.putExtra("defaultSelection", spinnerSelection);
         startActivity(toHighscores);
 
     }

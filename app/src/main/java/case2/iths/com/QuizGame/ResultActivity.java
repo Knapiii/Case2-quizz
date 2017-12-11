@@ -101,9 +101,11 @@ public class ResultActivity extends AppCompatActivity {
 
         isProfileChosen = sp.getBoolean("isProfileChosen", false);
 
-        if (isProfileChosen) {
+        if (multiplayer) {
             name = player1;
             name2 = player2;
+        } else {
+            name = player1;
         }
 
 

@@ -5,6 +5,7 @@ package case2.iths.com.QuizGame;
 // TODO: STATISTIC FOR ALL CATEGIRES OR A SPESIFIC CAREGORY
 // TODO: RANKING
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -17,8 +18,8 @@ import android.widget.Spinner;
 
 import case2.iths.com.QuizGame.Adapters.CategoriesCursorAdapter;
 import case2.iths.com.QuizGame.Adapters.HighscoresAdapter;
-import case2.iths.com.QuizGame.Data.QuizableOpenHelper;
 import case2.iths.com.QuizGame.Data.QuizableDatabaseContract.CategoriesInfoEntry;
+import case2.iths.com.QuizGame.Data.QuizableOpenHelper;
 
 public class HighScoreActivity extends AppCompatActivity {
 
@@ -55,7 +56,6 @@ public class HighScoreActivity extends AppCompatActivity {
         CategoriesCursorAdapter categoriesCursorAdapter = new CategoriesCursorAdapter(this, allCategories);
         mSpinnerCategories.setAdapter(categoriesCursorAdapter);
 
-   //     setSpinnerSelection();
 
         if(setSpinnerSelection() > -1)
             mSpinnerCategories.setSelection(setSpinnerSelection());
@@ -95,10 +95,16 @@ public class HighScoreActivity extends AppCompatActivity {
     }
 
     private int setSpinnerSelection() {
+
+        Intent intent = getIntent();
+        int defaultSelection = intent.getIntExtra("defaultSelection", -1);
         SharedPreferences sp = getSharedPreferences("user_prefs", 0);
         int spinnerSelection = sp.getInt("spinnerSelection", 0);
 
-        return spinnerSelection;
+        if(defaultSelection == 0)
+            return defaultSelection;
+        else
+            return spinnerSelection;
 
     }
 
