@@ -170,7 +170,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 SharedPreferences sp = getSharedPreferences("user_prefs", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sp.edit();
                 editor.putString("player1", player1);
-                editor.putBoolean("profileChosen", isProfileChosen);
+                editor.putBoolean("profileChoosed", isProfileChosen);
                 editor.commit();
 
             }
