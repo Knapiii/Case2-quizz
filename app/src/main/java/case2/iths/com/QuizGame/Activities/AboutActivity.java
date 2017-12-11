@@ -1,9 +1,11 @@
-package case2.iths.com.QuizGame;
+package case2.iths.com.QuizGame.Activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
+
+import case2.iths.com.QuizGame.R;
 
 public class AboutActivity extends AppCompatActivity {
 

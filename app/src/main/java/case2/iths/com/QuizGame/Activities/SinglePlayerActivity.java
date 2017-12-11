@@ -1,4 +1,4 @@
-package case2.iths.com.QuizGame;
+package case2.iths.com.QuizGame.Activities;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import case2.iths.com.QuizGame.Data.QuizableDBHelper;
+import case2.iths.com.QuizGame.R;
 
 
 public class SinglePlayerActivity extends AppCompatActivity {

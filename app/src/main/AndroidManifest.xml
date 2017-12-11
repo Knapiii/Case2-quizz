@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:screenOrientation="portrait" />
 
         <meta-data
@@ -25,28 +25,28 @@
             android:name=".HighScoreActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".Activities.ProfileActivity"
             android:noHistory="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".HandleStatementsActivity"
+            android:name=".Activities.HandleStatementsActivity"
             android:noHistory="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ResultActivity"
+            android:name=".Activities.ResultActivity"
             android:noHistory="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CategoryWindowActivity"
+            android:name=".Activities.CategoryWindowActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".AboutActivity"
+            android:name=".Activities.AboutActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".GameMenuActivity"
+            android:name=".Activities.GameMenuActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".Activities.SplashActivity"
             android:noHistory="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -56,24 +56,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SinglePlayerActivity"
+            android:name=".Activities.SinglePlayerActivity"
             android:noHistory="true"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".CreateStatementActivity"
+            android:name=".Activities.CreateStatementActivity"
             android:noHistory="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".AmountOfStatementsActivity"
+            android:name=".Activities.AmountOfStatementsActivity"
             android:noHistory="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CountdownSplashActivity"
+            android:name=".Activities.CountdownSplashActivity"
             android:noHistory="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CreateProfileActivity"
+            android:name=".Activities.CreateProfileActivity"
             android:noHistory="true" />
         <activity android:name=".Data.JSONTask"></activity>
     </application>

@@ -1,4 +1,4 @@
-package case2.iths.com.QuizGame;
+package case2.iths.com.QuizGame.Activities;
 
 // TODO: 2017-11-14 Lägg till:
 // TODO: CREATE QUESTION-FUNCTION
@@ -20,6 +20,7 @@ import android.view.View;
 
 import case2.iths.com.QuizGame.Adapters.StatementsAdapter;
 import case2.iths.com.QuizGame.Data.QuizableDBHelper;
+import case2.iths.com.QuizGame.R;
 
 public class HandleStatementsActivity extends AppCompatActivity {
 

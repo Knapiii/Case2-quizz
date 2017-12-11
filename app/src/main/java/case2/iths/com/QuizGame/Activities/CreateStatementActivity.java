@@ -1,4 +1,4 @@
-package case2.iths.com.QuizGame;
+package case2.iths.com.QuizGame.Activities;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -15,6 +15,7 @@ import case2.iths.com.QuizGame.Adapters.CategoriesCursorAdapter;
 import case2.iths.com.QuizGame.Data.QuizableDBHelper;
 import case2.iths.com.QuizGame.Data.QuizableOpenHelper;
 import case2.iths.com.QuizGame.Data.QuizableDatabaseContract.CategoriesInfoEntry;
+import case2.iths.com.QuizGame.R;
 
 public class CreateStatementActivity extends AppCompatActivity {
 
