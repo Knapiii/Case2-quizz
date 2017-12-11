@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import case2.iths.com.QuizGame.Adapters.ProfilesCursorAdapter;
 import case2.iths.com.QuizGame.Data.QuizableOpenHelper;
@@ -26,6 +27,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
     private String player2;
     private int spinnerSelectionPosition;
     private SharedPreferences sharedPreferences;
+    private String statement;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,14 +131,17 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 break;
             case R.id.button_expansion:
                 savedSettings.giveSound(this);
-                Intent expansionIntent = new Intent(this, AmountOfStatementsActivity.class);
-                expansionIntent.putExtra("category", getResources().getString(R.string.expansion));
-                if (isMultiplayer)
-                    expansionIntent.putExtra("multiplayer", isMultiplayer);
-                startSingleGame(expansionIntent);
+                // Utremmat då det inte funkar än
+                //Intent expansionIntent = new Intent(this, AmountOfStatementsActivity.class);
+                //expansionIntent.putExtra("category", getResources().getString(R.string.expansion));
+                //if (isMultiplayer)
+                //    expansionIntent.putExtra("multiplayer", isMultiplayer);
+                //startSingleGame(expansionIntent);
+                Toast.makeText(this, "There is no expansion at the moment", Toast.LENGTH_LONG).show();
                 break;
         }
     }
+
 
     private void saveSpinnerSelectionPosition() {
         sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
