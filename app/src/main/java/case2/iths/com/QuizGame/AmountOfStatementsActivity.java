@@ -22,6 +22,7 @@ public class AmountOfStatementsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_amount_of_statements);
         savedSettings = new SavedSettings();
         initialize();
+        button5Statements.setBackgroundResource(R.drawable.button_rectangle_pressed);
     }
 
     /**
