@@ -85,5 +85,6 @@
     <string name="expansion">Expansion</string>
     <string name="choose_player">Choose player</string>
     <string name="ready">ready</string>
+    <string name="are_you_ready">Are you readey?</string>
 
 </resources>

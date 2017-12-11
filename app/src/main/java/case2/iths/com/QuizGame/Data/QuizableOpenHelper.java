@@ -13,7 +13,7 @@ import static case2.iths.com.QuizGame.Data.QuizableDatabaseContract.HighScoresIn
 
 /**
 
- * A helper class to manage database creation and version managment.
+ * A helper class to manage database creation and verion managment.
  */
 public class QuizableOpenHelper extends SQLiteOpenHelper {
 
@@ -59,7 +59,7 @@ public class QuizableOpenHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * Returns cursor highscores for the specific category.
+     * Returns highscores for the specific category.
      */
     public Cursor getHighScoresByCategory(String categoryTitle) {
         SQLiteDatabase db = this.getReadableDatabase();
