@@ -58,7 +58,8 @@ public class HighScoreActivity extends AppCompatActivity {
         CategoriesCursorAdapter categoriesCursorAdapter = new CategoriesCursorAdapter(this, allCategories);
         mSpinnerCategories.setAdapter(categoriesCursorAdapter);
 
-        setSpinnerSelection();
+    //    setSpinnerSelection();
+        mSpinnerCategories.setSelection(0);
 
         if(setSpinnerSelection() > -1)
             mSpinnerCategories.setSelection(setSpinnerSelection());
