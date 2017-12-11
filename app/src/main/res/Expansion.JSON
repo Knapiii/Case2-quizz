@@ -71,11 +71,6 @@
   },
   {
     "category": "expansion",
-    "statement": "Lägg till",
-    "answer" : false
-  },
-  {
-    "category": "expansion",
     "statement": "Det finns fem advent på ett år",
     "answer" : true
   },

@@ -75,7 +75,6 @@
         <activity
             android:name=".Activities.CreateProfileActivity"
             android:noHistory="true" />
-        <activity android:name=".Data.JSONTask"></activity>
     </application>
 
 </manifest>

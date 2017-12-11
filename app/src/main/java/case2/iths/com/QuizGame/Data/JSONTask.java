@@ -21,14 +21,15 @@ import case2.iths.com.QuizGame.R;
 public class JSONTask extends AsyncTask <Void, Void, String> {
 
     private QuizableDBHelper db;
-    private Context context;
+    private Context c;
 
     /**
      * Context
      */
-    public JSONTask (Context context) {
-        this.context = context;
-        db = new QuizableDBHelper(context);
+    public JSONTask (Context c) {
+        this.c = c;
+        db = new QuizableDBHelper(c);
+
     }
 
     /**
@@ -70,7 +71,7 @@ public class JSONTask extends AsyncTask <Void, Void, String> {
         try {
             JSONArray array = new JSONArray(s);
             onJSONResult(array);
-            Toast.makeText(context, "Expansion download complete.", Toast.LENGTH_LONG).show();
+            Toast.makeText(c, "Expansion download complete.", Toast.LENGTH_LONG).show();
         } catch (JSONException e) {
             e.printStackTrace();
         }
