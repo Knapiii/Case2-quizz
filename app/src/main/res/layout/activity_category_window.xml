@@ -67,9 +67,8 @@
         android:text="@string/music"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/text_food"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/text_sport"
+        app:layout_constraintLeft_toLeftOf="@+id/button_music"
+        app:layout_constraintRight_toRightOf="@+id/button_music"
         app:layout_constraintTop_toBottomOf="@+id/button_music" />
 
     <ImageView
@@ -91,9 +90,8 @@
         android:text="@string/food"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/text_music"
+        app:layout_constraintLeft_toLeftOf="@+id/button_food"
+        app:layout_constraintRight_toRightOf="@+id/button_food"
         app:layout_constraintTop_toBottomOf="@+id/button_food" />
 
     <ImageView
@@ -115,9 +113,8 @@
         android:text="@string/science"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/text_geography"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/button_science"
+        app:layout_constraintRight_toRightOf="@+id/button_science"
         app:layout_constraintTop_toBottomOf="@+id/button_science" />
 
     <ImageView
@@ -139,9 +136,8 @@
         android:text="@string/geography"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/text_game"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/text_science"
+        app:layout_constraintLeft_toLeftOf="@+id/button_geography"
+        app:layout_constraintRight_toRightOf="@+id/button_geography"
         app:layout_constraintTop_toBottomOf="@+id/button_geography" />
 
     <ImageView
@@ -163,9 +159,8 @@
         android:text="@string/games"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/text_geography"
+        app:layout_constraintLeft_toLeftOf="@+id/button_games"
+        app:layout_constraintRight_toRightOf="@+id/button_games"
         app:layout_constraintTop_toBottomOf="@+id/button_games" />
 
     <ImageView
@@ -187,10 +182,8 @@
         android:text="@string/all_categories"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/button_all_categories"
-        app:layout_constraintEnd_toStartOf="@+id/text_own_statements"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/button_all_categories"
+        app:layout_constraintRight_toRightOf="@+id/button_all_categories"
         app:layout_constraintTop_toBottomOf="@+id/button_all_categories" />
 
     <ImageView
@@ -212,9 +205,8 @@
         android:text="@string/own_statements"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/text_expansion"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/text_all_categories"
+        app:layout_constraintLeft_toLeftOf="@+id/button_own_questions"
+        app:layout_constraintRight_toRightOf="@+id/button_own_questions"
         app:layout_constraintTop_toBottomOf="@+id/button_own_questions" />
 
     <ImageView
@@ -236,10 +228,9 @@
         android:text="@string/expansion"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/text_own_statements"
-        app:layout_constraintTop_toBottomOf="@+id/button_expansion" />
+        app:layout_constraintTop_toBottomOf="@+id/button_expansion"
+        app:layout_constraintLeft_toLeftOf="@+id/button_expansion"
+        app:layout_constraintRight_toRightOf="@+id/button_expansion"/>
 
     <TextView
         android:id="@+id/developed_by_text"
