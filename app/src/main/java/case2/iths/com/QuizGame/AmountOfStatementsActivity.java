@@ -39,6 +39,7 @@ public class AmountOfStatementsActivity extends AppCompatActivity {
         chosenCategory = getIntent().getStringExtra("category");
         //Set Values
         categoryTextView.setText(chosenCategory);
+        amountOfStatements = 5;
     }
 
     /**
