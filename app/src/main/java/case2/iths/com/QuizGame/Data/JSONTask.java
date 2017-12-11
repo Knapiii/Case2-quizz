@@ -1,12 +1,15 @@
 package case2.iths.com.QuizGame.Data;
 
 import android.os.AsyncTask;
+import android.widget.ArrayAdapter;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class JSONTask extends AsyncTask <Void, Void, String> {
@@ -44,30 +47,31 @@ public class JSONTask extends AsyncTask <Void, Void, String> {
     /**
      * Skickar tillbaka resultatet
      */
-    @Override
-    protected void onPostExecute(String s) {
+     @Override
+     protected void onPostExecute(String s) {
 
         try {
             JSONArray array = new JSONArray(s);
+            onJSONResult(array);
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
     }
 
-    //@Override
-    //protected void onPostExecute(ArrayList<JSONTask> result) {
-    // ArrayAdapter<JSONTask> plantAdapter = new ArrayAdapter<JSONTask>(this,  )
-
     /**
-    * Tittar på resultatet
+    * Tittar på resultatet och kopplar till databasen
     */
     public void onJSONResult (JSONArray json) {
 
         try {
             for (int i = 0; i < json.length(); i++) {
                 JSONObject jsonObject = (JSONObject) json.get(i);
-                System.out.println(jsonObject.getString("true"));
+                System.out.println(jsonObject.getString("category"));
+                System.out.println(jsonObject.getString("statement"));
+                System.out.println(jsonObject.getBoolean("answer"));
+                // Koppla till databas
             }
         } catch(JSONException e) {
             e.printStackTrace();
