@@ -59,15 +59,9 @@
             android:name=".SinglePlayerActivity"
             android:noHistory="true"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".MultiplayerActivity"
-            android:screenOrientation="portrait" />
+
         <activity
             android:name=".CreateStatementActivity"
-            android:noHistory="true"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".EditStatementActivity"
             android:noHistory="true"
             android:screenOrientation="portrait" />
         <activity
