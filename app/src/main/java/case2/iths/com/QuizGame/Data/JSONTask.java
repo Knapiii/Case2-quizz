@@ -1,7 +1,9 @@
 package case2.iths.com.QuizGame.Data;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -13,6 +15,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class JSONTask extends AsyncTask <Void, Void, String> {
+
+    private QuizableDBHelper s;
+    private Context c;
+
+    public JSONTask (Context context) {
+        c = context;
+        s = new QuizableDBHelper(context);
+    }
 
     /**
      * Hämtar datan, ansluter till servern
@@ -68,10 +78,10 @@ public class JSONTask extends AsyncTask <Void, Void, String> {
         try {
             for (int i = 0; i < json.length(); i++) {
                 JSONObject jsonObject = (JSONObject) json.get(i);
-                System.out.println(jsonObject.getString("category"));
-                System.out.println(jsonObject.getString("statement"));
-                System.out.println(jsonObject.getBoolean("answer"));
-                // Koppla till databas
+                String category = jsonObject.getString("category");
+                String statement = jsonObject.getString("statement");
+                String answer = String.valueOf(jsonObject.getBoolean("answer"));
+                s.insertStatement(category, statement, answer);
             }
         } catch(JSONException e) {
             e.printStackTrace();

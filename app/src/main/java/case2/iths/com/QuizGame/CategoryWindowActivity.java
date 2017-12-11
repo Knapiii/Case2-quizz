@@ -129,13 +129,22 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 break;
             case R.id.button_expansion:
                 savedSettings.giveSound(this);
-                // Utremmat då det inte funkar än
-                //Intent expansionIntent = new Intent(this, AmountOfStatementsActivity.class);
-                //expansionIntent.putExtra("category", getResources().getString(R.string.expansion));
-                //if (isMultiplayer)
-                //    expansionIntent.putExtra("multiplayer", isMultiplayer);
-                //startSingleGame(expansionIntent);
-                Toast.makeText(this, "There is no expansion at the moment", Toast.LENGTH_LONG).show();
+
+
+                //new JSONTSAST excute
+                //  finns det i databasen, annars skapa ny jsontask
+
+
+                // Remma ut om expansion inte fungerar
+                Intent expansionIntent = new Intent(this, AmountOfStatementsActivity.class);
+                expansionIntent.putExtra("category", getResources().getString(R.string.expansion));
+                if (isMultiplayer)
+                    expansionIntent.putExtra("multiplayer", isMultiplayer);
+                startSingleGame(expansionIntent);
+
+
+                // Remma ut om expansion inte funkar
+                // Toast.makeText(this, "There is no expansion at the moment", Toast.LENGTH_LONG).show();
                 break;
         }
     }

@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
-
 public class QuizableDBHelper extends SQLiteAssetHelper {
 
     public static final String TABLE = "Questions";
