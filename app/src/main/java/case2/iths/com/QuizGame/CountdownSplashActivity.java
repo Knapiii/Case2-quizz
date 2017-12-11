@@ -23,8 +23,6 @@ public class CountdownSplashActivity extends AppCompatActivity {
     private String player1, player2;
     private Button readyBtn;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
