@@ -49,6 +49,7 @@ public class QuizableDBHelper extends SQLiteAssetHelper {
 
     /**
      * Returns all statements from specified category
+     * @param category The chosen category
      */
     public Cursor getStatementsFromCategory(String category) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -59,6 +60,9 @@ public class QuizableDBHelper extends SQLiteAssetHelper {
 
     /**
      * Adds user-made statements to QuizableDB.db
+     * @param category The chosen category of the statement
+     * @param statement The statement that the player will read
+     * @param answer The answer to the statement
      */
     public long insertStatement(String category, String statement, String answer) {
         ContentValues cv = new ContentValues();
