@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -22,6 +23,7 @@ public class JSONTask extends AsyncTask <Void, Void, String> {
 
     private QuizableDBHelper s;
     private Context context;
+
     /**
      * Context
      */
@@ -70,7 +72,6 @@ public class JSONTask extends AsyncTask <Void, Void, String> {
             JSONArray array = new JSONArray(s);
             onJSONResult(array);
             Toast.makeText(context, "Expansion download complete.", Toast.LENGTH_LONG).show();
-
         } catch (JSONException e) {
             e.printStackTrace();
         }

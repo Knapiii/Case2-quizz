@@ -241,9 +241,9 @@
         android:text="@string/expansion"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/button_expansion"
         app:layout_constraintLeft_toLeftOf="@+id/button_expansion"
-        app:layout_constraintRight_toRightOf="@+id/button_expansion"/>
+        app:layout_constraintRight_toRightOf="@+id/button_expansion"
+        app:layout_constraintTop_toBottomOf="@+id/button_expansion" />
 
     <TextView
         android:id="@+id/developed_by_text"

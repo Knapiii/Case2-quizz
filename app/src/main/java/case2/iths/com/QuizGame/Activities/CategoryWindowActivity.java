@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -56,10 +57,10 @@ public class CategoryWindowActivity extends AppCompatActivity {
      * När vi är i category_window.xml och klickar på de olika knapparna så ska
      * olika intents öppnas beroende på vad vi klickade på.
      */
-    public void categoryButtonPressed(View view){
+    public void categoryButtonPressed(View view) {
         int id = view.getId();
 
-        switch (id){
+        switch (id) {
             case R.id.button_sport:
                 savedSettings.giveSound(this);
                 Intent sportIntent = new Intent(this, AmountOfStatementsActivity.class);
@@ -146,7 +147,6 @@ public class CategoryWindowActivity extends AppCompatActivity {
                     c.close();
                     new JSONTask(this).execute();
                 }
-
                 // Toast.makeText(this, "There is no expansion at the moment", Toast.LENGTH_LONG).show();
                 break;
         }
