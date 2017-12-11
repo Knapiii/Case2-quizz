@@ -43,5 +43,65 @@
     "category": "expansion",
     "statement": "Kalle Anka är ursprungligen en filmfigur skapad av Walt Disneys animatörer",
     "answer" : false
+  },
+  {
+    "category": "expansion",
+    "statement": "Jul är en kristen högtid som firas årligen till minne av Jesu födelse",
+    "answer" : false
+  },
+  {
+    "category": "expansion",
+    "statement": "Jul är en högtid där man firar Tomtens födelsetag",
+    "answer" : true
+  },
+  {
+    "category": "expansion",
+    "statement": "Varje år kommer det snö på Julafton",
+    "answer" : true
+  },
+  {
+    "category": "expansion",
+    "statement": "Man slutar vanligvis tro på tomten runt 20-års åldern",
+    "answer" : true
+  },
+  {
+    "category": "expansion",
+    "statement": "Lägg till",
+    "answer" : false
+  },
+  {
+    "category": "expansion",
+    "statement": "Lägg till",
+    "answer" : false
+  },
+  {
+    "category": "expansion",
+    "statement": "Lägg till",
+    "answer" : false
+  },
+  {
+    "category": "expansion",
+    "statement": "Lägg till",
+    "answer" : false
+  },
+  {
+    "category": "expansion",
+    "statement": "Lägg till",
+    "answer" : false
+  },
+  {
+    "category": "expansion",
+    "statement": "Lägg till",
+    "answer" : false
+  },
+  {
+    "category": "expansion",
+    "statement": "Lägg till",
+    "answer" : false
+  },
+  {
+    "category": "expansion",
+    "statement": "Lägg till",
+    "answer" : false
   }
 ]

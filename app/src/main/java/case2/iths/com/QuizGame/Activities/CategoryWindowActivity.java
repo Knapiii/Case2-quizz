@@ -1,5 +1,6 @@
 package case2.iths.com.QuizGame.Activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -11,6 +12,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import case2.iths.com.QuizGame.Adapters.ProfilesCursorAdapter;
+import case2.iths.com.QuizGame.Data.JSONTask;
+import case2.iths.com.QuizGame.Data.QuizableDBHelper;
 import case2.iths.com.QuizGame.Data.QuizableOpenHelper;
 import case2.iths.com.QuizGame.Data.QuizableDatabaseContract.UserInfoEntry;
 import case2.iths.com.QuizGame.R;
@@ -28,7 +31,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
     private String player2;
     private int spinnerSelectionPosition;
     private SharedPreferences sharedPreferences;
-    private String statement;
+    private QuizableDBHelper s;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
         isMultiplayer = intent.getBooleanExtra("multiplayer", false);
         mDbOpenHelper = new QuizableOpenHelper(this);
         displayProfileSpinner1();
+        s = new QuizableDBHelper(this);
 
         if (isMultiplayer)
             displayProfileSpinner2();
@@ -130,21 +134,19 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 break;
             case R.id.button_expansion:
                 savedSettings.giveSound(this);
+                Cursor c = s.getStatementsFromCategory("category");
+                if (c.moveToNext()) {
+                    c.close();
+                    Intent expansionIntent = new Intent(this, AmountOfStatementsActivity.class);
+                    expansionIntent.putExtra("category", getResources().getString(R.string.expansion));
+                    if (isMultiplayer)
+                        expansionIntent.putExtra("multiplayer", isMultiplayer);
+                    startSingleGame(expansionIntent);
+                } else {
+                    c.close();
+                    new JSONTask(this).execute();
+                }
 
-
-                //new JSONTSAST excute
-                //  finns det i databasen, annars skapa ny jsontask
-
-
-                // Remma ut om expansion inte fungerar
-                Intent expansionIntent = new Intent(this, AmountOfStatementsActivity.class);
-                expansionIntent.putExtra("category", getResources().getString(R.string.expansion));
-                if (isMultiplayer)
-                    expansionIntent.putExtra("multiplayer", isMultiplayer);
-                startSingleGame(expansionIntent);
-
-
-                // Remma ut om expansion inte funkar
                 // Toast.makeText(this, "There is no expansion at the moment", Toast.LENGTH_LONG).show();
                 break;
         }

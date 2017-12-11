@@ -1,6 +1,7 @@
 package case2.iths.com.QuizGame.Data;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
@@ -14,13 +15,18 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import case2.iths.com.QuizGame.Activities.AmountOfStatementsActivity;
+import case2.iths.com.QuizGame.R;
+
 public class JSONTask extends AsyncTask <Void, Void, String> {
 
     private QuizableDBHelper s;
-    private Context c;
-
+    private Context context;
+    /**
+     * Context
+     */
     public JSONTask (Context context) {
-        c = context;
+        this.context = context;
         s = new QuizableDBHelper(context);
     }
 
@@ -31,7 +37,7 @@ public class JSONTask extends AsyncTask <Void, Void, String> {
     protected String doInBackground(Void... params) {
 
         try {
-            URL url = new URL("https:knapiii.github.io/Case2-quizz/app/src/main/res/Expansion.JSON");
+            URL url = new URL("https://knapiii.github.io/Case2-quizz/app/src/main/res/Expansion.JSON");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             return getStringFromBuffer(connection.getInputStream());
@@ -63,6 +69,7 @@ public class JSONTask extends AsyncTask <Void, Void, String> {
         try {
             JSONArray array = new JSONArray(s);
             onJSONResult(array);
+            Toast.makeText(context, "Expansion download complete.", Toast.LENGTH_LONG).show();
 
         } catch (JSONException e) {
             e.printStackTrace();
