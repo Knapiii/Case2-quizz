@@ -134,11 +134,11 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 break;
             case R.id.button_expansion:
                 savedSettings.giveSound(this);
-                Cursor c = s.getStatementsFromCategory("category");
+                Cursor c = s.getStatementsFromCategory("expansion");
                 if (c.moveToNext()) {
                     c.close();
                     Intent expansionIntent = new Intent(this, AmountOfStatementsActivity.class);
-                    expansionIntent.putExtra("category", getResources().getString(R.string.expansion));
+                    expansionIntent.putExtra("category", "expansion");
                     if (isMultiplayer)
                         expansionIntent.putExtra("multiplayer", isMultiplayer);
                     startSingleGame(expansionIntent);

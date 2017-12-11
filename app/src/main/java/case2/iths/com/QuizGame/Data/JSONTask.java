@@ -55,7 +55,7 @@ public class JSONTask extends AsyncTask <Void, Void, String> {
         Scanner sc = new Scanner(inputStream);
         String str = "";
         while (sc.hasNext()) {
-            str += sc.next();
+            str += sc.nextLine();
         }
         return str;
     }
