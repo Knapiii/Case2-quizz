@@ -17,7 +17,7 @@ public class QuizableDBHelper extends SQLiteAssetHelper {
     public static final String ANSWER = "Answer";
     private static final String OWN_STATEMENTS = "Own_Statements";
     private static final int USER_STATEMENTS = 1;
-    private static final String DATABASE_NAME = "QuizableDB.db";
+    private static final String DATABASE_NAME = "quizable_db.db";
     private static final int DATABASE_VERSION = 1;
 
     /**
@@ -28,7 +28,7 @@ public class QuizableDBHelper extends SQLiteAssetHelper {
     }
 
     /**
-     * Returns all statements from QuizableDB.db
+     * Returns all statements from quizable_db.db
      */
     public Cursor getStatements() {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -38,7 +38,7 @@ public class QuizableDBHelper extends SQLiteAssetHelper {
     }
 
     /**
-     * Returns all user-made statements from QuizableDB.db
+     * Returns all user-made statements from quizable_db.db
      */
     public Cursor getUserMadeStatements() {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -58,7 +58,7 @@ public class QuizableDBHelper extends SQLiteAssetHelper {
     }
 
     /**
-     * Adds user-made statements to QuizableDB.db
+     * Adds user-made statements to quizable_db.db
      */
     public long insertStatement(String category, String statement, String answer) {
         ContentValues cv = new ContentValues();
