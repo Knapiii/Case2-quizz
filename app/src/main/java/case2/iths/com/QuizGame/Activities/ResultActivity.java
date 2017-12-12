@@ -151,6 +151,7 @@ public class ResultActivity extends AppCompatActivity {
                 toNextResult.putExtra("p2points", p2Points);
                 toNextResult.putExtra("p2correctAnswers", p2CorrectAnswers);
                 toNextResult.putExtra("p2sTurn", true);
+                toNextResult.putExtra("amountOfStatements", amountOfStatements);
                 quizableOpenHelper = new QuizableOpenHelper(this);
                 quizableOpenHelper.insertHighscore(category, p1Points, amountOfStatements, name);
                 startActivity(toNextResult);
