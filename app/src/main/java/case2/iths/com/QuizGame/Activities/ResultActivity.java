@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import case2.iths.com.QuizGame.Data.QuizableOpenHelper;
-import case2.iths.com.QuizGame.HighScoreActivity;
 import case2.iths.com.QuizGame.R;
 
 public class ResultActivity extends AppCompatActivity {

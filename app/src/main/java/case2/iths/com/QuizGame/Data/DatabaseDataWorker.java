@@ -24,6 +24,7 @@ public class DatabaseDataWorker {
         insertCategory("All categories");
         insertCategory("Food");
         insertCategory("Games");
+        insertCategory("Expansion");
         insertCategory("Geography");
         insertCategory("Science");
         insertCategory("Sport");

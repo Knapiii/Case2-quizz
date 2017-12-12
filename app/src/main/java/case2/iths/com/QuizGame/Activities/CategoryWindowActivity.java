@@ -13,8 +13,8 @@ import android.widget.Spinner;
 import case2.iths.com.QuizGame.Adapters.ProfilesCursorAdapter;
 import case2.iths.com.QuizGame.Data.JSONTask;
 import case2.iths.com.QuizGame.Data.QuizableDBHelper;
-import case2.iths.com.QuizGame.Data.QuizableOpenHelper;
 import case2.iths.com.QuizGame.Data.QuizableDatabaseContract.UserInfoEntry;
+import case2.iths.com.QuizGame.Data.QuizableOpenHelper;
 import case2.iths.com.QuizGame.R;
 
 public class CategoryWindowActivity extends AppCompatActivity {
@@ -63,7 +63,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 savedSettings.giveSound(this);
                 Intent sportIntent = new Intent(this, AmountOfStatementsActivity.class);
                 sportIntent.putExtra("category", getResources().getString(R.string.sport));
-                spinnerSelectionPosition = 6;
+                spinnerSelectionPosition = 7;
                 if (isMultiplayer)
                     sportIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(sportIntent);
@@ -72,7 +72,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 savedSettings.giveSound(this);
                 Intent musicIntent = new Intent(this, AmountOfStatementsActivity.class);
                 musicIntent.putExtra("category", getResources().getString(R.string.music));
-                spinnerSelectionPosition= 7;
+                spinnerSelectionPosition= 8;
                 if (isMultiplayer)
                     musicIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(musicIntent);
@@ -81,7 +81,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 savedSettings.giveSound(this);
                 Intent geoIntent = new Intent(this, AmountOfStatementsActivity.class);
                 geoIntent.putExtra("category", getResources().getString(R.string.geography));
-                spinnerSelectionPosition= 4;
+                spinnerSelectionPosition= 5;
                 if (isMultiplayer)
                     geoIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(geoIntent);
@@ -126,19 +126,20 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 savedSettings.giveSound(this);
                 Intent ownIntent = new Intent(this, AmountOfStatementsActivity.class);
                 ownIntent.putExtra("category", getResources().getString(R.string.own));
-                spinnerSelectionPosition= 8;
+                spinnerSelectionPosition= 9;
                 if (isMultiplayer)
                     ownIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(ownIntent);
                 break;
             case R.id.button_expansion:
                 savedSettings.giveSound(this);
-                Cursor c = db.getStatementsFromCategory("expansion");
+                spinnerSelectionPosition= 4;
+                Cursor c = db.getStatementsFromCategory("Expansion");
 
                 if (c.moveToNext()) {
                     c.close();
                     Intent expansionIntent = new Intent(this, AmountOfStatementsActivity.class);
-                    expansionIntent.putExtra("category", "expansion");
+                    expansionIntent.putExtra("category", "Expansion");
 
                     if (isMultiplayer)
                         expansionIntent.putExtra("multiplayer", isMultiplayer);

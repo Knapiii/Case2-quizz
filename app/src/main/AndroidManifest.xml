@@ -22,7 +22,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name=".HighScoreActivity"
+            android:name=".Activities.HighScoreActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Activities.ProfileActivity"

@@ -1,9 +1,5 @@
-package case2.iths.com.QuizGame;
+package case2.iths.com.QuizGame.Activities;
 
-// TODO: 2017-11-14 Lägg till:
-// TODO: PLAY HISTORY
-// TODO: STATISTIC FOR ALL CATEGIRES OR A SPESIFIC CAREGORY
-// TODO: RANKING
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -20,6 +16,7 @@ import case2.iths.com.QuizGame.Adapters.CategoriesCursorAdapter;
 import case2.iths.com.QuizGame.Adapters.HighscoresAdapter;
 import case2.iths.com.QuizGame.Data.QuizableDatabaseContract.CategoriesInfoEntry;
 import case2.iths.com.QuizGame.Data.QuizableOpenHelper;
+import case2.iths.com.QuizGame.R;
 
 public class HighScoreActivity extends AppCompatActivity {
 
