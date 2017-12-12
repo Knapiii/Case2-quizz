@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         boolean silent = settings.getBoolean("silentMode", false);
         savedSettings.setSoundOn(silent);
         initialize();
-        storeSettings();
+        restoreSettings();
     }
 
     /**
@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
         editor.apply();
     }
 
-    private void storeSettings() {
+    private void restoreSettings() {
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         boolean silent = settings.getBoolean("silentMode", false);
         savedSettings.setSoundOn(silent);
