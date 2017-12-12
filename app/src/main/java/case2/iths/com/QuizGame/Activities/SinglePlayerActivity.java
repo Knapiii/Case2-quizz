@@ -171,8 +171,6 @@ public class SinglePlayerActivity extends AppCompatActivity {
 
     /**
      * Startar ResultActivity efter fem frågor har visats
-     * TODO: Här kan man nog fixa multiplayer funktionen
-     * TODO: genom att istället anropa CountDownActivity igen och spara första spelarens värden
      */
     public void startResultActivity() {
         if (!p2sTurn && multiplayer){

@@ -1,10 +1,5 @@
 package case2.iths.com.QuizGame.Activities;
 
-// TODO: 2017-11-14 Lägg till:
-// TODO: SHOW AMOUNT OF PLAYERS
-// TODO: SHOW TOTAL POINTS
-// TODO: SHOW TIME USED
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
