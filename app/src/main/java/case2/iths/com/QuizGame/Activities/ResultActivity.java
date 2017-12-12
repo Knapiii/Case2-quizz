@@ -169,4 +169,10 @@ public class ResultActivity extends AppCompatActivity {
         playerName.setText(name);
     }
 
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(this, GameMenuActivity.class);
+        startActivity(intent);
+    }
+
 }
