@@ -55,21 +55,25 @@ public class CountdownSplashActivity extends AppCompatActivity {
                 }
             }
 
-
+            /**
+             * After timer is finished
+             * Runs the method toSinglePlayer()
+             */
             @Override
             public void onFinish() {
                 toSinglePlayer();
             }
         };
-
         if (!p2sTurn)
             cdTimer.start();
     }
 
     private void initializePlayers() {
+
         SharedPreferences sp = getSharedPreferences("user_prefs", 0);
         player1 = sp.getString("player1", "");
         player2 = sp.getString("player2", "");
+
     }
 
     /**
