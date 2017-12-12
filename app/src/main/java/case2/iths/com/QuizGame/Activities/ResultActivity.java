@@ -137,7 +137,7 @@ public class ResultActivity extends AppCompatActivity {
      * Saves the score from a single player game
      */
     public void onSaveButtonClick(View view) {
-
+        savedSettings.giveSound(this);
             if (multiplayer && !p2sTurn) {
                 Intent toNextResult = new Intent(this, ResultActivity.class);
                 toNextResult.putExtra("multiplayer", multiplayer);
@@ -156,7 +156,6 @@ public class ResultActivity extends AppCompatActivity {
                 quizableOpenHelper.insertHighscore(category, p2Points, amountOfStatements, name2);
                 startActivity(toHighscore);
             } else {
-                savedSettings.giveSound(this);
                 showPlayerName(player1);
                 Intent toHighscores = new Intent(this, HighScoreActivity.class);
                 toHighscores.putExtra("amountOfStatements", amountOfStatements);
