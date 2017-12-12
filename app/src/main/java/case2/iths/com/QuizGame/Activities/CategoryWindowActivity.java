@@ -67,7 +67,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
             case R.id.button_music:
                 savedSettings.giveSound(this);
                 Intent musicIntent = makeIntentBasedOnId(R.string.music);
-                spinnerSelectionPosition= 8;
+                spinnerSelectionPosition = 8;
                 if (isMultiplayer)
                     musicIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(musicIntent);
@@ -75,7 +75,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
             case R.id.button_geography:
                 savedSettings.giveSound(this);
                 Intent geoIntent = makeIntentBasedOnId(R.string.geography);
-                spinnerSelectionPosition= 5;
+                spinnerSelectionPosition = 5;
                 if (isMultiplayer)
                     geoIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(geoIntent);
@@ -83,7 +83,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
             case R.id.button_science:
                 savedSettings.giveSound(this);
                 Intent scienceIntent = makeIntentBasedOnId(R.string.science);
-                spinnerSelectionPosition= 6;
+                spinnerSelectionPosition = 6;
                 if (isMultiplayer)
                     scienceIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(scienceIntent);
@@ -91,7 +91,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
             case R.id.button_food:
                 savedSettings.giveSound(this);
                 Intent foodIntent = makeIntentBasedOnId(R.string.food);
-                spinnerSelectionPosition= 2;
+                spinnerSelectionPosition = 2;
                 if (isMultiplayer)
                     foodIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(foodIntent);
@@ -99,7 +99,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
             case R.id.button_games:
                 savedSettings.giveSound(this);
                 Intent gamesIntent = makeIntentBasedOnId(R.string.games);
-                spinnerSelectionPosition= 3;
+                spinnerSelectionPosition = 3;
                 if (isMultiplayer)
                     gamesIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(gamesIntent);
@@ -107,7 +107,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
             case R.id.button_all_categories:
                 savedSettings.giveSound(this);
                 Intent allIntent = makeIntentBasedOnId(R.string.all_categories);
-                spinnerSelectionPosition= 1;
+                spinnerSelectionPosition = 1;
                 if (isMultiplayer)
                     allIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(allIntent);
@@ -115,14 +115,14 @@ public class CategoryWindowActivity extends AppCompatActivity {
             case R.id.button_own_questions:
                 savedSettings.giveSound(this);
                 Intent ownIntent = makeIntentBasedOnId(R.string.own);
-                spinnerSelectionPosition= 9;
+                spinnerSelectionPosition = 9;
                 if (isMultiplayer)
                     ownIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(ownIntent);
                 break;
             case R.id.button_expansion:
                 savedSettings.giveSound(this);
-                spinnerSelectionPosition= 4;
+                spinnerSelectionPosition = 4;
                 Cursor c = db.getStatementsFromCategory("Expansion");
 
                 if (c.moveToNext()) {
@@ -140,19 +140,17 @@ public class CategoryWindowActivity extends AppCompatActivity {
                     c.close();
                     new JSONTask(this).execute();
                 }
-
-                // Toast.makeText(this, "There is no expansion at the moment", Toast.LENGTH_LONG).show();
                 break;
         }
     }
 
-    private Intent makeIntentBasedOnId(int id){
+    private Intent makeIntentBasedOnId(int id) {
         Intent intent = new Intent(this, AmountOfStatementsActivity.class);
         intent.putExtra("category", getResources().getString(id));
         return intent;
     }
 
-    private void expansionIsDownloaded () {
+    private void expansionIsDownloaded() {
         Cursor c = db.getStatementsFromCategory("expansion");
 
         if (c.moveToNext()) {
@@ -244,7 +242,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
         });
     }
 
-    private void startSingleGame(Intent intent){
+    private void startSingleGame(Intent intent) {
         saveSpinnerSelectionPosition();
         savedSettings.giveSound(this);
         startActivity(intent);

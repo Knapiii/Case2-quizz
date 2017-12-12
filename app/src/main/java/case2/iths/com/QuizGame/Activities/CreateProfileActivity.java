@@ -30,7 +30,7 @@ public class CreateProfileActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ProfileActivity.class);
         QuizableOpenHelper mDbOpenHelper = new QuizableOpenHelper(this);
         input = insertUsername.getText().toString();
-        if (input.length() > 10){
+        if (input.length() > 10) {
             Toast.makeText(this, "Name can not be more than 10 letters", Toast.LENGTH_LONG).show();
             return;
         }
