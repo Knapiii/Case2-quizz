@@ -47,9 +47,6 @@ public class CategoryWindowActivity extends AppCompatActivity {
             displayProfileSpinner2();
         expansionIsDownloaded();
     }
-    
-    // TODO: FUTURE FEATURES:
-    // TODO: Enable the choice of multiple categories
 
     /**
      * När vi är i category_window.xml och klickar på de olika knapparna så ska
@@ -260,4 +257,3 @@ public class CategoryWindowActivity extends AppCompatActivity {
     }
 
 }
-

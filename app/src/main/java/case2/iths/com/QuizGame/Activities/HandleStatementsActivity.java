@@ -1,14 +1,5 @@
 package case2.iths.com.QuizGame.Activities;
 
-// TODO: 2017-11-14 Lägg till:
-// TODO: CREATE QUESTION-FUNCTION
-// TODO:        ADD QUESTION
-// TODO:        ADD ALTERNITIVES
-// TODO:           - WRONG ANSWERS
-// TODO:           - RIGHT ANSWERS
-// TODO:        ADD CATEGORY
-// TODO: DELETE QUESTION-FUNCTION
-// TODO: RANKING
 
 import android.content.Intent;
 import android.database.Cursor;
