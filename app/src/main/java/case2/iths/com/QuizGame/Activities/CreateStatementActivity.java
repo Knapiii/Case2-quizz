@@ -72,7 +72,7 @@ public class CreateStatementActivity extends AppCompatActivity {
     /**
      * Möjliggör en ändrad färg när vi klickar på en knapp.
      */
-    public void onButtonTrueClicked(View view){
+    public void onButtonTrueClicked(View view) {
         buttonTrueClicked = true;
         changeButtonColor();
         answer = "true";
@@ -81,7 +81,7 @@ public class CreateStatementActivity extends AppCompatActivity {
     /**
      * Möjliggör en ändrad färg när vi klickar på en knapp.
      */
-    public void onButtonFalseClicked(View view){
+    public void onButtonFalseClicked(View view) {
         buttonTrueClicked = false;
         changeButtonColor();
         answer = "false";
@@ -89,10 +89,10 @@ public class CreateStatementActivity extends AppCompatActivity {
 
     private void changeButtonColor() {
 
-        if (buttonTrueClicked){
+        if (buttonTrueClicked) {
             buttonTrue.setBackgroundResource(R.drawable.button_shape_pressed);
             buttonFalse.setBackgroundResource(R.drawable.button_shape);
-        } else{
+        } else {
             buttonTrue.setBackgroundResource(R.drawable.button_shape);
             buttonFalse.setBackgroundResource(R.drawable.button_shape_pressed);
         }
@@ -103,9 +103,7 @@ public class CreateStatementActivity extends AppCompatActivity {
      * HandleStatements activity.
      */
     public void onButtonAddClicked(View view) {
-        //  Toast.makeText(this, "Add", Toast.LENGTH_SHORT).show();
-
-        if (!addStatement()){
+        if (!addStatement()) {
             Intent intent = new Intent(this, HandleStatementsActivity.class);
             startActivity(intent);
         }
@@ -130,7 +128,7 @@ public class CreateStatementActivity extends AppCompatActivity {
         int own_statement = 1;
         dbHelper.insertStatement(category, statement, answer, own_statement);
 
-    return false;
+        return false;
     }
 
 }

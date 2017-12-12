@@ -34,7 +34,7 @@ public class CountdownSplashActivity extends AppCompatActivity {
         setupTimer();
     }
 
-    private void setupTimer(){
+    private void setupTimer() {
         cdTimer = new CountDownTimer(4000, 100) {
             @Override
             public void onTick(long l) {
@@ -69,11 +69,9 @@ public class CountdownSplashActivity extends AppCompatActivity {
     }
 
     private void initializePlayers() {
-
         SharedPreferences sp = getSharedPreferences("user_prefs", 0);
         player1 = sp.getString("player1", "");
         player2 = sp.getString("player2", "");
-
     }
 
     /**
@@ -147,9 +145,10 @@ public class CountdownSplashActivity extends AppCompatActivity {
 
     /**
      * Starts the timer for player 2 and hides the button
+     *
      * @param view
      */
-    public void onReadyButtonPressed(View view){
+    public void onReadyButtonPressed(View view) {
         cdTimer.start();
         readyBtn.setVisibility(readyBtn.GONE);
     }
