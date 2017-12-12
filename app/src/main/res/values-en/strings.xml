@@ -88,4 +88,5 @@
     <string name="ready">ready</string>
     <string name="are_you_ready">Are you ready?</string>
     <string name="expansion_christmas">Expansion Christmas</string>
+    <string name="max_number_of_letters_10">Max number of letters: 10</string>
 </resources>

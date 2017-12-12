@@ -3,9 +3,11 @@ package case2.iths.com.QuizGame.Activities;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import case2.iths.com.QuizGame.Data.QuizableOpenHelper;
 import case2.iths.com.QuizGame.R;
@@ -16,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private QuizableOpenHelper mDbOpenHelper;
     private SavedSettings savedSettings;
     private ImageButton imageButton;
+    boolean doubleBackToExitPressedOnce = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,29 @@ public class MainActivity extends AppCompatActivity {
         savedSettings.setSoundOn(silent);
         initialize();
         storeSettings();
+    }
+
+    /**
+     * When the back button is pressed once, a toast pops up informing that pressing it again will
+     * quit the game.
+     */
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Press back again to quit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
     }
 
     private void initialize(){
