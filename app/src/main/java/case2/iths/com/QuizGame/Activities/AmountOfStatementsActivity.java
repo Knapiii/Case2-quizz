@@ -43,6 +43,7 @@ public class AmountOfStatementsActivity extends AppCompatActivity {
         //Get Values
         multiplayer = getIntent().getBooleanExtra("multiplayer", false);
         chosenCategory = getIntent().getStringExtra("category");
+
         //Set Values
         categoryTextView.setText(chosenCategory);
         amountOfStatements = 5;
@@ -102,10 +103,10 @@ public class AmountOfStatementsActivity extends AppCompatActivity {
         intent.putExtra("amountOfStatements", amountOfStatements);
         intent.putExtra("category", chosenCategory);
         intent.putExtra("multiplayer", multiplayer);
-        if(hasEnoughStatements(amountOfStatements))
-            startActivity(intent);
-        else
+        if(chosenCategory.equals("Own") && !hasEnoughStatements(amountOfStatements))
             Toast.makeText(this, "Not enough statements!", Toast.LENGTH_SHORT).show();
+        else
+            startActivity(intent);
 
     }
 
