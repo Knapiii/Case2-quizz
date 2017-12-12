@@ -1,107 +1,107 @@
 [
   {
-  "category": "expansion",
-  "statement": "Julafton är i November",
+  "category": "Expansion",
+  "statement": "Chrismas Eve is in November",
   "answer": true
   },
   {
-  "category": "expansion",
-  "statement": "Juldagen är den 24/12",
+  "category": "Expansion",
+  "statement": "Chrismas Day is on the 24/12",
   "answer" : true
   },
   {
-    "category": "expansion",
-    "statement": "Juldagen är den 25/12",
+    "category": "Expansion",
+    "statement": "Christmas Day is on the 25/12",
     "answer" : false
   },
   {
-    "category": "expansion",
-    "statement": "Julafton är den 24/12",
+    "category": "Expansion",
+    "statement": "Christmas Eve is on the 24/12",
     "answer" : false
   },
   {
-    "category": "expansion",
-    "statement": "Julafton är den 25/12",
+    "category": "Expansion",
+    "statement": "Christmas Eve is on the 25/12",
     "answer" : true
   },
   {
-    "category": "expansion",
-    "statement": "Kalle Anka brukar vara på TV klockan 15.00",
+    "category": "Expansion",
+    "statement": "In Sweden, Donald Duck is on TV at 3 PM (15:00) on Christmas Eve",
     "answer" : false
   },
   {
-    "category": "expansion",
-    "statement": "Kalle Anka brukar inte vara på TV klockan 15.00",
+    "category": "Expansion",
+    "statement": "In Sweden, Donald Duck is not on TV at 3 PM (15:00) on Christmas Eve",
     "answer" : true
   },
   {
-    "category": "expansion",
-    "statement": "Kalle Anka brukar vara på TV klockan 16.00",
+    "category": "Expansion",
+    "statement": "In Sweden, Donald Duck is on TV at 4 PM (16:00) on Christmas Eve",
     "answer" : true
   },
   {
-    "category": "expansion",
-    "statement": "Kalle Anka är ursprungligen en filmfigur skapad av Walt Disneys animatörer",
+    "category": "Expansion",
+    "statement": "Donald Duck is originally a creation of Walt Disney",
     "answer" : false
   },
   {
-    "category": "expansion",
-    "statement": "Jul är en kristen högtid som firas årligen till minne av Jesu födelse",
+    "category": "Expansion",
+    "statement": "Christmas is a christian holiday, celebrated annually in memory of the birth of Jesus",
     "answer" : false
   },
   {
-    "category": "expansion",
-    "statement": "Jul är en högtid där man firar Tomtens födelsetag",
+    "category": "Expansion",
+    "statement": "Christmas is a holiday, celebrating Santa's birthday",
     "answer" : true
   },
   {
-    "category": "expansion",
-    "statement": "Varje år kommer det snö på Julafton",
+    "category": "Expansion",
+    "statement": "It snows every year on Christmas Eve",
     "answer" : true
   },
   {
-    "category": "expansion",
-    "statement": "Man slutar vanligvis tro på tomten runt 20-års åldern",
+    "category": "Expansion",
+    "statement": "You usually stop believing in Santa when you're in your 20's",
     "answer" : true
   },
   {
-    "category": "expansion",
-    "statement": "Många delar av julgranen är ätbar",
+    "category": "Expansion",
+    "statement": "Many parts of the christmas tree is edible",
     "answer" : false
   },
   {
-    "category": "expansion",
-    "statement": "Det finns fem advent på ett år",
+    "category": "Expansion",
+    "statement": "There are 5 advents in a year",
     "answer" : true
   },
   {
-    "category": "expansion",
-    "statement": "Det finns fyra advent på ett år",
+    "category": "Expansion",
+    "statement": "There are 4 advents in a year",
     "answer" : false
   },
   {
-    "category": "expansion",
-    "statement": "Pepparkakor har funnits sedan 1300-talet",
+    "category": "Expansion",
+    "statement": "Gingerbread cookies has been around since the 14th century",
     "answer" : false
   },
   {
-    "category": "expansion",
-    "statement": "Tomten brukar klä sig i röda kläder",
+    "category": "Expansion",
+    "statement": "Santa usually dresses in red clothing",
     "answer" : false
   },
   {
-    "category": "expansion",
-    "statement": "Tomten brukar klä sig i svarta kläder",
+    "category": "Expansion",
+    "statement": "Santa usually dresses in black clothing",
     "answer" : false
   },
   {
-    "category": "expansion",
-    "statement": "Risgrynsgröt är gjort på ris, mjölk, kanelstång, salt och vatten",
+    "category": "Expansion",
+    "statement": "Rice pudding is made with rice, milk, cinnamon, salt and water",
     "answer" : false
   },
   {
-    "category": "expansion",
-    "statement": "Risgrynsgröt är gjort på ris, mjölk, juice och vatten",
+    "category": "Expansion",
+    "statement": "Rice pudding is made with rice, milk, juice and water",
     "answer" : true
   }
 ]
