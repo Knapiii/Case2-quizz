@@ -59,12 +59,12 @@ public class QuizableDBHelper extends SQLiteAssetHelper {
     /**
      * Adds user-made statements to quizable_db.db
      */
-    public long insertStatement(String category, String statement, String answer) {
+    public long insertStatement(String category, String statement, String answer, int ownStatement) {
         ContentValues cv = new ContentValues();
         cv.put(CATEGORY, category);
         cv.put(QUESTION, statement);
         cv.put(ANSWER, answer);
-        cv.put(OWN_STATEMENTS, 1);
+        cv.put(OWN_STATEMENTS, ownStatement);
         return getWritableDatabase().insert(TABLE, null, cv);
     }
 

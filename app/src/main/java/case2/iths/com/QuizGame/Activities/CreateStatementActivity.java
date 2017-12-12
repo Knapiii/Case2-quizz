@@ -127,7 +127,8 @@ public class CreateStatementActivity extends AppCompatActivity {
 
         String input = "SAVED: Category: " + category + " Statement: " + statement + "Answer: " + answer;
         Toast.makeText(this, input, Toast.LENGTH_SHORT).show();
-        dbHelper.insertStatement(category, statement, answer);
+        int own_statement = 1;
+        dbHelper.insertStatement(category, statement, answer, own_statement);
 
     return false;
     }
