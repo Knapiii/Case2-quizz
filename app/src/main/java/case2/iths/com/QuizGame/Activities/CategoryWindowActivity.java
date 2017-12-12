@@ -31,7 +31,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
     private int spinnerSelectionPosition;
     private SharedPreferences sharedPreferences;
     private QuizableDBHelper db;
-    // private ImageView expansionButton;
+    private ImageView expansionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +45,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
         db = new QuizableDBHelper(this);
         if (isMultiplayer)
             displayProfileSpinner2();
+        expansionIsDownloaded();
     }
     
     // TODO: FUTURE FEATURES:
@@ -139,13 +140,13 @@ public class CategoryWindowActivity extends AppCompatActivity {
                     Intent expansionIntent = new Intent(this, AmountOfStatementsActivity.class);
                     expansionIntent.putExtra("category", "expansion");
 
-                    // expansionButton = findViewById(R.id.button_expansion);
-                    // expansionButton.setImageResource(R.drawable.expansion_downloaded);
-
                     if (isMultiplayer)
                         expansionIntent.putExtra("multiplayer", isMultiplayer);
                     startSingleGame(expansionIntent);
+
                 } else {
+                    expansionButton = findViewById(R.id.button_expansion);
+                    expansionButton.setImageResource(R.drawable.expansion_downloaded);
                     c.close();
                     new JSONTask(this).execute();
                 }
@@ -153,6 +154,20 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 // Toast.makeText(this, "There is no expansion at the moment", Toast.LENGTH_LONG).show();
                 break;
         }
+    }
+
+    /**
+     * Kollar om expansion är nedladdat och i sånna fall blir färgen på ikonen vit istället för grå
+     */
+    private void expansionIsDownloaded () {
+
+        Cursor c = db.getStatementsFromCategory("expansion");
+
+        if (c.moveToNext()) {
+            expansionButton = findViewById(R.id.button_expansion);
+            expansionButton.setImageResource(R.drawable.expansion_downloaded);
+        }
+
     }
 
     private void saveSpinnerSelectionPosition() {
