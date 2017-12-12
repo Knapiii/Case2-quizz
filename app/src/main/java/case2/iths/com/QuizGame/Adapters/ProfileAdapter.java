@@ -152,6 +152,5 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
         notifyItemRemoved(position);
         notifyItemRangeChanged(position, getItemCount());
         mCursor = mDbOpenHelper.getAllProfiles();
-        mDbOpenHelper.close();
     }
 }
