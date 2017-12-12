@@ -3,6 +3,8 @@ package case2.iths.com.QuizGame.Adapters;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.AsyncTask;
+import android.os.SystemClock;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,8 +14,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import case2.iths.com.QuizGame.Data.QuizableOpenHelper;
 import case2.iths.com.QuizGame.Data.QuizableDatabaseContract.UserInfoEntry;
+import case2.iths.com.QuizGame.Data.QuizableOpenHelper;
 import case2.iths.com.QuizGame.R;
 
 /**
@@ -26,6 +28,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
     private final LayoutInflater mLayoutInflater;
     private Cursor mCursor;
     private int userNamePos;
+    private QuizableOpenHelper mDbOpenHelper;
 
     /**
      * Constructor
@@ -89,6 +92,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
         private final TextView textUserName;
         private final ImageButton deleteButton;
         private final CardView cardView;
+        private long mLastClickTime = 0;
 
         /**
          *
@@ -110,6 +114,11 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
         @Override
         public void onClick(View view) {
 
+            if (SystemClock.elapsedRealtime() - mLastClickTime < 1000){
+                return;
+            }
+            mLastClickTime = SystemClock.elapsedRealtime();
+
             int idNr = view.getId();
 
             switch (idNr) {
@@ -129,13 +138,20 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
     }
 
     private void deleteProfile(String id, int position) {
-        QuizableOpenHelper mDbOpenHelper = new QuizableOpenHelper(mContext);
-        SQLiteDatabase db = mDbOpenHelper.getWritableDatabase();
-        String[] selectionArgs = {id};
-        db.delete(UserInfoEntry.TABLE_NAME, UserInfoEntry._ID+"=?", selectionArgs);
-        mCursor = mDbOpenHelper.getAllProfiles();
+        mDbOpenHelper = new QuizableOpenHelper(mContext);
+        final String[] selectionArgs = {id};
+        AsyncTask task = new AsyncTask() {
+            @Override
+            protected Object doInBackground(Object[] objects) {
+                SQLiteDatabase db = mDbOpenHelper.getWritableDatabase();
+                db.delete(UserInfoEntry.TABLE_NAME, UserInfoEntry._ID + "=?", selectionArgs);
+                return null;
+            }
+        };
+        task.execute();
         notifyItemRemoved(position);
         notifyItemRangeChanged(position, getItemCount());
+        mCursor = mDbOpenHelper.getAllProfiles();
         mDbOpenHelper.close();
     }
 }
