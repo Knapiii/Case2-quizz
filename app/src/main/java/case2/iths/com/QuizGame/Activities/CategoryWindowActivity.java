@@ -87,7 +87,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 savedSettings.giveSound(this);
                 Intent scienceIntent = new Intent(this, AmountOfStatementsActivity.class);
                 scienceIntent.putExtra("category", getResources().getString(R.string.science));
-                spinnerSelectionPosition= 5;
+                spinnerSelectionPosition= 6;
                 if (isMultiplayer)
                     scienceIntent.putExtra("multiplayer", isMultiplayer);
                 startSingleGame(scienceIntent);
