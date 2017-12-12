@@ -41,6 +41,7 @@ public class ProfileActivity extends AppCompatActivity {
      * När vi klickar på addButton ska vi komma till CreateProfileActivity
      */
     public void onAddButtonClick(View view) {
+        savedSettings.giveSound(this);
         Intent intent = new Intent(this, CreateProfileActivity.class);
         startActivity(intent);
     }

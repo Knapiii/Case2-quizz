@@ -76,8 +76,12 @@ public class SinglePlayerActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Values
+     * Get values
+     * set values
+     */
     public void initialize() {
-        //Textviews
         question = findViewById(R.id.questionField);
         secondsView = findViewById(R.id.display_seconds);
         pointsView = findViewById(R.id.points);
@@ -85,7 +89,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
         statementsLeftView = findViewById(R.id.text_statements_left);
         Bundle args = getIntent().getExtras();
         p2sTurn = args.getBoolean("p2sTurn");
-        //Get Values
+
         if (p2sTurn) {
             p1Points = getIntent().getIntExtra("p1points", 100);
             p1CorrectAnswers = getIntent().getIntExtra("p1correctAnswers", 0);
@@ -93,7 +97,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
         category = getIntent().getStringExtra("category");
         amountOfStatements = getIntent().getIntExtra("amountOfStatements", 5);
         multiplayer = getIntent().getBooleanExtra("multiplayer", false);
-        //Set values
+
         headLine.setText(category);
         points = 0;
         correctAnswers = 0;
@@ -158,7 +162,6 @@ public class SinglePlayerActivity extends AppCompatActivity {
      */
     public void falseButtonPressed(View view) {
         savedSettings.giveSound(this);
-
         if (answerString.equalsIgnoreCase("False")) {
             points += seconds;
             correctAnswers++;
@@ -176,7 +179,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
      * Startar ResultActivity efter fem frågor har visats
      */
     public void startResultActivity() {
-        if (!p2sTurn && multiplayer){
+        if (!p2sTurn && multiplayer) {
             p2sTurn = true;
             Intent intent = new Intent(this, CountdownSplashActivity.class);
             intent.putExtra("p1points", points);
@@ -187,8 +190,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
             intent.putExtra("p2sTurn", p2sTurn);
             startActivity(intent);
             finish();
-        }
-        else if (p2sTurn && multiplayer) {
+        } else if (p2sTurn && multiplayer) {
             Intent multiIntent = new Intent(this, ResultActivity.class);
             multiIntent.putExtra("p1points", p1Points);
             multiIntent.putExtra("p2points", points);
@@ -199,8 +201,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
             multiIntent.putExtra("multiplayer", multiplayer);
             startActivity(multiIntent);
             finish();
-        }
-        else {
+        } else {
             savedSettings.giveSound(this);
             Intent intent = new Intent(this, ResultActivity.class);
             intent.putExtra("points", points);
