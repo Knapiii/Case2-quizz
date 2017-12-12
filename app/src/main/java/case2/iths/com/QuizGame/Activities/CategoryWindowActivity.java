@@ -45,7 +45,8 @@ public class CategoryWindowActivity extends AppCompatActivity {
         db = new QuizableDBHelper(this);
         if (isMultiplayer)
             displayProfileSpinner2();
-        expansionIsDownloaded();
+        expansionButton = findViewById(R.id.button_expansion);
+        expansionButton.setImageResource(R.drawable.expansion_downloaded);
     }
 
     /**
@@ -139,15 +140,6 @@ public class CategoryWindowActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AmountOfStatementsActivity.class);
         intent.putExtra("category", getResources().getString(id));
         return intent;
-    }
-
-    private void expansionIsDownloaded() {
-        Cursor c = db.getStatementsFromCategory("expansion");
-
-        if (c.moveToNext()) {
-            expansionButton = findViewById(R.id.button_expansion);
-            expansionButton.setImageResource(R.drawable.expansion_downloaded);
-        }
     }
 
     private void saveSpinnerSelectionPosition() {
