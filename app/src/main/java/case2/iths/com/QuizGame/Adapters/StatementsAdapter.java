@@ -3,6 +3,8 @@ package case2.iths.com.QuizGame.Adapters;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.AsyncTask;
+import android.os.SystemClock;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -96,6 +98,7 @@ public class StatementsAdapter extends RecyclerView.Adapter<StatementsAdapter.Vi
         private final TextView textStatement;
         private final TextView textCategory;
         private final ImageButton deleteButton;
+        private long mLastClickTime = 0;
 
         /**
          * @param itemView- the view tho attach the data to
@@ -114,6 +117,12 @@ public class StatementsAdapter extends RecyclerView.Adapter<StatementsAdapter.Vi
          */
         @Override
         public void onClick(View view) {
+
+            if (SystemClock.elapsedRealtime() - mLastClickTime < 1000){
+                return;
+            }
+            mLastClickTime = SystemClock.elapsedRealtime();
+
             int position = getAdapterPosition();
             mCursor.moveToPosition(position);
             String id = mCursor.getString(mCursor.getColumnIndex(QuizableDBHelper.KEY_ID));
@@ -124,9 +133,16 @@ public class StatementsAdapter extends RecyclerView.Adapter<StatementsAdapter.Vi
 
     private void deleteStatement(String id, int position) {
         quizableDBHelper = new QuizableDBHelper(mContext);
-        SQLiteDatabase db = quizableDBHelper.getWritableDatabase();
-        String[] selectionArgs = {id};
-        db.delete(QuizableDBHelper.TABLE, QuizableDBHelper.KEY_ID+"=?", selectionArgs);
+        final String[] selectionArgs = {id};
+        AsyncTask task = new AsyncTask() {
+            @Override
+            protected Object doInBackground(Object[] objects) {
+                SQLiteDatabase db = quizableDBHelper.getWritableDatabase();
+                db.delete(QuizableDBHelper.TABLE, QuizableDBHelper.KEY_ID + "=?", selectionArgs);
+                return null;
+            }
+        };
+        task.execute();
         mCursor = quizableDBHelper.getUserMadeStatements();
         notifyItemRemoved(position);
         notifyItemRangeChanged(position, getItemCount());

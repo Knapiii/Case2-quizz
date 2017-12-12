@@ -75,7 +75,6 @@ public class SinglePlayerActivity extends AppCompatActivity {
         showRandomStatement();
     }
 
-
     /**
      * Values
      * Get values
@@ -231,7 +230,6 @@ public class SinglePlayerActivity extends AppCompatActivity {
         return numDoneQuestions == amountOfStatements;
     }
 
-
     /**
      * Gör så att inte samma påstående kan upprepas under en runda
      */
@@ -245,6 +243,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
 
     /**
      * Loads the statements from the specified category from quizable_db
+     *
      * @param cat The category the user picks
      */
     public void setStatementsWithCategory(String cat) {
@@ -259,7 +258,6 @@ public class SinglePlayerActivity extends AppCompatActivity {
             }
         } else if (cat.equals("All categories")) {
             Cursor cursor = quizableDBHelper.getStatements();
-
             boolean success = cursor.moveToFirst();
             if (success) {
                 while (cursor.moveToNext()) {
@@ -279,10 +277,13 @@ public class SinglePlayerActivity extends AppCompatActivity {
         }
     }
 
+
+    /**
+     * When the player wants to go back, the cdTimer stops
+     */
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         cdTimer.cancel();
-
     }
 }

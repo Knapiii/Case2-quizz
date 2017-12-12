@@ -51,12 +51,12 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void run() {
-                doubleBackToExitPressedOnce=false;
+                doubleBackToExitPressedOnce = false;
             }
         }, 2000);
     }
 
-    private void initialize(){
+    private void initialize() {
         imageButton = findViewById(R.id.imagebutton_mute);
     }
 
@@ -103,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
      * Olika bilder beroende om ljuder är på eller inte
      */
     public void toggleSoundOnClick(View view) {
-
         if (savedSettings.isSoundOn()) {
             imageButton.setImageResource(R.drawable.sound_switcher);
             savedSettings.setSoundOn(false);

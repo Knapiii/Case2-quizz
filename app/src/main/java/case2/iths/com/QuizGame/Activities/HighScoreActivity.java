@@ -39,7 +39,7 @@ public class HighScoreActivity extends AppCompatActivity {
     }
 
     private void loadHighscores() {
-    showHighscores(highScoresByCategory);
+        showHighscores(highScoresByCategory);
     }
 
     @Override
@@ -55,8 +55,7 @@ public class HighScoreActivity extends AppCompatActivity {
         CategoriesCursorAdapter categoriesCursorAdapter = new CategoriesCursorAdapter(this, allCategories);
         mSpinnerCategories.setAdapter(categoriesCursorAdapter);
 
-
-        if(setSpinnerSelection() > -1)
+        if (setSpinnerSelection() > -1)
             mSpinnerCategories.setSelection(setSpinnerSelection());
 
         mSpinnerCategories.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -100,11 +99,10 @@ public class HighScoreActivity extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences("user_prefs", 0);
         int spinnerSelection = sp.getInt("spinnerSelection", 0);
 
-        if(defaultSelection == 0)
+        if (defaultSelection == 0)
             return defaultSelection;
         else
             return spinnerSelection;
-
     }
 
     private void showHighscores(Cursor cursor) {
@@ -120,5 +118,5 @@ public class HighScoreActivity extends AppCompatActivity {
         mDbOpenHelper.close();
         super.onDestroy();
     }
-    
+
 }
