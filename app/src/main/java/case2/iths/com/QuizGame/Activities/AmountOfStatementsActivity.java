@@ -1,12 +1,15 @@
 package case2.iths.com.QuizGame.Activities;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import case2.iths.com.QuizGame.Data.QuizableDBHelper;
 import case2.iths.com.QuizGame.R;
 
 public class AmountOfStatementsActivity extends AppCompatActivity {
@@ -99,7 +102,11 @@ public class AmountOfStatementsActivity extends AppCompatActivity {
         intent.putExtra("amountOfStatements", amountOfStatements);
         intent.putExtra("category", chosenCategory);
         intent.putExtra("multiplayer", multiplayer);
-        startActivity(intent);
+        if(hasEnoughStatements(amountOfStatements))
+            startActivity(intent);
+        else
+            Toast.makeText(this, "Not enough statements!", Toast.LENGTH_SHORT).show();
+
     }
 
     private void changeButtonColor(int rounds) {
@@ -130,6 +137,21 @@ public class AmountOfStatementsActivity extends AppCompatActivity {
                 break;
         }
     }
+
+    private boolean hasEnoughStatements(int amountOfStatements) {
+        boolean hasEnoughStatements = false;
+        QuizableDBHelper quizableDBHelper = new QuizableDBHelper(this);
+        Cursor cursor = quizableDBHelper.getUserMadeStatements();
+
+        int existingStatements = cursor.getCount();
+
+        if (existingStatements > amountOfStatements)
+            hasEnoughStatements = true;
+
+        return hasEnoughStatements;
+    }
+
+
 
 }
 

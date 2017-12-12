@@ -32,6 +32,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
     private int p1Points;
     private int p1CorrectAnswers;
     private boolean p2sTurn;
+    private int randId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,7 +118,9 @@ public class SinglePlayerActivity extends AppCompatActivity {
         if (!isRoundOver()) {
             cdTimer.start();
             Random rand = new Random();
-            int randId = rand.nextInt(questions.size());
+
+            randId = rand.nextInt(questions.size());
+
             if (isStatementRepeated(randId)) {
                 showRandomQuestion();
                 return;
@@ -251,6 +254,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
             }
         } else if (cat.equals("All categories")) {
             Cursor cursor = quizableDBHelper.getStatements();
+
             boolean success = cursor.moveToFirst();
             if (success) {
                 while (cursor.moveToNext()) {
