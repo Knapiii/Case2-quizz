@@ -88,7 +88,8 @@ public class JSONTask extends AsyncTask <Void, Void, String> {
                 String category = jsonObject.getString("category");
                 String statement = jsonObject.getString("statement");
                 String answer = String.valueOf(jsonObject.getBoolean("answer"));
-                db.insertStatement(category, statement, answer);
+                int own_statement = 0;
+                db.insertStatement(category, statement, answer, own_statement);
             }
         } catch(JSONException e) {
             e.printStackTrace();

@@ -143,7 +143,7 @@
         app:srcCompat="@drawable/geography_switcher" />
 
     <TextView
-        android:id="@+id/text_geography"
+        android:id="@+id/text_correct_answers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/geography"
@@ -208,7 +208,7 @@
         app:layout_constraintEnd_toStartOf="@+id/button_expansion"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button_all_categories"
-        app:layout_constraintTop_toTopOf="@+id/text_geography"
+        app:layout_constraintTop_toTopOf="@+id/text_correct_answers"
         app:srcCompat="@drawable/own_categories_switcher" />
 
     <TextView
