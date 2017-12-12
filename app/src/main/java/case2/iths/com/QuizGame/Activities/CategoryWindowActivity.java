@@ -161,7 +161,6 @@ public class CategoryWindowActivity extends AppCompatActivity {
      * Kollar om expansion är nedladdat och i sånna fall blir färgen på ikonen vit istället för grå
      */
     private void expansionIsDownloaded () {
-
         Cursor c = db.getStatementsFromCategory("expansion");
 
         if (c.moveToNext()) {
@@ -230,7 +229,6 @@ public class CategoryWindowActivity extends AppCompatActivity {
              * @param position The position of the view in the adapter
              * @param id The row id of the item that is selected
              */
-
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
 

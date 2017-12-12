@@ -24,7 +24,7 @@ public class JSONTask extends AsyncTask <Void, Void, String> {
     private Context c;
 
     /**
-     * Context
+     * Gets context
      */
     public JSONTask (Context c) {
         this.c = c;
