@@ -28,7 +28,6 @@ public class HighScoreActivity extends AppCompatActivity {
     private HighscoresAdapter highscoresAdapter;
     private Cursor highScoresByCategory, allHighscores, allCategories;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,7 +117,5 @@ public class HighScoreActivity extends AppCompatActivity {
         mDbOpenHelper.close();
         super.onDestroy();
     }
-
-
-
+    
 }
