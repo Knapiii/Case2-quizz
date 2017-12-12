@@ -93,7 +93,8 @@ public class CountdownSplashActivity extends AppCompatActivity {
             chosenCategory = getIntent().getStringExtra("category");
             amountOfStatements = getIntent().getIntExtra("amountOfStatements", 5);
             correctAnswers = getIntent().getIntExtra("p1correctAnswers", 0);
-            getReady.setText(R.string.are_you_ready);
+            SharedPreferences sp = getSharedPreferences("user_prefs", 0);
+            getReady.setText(sp.getString("player2", "") + "\n" + getResources().getString(R.string.are_you_ready));
         } else {
             chosenCategory = getIntent().getStringExtra("category");
             amountOfStatements = getIntent().getIntExtra("amountOfStatements", 5);
