@@ -24,7 +24,7 @@ public class JSONTask extends AsyncTask <Void, Void, String> {
     private Context c;
 
     /**
-     * Gets context
+     * Gets context.
      */
     public JSONTask (Context c) {
         this.c = c;
@@ -32,9 +32,6 @@ public class JSONTask extends AsyncTask <Void, Void, String> {
 
     }
 
-    /**
-     * Hämtar datan, ansluter till servern
-     */
     @Override
     protected String doInBackground(Void... params) {
 
@@ -50,9 +47,6 @@ public class JSONTask extends AsyncTask <Void, Void, String> {
 
     }
 
-    /**
-     * Konverterar till sträng
-     */
     private String getStringFromBuffer(InputStream inputStream) {
         Scanner sc = new Scanner(inputStream);
         String str = "";
@@ -62,9 +56,6 @@ public class JSONTask extends AsyncTask <Void, Void, String> {
         return str;
     }
 
-    /**
-     * Skickar tillbaka resultatet
-     */
      @Override
      protected void onPostExecute(String s) {
 
@@ -77,9 +68,6 @@ public class JSONTask extends AsyncTask <Void, Void, String> {
         }
     }
 
-    /**
-    * Tittar på resultatet och kopplar till databasen
-    */
     public void onJSONResult (JSONArray json) {
 
         try {
