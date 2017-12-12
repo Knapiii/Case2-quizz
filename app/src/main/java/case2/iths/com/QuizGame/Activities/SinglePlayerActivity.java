@@ -239,6 +239,10 @@ public class SinglePlayerActivity extends AppCompatActivity {
         return false;
     }
 
+    /**
+     * Loads the statements from the specified category from quizable_db
+     * @param cat The category the user picks
+     */
     public void setStatementsWithCategory(String cat) {
         if (cat.equals("Own")) {
             Cursor cursor = quizableDBHelper.getUserMadeStatements();
