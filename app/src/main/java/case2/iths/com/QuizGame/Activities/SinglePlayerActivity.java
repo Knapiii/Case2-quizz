@@ -38,7 +38,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_singleplayer_game);
-        savedSettings = new SavedSettings();
+        savedSettings = new SavedSettings(this);
         quizableDBHelper = new QuizableDBHelper(this);
         initialize();
         statements();
@@ -69,10 +69,10 @@ public class SinglePlayerActivity extends AppCompatActivity {
             public void onFinish() {
                 points--;
                 updatePoints();
-                showRandomQuestion();
+                showRandomStatement();
             }
         }.start();
-        showRandomQuestion();
+        showRandomStatement();
     }
 
 
@@ -117,7 +117,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
     /**
      * Gör så att alla påståenden slumpas
      */
-    public void showRandomQuestion() {
+    public void showRandomStatement() {
         cdTimer.cancel();
         if (!isRoundOver()) {
             cdTimer.start();
@@ -126,7 +126,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
             randId = rand.nextInt(questions.size());
 
             if (isStatementRepeated(randId)) {
-                showRandomQuestion();
+                showRandomStatement();
                 return;
             }
             pastStatement.add(randId);
@@ -154,7 +154,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
             return;
         }
         updatePoints();
-        showRandomQuestion();
+        showRandomStatement();
     }
 
     /**
@@ -172,7 +172,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
             return;
         }
         updatePoints();
-        showRandomQuestion();
+        showRandomStatement();
     }
 
     /**

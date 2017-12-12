@@ -24,11 +24,13 @@ public class CountdownSplashActivity extends AppCompatActivity {
     private boolean p2sTurn;
     private String player1, player2;
     private Button readyBtn;
+    private SavedSettings savedSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_countdown_splash);
+        savedSettings = new SavedSettings(this);
         initializePlayers();
         initialize();
         setupTimer();
@@ -150,6 +152,7 @@ public class CountdownSplashActivity extends AppCompatActivity {
      * @param view
      */
     public void onReadyButtonPressed(View view){
+        savedSettings.giveSound(this);
         cdTimer.start();
         readyBtn.setVisibility(readyBtn.GONE);
     }

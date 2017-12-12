@@ -29,11 +29,13 @@ public class CreateStatementActivity extends AppCompatActivity {
     private QuizableOpenHelper mDbOpenHelper;
     private QuizableDBHelper dbHelper;
     private Cursor categoriesCursor;
+    private SavedSettings savedSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_statements);
+        savedSettings = new SavedSettings(this);
         buttonTrueClicked = false;
         initialize();
         mDbOpenHelper = new QuizableOpenHelper(this);
@@ -73,6 +75,7 @@ public class CreateStatementActivity extends AppCompatActivity {
      * Möjliggör en ändrad färg när vi klickar på en knapp.
      */
     public void onButtonTrueClicked(View view){
+        savedSettings.giveSound(this);
         buttonTrueClicked = true;
         changeButtonColor();
         answer = "true";
@@ -82,6 +85,7 @@ public class CreateStatementActivity extends AppCompatActivity {
      * Möjliggör en ändrad färg när vi klickar på en knapp.
      */
     public void onButtonFalseClicked(View view){
+        savedSettings.giveSound(this);
         buttonTrueClicked = false;
         changeButtonColor();
         answer = "false";
@@ -104,7 +108,7 @@ public class CreateStatementActivity extends AppCompatActivity {
      */
     public void onButtonAddClicked(View view) {
         //  Toast.makeText(this, "Add", Toast.LENGTH_SHORT).show();
-
+        savedSettings.giveSound(this);
         if (!addStatement()){
             Intent intent = new Intent(this, HandleStatementsActivity.class);
             startActivity(intent);

@@ -25,7 +25,7 @@ public class AmountOfStatementsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_amount_of_statements);
-        savedSettings = new SavedSettings();
+        savedSettings = new SavedSettings(this);
         initialize();
         button5Statements.setBackgroundResource(R.drawable.button_rectangle_pressed);
     }
@@ -99,6 +99,7 @@ public class AmountOfStatementsActivity extends AppCompatActivity {
      * vald statement och kategori.
      */
     public void RoundsChosen(View view) {
+        savedSettings.giveSound(this);
         Intent intent = new Intent(this, CountdownSplashActivity.class);
         intent.putExtra("amountOfStatements", amountOfStatements);
         intent.putExtra("category", chosenCategory);

@@ -25,7 +25,7 @@ public class HandleStatementsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_handle_questions);
-        savedSettings = new SavedSettings();
+        savedSettings = new SavedSettings(this);
         quizableDBHelper = new QuizableDBHelper(this);
         cursor = quizableDBHelper.getUserMadeStatements();
         displayStatements(cursor);

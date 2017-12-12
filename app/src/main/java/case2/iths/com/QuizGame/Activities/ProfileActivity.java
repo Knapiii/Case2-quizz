@@ -23,7 +23,7 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        savedSettings = new SavedSettings();
+        savedSettings = new SavedSettings(this);
         mDbOpenHelper = new QuizableOpenHelper(this);
         profilesCursor = mDbOpenHelper.getAllProfiles();
         displayProfiles(profilesCursor);
@@ -48,6 +48,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
+        savedSettings.giveSound(this);
         super.onDestroy();
         mDbOpenHelper.close();
     }

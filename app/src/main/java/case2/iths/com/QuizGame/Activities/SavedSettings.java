@@ -8,6 +8,15 @@ import case2.iths.com.QuizGame.R;
 public class SavedSettings {
 
     private static boolean soundOn;
+    private static MediaPlayer mMediaPlayer;
+
+    /**
+     * Initializes the MediaPlayer
+     * @param context
+     */
+    public SavedSettings(Context context){
+        mMediaPlayer = MediaPlayer.create(context, R.raw.button_click_sound);
+    }
 
     /**
      * Gör så att vi kan sätta på ljudet.
@@ -29,11 +38,16 @@ public class SavedSettings {
     public boolean giveSound(Context context) {
 
         if (!soundOn) {
-            MediaPlayer mMediaPlayer = MediaPlayer.create(context, R.raw.button_click_sound);
+            final MediaPlayer mMediaPlayer = MediaPlayer.create(context, R.raw.button_click_sound);
             mMediaPlayer.start();
+            mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mediaPlayer) {
+                    mMediaPlayer.release();
+                }
+            });
         }
         return soundOn;
     }
-
 }
 

@@ -37,7 +37,7 @@ public class CategoryWindowActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category_window);
-        savedSettings = new SavedSettings();
+        savedSettings = new SavedSettings(this);
         Intent intent = getIntent();
         isMultiplayer = intent.getBooleanExtra("multiplayer", false);
         mDbOpenHelper = new QuizableOpenHelper(this);
@@ -57,7 +57,6 @@ public class CategoryWindowActivity extends AppCompatActivity {
 
         switch (id) {
             case R.id.button_sport:
-                savedSettings.giveSound(this);
                 Intent sportIntent = makeIntentBasedOnId(R.string.sport);
                 spinnerSelectionPosition = 7;
                 if (isMultiplayer)
@@ -65,7 +64,6 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 startSingleGame(sportIntent);
                 break;
             case R.id.button_music:
-                savedSettings.giveSound(this);
                 Intent musicIntent = makeIntentBasedOnId(R.string.music);
                 spinnerSelectionPosition= 8;
                 if (isMultiplayer)
@@ -73,7 +71,6 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 startSingleGame(musicIntent);
                 break;
             case R.id.button_geography:
-                savedSettings.giveSound(this);
                 Intent geoIntent = makeIntentBasedOnId(R.string.geography);
                 spinnerSelectionPosition= 5;
                 if (isMultiplayer)
@@ -81,7 +78,6 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 startSingleGame(geoIntent);
                 break;
             case R.id.button_science:
-                savedSettings.giveSound(this);
                 Intent scienceIntent = makeIntentBasedOnId(R.string.science);
                 spinnerSelectionPosition= 6;
                 if (isMultiplayer)
@@ -89,7 +85,6 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 startSingleGame(scienceIntent);
                 break;
             case R.id.button_food:
-                savedSettings.giveSound(this);
                 Intent foodIntent = makeIntentBasedOnId(R.string.food);
                 spinnerSelectionPosition= 2;
                 if (isMultiplayer)
@@ -97,7 +92,6 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 startSingleGame(foodIntent);
                 break;
             case R.id.button_games:
-                savedSettings.giveSound(this);
                 Intent gamesIntent = makeIntentBasedOnId(R.string.games);
                 spinnerSelectionPosition= 3;
                 if (isMultiplayer)
@@ -105,7 +99,6 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 startSingleGame(gamesIntent);
                 break;
             case R.id.button_all_categories:
-                savedSettings.giveSound(this);
                 Intent allIntent = makeIntentBasedOnId(R.string.all_categories);
                 spinnerSelectionPosition= 1;
                 if (isMultiplayer)
@@ -113,7 +106,6 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 startSingleGame(allIntent);
                 break;
             case R.id.button_own_questions:
-                savedSettings.giveSound(this);
                 Intent ownIntent = makeIntentBasedOnId(R.string.own);
                 spinnerSelectionPosition= 9;
                 if (isMultiplayer)
@@ -121,7 +113,6 @@ public class CategoryWindowActivity extends AppCompatActivity {
                 startSingleGame(ownIntent);
                 break;
             case R.id.button_expansion:
-                savedSettings.giveSound(this);
                 spinnerSelectionPosition= 4;
                 Cursor c = db.getStatementsFromCategory("Expansion");
 

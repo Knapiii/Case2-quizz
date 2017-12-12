@@ -14,12 +14,14 @@ public class CreateProfileActivity extends AppCompatActivity {
 
     private EditText insertUsername;
     private String input;
+    private SavedSettings savedSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_profile);
         insertUsername = findViewById(R.id.text_username);
+        savedSettings = new SavedSettings(this);
     }
 
     /**
@@ -27,6 +29,7 @@ public class CreateProfileActivity extends AppCompatActivity {
      * sparas i den lokala databasen.
      */
     public void onClickSaveButton(View view) {
+        savedSettings.giveSound(this);
         Intent intent = new Intent(this, ProfileActivity.class);
         QuizableOpenHelper mDbOpenHelper = new QuizableOpenHelper(this);
         input = insertUsername.getText().toString();
