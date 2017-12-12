@@ -154,9 +154,6 @@ public class CategoryWindowActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * Kollar om expansion är nedladdat och i sånna fall blir färgen på ikonen vit istället för grå
-     */
     private void expansionIsDownloaded () {
         Cursor c = db.getStatementsFromCategory("expansion");
 
@@ -164,7 +161,6 @@ public class CategoryWindowActivity extends AppCompatActivity {
             expansionButton = findViewById(R.id.button_expansion);
             expansionButton.setImageResource(R.drawable.expansion_downloaded);
         }
-
     }
 
     private void saveSpinnerSelectionPosition() {
