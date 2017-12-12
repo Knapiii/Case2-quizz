@@ -45,8 +45,17 @@ public class CategoryWindowActivity extends AppCompatActivity {
         db = new QuizableDBHelper(this);
         if (isMultiplayer)
             displayProfileSpinner2();
-        expansionButton = findViewById(R.id.button_expansion);
-        expansionButton.setImageResource(R.drawable.expansion_downloaded);
+        isExpansionLoaded();
+    }
+
+    public void isExpansionLoaded(){
+        Cursor c = db.getStatementsFromCategory("Expansion");
+
+        if (c.moveToNext()) {
+            c.close();
+            expansionButton = findViewById(R.id.button_expansion);
+            expansionButton.setImageResource(R.drawable.expansion_downloaded);
+        }
     }
 
     /**
